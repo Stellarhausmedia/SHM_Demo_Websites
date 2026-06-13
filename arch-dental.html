@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARCH — Architecture for the Human Smile | Official Invisalign® Partner</title>
+<meta name="description" content="ARCH is a digital-first dental atelier and official Invisalign® partner practice. Invisible orthodontics, planned to the quarter-millimetre.">
+<!-- Typography: Cabinet Grotesk (display) / Zodiak (editorial serif) / General Sans (body) -->
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800&f[]=zodiak@400,401,701&f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ARCH — DESIGN TOKENS
+   Palette story: ink + porcelain (enamel), stone grey (the
+   ceramics), and one accent — the 405nm violet of a dental
+   curing light. The accent appears rarely, on purpose.
+   ============================================================ */
+:root{
+  --ink:        #161512;
+  --ink-2:      #1e1c18;
+  --paper:      #efece4;
+  --paper-2:    #e6e2d8;
+  --stone:      #8e897f;
+  --uv:         #4b2bfd;
+
+  --rule:       rgba(22,21,18,.18);
+  --rule-soft:  rgba(22,21,18,.10);
+
+  --f-disp: "Cabinet Grotesk", "Arial Black", sans-serif;
+  --f-serif:"Zodiak", Georgia, serif;
+  --f-body: "General Sans", "Helvetica Neue", Arial, sans-serif;
+
+  --disp-xxl: clamp(2.9rem, 10.2vw, 11.5rem);
+  --disp-xl:  clamp(2.6rem, 7.5vw, 8rem);
+  --disp-l:   clamp(1.9rem, 4.2vw, 4rem);
+  --disp-m:   clamp(1.35rem, 2.4vw, 2.1rem);
+  --body:     clamp(.96rem, .62vw + .8rem, 1.13rem);
+  --label:    clamp(.66rem, .55vw, .75rem);
+
+  --gut:  clamp(1.1rem, 3.2vw, 3.5rem);
+  --edge: clamp(.85rem, 2.4vw, 2.25rem);
+  --sec:  clamp(5.5rem, 12vw, 12rem);
+
+  --ease: cubic-bezier(.76,0,.18,1);
+  --ease-out: cubic-bezier(.16,1,.3,1);
+}
+
+/* ============ RESET / BASE ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+html,body{width:100%;overflow-x:clip}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:var(--body);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+::selection{background:var(--uv);color:var(--paper)}
+img{display:block;width:100%;height:100%;object-fit:cover;
+    filter:grayscale(1) contrast(1.06) brightness(1.02)} /* global mono grade */
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{padding-inline:var(--edge)}
+
+:focus-visible{outline:2px solid var(--uv);outline-offset:3px}
+
+/* ============ STRUCTURAL FRAME ============ */
+.frame{position:fixed;inset:calc(var(--edge)*.55);border:1px solid var(--rule);
+       pointer-events:none;z-index:60;mix-blend-mode:multiply}
+.sec--dark ~ * .frame{mix-blend-mode:normal}
+@media (max-width:760px){.frame{display:none}}
+
+/* ============ LABELS / RULES / FDI INDEX ============ */
+.label{font-family:var(--f-body);font-weight:500;font-size:var(--label);
+       letter-spacing:.22em;text-transform:uppercase}
+.fdi{font-family:var(--f-disp);font-weight:700;font-size:var(--label);
+     letter-spacing:.14em;color:var(--uv)}
+.rule-t{border-top:1px solid var(--rule)}
+.rule-b{border-bottom:1px solid var(--rule)}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;
+          gap:1rem;padding:.85rem 0;border-top:1px solid var(--ink)}
+.sec{padding-block:var(--sec)}
+
+/* ============ TYPOGRAPHY ============ */
+.disp{font-family:var(--f-disp);font-weight:800;line-height:.92;
+      letter-spacing:-.015em;text-transform:uppercase}
+.disp em,.serif-it{font-family:var(--f-serif);font-style:italic;font-weight:400;
+      text-transform:none;letter-spacing:0;line-height:1}
+.disp--xxl{font-size:var(--disp-xxl)}
+.disp--xl{font-size:var(--disp-xl)}
+.disp--l{font-size:var(--disp-l)}
+.disp--m{font-size:var(--disp-m);font-weight:700}
+.measure{max-width:34em}
+.muted{color:var(--stone)}
+
+/* outline (hollow) type for background words */
+.hollow{color:transparent;-webkit-text-stroke:1px var(--rule);
+        text-stroke:1px var(--rule)}
+
+/* ============ NAV ============ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:80;
+     display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+     padding:calc(var(--edge)*.9) var(--edge);
+     transition:transform .6s var(--ease);
+     /* difference blend: nav reads ink-on-paper over light sections,
+        paper-on-ink over dark ones — no background bar needed */
+     mix-blend-mode:difference;color:#fff}
+.nav .nav__mark sup{color:#fff}
+.nav__links a::after{background:#fff}
+.nav .btn{background:transparent;border-color:#fff;color:#fff}
+.nav .btn:hover{background:#fff;color:#000}
+.nav__burger span{background:#fff!important}
+.nav.is-hidden{transform:translateY(-110%)}
+.nav__mark{font-family:var(--f-disp);font-weight:800;font-size:1.25rem;
+           letter-spacing:.02em;justify-self:start}
+.nav__mark sup{font-size:.5em;color:var(--uv)}
+.nav__links{display:flex;gap:2.1rem;justify-self:center}
+.nav__links a{position:relative;font-size:var(--label);letter-spacing:.18em;
+              text-transform:uppercase;font-weight:500;padding:.35rem 0}
+.nav__links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;
+              width:100%;background:var(--ink);transform:scaleX(0);
+              transform-origin:right;transition:transform .45s var(--ease)}
+.nav__links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav__cta{justify-self:end}
+.btn{display:inline-flex;align-items:center;gap:.7rem;
+     border:1px solid var(--ink);padding:.78rem 1.5rem;
+     font-size:var(--label);letter-spacing:.18em;text-transform:uppercase;
+     font-weight:600;background:var(--paper);
+     transition:background .4s var(--ease),color .4s var(--ease)}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn--ink{background:var(--ink);color:var(--paper)}
+.btn--ink:hover{background:var(--uv);border-color:var(--uv)}
+.btn--uv{background:var(--uv);color:#fff;border-color:var(--uv)}
+.btn--uv:hover{background:var(--ink);border-color:var(--ink)}
+.nav__burger{display:none}
+@media (max-width:980px){
+  .nav__links,.nav__cta{display:none}
+  .nav{grid-template-columns:1fr auto}
+  .nav__burger{display:flex;flex-direction:column;gap:5px;justify-self:end;padding:.4rem}
+  .nav__burger span{display:block;width:26px;height:2px;background:var(--ink);
+                    transition:transform .4s var(--ease),opacity .3s}
+  .menu-open .nav__burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .menu-open .nav__burger span:nth-child(2){opacity:0}
+  .menu-open .nav__burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+/* mobile overlay menu */
+.menu{position:fixed;inset:0;z-index:70;background:var(--ink);color:var(--paper);
+      display:flex;flex-direction:column;justify-content:flex-end;
+      padding:var(--edge);padding-bottom:calc(var(--edge)*2);
+      clip-path:inset(0 0 100% 0);transition:clip-path .8s var(--ease);
+      visibility:hidden}
+.menu-open .menu{clip-path:inset(0 0 0% 0);visibility:visible}
+.menu a{font-family:var(--f-disp);font-weight:800;text-transform:uppercase;
+        font-size:clamp(2.4rem,11vw,5rem);line-height:1.06;
+        border-bottom:1px solid rgba(239,236,228,.14);padding:.35rem 0}
+.menu .label{margin-bottom:1.4rem;color:var(--stone)}
+
+/* ============ LOADER ============ */
+.loader{position:fixed;inset:0;z-index:100;clip-path:inset(0 0 0 0);background:var(--ink);color:var(--paper);
+        display:flex;align-items:flex-end;justify-content:space-between;
+        padding:var(--edge);transition:clip-path 1s var(--ease) .15s}
+.loader.is-done{clip-path:inset(0 0 100% 0)}
+.loader__mark{font-family:var(--f-disp);font-weight:800;
+              font-size:clamp(2rem,6vw,4rem);text-transform:uppercase}
+.loader__count{font-family:var(--f-disp);font-weight:800;
+               font-size:clamp(4rem,16vw,11rem);line-height:.8}
+.loader__count sup{font-size:.25em;color:var(--uv);font-weight:700}
+
+/* ============ HERO ============ */
+.hero{min-height:100svh;display:flex;flex-direction:column;
+      justify-content:flex-end;padding-top:22vh;position:relative}
+.hero__meta{display:flex;justify-content:space-between;gap:1rem;
+            padding-block:.9rem;border-bottom:1px solid var(--ink)}
+.hero__grid{display:grid;grid-template-columns:repeat(12,1fr);
+            gap:var(--gut);align-items:end;padding-block:clamp(1.5rem,4vw,3.5rem) 0}
+.hero__title{grid-area:1/1/2/13;position:relative;z-index:2}
+.hero__title .disp--xxl{margin-left:-.05em}
+.h-line{display:block;overflow:hidden;white-space:nowrap;padding-bottom:.06em;margin-bottom:-.06em}
+.h-line--indent{padding-left:clamp(2.5rem,9vw,9rem)}
+.hero__chip{display:inline-block;width:clamp(3.6rem,9vw,9.5rem);
+            height:.78em;vertical-align:baseline;transform:translateY(.08em);
+            overflow:hidden;margin-inline:.08em}
+.hero__chip img{height:100%;transform:scale(1.4)}
+.hero__fig{grid-area:1/9/2/13;position:relative;align-self:stretch;min-height:46vh}
+.hero__fig .img-reveal{position:absolute;inset:0}
+.hero__fig figcaption{position:absolute;left:0;bottom:-1.9rem;width:100%;
+       display:flex;justify-content:space-between;font-size:var(--label);
+       letter-spacing:.14em;text-transform:uppercase;color:var(--stone)}
+.hero__foot{display:flex;justify-content:space-between;align-items:center;
+            gap:1rem;margin-top:clamp(2.6rem,6vw,4.5rem);
+            padding-block:1.1rem;border-top:1px solid var(--ink)}
+.hero__scroll{display:flex;align-items:center;gap:.8rem;font-size:var(--label);
+              letter-spacing:.2em;text-transform:uppercase}
+.hero__scroll i{display:block;width:1px;height:2.6rem;background:var(--ink);
+                animation:drip 2.2s var(--ease) infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}
+  45%{transform:scaleY(1);transform-origin:top}
+  55%{transform:scaleY(1);transform-origin:bottom}
+  100%{transform:scaleY(0);transform-origin:bottom}}
+@media (max-width:760px){
+  .hero__foot{flex-direction:column;align-items:flex-start;gap:1.3rem}
+}
+@media (max-width:980px){
+  .hero{padding-top:16vh}
+  .hero__title{grid-area:auto;grid-column:1/13}
+  .hero__fig{grid-area:auto;grid-column:1/13;min-height:62vw;margin-top:2.2rem}
+}
+
+/* ============ TICKER ============ */
+.ticker{background:var(--ink);color:var(--paper);overflow:hidden;
+        padding-block:.95rem;border-block:1px solid var(--ink)}
+.ticker__track{display:flex;width:max-content;animation:tick 28s linear infinite}
+.ticker__track span{font-family:var(--f-disp);font-weight:700;
+        font-size:clamp(.85rem,1.4vw,1.05rem);letter-spacing:.16em;
+        text-transform:uppercase;white-space:nowrap;padding-inline:1.6rem;
+        display:flex;align-items:center;gap:1.6rem}
+.ticker__track b{color:var(--uv);font-weight:700}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ============ MANIFESTO / PRACTICE ============ */
+.man__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gut)}
+.man__copy{grid-column:1/9}
+.man__fill{font-family:var(--f-disp);font-weight:700;
+           font-size:clamp(1.6rem,3.6vw,3.3rem);line-height:1.18;
+           letter-spacing:-.01em;text-transform:none;max-width:20em}
+.man__fill .w{color:var(--rule);transition:color .35s linear}
+.man__fill .w.on{color:var(--ink)}
+.man__fill .w.uv.on{color:var(--uv)}
+.man__side{grid-column:10/13;display:flex;flex-direction:column;
+           gap:2.2rem;padding-top:1.2rem}
+.man__side .img-reveal{aspect-ratio:3/4}
+.spec{display:grid;grid-template-columns:repeat(3,1fr);margin-top:var(--sec);
+      border-top:1px solid var(--ink)}
+.spec>div{padding:1.4rem clamp(.6rem,2vw,1.6rem) 1.6rem;
+          border-right:1px solid var(--rule)}
+.spec>div:last-child{border-right:0}
+.spec b{display:block;font-family:var(--f-disp);font-weight:800;
+        font-size:clamp(1.8rem,4.6vw,4rem);line-height:1;margin-bottom:.5rem}
+.spec span{font-size:var(--label);letter-spacing:.16em;text-transform:uppercase;
+           color:var(--stone)}
+@media (max-width:980px){
+  .man__copy{grid-column:1/13}
+  .man__side{grid-column:1/13;flex-direction:row;align-items:flex-start}
+  .man__side .img-reveal{flex:1}
+  .spec{grid-template-columns:1fr}
+  .spec>div{border-right:0;border-bottom:1px solid var(--rule)}
+}
+
+/* ============ DARK SECTIONS ============ */
+.sec--dark{background:var(--ink);color:var(--paper)}
+.sec--dark .sec-head{border-top-color:var(--paper)}
+.sec--dark .label,.sec--dark figcaption{color:var(--stone)}
+.sec--dark .rule-t{border-top-color:rgba(239,236,228,.16)}
+.sec--dark .btn{background:transparent;border-color:var(--paper);color:var(--paper)}
+.sec--dark .btn:hover{background:var(--paper);color:var(--ink)}
+.sec--dark .hollow{-webkit-text-stroke-color:rgba(239,236,228,.22)}
+
+/* ============ INVISALIGN CHAPTER ============ */
+.inv__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gut)}
+.inv__stick{grid-column:1/6}
+.inv__stick-in{position:sticky;top:14vh;display:flex;flex-direction:column;
+               gap:2rem;align-items:flex-start}
+.inv__steps{grid-column:7/13;display:flex;flex-direction:column;
+            gap:clamp(4rem,9vw,8rem)}
+.step{border-top:1px solid rgba(239,236,228,.16);padding-top:1.3rem;
+      display:grid;grid-template-columns:auto 1fr;gap:1.2rem 2rem}
+.step__no{font-family:var(--f-disp);font-weight:800;
+          font-size:clamp(2.4rem,5vw,4.4rem);line-height:.9;color:var(--uv)}
+.step__body h3{font-family:var(--f-disp);font-weight:700;
+          font-size:var(--disp-m);text-transform:uppercase;
+          letter-spacing:.01em;margin-bottom:.7rem}
+.step__body p{max-width:30em;color:#cfccc2}
+.step .img-reveal{grid-column:1/3;aspect-ratio:16/10;margin-top:1.4rem}
+.inv__plinth{margin-top:var(--sec);display:grid;
+             grid-template-columns:repeat(12,1fr);gap:var(--gut);align-items:center}
+.inv__plinth .img-reveal{grid-column:3/9;aspect-ratio:4/5}
+.inv__plinth aside{grid-column:9/13}
+.inv__plinth aside p{color:#cfccc2;max-width:24em;margin-top:1rem}
+@media (max-width:980px){
+  .inv__stick{grid-column:1/13}
+  .inv__stick-in{position:static}
+  .inv__steps{grid-column:1/13}
+  .inv__plinth .img-reveal{grid-column:1/13}
+  .inv__plinth aside{grid-column:1/13}
+}
+
+/* ============ CRAFT (ceramic interstitial) ============ */
+.craft{padding-bottom:var(--sec)}
+.craft__grid{display:grid;grid-template-columns:repeat(12,1fr);
+             gap:var(--gut);align-items:start}
+.craft__a{grid-column:2/7;aspect-ratio:4/5;position:relative}
+.craft__b{grid-column:8/12;aspect-ratio:4/5;margin-top:clamp(4rem,14vw,11rem);position:relative}
+.craft__title{grid-column:1/13;margin-bottom:clamp(2rem,5vw,4rem)}
+.craft figcaption{margin-top:.8rem;font-size:var(--label);
+                  letter-spacing:.16em;text-transform:uppercase;color:var(--stone)}
+@media (max-width:980px){
+  .craft__a{grid-column:1/10}
+  .craft__b{grid-column:4/13;margin-top:2.2rem}
+}
+
+/* ============ TREATMENTS INDEX ============ */
+.tlist{border-top:1px solid var(--ink)}
+.trow{display:grid;grid-template-columns:auto 1fr auto auto;
+      align-items:baseline;gap:clamp(.8rem,3vw,2.6rem);
+      padding:clamp(1.3rem,2.6vw,2rem) 0;border-bottom:1px solid var(--rule);
+      position:relative;transition:padding-left .5s var(--ease)}
+.trow:hover{padding-left:clamp(.5rem,2vw,1.6rem)}
+.trow__fdi{font-family:var(--f-disp);font-weight:700;font-size:var(--label);
+           letter-spacing:.12em;color:var(--stone);
+           transition:color .3s}
+.trow:hover .trow__fdi{color:var(--uv)}
+.trow__name{font-family:var(--f-disp);font-weight:800;text-transform:uppercase;
+            font-size:clamp(1.5rem,4.2vw,3.4rem);line-height:1.02;
+            letter-spacing:-.01em}
+.trow__desc{font-size:var(--label);letter-spacing:.14em;text-transform:uppercase;
+            color:var(--stone);max-width:16em;text-align:right}
+.trow__arrow{font-family:var(--f-disp);font-weight:700;font-size:1.4rem;
+             transition:transform .45s var(--ease)}
+.trow:hover .trow__arrow{transform:translate(.35rem,-.35rem) rotate(45deg);color:var(--uv)}
+@media (max-width:760px){.trow__desc{display:none}}
+/* floating hover preview */
+.tfloat{position:fixed;top:0;left:0;z-index:55;width:clamp(180px,20vw,300px);
+        aspect-ratio:3/4;pointer-events:none;overflow:hidden;
+        opacity:0;transform:scale(.85);transition:opacity .35s var(--ease)}
+.tfloat img{position:absolute;inset:0;transition:opacity .4s}
+.tfloat.is-on{opacity:1}
+
+/* ============ RESULTS GALLERY ============ */
+.gal{overflow:hidden}
+.gal__track{display:flex;gap:var(--gut);padding-inline:var(--edge);
+            overflow-x:auto;scroll-snap-type:x mandatory;
+            padding-bottom:1.5rem;cursor:grab;scrollbar-width:none}
+.gal__track::-webkit-scrollbar{display:none}
+.gal__track.is-drag{cursor:grabbing;scroll-snap-type:none}
+.gcard{flex:0 0 clamp(240px,30vw,420px);scroll-snap-align:start}
+.gcard .img-reveal{aspect-ratio:3/4}
+.gcard figcaption{display:flex;justify-content:space-between;gap:1rem;
+        padding-top:.8rem;font-size:var(--label);letter-spacing:.14em;
+        text-transform:uppercase;color:var(--stone)}
+.gal__note{padding:1.1rem var(--edge) 0;font-size:.72rem;color:var(--stone);
+           letter-spacing:.04em}
+
+/* ============ DOCTOR ============ */
+.doc__grid{display:grid;grid-template-columns:repeat(12,1fr);
+           gap:var(--gut);align-items:start}
+.doc__fig{grid-column:1/6;aspect-ratio:3/4}
+.doc__body{grid-column:7/13;padding-top:1rem}
+.doc__quote{font-family:var(--f-serif);font-style:italic;font-weight:400;
+            font-size:clamp(1.4rem,2.6vw,2.2rem);line-height:1.35;
+            max-width:20em;margin-block:1.6rem 2.4rem}
+.doc__creds{border-top:1px solid var(--ink)}
+.doc__creds li{display:flex;justify-content:space-between;gap:2rem;
+               padding:.85rem 0;border-bottom:1px solid var(--rule);
+               font-size:.9rem}
+.doc__creds span{color:var(--stone)}
+@media (max-width:980px){.doc__fig{grid-column:1/13}.doc__body{grid-column:1/13}}
+
+/* ============ FAQ ============ */
+.faq{border-top:1px solid var(--ink)}
+.faq__item{border-bottom:1px solid var(--rule)}
+.faq__q{width:100%;display:flex;justify-content:space-between;align-items:center;
+        gap:1.5rem;padding:1.4rem 0;text-align:left;
+        font-family:var(--f-disp);font-weight:700;text-transform:uppercase;
+        font-size:clamp(1rem,1.8vw,1.4rem);letter-spacing:.01em}
+.faq__q i{font-style:normal;font-weight:500;font-size:1.5rem;line-height:1;
+          transition:transform .45s var(--ease);color:var(--uv)}
+.faq__item.open .faq__q i{transform:rotate(45deg)}
+.faq__a{max-height:0;overflow:hidden;transition:max-height .55s var(--ease)}
+.faq__a p{max-width:42em;padding-bottom:1.5rem;color:#4c4a44}
+
+/* ============ CONTACT / CTA ============ */
+.cta__big{display:block;text-align:left}
+.cta__big .h-line{padding-bottom:.04em}
+.cta__big:hover .serif-it{color:var(--uv)}
+@media (max-width:560px){.cta__big{font-size:11vw}}
+.cta__meta{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gut);
+           margin-top:clamp(3rem,7vw,5.5rem);padding-top:1.4rem;
+           border-top:1px solid rgba(239,236,228,.16)}
+.cta__meta>div{grid-column:span 3}
+.cta__meta .label{display:block;margin-bottom:.9rem}
+.cta__meta p,.cta__meta a{color:#cfccc2;font-size:.93rem;line-height:1.7}
+.cta__meta a:hover{color:var(--paper)}
+@media (max-width:980px){.cta__meta>div{grid-column:span 6}}
+@media (max-width:560px){.cta__meta>div{grid-column:span 12}}
+
+/* ============ FOOTER ============ */
+.footer{background:var(--ink);color:var(--stone);font-size:.78rem;
+        padding:2rem var(--edge) calc(var(--edge)*1.2)}
+.footer__row{display:flex;flex-wrap:wrap;justify-content:space-between;
+             gap:1rem;padding-top:1.2rem;border-top:1px solid rgba(239,236,228,.14)}
+.footer__row a:hover{color:var(--paper)}
+.footer small{display:block;margin-top:1.6rem;max-width:62em;line-height:1.7;
+              color:#6f6b62}
+
+/* ============ IMAGE REVEALS / PARALLAX ============ */
+.img-reveal{position:relative;overflow:hidden;background:var(--paper-2)}
+.sec--dark .img-reveal{background:var(--ink-2)}
+.js .img-reveal img{translate:0 102%;scale:1.25}
+.js .img-reveal.in img{translate:0 0;scale:1.06;
+     transition:translate 1.2s var(--ease),scale 1.7s var(--ease)}
+.js .img-reveal img[data-prlx]{scale:none!important;
+     transition:translate 1.2s var(--ease)}
+[data-prlx]{will-change:transform}
+
+/* text reveals */
+.js [data-reveal] .ch{display:inline-block;transform:translateY(115%) rotate(4deg);
+     transition:transform .9s var(--ease)}
+.js [data-reveal].in .ch{transform:translateY(0) rotate(0)}
+.js [data-fade]{opacity:0;transform:translateY(2.2rem);
+     transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
+.js [data-fade].in{opacity:1;transform:none}
+
+/* ============ CURSOR / MAGNETIC ============ */
+.cursor,.cursor-tag{position:fixed;top:0;left:0;z-index:120;pointer-events:none}
+.cursor{width:10px;height:10px;border-radius:50%;background:var(--uv);
+        transform:translate(-50%,-50%);transition:width .35s var(--ease),
+        height .35s var(--ease),opacity .3s;opacity:.9}
+.cursor.is-grow{opacity:.32}
+.cursor.is-grow{width:64px;height:64px}
+.cursor-tag{font-size:.62rem;font-weight:600;letter-spacing:.2em;
+        text-transform:uppercase;color:#fff;mix-blend-mode:difference;
+        transform:translate(-50%,-50%);opacity:0;transition:opacity .25s}
+.cursor-tag.is-on{opacity:1}
+@media (hover:none),(pointer:coarse){.cursor,.cursor-tag{display:none}}
+.has-cursor *{cursor:none}
+
+[data-magnet]{display:inline-block;will-change:transform}
+
+/* ============ MOTION SAFETY / NO-JS ============ */
+@media (prefers-reduced-motion:reduce){
+  .ticker__track{animation:none}
+  .hero__scroll i{animation:none}
+  .js .img-reveal img{translate:none!important;scale:none!important;transform:none!important;transition:none!important}
+  .js [data-reveal] .ch,.js [data-fade]{transform:none!important;opacity:1!important;transition:none!important}
+  [data-prlx]{transform:none!important}
+  .loader{display:none}
+  .cursor,.cursor-tag{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= LOADER ================= -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__mark">ARCH<sup style="color:var(--uv)">®</sup><br><span class="label" style="color:var(--stone)">Dental Atelier</span></div>
+  <div class="loader__count"><span id="count">0</span><sup>%</sup></div>
+</div>
+
+<div class="frame" aria-hidden="true"></div>
+
+<!-- ================= NAV ================= -->
+<nav class="nav" id="nav">
+  <a class="nav__mark" href="#top" data-magnet>ARCH<sup>®</sup></a>
+  <div class="nav__links">
+    <a href="#practice" data-cursor>Practice</a>
+    <a href="#invisalign" data-cursor>Invisalign®</a>
+    <a href="#treatments" data-cursor>Treatments</a>
+    <a href="#results" data-cursor>Results</a>
+    <a href="#contact" data-cursor>Contact</a>
+  </div>
+  <div class="nav__cta"><a class="btn btn--ink" href="#contact" data-magnet>Book a consultation</a></div>
+  <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- mobile menu -->
+<div class="menu" id="menu">
+  <p class="label">Index — FDI Q1–Q4</p>
+  <a href="#practice">Practice</a>
+  <a href="#invisalign">Invisalign®</a>
+  <a href="#treatments">Treatments</a>
+  <a href="#results">Results</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<header class="hero wrap">
+  <div class="hero__meta label">
+    <span class="fdi">FDI 11 — Intro</span>
+    <span>Official Invisalign® Partner</span>
+    <span style="text-align:right">Chennai, IN — Est. 2012</span>
+  </div>
+
+  <div class="hero__grid">
+    <h1 class="hero__title disp disp--xxl" data-reveal>
+      <span class="h-line">Architecture</span>
+      <span class="h-line h-line--indent">for the
+        <span class="hero__chip"><img data-key="heroChip" alt="" data-prlx="-6"></span>
+      </span>
+      <span class="h-line"><em>human</em>&nbsp;smile</span>
+    </h1>
+
+    <figure class="hero__fig">
+      <div class="img-reveal"><img data-key="heroPortrait" alt="Editorial portrait of a confident smile" data-prlx="8"></div>
+      <figcaption><span>Fig. 01 — The result</span><span>Untouched</span></figcaption>
+    </figure>
+  </div>
+
+  <div class="hero__foot">
+    <span class="hero__scroll"><i></i>Scroll</span>
+    <p class="measure muted" style="max-width:26em" data-fade>
+      A digital-first dental atelier for people who'd rather no one
+      noticed the treatment — only the result.
+    </p>
+    <a class="btn" href="#invisalign" data-magnet data-cursor>The Invisalign® chapter</a>
+  </div>
+</header>
+
+<!-- ================= TICKER ================= -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track" id="tickerTrack">
+    <span>Official Invisalign® Partner <b>✦</b> Digital-first orthodontics <b>✦</b> Zero brackets <b>✦</b> Book a consultation <b>✦</b></span>
+    <span>Official Invisalign® Partner <b>✦</b> Digital-first orthodontics <b>✦</b> Zero brackets <b>✦</b> Book a consultation <b>✦</b></span>
+  </div>
+</div>
+
+<!-- ================= PRACTICE / MANIFESTO ================= -->
+<section class="sec wrap" id="practice">
+  <div class="sec-head">
+    <span class="fdi">FDI 21 — The Practice</span>
+    <span class="label muted">Quiet work since 2012</span>
+  </div>
+
+  <div class="man__grid" style="margin-top:clamp(2.5rem,6vw,4.5rem)">
+    <div class="man__copy">
+      <p class="man__fill" id="manifesto">
+        Most orthodontics announces itself. Metal, elastics, eighteen months
+        of explaining. We practise the °other° kind — digital planning,
+        invisible aligners, and the patience to move teeth a
+        °quarter-millimetre° at a time. The work disappears.
+        °The result doesn't.°
+      </p>
+    </div>
+    <aside class="man__side">
+      <div>
+        <p class="label muted" style="margin-bottom:.9rem">The rooms</p>
+        <div class="img-reveal"><img data-key="interior" alt="The practice interior — dark minimal corridor" data-prlx="6"></div>
+      </div>
+      <p class="muted" style="font-size:.9rem;max-width:18em" data-fade>
+        Three treatment rooms, one scanner suite, and not a single
+        fluorescent tube. The clinic was designed like the work:
+        precise, calm, mostly invisible.
+      </p>
+    </aside>
+  </div>
+
+  <div class="spec">
+    <div data-fade><b>0</b><span>Brackets, wires, headlines</span></div>
+    <div data-fade><b>0.25<span style="font-size:.4em">mm</span></b><span>Planning increments per movement</span></div>
+    <div data-fade><b>22<span style="font-size:.4em">h/day</span></b><span>Of invisible work, your side of the deal</span></div>
+  </div>
+</section>
+
+<!-- ================= INVISALIGN CHAPTER ================= -->
+<section class="sec sec--dark wrap" id="invisalign">
+  <div class="sec-head">
+    <span class="fdi">FDI Q1–Q4 — The Method</span>
+    <span class="label">Invisalign® — as an official partner practice</span>
+  </div>
+
+  <div class="inv__grid" style="margin-top:clamp(2.5rem,6vw,5rem)">
+    <div class="inv__stick">
+      <div class="inv__stick-in">
+        <h2 class="disp disp--xl" data-reveal>
+          <span class="h-line">Invis—</span>
+          <span class="h-line">align<span style="color:var(--uv)">®</span></span>
+        </h2>
+        <p style="max-width:24em;color:#cfccc2" data-fade>
+          Four steps, indexed the way dentists index everything —
+          by quadrant. A scan instead of putty. A plan you approve
+          before anything moves. Trays nobody clocks at dinner.
+        </p>
+        <a class="btn" href="#contact" data-magnet data-cursor>Start with a scan</a>
+      </div>
+    </div>
+
+    <div class="inv__steps">
+      <article class="step">
+        <div class="step__no">11</div>
+        <div class="step__body">
+          <h3>Scan</h3>
+          <p>A five-minute iTero® digital scan replaces impression putty.
+             Your entire bite, captured to the micron, while you watch it
+             assemble on screen.</p>
+        </div>
+        <div class="img-reveal"><img data-key="stepScan" alt="Clinician reviewing digital dental scans on a lightbox" data-prlx="5"></div>
+      </article>
+
+      <article class="step">
+        <div class="step__no">21</div>
+        <div class="step__body">
+          <h3>Design</h3>
+          <p>Your clinician choreographs every movement in ClinCheck® —
+             tooth by tooth, week by week — and you preview the finished
+             smile before committing to anything.</p>
+        </div>
+        <div class="img-reveal"><img data-key="stepDesign" alt="Digital visualisation of a dental arch" data-prlx="5"></div>
+      </article>
+
+      <article class="step">
+        <div class="step__no">31</div>
+        <div class="step__body">
+          <h3>Align</h3>
+          <p>A series of clear, removable aligners, each worn around
+             22 hours a day for one to two weeks. Most people will never
+             notice you're mid-treatment. That's the point.</p>
+        </div>
+        <div class="img-reveal"><img data-key="stepAlign" alt="Patient placing a clear aligner" data-prlx="5"></div>
+      </article>
+
+      <article class="step">
+        <div class="step__no">41</div>
+        <div class="step__body">
+          <h3>Retain</h3>
+          <p>Movement ends; the discipline doesn't. Custom retainers hold
+             the new architecture in place — quietly, for good.</p>
+        </div>
+        <div class="img-reveal"><img data-key="stepRetain" alt="Clinician with examination instruments" data-prlx="5"></div>
+      </article>
+    </div>
+  </div>
+
+  <div class="inv__plinth">
+    <div class="img-reveal"><img data-key="plinth" alt="Clear aligner product still" data-prlx="7"></div>
+    <aside>
+      <span class="fdi">Fig. 02 — The object</span>
+      <p data-fade>Half a millimetre of medical-grade polymer, mapped to
+         your dentition alone. We treat it like the precision object it is —
+         and we'd argue it photographs like one, too.</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= CRAFT INTERSTITIAL ================= -->
+<section class="sec--dark craft wrap" id="craft">
+  <div class="craft__grid">
+    <h2 class="craft__title disp disp--xl" data-reveal>
+      <span class="h-line">We treat enamel</span>
+      <span class="h-line h-line--indent">like <em>porcelain.</em></span>
+    </h2>
+    <figure class="craft__a">
+      <div class="img-reveal" style="position:absolute;inset:0"><img data-key="craftA" alt="Stoneware vessel on dark marble" data-prlx="9"></div>
+      <figcaption style="position:absolute;bottom:-2rem;left:0">Study I — Vessel</figcaption>
+    </figure>
+    <figure class="craft__b">
+      <div class="img-reveal" style="position:absolute;inset:0"><img data-key="craftB" alt="Ceramic still life" data-prlx="-7"></div>
+      <figcaption style="position:absolute;bottom:-2rem;left:0">Study II — Material patience</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ================= TREATMENTS ================= -->
+<section class="sec wrap" id="treatments">
+  <div class="sec-head">
+    <span class="fdi">FDI 31 — Treatments</span>
+    <span class="label muted">Hover to preview</span>
+  </div>
+
+  <div class="tlist" style="margin-top:clamp(2rem,5vw,3.5rem)">
+    <a class="trow" href="#contact" data-float="dental_7" data-cursor>
+      <span class="trow__fdi">T·13</span>
+      <span class="trow__name">Invisalign® Aligners</span>
+      <span class="trow__desc">Invisible orthodontics, planned digitally</span>
+      <span class="trow__arrow">↗</span>
+    </a>
+    <a class="trow" href="#contact" data-float="smile_1" data-cursor>
+      <span class="trow__fdi">T·21</span>
+      <span class="trow__name">Smile Design</span>
+      <span class="trow__desc">Veneers &amp; aesthetic planning</span>
+      <span class="trow__arrow">↗</span>
+    </a>
+    <a class="trow" href="#contact" data-float="portrait_m_1" data-cursor>
+      <span class="trow__fdi">T·11</span>
+      <span class="trow__name">Whitening</span>
+      <span class="trow__desc">Clinical-grade, enamel-safe</span>
+      <span class="trow__arrow">↗</span>
+    </a>
+    <a class="trow" href="#contact" data-float="dental_chair" data-cursor>
+      <span class="trow__fdi">T·36</span>
+      <span class="trow__name">Implants &amp; Restoration</span>
+      <span class="trow__desc">Guided surgery, ceramic finishes</span>
+      <span class="trow__arrow">↗</span>
+    </a>
+    <a class="trow" href="#contact" data-float="dental_6" data-cursor>
+      <span class="trow__fdi">T·46</span>
+      <span class="trow__name">Hygiene &amp; Prevention</span>
+      <span class="trow__desc">The quiet work that prevents loud work</span>
+      <span class="trow__arrow">↗</span>
+    </a>
+  </div>
+  <div class="tfloat" id="tfloat" aria-hidden="true"></div>
+</section>
+
+<!-- ================= RESULTS ================= -->
+<section class="sec gal" id="results">
+  <div class="wrap sec-head">
+    <span class="fdi">FDI 41 — Results</span>
+    <span class="label muted">Drag</span>
+  </div>
+  <div class="gal__track" id="galTrack" style="margin-top:clamp(2rem,5vw,3.5rem)">
+    <figure class="gcard"><div class="img-reveal"><img data-key="case1" alt="Portrait — case study"></div>
+      <figcaption><span>Case 014</span><span>Aligners · 9 mo</span></figcaption></figure>
+    <figure class="gcard"><div class="img-reveal"><img data-key="case2" alt="Portrait — case study"></div>
+      <figcaption><span>Case 022</span><span>Aligners + whitening · 11 mo</span></figcaption></figure>
+    <figure class="gcard"><div class="img-reveal"><img data-key="case3" alt="Portrait — case study"></div>
+      <figcaption><span>Case 031</span><span>Smile design · 6 mo</span></figcaption></figure>
+    <figure class="gcard"><div class="img-reveal"><img data-key="case4" alt="Portrait — case study"></div>
+      <figcaption><span>Case 038</span><span>Aligners · 14 mo</span></figcaption></figure>
+    <figure class="gcard"><div class="img-reveal"><img data-key="case5" alt="Portrait — case study"></div>
+      <figcaption><span>Case 042</span><span>Aligners · 8 mo</span></figcaption></figure>
+  </div>
+  <p class="gal__note">Portraits shown are representative models, not patients.
+     Replace with consented patient photography before launch.</p>
+</section>
+
+<!-- ================= DOCTOR ================= -->
+<section class="sec wrap rule-t" id="doctor">
+  <div class="sec-head" style="border-top:0;padding-top:0">
+    <span class="fdi">FDI 12 — The Clinician</span>
+    <span class="label muted">Principal</span>
+  </div>
+  <div class="doc__grid" style="margin-top:clamp(2rem,5vw,3.5rem)">
+    <figure class="doc__fig img-reveal"><img data-key="doctor" alt="Portrait of the principal clinician" data-prlx="6"></figure>
+    <div class="doc__body">
+      <h2 class="disp disp--l" data-reveal><span class="h-line">Dr. Your Name</span></h2>
+      <p class="doc__quote" data-fade>“The best compliment a patient can get
+         is <span style="color:var(--uv)">you look well</span> — not
+         <span style="white-space:nowrap">what did you have done.</span>”</p>
+      <ul class="doc__creds">
+        <li><span>Qualifications</span>BDS, MDS — Orthodontics</li>
+        <li><span>Invisalign®</span>Certified provider — set your tier here</li>
+        <li><span>Cases planned</span>600+ digital treatment plans</li>
+        <li><span>Registration</span>DCI Reg. No. 00000 — replace</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="sec wrap" id="faqs" style="padding-top:0">
+  <div class="sec-head">
+    <span class="fdi">FDI 22 — Questions</span>
+    <span class="label muted">Asked often, answered plainly</span>
+  </div>
+  <div class="faq" style="margin-top:clamp(2rem,5vw,3rem)">
+    <div class="faq__item">
+      <button class="faq__q" aria-expanded="false">How long does Invisalign® take?<i>+</i></button>
+      <div class="faq__a"><p>Most adult cases run six to eighteen months depending on
+        complexity. Your ClinCheck® plan shows the projected timeline — and the
+        projected result — before you commit to anything.</p></div>
+    </div>
+    <div class="faq__item">
+      <button class="faq__q" aria-expanded="false">Does it hurt?<i>+</i></button>
+      <div class="faq__a"><p>You'll feel pressure for the first day or two of each new
+        tray — that's the plan working. It settles quickly, and there are no wires
+        or brackets to abrade anything.</p></div>
+    </div>
+    <div class="faq__item">
+      <button class="faq__q" aria-expanded="false">Am I a candidate?<i>+</i></button>
+      <div class="faq__a"><p>Most mild-to-moderate crowding, spacing and bite cases
+        respond beautifully to aligners. Complex cases are assessed honestly at
+        consultation — if another route serves you better, we'll say so.</p></div>
+    </div>
+    <div class="faq__item">
+      <button class="faq__q" aria-expanded="false">What does it cost?<i>+</i></button>
+      <div class="faq__a"><p>It depends on the number of aligners your case needs.
+        You'll receive a single transparent quote after your scan — no surprises
+        mid-treatment, and staged payment plans are available.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT / CTA ================= -->
+<section class="sec sec--dark wrap" id="contact">
+  <div class="sec-head">
+    <span class="fdi">FDI 32 — Begin</span>
+    <span class="label">Consultations Mon–Sat</span>
+  </div>
+  <a class="cta__big disp disp--xxl" href="mailto:hello@archdental.example" data-cursor data-reveal style="margin-top:clamp(2.5rem,6vw,4rem);display:block">
+    <span class="h-line">Book a</span>
+    <span class="h-line h-line--indent"><em>quiet</em></span>
+    <span class="h-line">consultation&nbsp;↗</span>
+  </a>
+  <div class="cta__meta">
+    <div data-fade><span class="label">Visit</span>
+      <p>ARCH Dental Atelier<br>12 Placeholder Street<br>Chennai 600 000, IN</p></div>
+    <div data-fade><span class="label">Talk</span>
+      <p><a href="tel:+910000000000">+91 00000 00000</a><br>
+         <a href="mailto:hello@archdental.example">hello@archdental.example</a></p></div>
+    <div data-fade><span class="label">Hours</span>
+      <p>Mon–Fri — 09:00–19:00<br>Sat — 09:00–14:00<br>Sun — Closed</p></div>
+    <div data-fade><span class="label">Elsewhere</span>
+      <p><a href="#">Instagram ↗</a><br><a href="#">Google Maps ↗</a></p></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer__row">
+    <span>© 2026 ARCH Dental Atelier</span>
+    <a href="https://stellarhausmedia.com" target="_blank" rel="noopener">Created by Stellar Haus Media ↗</a>
+    <a href="#top">Back to top ↑</a>
+    <span>Site indexed in FDI tooth notation — quadrants 1–4, reading like a mouth.</span>
+  </div>
+  <small>Invisalign®, iTero® and ClinCheck® are registered trademarks of Align
+  Technology, Inc. ARCH is an independent dental practice and an official
+  Invisalign® partner. Replace all placeholder names, registration numbers,
+  addresses and model portraits with your practice's verified details and
+  consented patient imagery before publishing.</small>
+</footer>
+
+<!-- custom cursor -->
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="cursor-tag" id="cursorTag" aria-hidden="true">View</div>
+
+<script>
+/* ============================================================
+   IMAGE CONFIG — the single place to swap imagery.
+   Slots marked TODO are awaiting your ChatGPT generations /
+   the optimized ceramic files (assets/ceramic_01..05.jpg) /
+   Align provider-portal photography. One line each.
+   ============================================================ */
+const u = (id, w) => `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`;
+
+const IMAGES = {
+  heroPortrait: u("photo-1580489944761-15a19d654956", 1300),   // porcelain portrait
+  heroChip:     u("photo-1629909613654-28e377c37b09", 900),    // operatory sliver
+  interior:     u("photo-1497366216548-37526070297c", 1100),   // practice corridor
+  stepScan:     u("photo-1588776814546-1ffcf47267a5", 1400),   // scan lightbox
+  stepDesign:   u("photo-1449157291145-7efd050a4d0e", 1400),   // TODO → GEN_04 scan-mesh visualization
+  stepAlign:    u("photo-1609840114035-3c981b782dfe", 1400),   // aligner in use
+  stepRetain:   u("photo-1606265752439-1f18756aa5fc", 1400),   // clinician
+  plinth:       u("photo-1609840114035-3c981b782dfe", 1300),   // TODO → GEN_01 or GEN_03 product still
+  craftA:       u("photo-1565193566173-7a0ee3dbe261", 1200),   // TODO → assets/ceramic_01.jpg
+  craftB:       u("photo-1525974160448-038dacadcc71", 1200),   // TODO → assets/ceramic_02.jpg
+  case1:        u("photo-1494790108377-be9c29b29330", 900),
+  case2:        u("photo-1521146764736-56c929d59c83", 900) ,
+  case3:        u("photo-1507003211169-0a1dd7228f2d", 900),
+  case4:        u("photo-1524504388940-b1c1722653e1", 900),
+  case5:        u("photo-1438761681033-6461ffad8d80", 900),
+  doctor:       u("photo-1506794778202-cad84cf45f1d", 1100)
+};
+const FLOATS = { // treatments hover previews
+  dental_7:     u("photo-1609840114035-3c981b782dfe", 640),
+  smile_1:      u("photo-1494790108377-be9c29b29330", 640),
+  portrait_m_1: u("photo-1507003211169-0a1dd7228f2d", 640),
+  dental_chair: u("photo-1629909613654-28e377c37b09", 640),
+  dental_6:     u("photo-1606265752439-1f18756aa5fc", 640)
+};
+
+/* ============ ENV ============ */
+const doc = document.documentElement;
+doc.classList.add("js");
+const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const FINE    = matchMedia("(hover: hover) and (pointer: fine)").matches;
+const lerp = (a, b, n) => a + (b - a) * n;
+
+/* assign images */
+document.querySelectorAll("img[data-key]").forEach(img => {
+  const k = img.dataset.key;
+  if (IMAGES[k]) img.src = IMAGES[k];
+  img.loading = "lazy"; img.decoding = "async";
+});
+
+/* ============ LOADER ============ */
+(() => {
+  const loader = document.getElementById("loader");
+  const count  = document.getElementById("count");
+  const finish = () => {
+    loader.classList.add("is-done");
+    document.querySelectorAll(".hero [data-reveal], .hero [data-fade], .hero .img-reveal")
+      .forEach(el => el.classList.add("in"));
+    setTimeout(() => loader.remove(), 1400);
+  };
+  if (REDUCED) { finish(); return; }
+  let n = 0;
+  const tick = () => {
+    n = Math.min(100, n + Math.ceil(Math.random() * 9 + (n > 70 ? 6 : 2)));
+    count.textContent = n;
+    if (n < 100) setTimeout(tick, 46 + Math.random() * 60);
+    else setTimeout(finish, 220);
+  };
+  tick();
+})();
+
+/* ============ CHAR SPLITTER (keeps <em> / chips intact) ============ */
+document.querySelectorAll("[data-reveal] .h-line").forEach(line => {
+  const frag = document.createDocumentFragment();
+  [...line.childNodes].forEach(node => {
+    if (node.nodeType === 3) {
+      [...node.textContent].forEach((c, i) => {
+        const s = document.createElement("span");
+        s.className = "ch";
+        s.style.transitionDelay = `${i * 18}ms`;
+        s.innerHTML = c === " " ? "&nbsp;" : c;
+        frag.appendChild(s);
+      });
+    } else {
+      const wrap = document.createElement("span");
+      wrap.className = "ch";
+      wrap.style.transitionDelay = "160ms";
+      wrap.appendChild(node.cloneNode(true));
+      frag.appendChild(wrap);
+    }
+  });
+  line.innerHTML = "";
+  line.appendChild(frag);
+});
+/* stagger per line */
+document.querySelectorAll("[data-reveal]").forEach(el => {
+  el.querySelectorAll(".h-line").forEach((ln, li) =>
+    ln.querySelectorAll(".ch").forEach(ch =>
+      ch.style.transitionDelay = `${li * 110 + parseInt(ch.style.transitionDelay || 0)}ms`));
+});
+
+/* ============ IN-VIEW OBSERVER ============ */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+}), { threshold: 0.18, rootMargin: "0px 0px -6% 0px" });
+document.querySelectorAll("[data-reveal], [data-fade], .img-reveal")
+  .forEach(el => io.observe(el));
+
+/* ============ MANIFESTO WORD-FILL ============ */
+(() => {
+  const m = document.getElementById("manifesto");
+  if (!m) return;
+  let uv = false;
+  m.innerHTML = m.textContent.trim().split(/\s+/).map(w => {
+    let cls = "w";
+    if (w.startsWith("\u00B0")) { uv = true; w = w.slice(1); }
+    let end = false;
+    if (w.endsWith("\u00B0")) { end = true; w = w.slice(0, -1); }
+    if (uv) cls += " uv";
+    if (end) uv = false;
+    return `<span class="${cls}">${w}</span>`;
+  }).join(" ");
+  const words = m.querySelectorAll(".w");
+  const onScroll = () => {
+    const r = m.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0,
+      (innerHeight * 0.82 - r.top) / (r.height + innerHeight * 0.25)));
+    const n = Math.floor(p * words.length);
+    words.forEach((w, i) => w.classList.toggle("on", i < n));
+  };
+  addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+})();
+
+/* ============ PARALLAX (rAF lerp) ============ */
+(() => {
+  if (REDUCED) return;
+  const els = [...document.querySelectorAll("[data-prlx]")]
+    .map(el => ({ el, sp: parseFloat(el.dataset.prlx), cur: 0,
+                  sc: 1.28, masked: !!el.closest(".img-reveal") }));
+  if (!els.length) return;
+  const loop = () => {
+    const vh = innerHeight;
+    els.forEach(o => {
+      const r = o.el.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > vh + 200) return;
+      const revealed = !o.masked || o.el.closest(".img-reveal").classList.contains("in");
+      const targetScale = o.masked ? (revealed ? 1.08 : 1.28) : 1.04;
+      o.sc = lerp(o.sc, targetScale, 0.045);
+      const t = ((r.top + r.height / 2) - vh / 2) / vh * o.sp * -12;
+      o.cur = lerp(o.cur, t, 0.085);
+      o.el.style.transform = `translate3d(0, ${o.cur.toFixed(2)}px, 0) scale(${o.sc.toFixed(4)})`;
+    });
+    requestAnimationFrame(loop);
+  };
+  loop();
+})();
+
+/* ============ CURSOR + MAGNETIC (fine pointers only) ============ */
+if (FINE && !REDUCED) {
+  doc.classList.add("has-cursor");
+  const cur = document.getElementById("cursor");
+  const tag = document.getElementById("cursorTag");
+  let mx = innerWidth / 2, my = innerHeight / 2, cx = mx, cy = my;
+  addEventListener("mousemove", e => { mx = e.clientX; my = e.clientY; });
+  (function loop() {
+    cx = lerp(cx, mx, 0.22); cy = lerp(cy, my, 0.22);
+    cur.style.left = tag.style.left = cx + "px";
+    cur.style.top  = tag.style.top  = cy + "px";
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll("[data-cursor]").forEach(el => {
+    el.addEventListener("mouseenter", () => {
+      cur.classList.add("is-grow");
+      tag.textContent = el.dataset.cursor || "View";
+      tag.classList.add("is-on");
+    });
+    el.addEventListener("mouseleave", () => {
+      cur.classList.remove("is-grow"); tag.classList.remove("is-on");
+    });
+  });
+  /* magnetic */
+  document.querySelectorAll("[data-magnet]").forEach(el => {
+    const str = 0.35;
+    el.addEventListener("mousemove", e => {
+      const r = el.getBoundingClientRect();
+      el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * str}px,
+                                      ${(e.clientY - r.top - r.height / 2) * str}px)`;
+    });
+    el.addEventListener("mouseleave", () => {
+      el.style.transition = "transform .6s cubic-bezier(.16,1,.3,1)";
+      el.style.transform = "translate(0,0)";
+      setTimeout(() => el.style.transition = "", 600);
+    });
+  });
+}
+
+/* ============ TREATMENTS FLOATING PREVIEW ============ */
+if (FINE && !REDUCED) {
+  const float = document.getElementById("tfloat");
+  Object.entries(FLOATS).forEach(([k, src]) => {
+    const i = new Image(); i.src = src; i.dataset.k = k; i.style.opacity = 0;
+    float.appendChild(i);
+  });
+  let fx = 0, fy = 0, tx = 0, ty = 0, on = false;
+  addEventListener("mousemove", e => { tx = e.clientX + 28; ty = e.clientY - 120; });
+  (function loop() {
+    fx = lerp(fx, tx, 0.12); fy = lerp(fy, ty, 0.12);
+    float.style.transform = `translate(${fx}px, ${fy}px) scale(${on ? 1 : 0.85})`;
+    requestAnimationFrame(loop);
+  })();
+  document.querySelectorAll(".trow").forEach(row => {
+    row.addEventListener("mouseenter", () => {
+      on = true; float.classList.add("is-on");
+      float.querySelectorAll("img").forEach(i =>
+        i.style.opacity = i.dataset.k === row.dataset.float ? 1 : 0);
+    });
+    row.addEventListener("mouseleave", () => {
+      on = false; float.classList.remove("is-on");
+    });
+  });
+}
+
+/* ============ GALLERY DRAG ============ */
+(() => {
+  const track = document.getElementById("galTrack");
+  if (!track) return;
+  let down = false, startX = 0, startL = 0;
+  track.addEventListener("pointerdown", e => {
+    down = true; startX = e.clientX; startL = track.scrollLeft;
+    track.classList.add("is-drag"); track.setPointerCapture(e.pointerId);
+  });
+  track.addEventListener("pointermove", e => {
+    if (down) track.scrollLeft = startL - (e.clientX - startX) * 1.4;
+  });
+  ["pointerup", "pointercancel"].forEach(ev =>
+    track.addEventListener(ev, () => { down = false; track.classList.remove("is-drag"); }));
+})();
+
+/* ============ FAQ ============ */
+document.querySelectorAll(".faq__item").forEach(item => {
+  const q = item.querySelector(".faq__q");
+  const a = item.querySelector(".faq__a");
+  q.addEventListener("click", () => {
+    const open = item.classList.toggle("open");
+    q.setAttribute("aria-expanded", open);
+    a.style.maxHeight = open ? a.scrollHeight + "px" : 0;
+  });
+});
+
+/* ============ NAV: hide on scroll down / mobile menu ============ */
+(() => {
+  const nav = document.getElementById("nav");
+  let last = 0;
+  addEventListener("scroll", () => {
+    const y = scrollY;
+    nav.classList.toggle("is-hidden", y > last && y > 140 && !document.body.classList.contains("menu-open"));
+    last = y;
+  }, { passive: true });
+
+  const burger = document.getElementById("burger");
+  const menu   = document.getElementById("menu");
+  const toggle = (force) => {
+    const open = document.body.classList.toggle("menu-open", force);
+    burger.setAttribute("aria-expanded", open);
+  };
+  burger.addEventListener("click", () => toggle());
+  menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => toggle(false)));
+})();
+</script>
+</body>
+</html>

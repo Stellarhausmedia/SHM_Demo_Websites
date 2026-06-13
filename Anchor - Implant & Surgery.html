@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Anchor — Implant & Oral Surgery Centre, Nungambakkam, Chennai</title>
+<meta name="description" content="Anchor is a dedicated dental implant and oral surgery centre in Nungambakkam, Chennai. Every implant is planned on a 3D CBCT scan and placed through a surgical guide to ±0.1 mm. Single implants, full-arch All-on-4, bone grafting and wisdom-tooth surgery. Led by Dr. Kavya Srinivasan, BDS, MDS (OMFS)." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  /* ====================================================================
+     ANCHOR — design tokens
+     concept: a technical drawing, machined in titanium & copper
+  ==================================================================== */
+  :root{
+    --bg:#0C0D10; --bg2:#101116; --panel:#14151B; --panel2:#191B22;
+    --line:rgba(235,233,226,.08); --line2:rgba(235,233,226,.16); --line3:rgba(235,233,226,.28);
+    --ink:#F2F0EA; --body:#C9C8C1; --muted:#8E8F94; --dim:#5E6066;
+    --copper:#D08A52; --copper2:#B06A35; --copper-dim:rgba(208,138,82,.16);
+    --steel:#C7CCD6; --steel2:#8E96A6;
+    --ivory:#EDE7D9;
+    --grid:rgba(235,233,226,.045); --grid2:rgba(235,233,226,.085);
+    --r:4px; --r-lg:10px;
+    --maxw:1320px;
+    --e-out:cubic-bezier(.16,1,.3,1);
+    --e-io:cubic-bezier(.65,0,.35,1);
+    --nav-h:78px;
+  }
+  *{box-sizing:border-box; margin:0;}
+  html{scroll-behavior:smooth;}
+  html,body{height:100%;}
+  body{
+    font-family:"Inter",system-ui,sans-serif; font-size:16px; line-height:1.66;
+    color:var(--body); background:var(--bg);
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  ::selection{background:var(--copper); color:#0C0D10;}
+  h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif; color:var(--ink); font-weight:700; line-height:1; letter-spacing:-.02em;}
+  p{margin:0;}
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+  button{font:inherit; background:none; border:0; color:inherit; cursor:pointer;}
+  .mono{font-family:"IBM Plex Mono",monospace;}
+  .serif{font-family:"Instrument Serif",Georgia,serif; font-style:italic; font-weight:400;}
+  .wrap{width:100%; max-width:var(--maxw); margin:0 auto; padding:0 clamp(20px,4vw,56px);}
+  :focus-visible{outline:2px solid var(--copper); outline-offset:4px;}
+  .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
+
+  /* film grain over everything */
+  body::after{
+    content:""; position:fixed; inset:-50%; z-index:120; pointer-events:none; opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    animation:grain 9s steps(8) infinite;
+  }
+  @keyframes grain{
+    0%,100%{transform:translate(0,0)} 12%{transform:translate(-4%,3%)} 25%{transform:translate(3%,-5%)}
+    37%{transform:translate(-3%,-2%)} 50%{transform:translate(5%,4%)} 62%{transform:translate(-5%,1%)}
+    75%{transform:translate(2%,5%)} 87%{transform:translate(4%,-3%)}
+  }
+
+  /* scroll progress */
+  .progress{position:fixed; top:0; left:0; height:2px; width:0%; background:var(--copper); z-index:110;}
+
+  /* custom cursor */
+  .cur-dot,.cur-ring{position:fixed; top:0; left:0; z-index:130; pointer-events:none; border-radius:50%;
+    transform:translate(-50%,-50%); opacity:0; transition:opacity .3s;}
+  .cur-dot{width:6px; height:6px; background:var(--copper);}
+  .cur-ring{width:34px; height:34px; border:1px solid var(--copper); transition:width .25s var(--e-out),height .25s var(--e-out),opacity .3s, border-color .25s;}
+  body.cursor-on.curlive .cur-dot, body.cursor-on.curlive .cur-ring{opacity:1;}
+  body.cursor-on, body.cursor-on a, body.cursor-on button, body.cursor-on summary{cursor:none;}
+  body.cursor-on .cur-ring.hov{width:62px; height:62px; border-color:var(--ink);}
+
+  /* ====================== NAV ====================== */
+  .nav{position:fixed; top:0; left:0; right:0; z-index:100; height:var(--nav-h);
+    display:flex; align-items:center; background:linear-gradient(rgba(12,13,16,.92),rgba(12,13,16,.78));
+    backdrop-filter:blur(12px); border-bottom:1px solid var(--line); transition:transform .4s var(--e-out);}
+  .nav .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px;}
+  .logo{display:flex; align-items:center; gap:13px;}
+  .logo .mk{width:34px; height:34px; border:1px solid var(--line3); border-radius:8px; display:grid; place-items:center; position:relative;}
+  .logo .mk::after{content:""; position:absolute; inset:6px; border:1px solid var(--copper); border-radius:4px; opacity:.6;}
+  .logo .mk svg{width:16px; height:16px; stroke:var(--copper);}
+  .logo .nm{font-family:"Bricolage Grotesque"; font-weight:700; font-size:1.2rem; color:var(--ink); letter-spacing:.01em;}
+  .logo .nm small{display:block; font-family:"IBM Plex Mono"; font-weight:400; font-size:.56rem; letter-spacing:.22em; color:var(--muted); margin-top:2px;}
+  .nav-links{display:flex; gap:32px;}
+  .nav-links a{font-family:"IBM Plex Mono"; font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); position:relative; padding:4px 0; transition:color .25s;}
+  .nav-links a::after{content:""; position:absolute; left:0; bottom:0; height:1px; width:100%; background:var(--copper); transform:scaleX(0); transform-origin:right; transition:transform .35s var(--e-out);}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a:hover::after{transform:scaleX(1); transform-origin:left;}
+  .nav-right{display:flex; align-items:center; gap:18px;}
+  .nav-tel{font-family:"IBM Plex Mono"; font-size:.8rem; color:var(--body); letter-spacing:.04em;}
+  .btn{position:relative; display:inline-flex; align-items:center; gap:10px; font-family:"IBM Plex Mono"; font-size:.78rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; padding:14px 24px; border-radius:var(--r); overflow:hidden; transition:color .3s;}
+  .btn .bl{position:relative; z-index:2; display:inline-flex; align-items:center; gap:10px;}
+  .btn-fill{background:var(--copper); color:#15110C;}
+  .btn-fill::before{content:""; position:absolute; inset:0; background:var(--ink); transform:translateY(101%); transition:transform .45s var(--e-out);}
+  .btn-fill:hover::before{transform:translateY(0);}
+  .btn-line{border:1px solid var(--line3); color:var(--ink);}
+  .btn-line::before{content:""; position:absolute; inset:0; background:var(--copper-dim); transform:scaleX(0); transform-origin:left; transition:transform .4s var(--e-out);}
+  .btn-line:hover::before{transform:scaleX(1);}
+  .btn svg{width:14px; height:14px;}
+  .burger{display:none; width:44px; height:44px; border:1px solid var(--line2); border-radius:8px; place-items:center;}
+  .burger span,.burger span::before,.burger span::after{content:""; display:block; width:18px; height:1.6px; background:var(--ink); position:relative; transition:.3s;}
+  .burger span::before{position:absolute; top:-6px;} .burger span::after{position:absolute; top:6px;}
+  .m-menu{display:none; position:fixed; top:var(--nav-h); left:0; right:0; z-index:99; background:var(--bg2); border-bottom:1px solid var(--line2); padding:18px clamp(20px,4vw,56px) 26px;}
+  .m-menu.open{display:block;}
+  .m-menu a{display:block; padding:14px 0; font-family:"Bricolage Grotesque"; font-size:1.3rem; color:var(--ink); border-bottom:1px solid var(--line);}
+
+  /* ====================== HERO ====================== */
+  .hero{position:relative; min-height:100svh; display:flex; flex-direction:column; justify-content:flex-end;
+    padding-top:calc(var(--nav-h) + 26px); overflow:hidden;}
+  /* blueprint grid */
+  .hero::before{content:""; position:absolute; inset:0;
+    background:
+      linear-gradient(var(--grid2) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid2) 1px, transparent 1px),
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:160px 160px,160px 160px,32px 32px,32px 32px;
+    mask-image:radial-gradient(120% 90% at 60% 40%, #000 40%, transparent 78%);}
+  .hero::after{content:""; position:absolute; inset:0; background:radial-gradient(900px 540px at 74% 30%, rgba(208,138,82,.07), transparent 60%); pointer-events:none;}
+  /* corner registration marks */
+  .reg{position:absolute; width:22px; height:22px; z-index:3; opacity:0; transition:opacity .8s 1.6s;}
+  body.loaded .reg{opacity:.5;}
+  .reg::before,.reg::after{content:""; position:absolute; background:var(--line3);}
+  .reg::before{left:50%; top:0; bottom:0; width:1px;} .reg::after{top:50%; left:0; right:0; height:1px;}
+  .reg.tl{top:calc(var(--nav-h) + 18px); left:22px;} .reg.tr{top:calc(var(--nav-h) + 18px); right:22px;}
+  .reg.bl{bottom:18px; left:22px;} .reg.br{bottom:18px; right:22px;}
+
+  .hero-grid{position:relative; z-index:2; display:grid; grid-template-columns:1.04fr .96fr; gap:clamp(24px,4vw,60px); align-items:center; flex:1;}
+  .hero-copy{padding:30px 0 20px;}
+  .kicker{display:inline-flex; align-items:center; gap:12px; font-family:"IBM Plex Mono"; font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
+    opacity:0; transform:translateY(14px); transition:opacity .8s var(--e-out) .15s, transform .8s var(--e-out) .15s;}
+  body.loaded .kicker{opacity:1; transform:none;}
+  .kicker::before{content:""; width:34px; height:1px; background:var(--copper);}
+  .kicker b{color:var(--copper); font-weight:500;}
+
+  .headline{margin-top:26px; font-size:clamp(2.5rem,5.7vw,5.3rem); font-weight:800; letter-spacing:-.034em; line-height:.98;}
+  .headline .ln{display:block; overflow:hidden; padding-bottom:.06em; margin-bottom:-.06em;}
+  .headline .ln i{display:block; font-style:normal; transform:translateY(112%); transition:transform 1s var(--e-out);}
+  body.loaded .headline .ln:nth-child(1) i{transform:none; transition-delay:.25s;}
+  body.loaded .headline .ln:nth-child(2) i{transform:none; transition-delay:.36s;}
+  body.loaded .headline .ln:nth-child(3) i{transform:none; transition-delay:.47s;}
+  .headline .serif{color:var(--copper); letter-spacing:-.015em; font-size:1.04em;}
+
+  .hero-sub{max-width:46ch; margin-top:22px; font-size:1.06rem; color:var(--muted);
+    opacity:0; transform:translateY(16px); transition:opacity .9s var(--e-out) .65s, transform .9s var(--e-out) .65s;}
+  body.loaded .hero-sub{opacity:1; transform:none;}
+  .hero-cta{display:flex; gap:14px; flex-wrap:wrap; margin-top:28px;
+    opacity:0; transform:translateY(16px); transition:opacity .9s var(--e-out) .8s, transform .9s var(--e-out) .8s;}
+  body.loaded .hero-cta{opacity:1; transform:none;}
+  .btn-lg{padding:17px 28px; font-size:.82rem;}
+
+  /* ---- blueprint stage ---- */
+  .stage{position:relative; height:min(74vh,680px); min-height:480px;
+    opacity:0; transition:opacity 1s var(--e-out) .5s;}
+  body.loaded .stage{opacity:1;}
+  .stage svg{position:absolute; inset:0; width:100%; height:100%; overflow:visible;}
+  .stage .lab{font-family:"IBM Plex Mono"; font-size:10.5px; letter-spacing:.14em; fill:var(--muted);}
+  .stage .lab.c{fill:var(--copper);}
+  .stage .lab.i{fill:var(--ink);}
+  .stage .dimline{stroke:var(--steel2); stroke-width:1;}
+  .stage .dimarrow{fill:var(--steel2);}
+  .stage .leader{stroke:var(--line3); stroke-width:1; stroke-dasharray:3 4;}
+  /* scanline + readout */
+  .scan{position:absolute; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent, rgba(208,138,82,.85) 18%, rgba(208,138,82,.85) 82%, transparent); top:50%; pointer-events:none; opacity:0; transition:opacity .6s 1.9s;}
+  body.loaded .scan{opacity:.9;}
+  .scan::before,.scan::after{content:""; position:absolute; top:-3px; width:7px; height:7px; border:1px solid var(--copper); transform:rotate(45deg); background:var(--bg);}
+  .scan::before{left:8%;} .scan::after{right:8%;}
+  .readout{position:absolute; left:0; transform:translateY(-50%); top:50%; pointer-events:none;
+    font-family:"IBM Plex Mono"; font-size:.68rem; letter-spacing:.12em; color:var(--copper);
+    background:rgba(12,13,16,.8); border:1px solid var(--copper-dim); padding:6px 10px; border-radius:3px;
+    opacity:0; transition:opacity .6s 2s;}
+  body.loaded .readout{opacity:1;}
+  /* title block */
+  .tblock{position:absolute; right:0; bottom:0; border:1px solid var(--line2); background:rgba(12,13,16,.7); backdrop-filter:blur(4px);
+    font-family:"IBM Plex Mono"; font-size:.62rem; letter-spacing:.1em; color:var(--muted); text-transform:uppercase;
+    display:grid; grid-template-columns:auto auto; opacity:0; transition:opacity .8s 2.1s;}
+  body.loaded .tblock{opacity:1;}
+  .tblock div{padding:7px 12px; border-top:1px solid var(--line);}
+  .tblock div:nth-child(-n+2){border-top:0;}
+  .tblock div:nth-child(odd){border-right:1px solid var(--line); color:var(--dim);}
+  .tblock b{color:var(--ink); font-weight:500;}
+
+  /* hero bottom rail */
+  .rail{position:relative; z-index:2; border-top:1px solid var(--line); margin-top:26px;}
+  .rail .wrap{display:grid; grid-template-columns:repeat(4,1fr) auto; align-items:stretch;}
+  .rail .cell{padding:20px 26px 22px 0; border-right:1px solid var(--line);
+    opacity:0; transform:translateY(12px); transition:opacity .7s var(--e-out), transform .7s var(--e-out);}
+  body.loaded .rail .cell{opacity:1; transform:none;}
+  body.loaded .rail .cell:nth-child(1){transition-delay:1.0s;} body.loaded .rail .cell:nth-child(2){transition-delay:1.1s;}
+  body.loaded .rail .cell:nth-child(3){transition-delay:1.2s;} body.loaded .rail .cell:nth-child(4){transition-delay:1.3s;}
+  .rail .cell:not(:first-child){padding-left:26px;}
+  .rail .v{font-family:"Bricolage Grotesque"; font-weight:700; font-size:1.7rem; color:var(--ink); letter-spacing:-.02em;}
+  .rail .v sup{color:var(--copper); font-size:.9rem; margin-left:1px;}
+  .rail .k{font-family:"IBM Plex Mono"; font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; color:var(--dim); margin-top:5px;}
+  .rail .scrollcue{display:flex; align-items:center; gap:12px; padding-left:26px; font-family:"IBM Plex Mono"; font-size:.66rem; letter-spacing:.16em; color:var(--dim); text-transform:uppercase;
+    opacity:0; transition:opacity .8s 1.5s;}
+  body.loaded .rail .scrollcue{opacity:1;}
+  .scrollcue .bar{width:1px; height:30px; background:var(--line3); position:relative; overflow:hidden;}
+  .scrollcue .bar::after{content:""; position:absolute; left:0; top:-100%; width:100%; height:100%; background:var(--copper); animation:drip 2.2s var(--e-io) infinite;}
+  @keyframes drip{0%{top:-100%}55%{top:0}100%{top:100%}}
+
+  /* ====================== MARQUEE ====================== */
+  .marquee{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--bg2); overflow:hidden; padding:16px 0;}
+  .mq-track{display:flex; width:max-content; animation:mq 30s linear infinite;}
+  .marquee:hover .mq-track{animation-play-state:paused;}
+  .mq-track span{font-family:"IBM Plex Mono"; font-size:.74rem; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); padding:0 28px; display:flex; align-items:center; gap:28px; white-space:nowrap;}
+  .mq-track span::after{content:""; width:6px; height:6px; background:var(--copper); transform:rotate(45deg); flex:none;}
+  @keyframes mq{to{transform:translateX(-50%);}}
+
+  /* ====================== GENERIC SECTIONS ====================== */
+  .sec{position:relative; padding:clamp(84px,11vw,150px) 0;}
+  .sec-head{display:flex; align-items:flex-end; justify-content:space-between; gap:28px; margin-bottom:clamp(40px,5vw,72px);}
+  .idx{font-family:"IBM Plex Mono"; font-size:.7rem; letter-spacing:.2em; color:var(--copper); display:flex; align-items:center; gap:12px; text-transform:uppercase;}
+  .idx::after{content:""; width:42px; height:1px; background:var(--line3);}
+  .sec h2{font-size:clamp(2rem,4.6vw,3.8rem); font-weight:700; letter-spacing:-.03em; line-height:1.02; margin-top:16px; max-width:14ch;}
+  .sec h2 .serif{color:var(--copper);}
+  .sec-head p{max-width:38ch; color:var(--muted); font-size:1rem;}
+  .rev{opacity:0; transform:translateY(28px); transition:opacity .9s var(--e-out), transform .9s var(--e-out);}
+  .rev.in{opacity:1; transform:none;}
+
+  /* ====================== THESIS ====================== */
+  .thesis{border-bottom:1px solid var(--line);}
+  .thesis .big{font-family:"Instrument Serif"; font-style:italic; font-weight:400; color:var(--ink);
+    font-size:clamp(1.7rem,3.6vw,3rem); line-height:1.22; max-width:26ch; letter-spacing:-.01em;}
+  .thesis .big em{color:var(--copper); font-style:italic;}
+  .thesis-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(30px,5vw,80px); align-items:start;}
+  .thesis .col p{color:var(--muted); margin-bottom:18px; font-size:1.02rem;}
+  .thesis .col p b{color:var(--body); font-weight:600;}
+  .spec-tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px;}
+  .spec-tags span{font-family:"IBM Plex Mono"; font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--body); border:1px solid var(--line2); padding:8px 13px; border-radius:3px;}
+  .spec-tags span b{color:var(--copper); font-weight:500;}
+
+  /* ====================== TREATMENTS ====================== */
+  .tx-grid{display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line2); border-left:1px solid var(--line2);}
+  .tx{position:relative; padding:30px 28px 70px; border-right:1px solid var(--line2); border-bottom:1px solid var(--line2); overflow:hidden; transition:background .35s;}
+  .tx:hover{background:var(--panel);}
+  .tx .no{font-family:"IBM Plex Mono"; font-size:.66rem; letter-spacing:.16em; color:var(--dim);}
+  .tx h3{font-size:1.5rem; font-weight:700; letter-spacing:-.02em; margin:46px 0 10px; transition:color .3s;}
+  .tx:hover h3{color:var(--copper);}
+  .tx p{color:var(--muted); font-size:.94rem; min-height:4.2em;}
+  .tx .price{position:absolute; left:28px; bottom:24px; font-family:"IBM Plex Mono"; font-size:.78rem; letter-spacing:.06em; color:var(--body);}
+  .tx .price b{color:var(--ink); font-weight:500;}
+  .tx .arr{position:absolute; right:24px; bottom:20px; width:34px; height:34px; border:1px solid var(--line2); border-radius:50%; display:grid; place-items:center; transition:background .3s, transform .45s var(--e-out), border-color .3s;}
+  .tx .arr svg{width:14px; height:14px; stroke:var(--ink); transition:transform .45s var(--e-out);}
+  .tx:hover .arr{background:var(--copper); border-color:var(--copper); transform:rotate(45deg);}
+  .tx:hover .arr svg{stroke:#15110C;}
+  .tx::after{content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background:var(--copper); transform:scaleX(0); transform-origin:left; transition:transform .5s var(--e-out);}
+  .tx:hover::after{transform:scaleX(1);}
+  .tx .mini{position:absolute; top:24px; right:24px; width:54px; height:54px; opacity:.85;}
+  .tx .mini svg{width:100%; height:100%; stroke:var(--steel2); fill:none; stroke-width:1.4;}
+  .tx:hover .mini svg{stroke:var(--copper);}
+
+  /* ====================== TOLERANCE BAND ====================== */
+  .band{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--bg2);}
+  .band .wrap{display:grid; grid-template-columns:repeat(3,1fr); }
+  .band .b{padding:clamp(40px,5vw,64px) 30px; border-right:1px solid var(--line); text-align:center;}
+  .band .b:last-child{border-right:0;}
+  .band .n{font-family:"Bricolage Grotesque"; font-weight:800; font-size:clamp(3rem,6.5vw,5.4rem); color:var(--ink); letter-spacing:-.04em; line-height:1;}
+  .band .n .u{color:var(--copper); font-size:.45em; font-weight:700; margin-left:4px;}
+  .band .c{font-family:"IBM Plex Mono"; font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:var(--dim); margin-top:12px;}
+
+  /* ====================== PROCESS ====================== */
+  .proc{position:relative;}
+  .proc-list{position:relative; max-width:900px;}
+  .proc-line{position:absolute; left:23px; top:10px; bottom:10px; width:1px; background:var(--line2); transform-origin:top; }
+  .proc-line i{display:block; width:100%; height:100%; background:var(--copper); transform:scaleY(0); transform-origin:top; transition:transform 1.4s var(--e-io);}
+  .proc.in .proc-line i{transform:scaleY(1);}
+  .pstep{position:relative; display:grid; grid-template-columns:48px 1fr auto; gap:26px; padding:30px 0; align-items:start;}
+  .pstep + .pstep{border-top:1px dashed var(--line);}
+  .pstep .pn{width:47px; height:47px; border:1px solid var(--line3); border-radius:50%; display:grid; place-items:center; background:var(--bg);
+    font-family:"IBM Plex Mono"; font-size:.72rem; color:var(--copper); position:relative; z-index:2;}
+  .pstep h3{font-size:1.45rem; letter-spacing:-.02em;}
+  .pstep p{color:var(--muted); margin-top:8px; max-width:56ch; font-size:.98rem;}
+  .pstep .pt{font-family:"IBM Plex Mono"; font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--dim); padding-top:14px; white-space:nowrap;}
+
+  /* ====================== COMPARISON ====================== */
+  .vs{display:grid; grid-template-columns:1fr 1px 1fr; border:1px solid var(--line2); background:var(--panel); border-radius:var(--r-lg); overflow:hidden;}
+  .vs .div{background:var(--line2);}
+  .vs .side{padding:clamp(28px,4vw,48px);}
+  .vs .side.win{background:linear-gradient(170deg, rgba(208,138,82,.07), transparent 55%);}
+  .vs .tag{display:inline-block; font-family:"IBM Plex Mono"; font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; padding:6px 11px; border-radius:3px; margin-bottom:20px;}
+  .vs .side:not(.win) .tag{border:1px solid var(--line2); color:var(--dim);}
+  .vs .side.win .tag{background:var(--copper); color:#15110C;}
+  .vs h3{font-size:1.5rem; margin-bottom:22px;}
+  .vs ul{list-style:none; padding:0; display:grid; gap:15px;}
+  .vs li{display:flex; gap:13px; align-items:flex-start; font-size:.96rem; color:var(--muted);}
+  .vs .side.win li{color:var(--body);}
+  .vs li svg{width:17px; height:17px; flex:none; margin-top:3px;}
+  .vs .side:not(.win) li svg{stroke:var(--dim);}
+  .vs .side.win li svg{stroke:var(--copper);}
+
+  /* ====================== SURGEON ====================== */
+  .surg{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--bg2); overflow:hidden;}
+  .surg-grid{display:grid; grid-template-columns:.92fr 1.08fr; gap:clamp(34px,5vw,80px); align-items:center;}
+  .ks{position:relative; aspect-ratio:.92; border:1px solid var(--line2); border-radius:var(--r-lg); background:
+      radial-gradient(420px 320px at 30% 20%, rgba(208,138,82,.12), transparent 60%), var(--panel);
+    display:grid; place-items:center; overflow:hidden;}
+  .ks .init{font-family:"Bricolage Grotesque"; font-weight:800; font-size:clamp(7rem,16vw,13rem); letter-spacing:-.05em; line-height:1;
+    color:transparent; -webkit-text-stroke:1px var(--line3); position:relative;}
+  .ks .init::before{content:attr(data-t); position:absolute; inset:0; color:var(--copper); -webkit-text-stroke:0;
+    clip-path:inset(100% 0 0 0); transition:clip-path 1.2s var(--e-io) .2s;}
+  .ks.in .init::before{clip-path:inset(28% 0 0 0);}
+  .ks .meta{position:absolute; left:18px; bottom:16px; font-family:"IBM Plex Mono"; font-size:.64rem; letter-spacing:.16em; text-transform:uppercase; color:var(--dim);}
+  .ks .meta b{display:block; color:var(--body); font-weight:500; margin-top:3px;}
+  .surg h2{max-width:16ch;}
+  .surg .bio{color:var(--muted); margin-top:22px; max-width:52ch; font-size:1.02rem;}
+  .creds{margin-top:28px; border-top:1px solid var(--line2);}
+  .cred{display:grid; grid-template-columns:auto 1fr; gap:18px; padding:16px 0; border-bottom:1px solid var(--line); align-items:baseline;}
+  .cred .cn{font-family:"IBM Plex Mono"; font-size:.66rem; letter-spacing:.16em; color:var(--copper);}
+  .cred .ct{color:var(--body); font-size:.97rem;}
+
+  /* ====================== QUOTES ====================== */
+  .qsec .qbox{position:relative; max-width:980px; margin:0 auto; text-align:center; min-height:280px;}
+  .q{position:absolute; inset:0; opacity:0; transform:translateY(16px); transition:opacity .7s var(--e-out), transform .7s var(--e-out); pointer-events:none;}
+  .q.on{opacity:1; transform:none; pointer-events:auto;}
+  .q .mark{font-family:"Instrument Serif"; font-style:italic; font-size:4rem; color:var(--copper); line-height:0; display:block; margin-bottom:30px;}
+  .q blockquote{margin:0; font-family:"Instrument Serif"; font-style:italic; font-size:clamp(1.4rem,3vw,2.2rem); color:var(--ink); line-height:1.3; letter-spacing:-.01em;}
+  .q .who{margin-top:26px; font-family:"IBM Plex Mono"; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted);}
+  .q .who b{color:var(--copper); font-weight:500;}
+  .q-nav{display:flex; gap:14px; justify-content:center; margin-top:34px; align-items:center;}
+  .q-nav button{width:46px; height:46px; border:1px solid var(--line2); border-radius:50%; display:grid; place-items:center; transition:border-color .3s, background .3s;}
+  .q-nav button:hover{border-color:var(--copper); background:var(--copper-dim);}
+  .q-nav svg{width:16px; height:16px; stroke:var(--ink);}
+  .q-dots{display:flex; gap:8px; padding:0 8px;}
+  .q-dots i{width:22px; height:2px; background:var(--line2); transition:background .3s;}
+  .q-dots i.on{background:var(--copper);}
+
+  /* ====================== FAQ ====================== */
+  .faq{max-width:860px; margin:0 auto;}
+  .qa{border-bottom:1px solid var(--line2);}
+  .qa summary{list-style:none; display:flex; align-items:baseline; gap:22px; padding:26px 8px; cursor:pointer;}
+  .qa summary::-webkit-details-marker{display:none;}
+  .qa .qn{font-family:"IBM Plex Mono"; font-size:.68rem; letter-spacing:.14em; color:var(--copper); flex:none;}
+  .qa h3{font-size:1.3rem; font-weight:600; letter-spacing:-.01em; flex:1; transition:color .3s;}
+  .qa summary:hover h3{color:var(--copper);}
+  .qa .pm{flex:none; width:26px; height:26px; position:relative;}
+  .qa .pm::before,.qa .pm::after{content:""; position:absolute; background:var(--ink);}
+  .qa .pm::before{top:12px; left:5px; right:5px; height:1.6px;}
+  .qa .pm::after{left:12px; top:5px; bottom:5px; width:1.6px; transition:transform .3s var(--e-out);}
+  .qa[open] .pm::after{transform:scaleY(0);}
+  .qa .ans{padding:0 8px 28px 0; color:var(--muted); max-width:62ch; margin-left:calc(.68rem * 4); font-size:.98rem;}
+
+  /* ====================== CTA ====================== */
+  .cta{border-top:1px solid var(--line);}
+  .cta-in{position:relative; text-align:center; padding:clamp(70px,9vw,120px) 24px; overflow:hidden;}
+  .cta-in::before{content:""; position:absolute; inset:0;
+    background:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size:32px 32px;
+    mask-image:radial-gradient(60% 80% at 50% 50%, #000 30%, transparent 75%);}
+  .cta h2{position:relative; font-size:clamp(2.4rem,6vw,5rem); letter-spacing:-.035em; max-width:18ch; margin:0 auto;}
+  .cta h2 .serif{color:var(--copper);}
+  .cta p{position:relative; color:var(--muted); margin:22px auto 0; max-width:52ch; font-size:1.05rem;}
+  .cta .row{position:relative; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:38px;}
+
+  /* ====================== FOOTER ====================== */
+  footer{border-top:1px solid var(--line); background:var(--bg2);}
+  .foot{display:grid; grid-template-columns:1.4fr 1fr 1fr 1.3fr; gap:36px; padding:clamp(46px,6vw,70px) 0 46px;}
+  .foot h5{font-family:"IBM Plex Mono"; font-size:.64rem; letter-spacing:.2em; text-transform:uppercase; color:var(--dim); margin-bottom:16px; font-weight:500;}
+  .foot a{display:block; color:var(--muted); font-size:.94rem; padding:5px 0; transition:color .25s;}
+  .foot a:hover{color:var(--copper);}
+  .foot p{color:var(--muted); font-size:.94rem; line-height:1.75;}
+  .foot-bar{border-top:1px solid var(--line); padding:20px 0 60px; display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
+    font-family:"IBM Plex Mono"; font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; color:var(--dim);}
+
+  /* ====================== RESPONSIVE ====================== */
+  @media(max-width:1080px){
+    .hero-grid{grid-template-columns:1fr; align-items:start;}
+    .stage{height:520px; min-height:440px; order:2;}
+    .rail .wrap{grid-template-columns:repeat(2,1fr);}
+    .rail .scrollcue{display:none;}
+    .tx-grid{grid-template-columns:1fr 1fr;}
+    .surg-grid,.thesis-grid{grid-template-columns:1fr;}
+    .ks{max-width:480px;}
+  }
+  .lbl-short{display:none;}
+  @media(max-width:700px){
+    .nav-links,.nav-tel{display:none;}
+    .lbl-full{display:none;} .lbl-short{display:inline;}
+    .nav .btn{padding:12px 18px;}
+    .burger{display:grid;}
+    .tx-grid{grid-template-columns:1fr;}
+    .tx p{min-height:0;}
+    .vs{grid-template-columns:1fr;}
+    .vs .div{height:1px; width:100%;}
+    .band .wrap{grid-template-columns:1fr;}
+    .band .b{border-right:0; border-bottom:1px solid var(--line);}
+    .band .b:last-child{border-bottom:0;}
+    .pstep{grid-template-columns:48px 1fr;}
+    .pstep .pt{grid-column:2; padding-top:6px;}
+    .foot{grid-template-columns:1fr 1fr;}
+    .stage{height:440px;}
+    .lab-sec{display:none;}
+    .tblock{display:none;}
+    .headline{font-size:clamp(2.6rem,12.5vw,4rem);}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important; transition:none!important;}
+    .headline .ln i,.kicker,.hero-sub,.hero-cta,.stage,.rail .cell,.scan,.readout,.tblock,.reg,.rail .scrollcue{opacity:1!important; transform:none!important;}
+    .rev{opacity:1; transform:none;}
+    body::after{display:none;}
+    .mq-track{animation:none;}
+    .proc-line i{transform:scaleY(1);}
+    .ks .init::before{clip-path:inset(28% 0 0 0);}
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<div class="cur-dot" id="curDot"></div>
+<div class="cur-ring" id="curRing"></div>
+
+<!-- ================= NAV ================= -->
+<nav class="nav" aria-label="Primary">
+  <div class="wrap">
+    <a class="logo" href="#top" data-cursor>
+      <span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><path d="M12 3v10M8.5 6h7M8.5 9h7M12 13c-1.8 0-2.6 1.8-2.6 4.2 0 2 .5 4.8 1.2 4.8.7 0 .8-1.7 1.4-1.7s.7 1.7 1.4 1.7c.7 0 1.2-2.8 1.2-4.8 0-2.4-.8-4.2-2.6-4.2Z"/></svg></span>
+      <span class="nm">Anchor<small>IMPLANT · ORAL SURGERY</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#treatments" data-cursor>Treatments</a>
+      <a href="#process" data-cursor>Process</a>
+      <a href="#guided" data-cursor>Why guided</a>
+      <a href="#surgeon" data-cursor>Surgeon</a>
+      <a href="#faq" data-cursor>FAQ</a>
+    </div>
+    <div class="nav-right">
+      <a class="nav-tel" href="tel:+914428330700" data-cursor>044 2833 0700</a>
+      <a class="btn btn-fill magnet" href="#book" data-cursor><span class="bl"><span class="lbl-full">Book a consult</span><span class="lbl-short">Book</span></span></a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="m-menu" id="mmenu">
+  <a href="#treatments">Treatments</a><a href="#process">Process</a><a href="#guided">Why guided</a><a href="#surgeon">Surgeon</a><a href="#faq">FAQ</a><a href="tel:+914428330700">044 2833 0700</a>
+</div>
+
+<main id="top">
+<!-- ================= HERO ================= -->
+<header class="hero" id="hero">
+  <span class="reg tl"></span><span class="reg tr"></span><span class="reg bl"></span><span class="reg br"></span>
+
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="kicker"><b>Nungambakkam · Chennai</b> — Implant &amp; Oral Surgery Centre</span>
+      <h1 class="headline" aria-label="A missing tooth is an engineering problem.">
+        <span class="ln"><i>A missing tooth</i></span>
+        <span class="ln"><i>is an <span class="serif">engineering</span></i></span>
+        <span class="ln"><i>problem.</i></span>
+      </h1>
+      <p class="hero-sub">So we treat it like one. Every Anchor implant is planned on a 3-D CBCT scan and placed through a printed surgical guide — titanium, set to a tenth of a millimetre, built to outlast everything around it.</p>
+      <div class="hero-cta">
+        <a class="btn btn-fill btn-lg magnet" href="#book" data-cursor><span class="bl">Book a 3-D consult <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+        <a class="btn btn-line btn-lg magnet" href="#treatments" data-cursor><span class="bl">Explore the engineering</span></a>
+      </div>
+    </div>
+
+    <!-- blueprint stage: implant technical drawing, drawn live by JS -->
+    <div class="stage" id="stage" aria-label="Technical drawing of a dental implant with live depth read-out" role="img">
+      <svg id="bp" viewBox="0 0 560 640" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="scan" id="scan"></div>
+      <div class="readout" id="readout">DEPTH&nbsp;—.—&nbsp;MM</div>
+      <div class="tblock">
+        <div>DWG</div><div><b>AN-04 / IMPLANT, SINGLE</b></div>
+        <div>SCALE</div><div><b>4 : 1</b></div>
+        <div>MAT.</div><div><b>TITANIUM, GRADE 4</b></div>
+        <div>TOL.</div><div><b>± 0.1 MM</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rail">
+    <div class="wrap">
+      <div class="cell"><div class="v" data-count="9000">0<sup>+</sup></div><div class="k">Implants placed</div></div>
+      <div class="cell"><div class="v" data-count="98.6" data-dec="1">0<sup>%</sup></div><div class="k">5-yr integration rate</div></div>
+      <div class="cell"><div class="v">±0.1<sup>mm</sup></div><div class="k">Guided accuracy</div></div>
+      <div class="cell"><div class="v" data-count="10">0<sup>yr</sup></div><div class="k">Fixture warranty</div></div>
+      <div class="scrollcue"><span class="bar"></span> Scroll — drawing 01</div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="mq-track" id="mq">
+    <span>Osseointegration</span><span>Grade-4 titanium</span><span>CBCT-guided</span><span>±0.1 mm tolerance</span><span>Single-visit options</span><span>10-year warranty</span>
+    <span>Osseointegration</span><span>Grade-4 titanium</span><span>CBCT-guided</span><span>±0.1 mm tolerance</span><span>Single-visit options</span><span>10-year warranty</span>
+  </div>
+</div>
+
+<!-- ================= THESIS ================= -->
+<section class="sec thesis" id="why">
+  <div class="wrap thesis-grid">
+    <div class="rev">
+      <span class="idx">01 — The premise</span>
+      <p class="big" style="margin-top:22px;">Precision isn't a luxury in the jaw. It is the difference between an implant that lasts a <em>decade</em> — and one that lasts a <em>lifetime.</em></p>
+    </div>
+    <div class="col rev">
+      <p>Half a millimetre is invisible to the eye. Inside bone, it's the difference between an implant gripping dense structure or sitting near a nerve; between a crown that meets its neighbour perfectly or traps food for years.</p>
+      <p><b>Anchor exists for that half millimetre.</b> We are not a general clinic that also places implants — implants and oral surgery are the entire practice, planned and executed with the discipline of an engineering workshop.</p>
+      <div class="spec-tags">
+        <span><b>CBCT</b> 3-D imaging on-site</span>
+        <span><b>Guided</b> printed surgical stents</span>
+        <span><b>ISO</b> sterilisation protocol</span>
+        <span><b>EMI</b> 12 months, no cost</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TREATMENTS ================= -->
+<section class="sec" id="treatments">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <div>
+        <span class="idx">02 — Capabilities</span>
+        <h2>Built in titanium, <span class="serif">to spec.</span></h2>
+      </div>
+      <p>Six core procedures. Each begins with the same scan, the same plan, the same tolerances — whether it's one tooth or an entire arch.</p>
+    </div>
+    <div class="tx-grid">
+      <a class="tx rev" href="#book" data-cursor>
+        <span class="no">IMPL—01</span>
+        <span class="mini"><svg viewBox="0 0 54 54"><path d="M27 6v8M22 9h10M22 12h10M27 14c-4 0-5.5 4-5.5 9 0 5 1.5 12 3 12 1.4 0 1.4-4 2.5-4s1.1 4 2.5 4c1.5 0 3-7 3-12 0-5-1.5-9-5.5-9Z"/></svg></span>
+        <h3>Single tooth implant</h3>
+        <p>One titanium fixture, one custom crown — without grinding down the healthy teeth beside it.</p>
+        <span class="price">from <b>₹28,000</b></span>
+        <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+      <a class="tx rev" href="#book" data-cursor>
+        <span class="no">IMPL—02</span>
+        <span class="mini"><svg viewBox="0 0 54 54"><path d="M8 30c0-8 8-13 19-13s19 5 19 13M14 26l-3 14M40 26l3 14M22 24l-1 9M32 24l1 9"/></svg></span>
+        <h3>Full-arch · All-on-4®</h3>
+        <p>A complete fixed bridge anchored on four to six implants. A new arch, often loaded the same day.</p>
+        <span class="price">from <b>₹2,40,000</b> / arch</span>
+        <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+      <a class="tx rev" href="#book" data-cursor>
+        <span class="no">SURG—03</span>
+        <span class="mini"><svg viewBox="0 0 54 54"><path d="M27 8v10m0 0-4-3m4 3 4-3M13 30c0 9 6 16 14 16s14-7 14-16-6-12-14-12-14 3-14 12Z"/><circle cx="21" cy="32" r="1.6"/><circle cx="29" cy="37" r="1.6"/><circle cx="34" cy="30" r="1.6"/></svg></span>
+        <h3>Bone graft &amp; sinus lift</h3>
+        <p>Rebuilding lost volume so implants seat in solid bone — the cases other clinics turn away.</p>
+        <span class="price">from <b>₹18,000</b></span>
+        <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+      <a class="tx rev" href="#book" data-cursor>
+        <span class="no">SURG—04</span>
+        <span class="mini"><svg viewBox="0 0 54 54"><path d="M18 10c-5 1-8 5-8 10 0 7 4 12 7 19 1.5 3.4 4 3.4 5-.5l1-5c.5-2 3.5-2 4 0l1 5c1 3.9 3.5 3.9 5 .5 3-7 7-12 7-19 0-5-3-9-8-10"/><path d="M22 6l5 6 5-6"/></svg></span>
+        <h3>Wisdom-tooth surgery</h3>
+        <p>Impacted third molars removed surgically under sedation, with a planned, supported recovery.</p>
+        <span class="price">from <b>₹6,500</b> / tooth</span>
+        <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+      <a class="tx rev" href="#book" data-cursor>
+        <span class="no">IMPL—05</span>
+        <span class="mini"><svg viewBox="0 0 54 54"><circle cx="27" cy="27" r="18"/><path d="M27 16v11l7 5"/></svg></span>
+        <h3>Immediate implants</h3>
+        <p>Where bone allows: extraction and implant in a single sitting. Fewer surgeries, less waiting.</p>
+        <span class="price"><b>assessed</b> on the scan</span>
+        <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+      <a class="tx rev" href="#book" data-cursor>
+        <span class="no">RESC—06</span>
+        <span class="mini"><svg viewBox="0 0 54 54"><path d="M27 8 12 16v10c0 10 7 17 15 20 8-3 15-10 15-20V16Z"/><path d="m20 27 5 5 9-10"/></svg></span>
+        <h3>Failed-implant rescue</h3>
+        <p>Diagnosis and re-treatment of loose, infected or failing implants placed elsewhere.</p>
+        <span class="price"><b>consult</b> to plan</span>
+        <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TOLERANCE BAND ================= -->
+<section class="band rev" aria-label="Key numbers">
+  <div class="wrap">
+    <div class="b"><div class="n"><span data-count="9000">0</span><span class="u">+</span></div><div class="c">Implants placed since 2008</div></div>
+    <div class="b"><div class="n"><span data-count="98.6" data-dec="1">0</span><span class="u">%</span></div><div class="c">Five-year osseointegration</div></div>
+    <div class="b"><div class="n"><span data-count="18">0</span><span class="u">yrs</span></div><div class="c">Of surgical focus, nothing else</div></div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="sec proc" id="process">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <div>
+        <span class="idx">03 — The pathway</span>
+        <h2>Measured twice. <span class="serif">Placed once.</span></h2>
+      </div>
+      <p>From the first scan to the final crown — every stage documented, every position decided before you're ever in the chair.</p>
+    </div>
+    <div class="proc-list">
+      <div class="proc-line"><i></i></div>
+      <div class="pstep rev"><span class="pn">01</span><div><h3>Consult &amp; CBCT scan</h3><p>A conversation about what you want back, then a 3-D scan that maps your bone, nerves and sinuses — not a flat guess.</p></div><span class="pt">Day 1 · 45 min</span></div>
+      <div class="pstep rev"><span class="pn">02</span><div><h3>Digital surgical plan</h3><p>Your implant's exact position, angle and depth are fixed on screen, then printed as a custom surgical guide.</p></div><span class="pt">Within the week</span></div>
+      <div class="pstep rev"><span class="pn">03</span><div><h3>Guided placement</h3><p>The fixture goes in through the guide under local anaesthetic — optional sedation — calmer and quicker than you'd expect.</p></div><span class="pt">Surgery day · 1–2 hrs</span></div>
+      <div class="pstep rev"><span class="pn">04</span><div><h3>Osseointegration</h3><p>Bone fuses to titanium over a few months. We monitor it, and you're never left without a presentable smile in between.</p></div><span class="pt">8–16 weeks</span></div>
+      <div class="pstep rev"><span class="pn">05</span><div><h3>The final crown</h3><p>Colour-matched, shaped to your bite, adjusted until you forget which tooth it is. That's the spec we sign off on.</p></div><span class="pt">Final visit</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPARISON ================= -->
+<section class="sec" id="guided" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head rev">
+      <div>
+        <span class="idx">04 — Freehand vs guided</span>
+        <h2>Why the guide <span class="serif">matters.</span></h2>
+      </div>
+      <p>Most implant problems are position problems — decided in the second the fixture goes in. We remove that second from the equation.</p>
+    </div>
+    <div class="vs rev">
+      <div class="side">
+        <span class="tag">Conventional — freehand</span>
+        <h3>Judged by eye</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Position estimated during surgery</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Flat 2-D X-rays hide depth and nerves</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Wider incisions, longer healing</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>Angle errors surface years later</li>
+        </ul>
+      </div>
+      <div class="div" aria-hidden="true"></div>
+      <div class="side win">
+        <span class="tag">At Anchor — CBCT-guided</span>
+        <h3>Decided in advance</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Exact position fixed on the 3-D model</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Bone density, nerves &amp; sinuses mapped</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Keyhole access — gentler recovery</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Placement repeatable to ±0.1 mm</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SURGEON ================= -->
+<section class="sec surg" id="surgeon">
+  <div class="wrap surg-grid">
+    <div class="ks rev" id="ksCard">
+      <span class="init" data-t="KS">KS</span>
+      <span class="meta">Lead surgeon<b>Dr. Kavya Srinivasan</b></span>
+    </div>
+    <div class="rev">
+      <span class="idx">05 — The hand behind the guide</span>
+      <h2 style="margin-top:16px;">Eighteen years. <span class="serif">One discipline.</span></h2>
+      <p class="bio">Dr. Kavya Srinivasan has practised implant and maxillofacial surgery exclusively since 2008 — more than nine thousand fixtures across straightforward and once-impossible cases. The guide sets the plan; her hands have earned the right to trust it.</p>
+      <div class="creds">
+        <div class="cred"><span class="cn">QUAL—01</span><span class="ct">BDS, MDS — Oral &amp; Maxillofacial Surgery</span></div>
+        <div class="cred"><span class="cn">QUAL—02</span><span class="ct">Fellowship in Oral Implantology, ICOI</span></div>
+        <div class="cred"><span class="cn">QUAL—03</span><span class="ct">Certified — guided &amp; immediate-load protocols</span></div>
+        <div class="cred"><span class="cn">QUAL—04</span><span class="ct">Guest faculty, implant surgery workshops, South India</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= QUOTES ================= -->
+<section class="sec qsec" id="stories">
+  <div class="wrap">
+    <div class="sec-head rev" style="justify-content:center; text-align:center;">
+      <div>
+        <span class="idx" style="justify-content:center;">06 — Outcomes</span>
+        <h2 style="margin-left:auto;margin-right:auto;">Teeth they'd <span class="serif">written off.</span></h2>
+      </div>
+    </div>
+    <div class="qbox rev" id="qbox">
+      <figure class="q on">
+        <span class="mark">"</span>
+        <blockquote>Two clinics said I didn't have enough bone. Anchor grafted it, waited, and placed them properly. I'm eating like myself again.</blockquote>
+        <figcaption class="who"><b>Venkat N.</b> — full-arch, lower jaw</figcaption>
+      </figure>
+      <figure class="q">
+        <span class="mark">"</span>
+        <blockquote>They showed me the implant's exact position on the scan before surgery. The procedure itself was calmer than the waiting room.</blockquote>
+        <figcaption class="who"><b>Priya L.</b> — single implant, front tooth</figcaption>
+      </figure>
+      <figure class="q">
+        <span class="mark">"</span>
+        <blockquote>An implant from another city had failed twice. They found why, fixed the bone, re-did it. Two years on — rock solid.</blockquote>
+        <figcaption class="who"><b>Arif F.</b> — failed-implant rescue</figcaption>
+      </figure>
+    </div>
+    <div class="q-nav rev">
+      <button id="qPrev" aria-label="Previous story" data-cursor><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m6-6-6 6 6 6"/></svg></button>
+      <div class="q-dots" id="qDots"><i class="on"></i><i></i><i></i></div>
+      <button id="qNext" aria-label="Next story" data-cursor><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="sec" id="faq" style="padding-top:0;">
+  <div class="wrap">
+    <div class="sec-head rev" style="justify-content:center;text-align:center;">
+      <div>
+        <span class="idx" style="justify-content:center;">07 — Questions</span>
+        <h2 style="margin-left:auto;margin-right:auto;">Asked before <span class="serif">every consult.</span></h2>
+      </div>
+    </div>
+    <div class="faq">
+      <details class="qa rev"><summary><span class="qn">Q—01</span><h3>Does getting an implant hurt?</h3><span class="pm"></span></summary><div class="ans">Placement happens under local anaesthetic, with optional sedation, so the surgery itself is painless. Most people describe recovery as easier than a difficult extraction — a few days of mild soreness, managed with ordinary painkillers.</div></details>
+      <details class="qa rev"><summary><span class="qn">Q—02</span><h3>How long does the whole process take?</h3><span class="pm"></span></summary><div class="ans">First scan to final crown is usually two to four months. Most of that is quiet biology — bone fusing to titanium. Chair time is small: the placement itself takes one to two hours.</div></details>
+      <details class="qa rev"><summary><span class="qn">Q—03</span><h3>I was told I don't have enough bone.</h3><span class="pm"></span></summary><div class="ans">That's where we start, not where we stop. Grafting and sinus-lift procedures rebuild lost volume, and the CBCT scan tells us precisely what's possible. A large share of our patients were declined elsewhere first.</div></details>
+      <details class="qa rev"><summary><span class="qn">Q—04</span><h3>How long will the implant last?</h3><span class="pm"></span></summary><div class="ans">A well-placed, well-kept implant routinely lasts decades — often a lifetime. The fixture carries a 10-year warranty; daily care and regular reviews protect the rest.</div></details>
+      <details class="qa rev"><summary><span class="qn">Q—05</span><h3>What does it cost — and is there EMI?</h3><span class="pm"></span></summary><div class="ans">Single implants from ₹28,000; full-arch from ₹2,40,000 per arch. Your exact quote is fixed after the scan, before anything begins. No-cost EMI runs up to 12 months, with GST-compliant billing for insurance.</div></details>
+      <details class="qa rev"><summary><span class="qn">Q—06</span><h3>Will it look like a real tooth?</h3><span class="pm"></span></summary><div class="ans">The crown is custom-milled and colour-matched to its neighbours, then adjusted until the bite feels native. The honest benchmark: most patients stop remembering which tooth it is.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta" id="book">
+  <div class="cta-in">
+    <h2 class="rev">Start with a scan, <span class="serif">not a guess.</span></h2>
+    <p class="rev">Book a 3-D consultation with Dr. Kavya. You'll leave knowing exactly what's possible, how long it takes, and what it costs — to the rupee.</p>
+    <div class="row rev">
+      <a class="btn btn-fill btn-lg magnet" href="tel:+914428330700" data-cursor><span class="bl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>Call 044 2833 0700</span></a>
+      <a class="btn btn-line btn-lg magnet" href="https://wa.me/914428330700" target="_blank" rel="noopener" data-cursor><span class="bl">Book on WhatsApp</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="logo" href="#top" style="margin-bottom:18px;">
+          <span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round"><path d="M12 3v10M8.5 6h7M8.5 9h7M12 13c-1.8 0-2.6 1.8-2.6 4.2 0 2 .5 4.8 1.2 4.8.7 0 .8-1.7 1.4-1.7s.7 1.7 1.4 1.7c.7 0 1.2-2.8 1.2-4.8 0-2.4-.8-4.2-2.6-4.2Z"/></svg></span>
+          <span class="nm">Anchor<small>IMPLANT · ORAL SURGERY</small></span>
+        </a>
+        <p>A dedicated implant &amp; oral surgery centre. One discipline, engineered properly.</p>
+      </div>
+      <div>
+        <h5>Treatments</h5>
+        <a href="#treatments">Single implants</a><a href="#treatments">All-on-4 full arch</a><a href="#treatments">Bone graft &amp; sinus lift</a><a href="#treatments">Wisdom surgery</a><a href="#treatments">Implant rescue</a>
+      </div>
+      <div>
+        <h5>Centre</h5>
+        <a href="#process">Process</a><a href="#guided">Why guided</a><a href="#surgeon">Surgeon</a><a href="#stories">Outcomes</a><a href="#faq">FAQ</a>
+      </div>
+      <div>
+        <h5>Visit</h5>
+        <p>2nd Floor, Sterling Arcade,<br>Sterling Road, Nungambakkam,<br>Chennai 600034</p>
+        <a href="tel:+914428330700" style="margin-top:10px;">044 2833 0700</a>
+        <a href="mailto:hello@anchorimplant.in">hello@anchorimplant.in</a>
+        <p style="margin-top:8px;">Mon–Sat · 9:00–19:00</p>
+      </div>
+    </div>
+    <div class="foot-bar">
+      <span>© 2026 Anchor Implant &amp; Oral Surgery — Dr. Kavya Srinivasan, BDS MDS (OMFS)</span>
+      <span>Created by <a href="https://stellarhausmedia.com" target="_blank" rel="noopener" style="color:var(--copper);text-decoration:none;">stellarhausmedia.com</a></span>
+      <span>DWG. AN-04 · Nungambakkam · Chennai</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePtr = matchMedia('(pointer: fine)').matches;
+
+  /* ---------- mobile menu ---------- */
+  const burger=document.getElementById('burger'), mmenu=document.getElementById('mmenu');
+  burger.addEventListener('click',()=>{ const o=mmenu.classList.toggle('open'); burger.setAttribute('aria-expanded',o); });
+  mmenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mmenu.classList.remove('open')));
+
+  /* ---------- scroll progress ---------- */
+  const prog=document.getElementById('progress');
+  let ticking=false;
+  addEventListener('scroll',()=>{ if(ticking) return; ticking=true; requestAnimationFrame(()=>{
+    const h=document.documentElement; prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'; ticking=false;
+  });},{passive:true});
+
+  /* ---------- custom cursor ---------- */
+  if(finePtr && !reduced){
+    document.body.classList.add('cursor-on');
+    const dot=document.getElementById('curDot'), ring=document.getElementById('curRing');
+    let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+    addEventListener('pointermove',e=>{ document.body.classList.add('curlive'); mx=e.clientX; my=e.clientY; dot.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`; });
+    (function loop(){ rx+=(mx-rx)*.16; ry+=(my-ry)*.16; ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`; requestAnimationFrame(loop); })();
+    document.querySelectorAll('[data-cursor],a,button,summary').forEach(el=>{
+      el.addEventListener('pointerenter',()=>ring.classList.add('hov'));
+      el.addEventListener('pointerleave',()=>ring.classList.remove('hov'));
+    });
+  }
+
+  /* ---------- magnetic buttons ---------- */
+  if(finePtr && !reduced){
+    document.querySelectorAll('.magnet').forEach(b=>{
+      b.addEventListener('pointermove',e=>{
+        const r=b.getBoundingClientRect();
+        const x=(e.clientX-r.left-r.width/2)/r.width, y=(e.clientY-r.top-r.height/2)/r.height;
+        b.style.transform=`translate(${x*10}px,${y*8}px)`;
+      });
+      b.addEventListener('pointerleave',()=>{ b.style.transition='transform .5s cubic-bezier(.16,1,.3,1)'; b.style.transform=''; setTimeout(()=>b.style.transition='',500); });
+    });
+  }
+
+  /* ---------- reveal on scroll ---------- */
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.14});
+  document.querySelectorAll('.rev').forEach((el,i)=>{ el.style.transitionDelay=(i%3)*70+'ms'; io.observe(el); });
+  const proc=document.querySelector('.proc');
+  if(proc){ const pio=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ proc.classList.add('in'); pio.unobserve(proc);} }),{threshold:.2}); pio.observe(proc); }
+  const ks=document.getElementById('ksCard');
+  if(ks){ const kio=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ ks.classList.add('in'); kio.unobserve(ks);} }),{threshold:.4}); kio.observe(ks); }
+
+  /* ---------- count-up ---------- */
+  function fmt(n,dec){ return dec? n.toFixed(dec) : Math.round(n).toLocaleString('en-IN'); }
+  const cio=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting) return; const el=e.target; cio.unobserve(el);
+    const t=parseFloat(el.dataset.count), dec=+(el.dataset.dec||0);
+    const keep=el.querySelector('sup')? el.querySelector('sup').outerHTML : '';
+    if(reduced){ el.innerHTML=fmt(t,dec)+keep; return; }
+    const t0=performance.now(), dur=1400;
+    (function tick(now){ const p=Math.min(1,(now-t0)/dur), v=t*(1-Math.pow(1-p,3));
+      el.innerHTML=fmt(v,dec)+keep; if(p<1) requestAnimationFrame(tick); })(t0);
+  }),{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+  /* ---------- quote rotator ---------- */
+  const qs=[...document.querySelectorAll('.q')], dots=[...document.querySelectorAll('#qDots i')];
+  let qi=0, qt;
+  function show(n){ qs[qi].classList.remove('on'); dots[qi].classList.remove('on');
+    qi=(n+qs.length)%qs.length; qs[qi].classList.add('on'); dots[qi].classList.add('on'); }
+  function auto(){ if(reduced) return; clearInterval(qt); qt=setInterval(()=>show(qi+1),6000); }
+  document.getElementById('qNext').addEventListener('click',()=>{show(qi+1);auto();});
+  document.getElementById('qPrev').addEventListener('click',()=>{show(qi-1);auto();});
+  auto();
+
+  /* =====================================================
+     BLUEPRINT — implant technical drawing, generated + choreographed
+  ===================================================== */
+  const NS='http://www.w3.org/2000/svg';
+  const svg=document.getElementById('bp');
+  function el(name,attrs,parent){ const n=document.createElementNS(NS,name);
+    for(const k in attrs) n.setAttribute(k,attrs[k]); (parent||svg).appendChild(n); return n; }
+
+  /* layers */
+  const gAxis=el('g',{}), gBody=el('g',{}), gThread=el('g',{}), gDims=el('g',{}), gLabs=el('g',{});
+
+  /* defs: gradients */
+  const defs=el('defs',{});
+  defs.innerHTML=`
+    <linearGradient id="gTi" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3A3F49"/><stop offset=".35" stop-color="#7E8694"/>
+      <stop offset=".5" stop-color="#C7CCD6"/><stop offset=".65" stop-color="#6F7785"/><stop offset="1" stop-color="#343943"/>
+    </linearGradient>
+    <linearGradient id="gIv" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#B7B1A2"/><stop offset=".4" stop-color="#EDE7D9"/>
+      <stop offset=".62" stop-color="#F7F3E8"/><stop offset="1" stop-color="#A8A293"/>
+    </linearGradient>
+    <linearGradient id="gAb" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4A505B"/><stop offset=".5" stop-color="#9AA2B0"/><stop offset="1" stop-color="#454B56"/>
+    </linearGradient>`;
+
+  const CX=270;             /* implant axis x */
+  const crownTop=58, crownBot=170, abTop=170, abBot=212, colTop=212, colBot=228;
+  const bodyTop=228, bodyBot=470, apexY=505;
+  const wTop=40, wBot=15;   /* half-widths of core */
+  const halfW=y=> wTop-(y-bodyTop)*((wTop-wBot)/(bodyBot-bodyTop));
+
+  /* centerline (dash-dot) */
+  const center=el('line',{x1:CX,y1:26,x2:CX,y2:apexY+30,stroke:'rgba(235,233,226,.35)','stroke-width':1,'stroke-dasharray':'14 6 2 6'},gAxis);
+
+  /* crown — two-cusp molar silhouette */
+  const crown=el('path',{d:`M${CX-62},${crownBot}
+      C ${CX-74},132 ${CX-70},96 ${CX-58},78
+      C ${CX-48},62 ${CX-30},56 ${CX-16},66
+      C ${CX-6},72 ${CX+6},72 ${CX+16},66
+      C ${CX+30},56 ${CX+48},62 ${CX+58},78
+      C ${CX+70},96 ${CX+74},132 ${CX+62},${crownBot}
+      C ${CX+38},182 ${CX-38},182 ${CX-62},${crownBot} Z`,
+    fill:'url(#gIv)',stroke:'#D08A52','stroke-width':1.2},gBody);
+
+  /* abutment */
+  const ab=el('path',{d:`M${CX-26},${abTop} L${CX+26},${abTop} L${CX+19},${abBot} L${CX-19},${abBot} Z`,
+    fill:'url(#gAb)',stroke:'#D08A52','stroke-width':1},gBody);
+  /* platform collar */
+  const col=el('rect',{x:CX-wTop,y:colTop,width:wTop*2,height:colBot-colTop,rx:3,
+    fill:'url(#gTi)',stroke:'#D08A52','stroke-width':1},gBody);
+
+  /* implant core silhouette */
+  const core=el('path',{d:`M${CX-wTop},${bodyTop}
+      L${CX-wBot},${bodyBot}
+      Q ${CX-wBot},${apexY-14} ${CX},${apexY}
+      Q ${CX+wBot},${apexY-14} ${CX+wBot},${bodyBot}
+      L${CX+wTop},${bodyTop} Z`,
+    fill:'url(#gTi)',stroke:'#D08A52','stroke-width':1.2},gBody);
+
+  /* threads — sawtooth ridge each side + root shadow lines */
+  const P=22, T0=bodyTop+12, N=Math.floor((bodyBot-18-T0)/P);
+  let dL=`M${CX-halfW(T0)},${T0}`, dR=`M${CX+halfW(T0)},${T0}`;
+  for(let i=0;i<=N;i++){
+    const y=T0+i*P, w=halfW(y), tip=9-(i*(3/N));
+    dL+=` L${CX-w-tip},${y+P*.32} L${CX-halfW(y+P*.62)},${y+P*.62} L${CX-halfW(y+P)},${y+P}`;
+    dR+=` L${CX+w+tip},${y+P*.32} L${CX+halfW(y+P*.62)},${y+P*.62} L${CX+halfW(y+P)},${y+P}`;
+    el('line',{x1:CX-w+3,y1:y+P*.34,x2:CX+w-3,y2:y+P*.30,stroke:'rgba(20,21,27,.35)','stroke-width':1},gThread);
+  }
+  const thrL=el('path',{d:dL,fill:'none',stroke:'#D08A52','stroke-width':1.3,'stroke-linejoin':'round'},gThread);
+  const thrR=el('path',{d:dR,fill:'none',stroke:'#D08A52','stroke-width':1.3,'stroke-linejoin':'round'},gThread);
+
+  /* ---- dimensions & callouts ---- */
+  function dim(x1,y1,x2,y2,parent){ return el('line',{x1,y1,x2,y2,class:'dimline'},parent); }
+  function arrow(x,y,rot,parent){ return el('path',{d:`M${x},${y} l-7,-3 v6 Z`,class:'dimarrow',transform:`rotate(${rot} ${x} ${y})`},parent); }
+  function lab(x,y,txt,cls,anchor,parent){ const t=el('text',{x,y,class:'lab '+(cls||''),'text-anchor':anchor||'start'},parent||gLabs); t.textContent=txt; return t; }
+
+  /* overall length dim — right side */
+  const DX=CX+150;
+  dim(CX+wTop+10,bodyTop,DX+14,bodyTop,gDims); dim(CX+18,apexY,DX+14,apexY,gDims);
+  dim(DX,bodyTop,DX,apexY,gDims); arrow(DX,bodyTop+1,90,gDims); arrow(DX,apexY-1,-90,gDims);
+  lab(DX+12,(bodyTop+apexY)/2-6,'13.0',  'i',  'start'); lab(DX+12,(bodyTop+apexY)/2+10,'MM','', 'start');
+
+  /* diameter dim — top */
+  const DY=40;
+  dim(CX-wTop,colTop,CX-wTop,176,gDims); dim(CX+wTop,colTop,CX+wTop,176,gDims);
+  dim(CX-wTop,56,CX-wTop,DY-6,gDims);     dim(CX+wTop,56,CX+wTop,DY-6,gDims);
+  dim(CX-wTop,DY,CX+wTop,DY,gDims); arrow(CX-wTop+1,DY,0,gDims); arrow(CX+wTop-1,DY,180,gDims);
+  lab(CX,DY-10,'Ø 4.3 MM','i','middle');
+
+  /* pitch callout — left */
+  const py=T0+P*3;
+  el('path',{d:`M${CX-halfW(py)-12},${py} h-44`,class:'leader'},gDims);
+  el('circle',{cx:CX-halfW(py)-12,cy:py,r:2.5,fill:'#D08A52'},gDims);
+  lab(CX-halfW(py)-62,py-8,'PITCH','c','end'); lab(CX-halfW(py)-62,py+8,'0.8 MM','i','end');
+
+  /* torque callout — left lower */
+  const ty=bodyBot-24;
+  el('path',{d:`M${CX-halfW(ty)-10},${ty} h-58`,class:'leader'},gDims);
+  el('circle',{cx:CX-halfW(ty)-10,cy:ty,r:2.5,fill:'#D08A52'},gDims);
+  lab(CX-halfW(ty)-74,ty-8,'INSERTION','c lab-sec','end'); lab(CX-halfW(ty)-74,ty+8,'35 N·CM','i lab-sec','end');
+
+  /* surface flag — right of threads */
+  const sy=T0+P*8.7;
+  el('path',{d:`M${CX+halfW(sy)+12},${sy} h30`,class:'leader'},gDims);
+  el('circle',{cx:CX+halfW(sy)+12,cy:sy,r:2.5,fill:'#D08A52'},gDims);
+  lab(CX+halfW(sy)+48,sy-8,'SLA SURFACE','c lab-sec','start'); lab(CX+halfW(sy)+48,sy+8,'OSSEO-READY','lab-sec','start');
+
+  /* crown leader */
+  el('path',{d:`M${CX+58},96 h54`,class:'leader'},gDims);
+  el('circle',{cx:CX+58,cy:96,r:2.5,fill:'#D08A52'},gDims);
+  lab(CX+118,90,'ZIRCONIA','c','start'); lab(CX+118,106,'CROWN','','start');
+
+  /* detail circle — magnified thread, bottom-left */
+  const dcx=92, dcy=512, dcr=58;
+  const gDet=el('g',{},gDims);
+  el('circle',{cx:dcx,cy:dcy,r:dcr,fill:'rgba(20,21,27,.55)',stroke:'rgba(235,233,226,.28)','stroke-width':1},gDet);
+  el('path',{d:`M${dcx-34},${dcy-22} l16,9 l-16,9 l16,9 l-16,9 l16,9`,fill:'none',stroke:'#D08A52','stroke-width':2,'stroke-linejoin':'round'},gDet);
+  el('path',{d:`M${dcx+2},${dcy-26} v52`,stroke:'rgba(199,204,214,.5)','stroke-width':5},gDet);
+  el('path',{d:`M${CX-halfW(T0+P*1.5)-4},${T0+P*1.5} L${dcx+dcr-8},${dcy-dcr+8}`,class:'leader'},gDet);
+  lab(dcx,dcy+dcr+18,'DETAIL B — 4:1','c','middle',gDet);
+
+  /* ---------- choreography ---------- */
+  const strokes=[center,crown,ab,col,core,thrL,thrR];
+  strokes.forEach(p=>{ const L=p.getTotalLength? p.getTotalLength():600;
+    p.style.strokeDasharray = p===center? '14 6 2 6' : L;
+    if(p!==center){ p.style.strokeDashoffset=L; }
+    if(p.getAttribute('fill') && p.getAttribute('fill')!=='none'){ p.dataset.fill=p.getAttribute('fill'); p.setAttribute('fill','transparent'); }
+  });
+  gDims.style.opacity=0; gLabs.style.opacity=0;
+  [...gThread.querySelectorAll('line')].forEach(l=>l.style.opacity=0);
+
+  function play(){
+    if(reduced){ strokes.forEach(p=>{ p.style.strokeDashoffset=0; if(p.dataset.fill) p.setAttribute('fill',p.dataset.fill); });
+      gDims.style.opacity=1; gLabs.style.opacity=1;
+      [...gThread.querySelectorAll('line')].forEach(l=>l.style.opacity=1); return; }
+    const dur=1100;
+    strokes.forEach((p,i)=>{ if(p===center) return;
+      p.style.transition=`stroke-dashoffset ${dur}ms cubic-bezier(.65,0,.35,1) ${200+i*140}ms`;
+      requestAnimationFrame(()=>p.style.strokeDashoffset=0); });
+    setTimeout(()=>{ strokes.forEach(p=>{ if(p.dataset.fill){ p.style.transition='fill 700ms ease'; p.setAttribute('fill',p.dataset.fill);} });
+      [...gThread.querySelectorAll('line')].forEach((l,i)=>{ l.style.transition=`opacity .5s ${i*30}ms`; l.style.opacity=1; });
+    },dur+500);
+    setTimeout(()=>{ gDims.style.transition='opacity .8s ease'; gDims.style.opacity=1;
+      gLabs.style.transition='opacity .8s ease .15s'; gLabs.style.opacity=1; },dur+900);
+  }
+
+  /* ---------- hero parallax ---------- */
+  const stage=document.getElementById('stage');
+  if(finePtr && !reduced){
+    const hero=document.getElementById('hero');
+    hero.addEventListener('pointermove',e=>{
+      const r=hero.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+      gBody.style.transform=gThread.style.transform=`translate(${x*10}px,${y*8}px)`;
+      gDims.style.transform=gLabs.style.transform=`translate(${x*18}px,${y*14}px)`;
+      gAxis.style.transform=`translate(${x*6}px,${y*5}px)`;
+    });
+    hero.addEventListener('pointerleave',()=>{ [gBody,gThread,gDims,gLabs,gAxis].forEach(g=>g.style.transform=''); });
+  }
+
+  /* ---------- scanline + live depth readout ---------- */
+  const scan=document.getElementById('scan'), read=document.getElementById('readout');
+  function setScan(frac){            /* frac: 0..1 of stage height */
+    const pct=Math.min(.96,Math.max(.04,frac));
+    scan.style.top=(pct*100)+'%'; read.style.top=(pct*100)+'%';
+    /* map to implant depth: svg y bodyTop..apexY ⇒ 0..13mm */
+    const r=stage.getBoundingClientRect(), vb=560/640;
+    const svgY=pct*640;
+    if(svgY>=bodyTop && svgY<=apexY){
+      const mm=(svgY-bodyTop)/(apexY-bodyTop)*13;
+      read.textContent=`DEPTH ${mm.toFixed(1).padStart(4,'0')} MM`;
+    } else if(svgY<bodyTop){ read.textContent='CROWN / SUPRA'; }
+    else { read.textContent='APEX REACHED'; }
+  }
+  if(finePtr && !reduced){
+    stage.addEventListener('pointermove',e=>{
+      const r=stage.getBoundingClientRect(); setScan((e.clientY-r.top)/r.height);
+    });
+  }
+  if(!finePtr && !reduced){           /* autonomous sweep on touch */
+    let t=0; (function sweep(){ t+=.004; setScan(.5+.42*Math.sin(t)); requestAnimationFrame(sweep); })();
+  }
+  if(reduced) setScan(.52);
+
+  /* ---------- boot ---------- */
+  function boot(){ document.body.classList.add('loaded'); play(); if(finePtr&&!reduced) setScan(.52); }
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(()=>setTimeout(boot,80)); setTimeout(boot,1800); }
+  else setTimeout(boot,300);
+  let booted=false; const origBoot=boot;
+  boot=function(){ if(booted) return; booted=true; origBoot(); };
+})();
+</script>
+</body>
+</html>

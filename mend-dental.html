@@ -1,0 +1,1446 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MEND Dental Studio — Emergency &amp; Surgical Dentistry, Chennai</title>
+<meta name="description" content="MEND is a dental practice with one obsession: ending pain. Emergency dentistry, root canals, extractions, TMJ care and sedation. Same-day appointments. 24-hour line. No veneers. No vanity.">
+<meta property="og:title" content="MEND Dental Studio — Vanity is optional. Pain is not.">
+<meta property="og:description" content="Emergency & surgical dentistry in Chennai. Same-day appointments, 24-hour line.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230B0B0B'/%3E%3Cpath d='M8 36 L24 36 L30 26 L36 42 L44 32 L56 32' stroke='%23FF3D00' stroke-width='5' fill='none'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "name": "MEND Dental Studio",
+  "description": "Emergency and surgical dentistry. Root canal therapy, extractions, TMJ and facial pain care, sedation dentistry. Same-day appointments and a 24-hour line.",
+  "telephone": "+91 98765 43210",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "14, 2nd Cross Street, Sembakkam Main Road, Pallavaram",
+    "addressLocality": "Chennai",
+    "addressRegion": "Tamil Nadu",
+    "postalCode": "600043",
+    "addressCountry": "IN"
+  },
+  "openingHours": "Mo-Sa 09:00-20:00",
+  "priceRange": "₹₹"
+}
+</script>
+
+<style>
+/* ============================================================
+   MEND — BONE / INK / SIGNAL
+   Premium brutalist-editorial system. Signature: the kintsugi
+   seam — a vermilion fracture that mends. It recurs in the hero
+   nerve-field, section dividers, hover states and the index.
+   ============================================================ */
+
+/* ---------- 00 · TOKENS ---------- */
+:root{
+  --bone:        #EAE6DC;
+  --bone-deep:   #DED8C8;
+  --ink:         #0B0B0B;
+  --ink-soft:    #161512;
+  --verm:        #FF3D00;
+  --verm-deep:   #C92E00;
+
+  --line-on-bone: rgba(11,11,11,.22);
+  --line-on-ink:  rgba(234,230,220,.18);
+  --frame:        rgba(234,230,220,.14);
+
+  --font-display: "Anton", "Arial Narrow", sans-serif;
+  --font-body:    "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-mono:    "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+
+  --h-giant: clamp(3.6rem, 11.5vw, 12.5rem);
+  --h-1:     clamp(2.8rem, 7.8vw, 8.2rem);
+  --h-2:     clamp(2.1rem, 5vw, 4.8rem);
+  --h-3:     clamp(1.4rem, 2.6vw, 2.4rem);
+  --t-body:  clamp(1rem, 1.1vw, 1.15rem);
+  --t-mono:  clamp(.68rem, .8vw, .8rem);
+
+  --gut: clamp(1.25rem, 4vw, 4.5rem);
+  --ease-out: cubic-bezier(.16,1,.3,1);
+  --ease-io:  cubic-bezier(.77,0,.18,1);
+  --head-h: 76px;
+}
+
+/* ---------- 01 · RESET / BASE ---------- */
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:auto; -webkit-text-size-adjust:100%; }
+body{
+  background:var(--ink);
+  color:var(--bone);
+  font-family:var(--font-body);
+  font-size:var(--t-body);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+html.has-smooth, html.has-smooth body{ overscroll-behavior:none; }
+img{ display:block; max-width:100%; height:auto; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; }
+ul{ list-style:none; }
+::selection{ background:var(--verm); color:var(--ink); }
+:focus-visible{ outline:2px solid var(--verm); outline-offset:3px; }
+@media (hover:hover) and (pointer:fine){
+  html.has-cursor, html.has-cursor a, html.has-cursor button{ cursor:none; }
+}
+::-webkit-scrollbar{ width:10px; background:var(--ink); }
+::-webkit-scrollbar-thumb{ background:#2a2823; border:2px solid var(--ink); }
+::-webkit-scrollbar-thumb:hover{ background:var(--verm); }
+
+.skip{
+  position:fixed; top:-100%; left:1rem; z-index:300;
+  background:var(--verm); color:var(--ink);
+  font-family:var(--font-mono); font-size:.8rem; padding:.7rem 1rem;
+  transition:top .2s;
+}
+.skip:focus{ top:1rem; }
+
+/* film grain */
+.grain{
+  position:fixed; inset:-50%; z-index:120; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.05; animation:grain 7s steps(8) infinite;
+}
+@keyframes grain{
+  0%,100%{transform:translate(0,0)} 25%{transform:translate(-2%,3%)}
+  50%{transform:translate(3%,-2%)} 75%{transform:translate(-3%,-3%)}
+}
+
+/* ---------- 02 · SMOOTH-SCROLL SHELL ---------- */
+#page{
+  position:relative; width:100%;
+  max-width:1920px; margin-inline:auto;
+  border-inline:1px solid var(--frame);
+  background:var(--ink);
+}
+html.has-smooth #page{
+  position:fixed; top:0; left:0; right:0;
+  margin-inline:auto; will-change:transform;
+}
+
+/* themes */
+[data-theme="bone"]{ background:var(--bone); color:var(--ink); --line:var(--line-on-bone); }
+[data-theme="ink"] { background:var(--ink);  color:var(--bone); --line:var(--line-on-ink); }
+
+/* ---------- 03 · TYPE UTILITIES ---------- */
+.display{
+  font-family:var(--font-display);
+  font-weight:400; text-transform:uppercase;
+  line-height:.92; letter-spacing:.005em;
+}
+.mono{
+  font-family:var(--font-mono); font-size:var(--t-mono);
+  letter-spacing:.14em; text-transform:uppercase; font-weight:500;
+}
+.eyebrow{
+  display:flex; justify-content:space-between; align-items:baseline;
+  gap:1rem; padding-bottom:1.1rem; margin-bottom:clamp(2rem,5vw,4rem);
+  border-bottom:1px solid var(--line);
+}
+.eyebrow .dot::before{ content:""; display:inline-block; width:.55em; height:.55em; background:var(--verm); margin-right:.6em; transform:translateY(.02em); }
+.accent{ color:var(--verm); }
+.outline-bone{ color:transparent; -webkit-text-stroke:1.5px var(--bone); }
+.outline-ink { color:transparent; -webkit-text-stroke:1.5px var(--ink); }
+.measure{ max-width:62ch; }
+.measure-n{ max-width:46ch; }
+
+/* split-reveal scaffolding */
+.word{ display:inline-block; overflow:hidden; vertical-align:top; padding-bottom:.06em; margin-bottom:-.06em; }
+.char{ display:inline-block; transform:translateY(115%) rotate(5deg); opacity:0;
+  transition:transform 1s var(--ease-out), opacity .5s linear; will-change:transform; }
+.in .char{ transform:translateY(0) rotate(0); opacity:1; }
+
+.line-wrap{ overflow:hidden; }
+.line-in{ display:block; transform:translateY(115%);
+  transition:transform 1.1s var(--ease-out); }
+.in .line-in, .line-wrap.in .line-in{ transform:translateY(0); }
+
+[data-reveal="fade"]{ opacity:0; transform:translateY(34px);
+  transition:opacity .9s linear, transform 1s var(--ease-out); }
+[data-reveal="fade"].in{ opacity:1; transform:none; }
+
+/* image masks */
+.mask{ position:relative; overflow:hidden;
+  clip-path:inset(0 100% 0 0);
+  transition:clip-path 1.25s var(--ease-io); }
+.mask[data-dir="up"]{ clip-path:inset(100% 0 0 0); }
+.mask[data-dir="right"]{ clip-path:inset(0 0 0 100%); }
+.mask.in{ clip-path:inset(0 0 0 0); }
+.mask img{ width:100%; height:100%; object-fit:cover;
+  transform:scale(1.28); transition:transform 1.6s var(--ease-io); }
+.mask.in img{ transform:scale(1.02); }
+.ph img{ filter:grayscale(1) contrast(1.06) brightness(.96); } /* placeholder harmonizer — removed when final art lands */
+
+figure{ position:relative; }
+figcaption{ margin-top:.7rem; display:flex; justify-content:space-between; gap:1rem; opacity:.65; }
+
+/* the seam — signature fracture divider */
+.seam{ display:block; width:100%; height:44px; overflow:visible; }
+.seam path{ fill:none; stroke:var(--verm); stroke-width:2;
+  stroke-dasharray:1; stroke-dashoffset:1;
+  transition:stroke-dashoffset 1.8s var(--ease-io) .15s; }
+.seam circle{ fill:var(--verm); opacity:0; transition:opacity .4s 1.4s; }
+.seam.in path{ stroke-dashoffset:0; }
+.seam.in circle{ opacity:1; }
+
+/* ---------- 04 · PRELOADER ---------- */
+.preloader{
+  position:fixed; inset:0; z-index:200; background:var(--ink); color:var(--bone);
+  display:flex; align-items:center; justify-content:center;
+  transition:transform .9s var(--ease-io);
+}
+.preloader.done{ transform:translateY(-101%); }
+.preloader-inner{ text-align:center; }
+.preloader-word{ font-family:var(--font-display); font-size:clamp(3rem,10vw,7rem);
+  text-transform:uppercase; line-height:1; display:flex; gap:.04em; }
+.preloader-word span{ display:inline-block; transform:translateY(110%); opacity:0;
+  animation:pl-up .8s var(--ease-out) forwards; }
+.preloader-word span:nth-child(2){ animation-delay:.08s }
+.preloader-word span:nth-child(3){ animation-delay:.16s }
+.preloader-word span:nth-child(4){ animation-delay:.24s }
+.preloader-word .tm{ font-size:.25em; align-self:flex-start; margin-top:.5em; color:var(--verm); animation-delay:.32s }
+@keyframes pl-up{ to{ transform:translateY(0); opacity:1 } }
+.preloader-count{ margin-top:1.2rem; color:var(--verm); }
+.preloader-bar{ width:min(280px,60vw); height:1px; background:rgba(234,230,220,.2); margin:1rem auto 0; position:relative; }
+.preloader-bar i{ position:absolute; inset:0; background:var(--verm); transform-origin:left; transform:scaleX(0); }
+
+/* ---------- 05 · CURSOR ---------- */
+.cursor,.cursor-ring{ position:fixed; top:0; left:0; z-index:250; pointer-events:none;
+  border-radius:50%; transform:translate(-50%,-50%); display:none; }
+html.has-cursor .cursor, html.has-cursor .cursor-ring{ display:block; }
+.cursor{ width:8px; height:8px; background:var(--verm); }
+.cursor-ring{
+  width:42px; height:42px; border:1px solid var(--verm);
+  display:none; align-items:center; justify-content:center;
+  transition:width .35s var(--ease-out), height .35s var(--ease-out), background-color .35s, border-color .35s;
+  mix-blend-mode:difference;
+}
+html.has-cursor .cursor-ring{ display:flex; }
+.cursor-ring span{ font-family:var(--font-mono); font-size:.6rem; letter-spacing:.18em;
+  color:var(--ink); opacity:0; transition:opacity .25s; text-transform:uppercase; }
+.cursor-ring.is-hover{ width:64px; height:64px; background:var(--verm); border-color:var(--verm); mix-blend-mode:normal; }
+.cursor-ring.is-text{ width:88px; height:88px; background:var(--verm); border-color:var(--verm); mix-blend-mode:normal; }
+.cursor-ring.is-text span{ opacity:1; }
+.cursor-ring.is-down{ transform:translate(-50%,-50%) scale(.8); }
+
+/* ---------- 06 · HEADER ---------- */
+.site-head{
+  position:fixed; top:0; left:0; right:0; z-index:150;
+  height:var(--head-h);
+  display:flex; align-items:center; justify-content:space-between;
+  padding-inline:var(--gut);
+  transition:transform .5s var(--ease-out), background-color .4s, border-color .4s;
+  border-bottom:1px solid transparent;
+}
+.site-head.solid{ background:rgba(11,11,11,.82); backdrop-filter:blur(12px); border-color:var(--frame); }
+.site-head.hide{ transform:translateY(-100%); }
+.brand{ display:flex; flex-direction:column; line-height:1; gap:.3rem; }
+.brand-mark{ font-family:var(--font-display); font-size:1.55rem; letter-spacing:.04em; color:var(--bone); }
+.brand-mark sup{ color:var(--verm); font-size:.5em; }
+.brand-sub{ font-size:.58rem; opacity:.6; }
+.head-nav{ display:flex; gap:clamp(1.2rem,2.5vw,2.6rem); }
+.head-nav a{ position:relative; padding-block:.4rem; font-family:var(--font-mono);
+  font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--bone); }
+.head-nav a::after{ content:""; position:absolute; left:0; bottom:0; height:1px; width:100%;
+  background:var(--verm); transform:scaleX(0); transform-origin:right;
+  transition:transform .45s var(--ease-out); }
+.head-nav a:hover::after, .head-nav a:focus-visible::after{ transform:scaleX(1); transform-origin:left; }
+.head-right{ display:flex; align-items:center; gap:1.1rem; }
+.open-pill{ display:flex; align-items:center; gap:.5rem; font-size:.62rem; opacity:.75; }
+.open-pill i{ width:7px; height:7px; border-radius:50%; background:#5e5a4f; }
+.open-pill.is-open i{ background:var(--verm); animation:pulse 1.8s infinite; }
+@keyframes pulse{ 0%,100%{box-shadow:0 0 0 0 rgba(255,61,0,.5)} 60%{box-shadow:0 0 0 7px rgba(255,61,0,0)} }
+.call-pill{
+  display:inline-flex; align-items:center; gap:.6rem;
+  background:var(--verm); color:var(--ink);
+  font-family:var(--font-mono); font-size:.72rem; font-weight:500;
+  letter-spacing:.12em; text-transform:uppercase;
+  padding:.85rem 1.3rem; transition:background-color .3s;
+}
+.call-pill:hover{ background:var(--bone); }
+.burger{ display:none; width:44px; height:44px; position:relative; }
+.burger i{ position:absolute; left:10px; right:10px; height:2px; background:var(--bone); transition:transform .4s var(--ease-out), top .4s, opacity .3s; }
+.burger i:nth-child(1){ top:16px } .burger i:nth-child(2){ top:26px }
+.menu-open .burger i:nth-child(1){ top:21px; transform:rotate(45deg); background:var(--verm); }
+.menu-open .burger i:nth-child(2){ top:21px; transform:rotate(-45deg); background:var(--verm); }
+
+/* mobile menu */
+.menu{
+  position:fixed; inset:0; z-index:140; background:var(--ink);
+  display:flex; flex-direction:column; justify-content:center;
+  padding-inline:var(--gut); gap:.4rem;
+  clip-path:inset(0 0 100% 0); transition:clip-path .7s var(--ease-io);
+  visibility:hidden;
+}
+.menu-open .menu{ clip-path:inset(0 0 0 0); visibility:visible; }
+.menu a{ font-family:var(--font-display); text-transform:uppercase;
+  font-size:clamp(2.6rem,11vw,5rem); line-height:1.06; color:var(--bone);
+  display:flex; align-items:baseline; gap:1rem; }
+.menu a em{ font-style:normal; font-family:var(--font-mono); font-size:.75rem; color:var(--verm); }
+.menu a:hover{ color:var(--verm); }
+.menu .menu-meta{ margin-top:2.5rem; opacity:.6; }
+
+/* ---------- 07 · HERO ---------- */
+.hero{
+  position:relative; min-height:100svh;
+  display:grid; grid-template-rows:1fr auto;
+  padding:calc(var(--head-h) + 4vh) var(--gut) 0;
+  overflow:hidden;
+}
+#nerveCanvas{ position:absolute; inset:0; width:100%; height:100%; z-index:0; }
+.hero-grid{
+  position:relative; z-index:2;
+  display:grid; grid-template-columns:repeat(12,1fr);
+  gap:clamp(1rem,2.5vw,2.5rem); align-items:end; padding-bottom:5vh;
+}
+.hero-copy{ grid-column:1 / 8; }
+.hero-eyebrow{ margin-bottom:clamp(1.5rem,3.5vh,3rem); display:flex; align-items:center; gap:1rem; }
+.hero-eyebrow::before{ content:""; width:3rem; height:1px; background:var(--verm); }
+.hero h1{ font-size:var(--h-giant); }
+.hero h1 .row{ display:block; }
+.hero-sub{ margin-top:clamp(1.4rem,3vh,2.4rem); max-width:46ch; opacity:.85;
+  font-size:clamp(1rem,1.3vw,1.25rem); font-weight:500; }
+.hero-cta{ margin-top:clamp(1.6rem,3.5vh,2.8rem); display:flex; flex-wrap:wrap; gap:1rem; }
+.hero-fig{ grid-column:8 / 13; align-self:end; }
+.hero-fig .mask{ aspect-ratio:3/4; max-height:62vh; }
+.hero-foot{
+  position:relative; z-index:2;
+  display:flex; justify-content:space-between; align-items:center; gap:1rem;
+  border-top:1px solid var(--line-on-ink);
+  padding-block:1rem; flex-wrap:wrap;
+}
+.hero-foot .meta{ display:flex; gap:2.2rem; flex-wrap:wrap; opacity:.8; }
+.scroll-cue{ display:flex; align-items:center; gap:.7rem; opacity:.8; }
+.scroll-cue i{ width:1px; height:34px; background:var(--bone); position:relative; overflow:hidden; display:block; }
+.scroll-cue i::after{ content:""; position:absolute; inset:0; background:var(--verm); transform:translateY(-100%); animation:cue 1.8s var(--ease-io) infinite; }
+@keyframes cue{ 60%{transform:translateY(100%)} 100%{transform:translateY(100%)} }
+.seed-chip{ position:absolute; z-index:3; right:var(--gut); top:calc(var(--head-h) + 1.2rem);
+  font-family:var(--font-mono); font-size:.6rem; letter-spacing:.14em;
+  color:var(--bone); opacity:.45; text-transform:uppercase;
+  border:1px solid var(--line-on-ink); padding:.45rem .7rem;
+  transition:opacity .3s, border-color .3s; }
+.seed-chip:hover{ opacity:1; border-color:var(--verm); color:var(--verm); }
+
+/* buttons */
+.btn{
+  position:relative; display:inline-flex; align-items:center; gap:.9rem;
+  font-family:var(--font-mono); font-size:.78rem; font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase;
+  padding:1.15rem 1.8rem; border:1px solid var(--verm);
+  overflow:hidden; transition:color .35s;
+  will-change:transform;
+}
+.btn .arrow{ transition:transform .35s var(--ease-out); }
+.btn:hover .arrow{ transform:translateX(5px); }
+.btn::before{ content:""; position:absolute; inset:0; background:var(--verm);
+  transform:scaleY(1); transform-origin:bottom; transition:transform .45s var(--ease-io); z-index:-1; }
+.btn-solid{ color:var(--ink); }
+.btn-solid:hover{ color:var(--verm); }
+.btn-solid:hover::before{ transform:scaleY(0); transform-origin:top; }
+.btn-ghost{ color:var(--bone); border-color:currentColor; }
+.btn-ghost::before{ transform:scaleY(0); transform-origin:bottom; background:var(--bone); }
+.btn-ghost:hover{ color:var(--ink); }
+.btn-ghost:hover::before{ transform:scaleY(1); }
+[data-theme="bone"] .btn-ghost{ color:var(--ink); }
+[data-theme="bone"] .btn-ghost::before{ background:var(--ink); }
+[data-theme="bone"] .btn-ghost:hover{ color:var(--bone); }
+
+/* ---------- 08 · MARQUEE ---------- */
+.marquee{ background:var(--verm); color:var(--ink); overflow:hidden;
+  border-block:1px solid var(--ink); padding-block:.85rem; }
+.marquee-track{ display:flex; width:max-content; animation:mq 26s linear infinite; }
+.marquee:hover .marquee-track{ animation-play-state:paused; }
+.marquee-track > div{ display:flex; flex-shrink:0; }
+.marquee-track span{ font-family:var(--font-display); text-transform:uppercase;
+  font-size:clamp(1.1rem,2vw,1.7rem); letter-spacing:.05em; padding-inline:1.4rem;
+  display:flex; align-items:center; gap:1.4rem; white-space:nowrap; }
+.marquee-track span::after{ content:"✚"; font-size:.7em; }
+@keyframes mq{ to{ transform:translateX(-50%); } }
+
+/* ---------- 09 · SECTION SCAFFOLD ---------- */
+.sec{ padding:clamp(4.5rem,10vw,9rem) var(--gut); position:relative; }
+.sec-tight{ padding-block:clamp(3rem,6vw,5.5rem); }
+.grid-12{ display:grid; grid-template-columns:repeat(12,1fr); gap:clamp(1.2rem,2.5vw,3rem); }
+
+/* manifesto */
+.manifesto-copy{ grid-column:1 / 8; }
+.manifesto h2{ font-size:var(--h-1); margin-bottom:clamp(2rem,4vw,3.2rem); }
+.manifesto p{ margin-bottom:1.4rem; font-weight:500; }
+.manifesto p strong{ color:var(--verm); font-weight:600; }
+.manifesto-fig{ grid-column:9 / 13; }
+.manifesto-fig .mask{ aspect-ratio:4/5; }
+.manifesto-fig .sticky{ position:sticky; top:calc(var(--head-h) + 2rem); }
+.chips{ display:flex; gap:.7rem; flex-wrap:wrap; margin-top:2.2rem; }
+.chips span{ border:1px solid var(--line); padding:.55rem .9rem; font-family:var(--font-mono);
+  font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; }
+
+/* ---------- 10 · SERVICES INDEX ---------- */
+.services-intro{ grid-column:1 / 8; margin-bottom:clamp(2.5rem,5vw,4rem); font-size:var(--h-3);
+  font-weight:500; line-height:1.35; }
+.svc-list{ border-top:1px solid var(--line); }
+.svc{
+  position:relative; display:grid; align-items:center;
+  grid-template-columns:5rem 1fr minmax(220px,340px) max-content 4rem;
+  gap:clamp(1rem,2vw,2.4rem);
+  padding:clamp(1.6rem,3vw,2.6rem) 0;
+  border-bottom:1px solid var(--line);
+  transition:background-color .45s, color .45s, padding-left .45s var(--ease-out);
+}
+.svc:hover, .svc:focus-within{ background:var(--ink); color:var(--bone); padding-left:1.4rem; padding-right:1.4rem; }
+.svc-idx{ color:var(--verm); }
+.svc-name{ font-size:clamp(1.6rem,3.6vw,3.4rem); }
+.svc-desc{ font-size:.95rem; opacity:.75; font-weight:500; }
+.svc-tags{ display:flex; flex-direction:column; gap:.35rem; opacity:.6; font-size:.62rem; }
+.svc-arrow{ justify-self:end; font-size:1.5rem; transition:transform .4s var(--ease-out); }
+.svc:hover .svc-arrow{ transform:translateX(8px) rotate(-45deg); color:var(--verm); }
+.svc::after{ content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px;
+  background:var(--verm); transform:scaleX(0); transform-origin:left;
+  transition:transform .6s var(--ease-io); }
+.svc:hover::after{ transform:scaleX(1); }
+.svc-fig{ display:none; }
+
+.float-img{
+  position:fixed; z-index:90; width:min(22vw,330px); aspect-ratio:4/5;
+  pointer-events:none; overflow:hidden;
+  opacity:0; transform:scale(.85) rotate(-3deg);
+  transition:opacity .35s, transform .5s var(--ease-out);
+}
+.float-img.on{ opacity:1; transform:scale(1) rotate(-2deg); }
+.float-img img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  opacity:0; transition:opacity .3s; }
+.float-img img.show{ opacity:1; }
+
+/* ---------- 11 · URGENT / RED FLAGS ---------- */
+.urgent{ border-block:1px solid var(--frame); }
+.urgent-head{ grid-column:1 / 6; }
+.urgent-head h2{ font-size:var(--h-2); }
+.urgent-head .display .accent{ display:block; }
+.urgent-body{ grid-column:6 / 13; }
+.flag-list li{
+  display:grid; grid-template-columns:2.2rem 1fr; gap:1rem; align-items:start;
+  padding-block:1.15rem; border-bottom:1px solid var(--line-on-ink);
+  font-weight:500; font-size:clamp(1rem,1.3vw,1.2rem);
+}
+.flag-list li::before{ content:"✚"; color:var(--verm); font-size:1rem; line-height:1.7; }
+.flag-list small{ display:block; opacity:.55; font-size:.85em; font-weight:400; }
+.urgent-cta{ margin-top:2.2rem; display:flex; align-items:center; gap:1.6rem; flex-wrap:wrap; }
+.urgent-note{ opacity:.55; max-width:30ch; font-size:.8rem; }
+
+/* ---------- 12 · DOCTOR ---------- */
+.doc-fig{ grid-column:1 / 6; }
+.doc-fig .mask{ aspect-ratio:3/4; }
+.doc-copy{ grid-column:7 / 13; align-self:center; }
+.doc-copy h2{ font-size:var(--h-2); margin-bottom:.4rem; }
+.doc-role{ color:var(--verm); margin-bottom:2rem; display:block; }
+.doc-copy p{ margin-bottom:1.3rem; max-width:54ch; font-weight:500; }
+.doc-quote{ margin-top:2rem; padding-left:1.4rem; border-left:2px solid var(--verm);
+  font-size:clamp(1.15rem,1.8vw,1.5rem); line-height:1.45; font-weight:600; }
+.creds{ margin-top:2.4rem; display:grid; gap:.6rem; }
+.creds li{ display:flex; gap:.9rem; align-items:baseline; font-family:var(--font-mono);
+  font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; opacity:.75; }
+.creds li::before{ content:"—"; color:var(--verm); }
+
+/* stats */
+.stats{ border-top:1px solid var(--line); margin-top:clamp(3rem,7vw,5.5rem);
+  display:grid; grid-template-columns:repeat(4,1fr); }
+.stat{ padding:clamp(1.6rem,3vw,2.6rem) 1rem; border-right:1px solid var(--line); }
+.stat:last-child{ border-right:0; }
+.stat b{ font-family:var(--font-display); font-weight:400;
+  font-size:clamp(2.4rem,5vw,4.6rem); line-height:1; display:block; }
+.stat b sup{ font-size:.4em; color:var(--verm); }
+.stat span{ display:block; margin-top:.7rem; opacity:.6; }
+
+/* ---------- 13 · CLINIC BAND ---------- */
+.band{ position:relative; height:min(82vh,720px); overflow:hidden; }
+.band .mask{ position:absolute; inset:0; height:100%; clip-path:inset(0 0 0 0); }
+.band img{ position:absolute; inset:-12% 0; width:100%; height:124%; object-fit:cover; will-change:transform; }
+.band-caption{
+  position:absolute; left:var(--gut); bottom:2rem; z-index:2; color:var(--bone);
+  background:rgba(11,11,11,.55); backdrop-filter:blur(6px);
+  padding:1.1rem 1.4rem; max-width:min(460px,85%);
+  border-left:2px solid var(--verm);
+}
+.band-caption .mono{ display:block; margin-bottom:.5rem; color:var(--verm); }
+
+/* ---------- 14 · QUOTE ---------- */
+.quote blockquote{ grid-column:2 / 12; font-size:clamp(1.6rem,3.6vw,3.4rem);
+  font-weight:600; line-height:1.25; text-align:left; }
+.quote blockquote .qmark{ color:var(--verm); }
+.quote cite{ grid-column:2 / 12; display:block; margin-top:2rem; font-style:normal; opacity:.6; }
+
+/* ---------- 15 · RELIEF CTA ---------- */
+.relief{ position:relative; min-height:88vh; display:flex; align-items:center; overflow:hidden; }
+.relief-bg{ position:absolute; inset:0; }
+.relief-bg img{ position:absolute; inset:-10% 0; width:100%; height:120%; object-fit:cover;
+  opacity:.38; will-change:transform; }
+.relief-bg::after{ content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, var(--ink) 0%, rgba(11,11,11,.25) 45%, var(--ink) 100%); }
+.relief-inner{ position:relative; z-index:2; width:100%; padding-inline:var(--gut); }
+.relief h2{ font-size:var(--h-1); max-width:14ch; }
+.relief p{ margin-top:1.6rem; max-width:44ch; opacity:.85; font-weight:500; }
+.relief .hero-cta{ margin-top:2.4rem; }
+
+/* ---------- 16 · FOOTER ---------- */
+footer{ border-top:1px solid var(--frame); }
+.foot-grid{ padding:clamp(3.5rem,7vw,6rem) var(--gut) 2rem;
+  display:grid; grid-template-columns:repeat(4,1fr); gap:2.4rem; }
+.foot-col h3{ font-family:var(--font-mono); font-size:.66rem; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--verm); margin-bottom:1.2rem; font-weight:500; }
+.foot-col p, .foot-col li{ font-size:.95rem; opacity:.85; margin-bottom:.5rem; font-weight:500; }
+.foot-col a{ position:relative; }
+.foot-col a::after{ content:""; position:absolute; left:0; bottom:-2px; height:1px; width:100%;
+  background:var(--verm); transform:scaleX(0); transform-origin:right; transition:transform .4s var(--ease-out); }
+.foot-col a:hover::after{ transform:scaleX(1); transform-origin:left; }
+.foot-mark{ padding-inline:var(--gut); overflow:hidden; }
+.foot-mark .display{
+  font-size:clamp(5.5rem,24vw,23rem); line-height:.84; text-align:center;
+  color:transparent; -webkit-text-stroke:1px rgba(234,230,220,.32);
+  transition:color .6s, -webkit-text-stroke-color .6s; user-select:none;
+}
+.foot-mark .display:hover{ color:var(--verm); -webkit-text-stroke-color:var(--verm); }
+.foot-bar{
+  display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap;
+  padding:1.4rem var(--gut); border-top:1px solid var(--frame); opacity:.85;
+}
+.foot-bar .mono{ font-size:.62rem; letter-spacing:.12em; }
+.credit a{ color:var(--bone); border-bottom:1px solid var(--verm); padding-bottom:1px; transition:color .3s; }
+.credit a:hover{ color:var(--verm); }
+.to-top{ display:inline-flex; align-items:center; gap:.6rem; font-family:var(--font-mono);
+  font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--bone); }
+.to-top:hover{ color:var(--verm); }
+
+/* ---------- 17 · RESPONSIVE ---------- */
+@media (max-width:1100px){
+  .head-nav{ display:none; }
+  .burger{ display:block; }
+  .hero-copy{ grid-column:1 / 13; }
+  .hero-fig{ grid-column:1 / 13; margin-top:2.5rem; }
+  .hero-fig .mask{ aspect-ratio:16/10; max-height:none; }
+  .manifesto-copy{ grid-column:1 / 13; }
+  .manifesto-fig{ grid-column:1 / 13; max-width:520px; }
+  .urgent-head{ grid-column:1 / 13; margin-bottom:2rem; }
+  .urgent-body{ grid-column:1 / 13; }
+  .doc-fig{ grid-column:1 / 13; max-width:560px; }
+  .doc-copy{ grid-column:1 / 13; margin-top:2.5rem; }
+  .quote blockquote, .quote cite{ grid-column:1 / 13; }
+  .stats{ grid-template-columns:repeat(2,1fr); }
+  .stat:nth-child(2){ border-right:0; }
+  .stat:nth-child(-n+2){ border-bottom:1px solid var(--line); }
+  .foot-grid{ grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:760px){
+  .svc{ grid-template-columns:3rem 1fr 3rem; row-gap:.8rem; }
+  .svc-desc{ grid-column:2 / 3; }
+  .svc-tags{ display:none; }
+  .svc-arrow{ grid-row:1; grid-column:3; }
+  .svc-fig{ display:block; grid-column:1 / 4; margin-top:1rem; }
+  .svc-fig .mask{ aspect-ratio:16/9; }
+  .float-img{ display:none; }
+  .call-pill .long{ display:none; }
+  .open-pill{ display:none; }
+  .hero-foot .meta{ gap:1.1rem; font-size:.58rem; }
+  .seed-chip{ display:none; }
+  .stats{ grid-template-columns:1fr; }
+  .stat{ border-right:0; border-bottom:1px solid var(--line); }
+  .stat:last-child{ border-bottom:0; }
+  .foot-grid{ grid-template-columns:1fr; }
+  .band{ height:62vh; }
+}
+
+/* ---------- 18 · REDUCED MOTION ---------- */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation-duration:.001s !important; animation-iteration-count:1 !important; transition-duration:.001s !important; }
+  .char,.line-in{ transform:none !important; opacity:1 !important; }
+  [data-reveal="fade"]{ opacity:1 !important; transform:none !important; }
+  .mask{ clip-path:inset(0 0 0 0) !important; }
+  .mask img{ transform:none !important; }
+  .seam path{ stroke-dashoffset:0 !important; }
+  .seam circle{ opacity:1 !important; }
+  .marquee-track{ animation:none !important; }
+  .preloader{ display:none !important; }
+  .grain{ animation:none !important; }
+  .scroll-cue i::after{ animation:none !important; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#services">Skip to services</a>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- PRELOADER -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader-inner">
+    <div class="preloader-word"><span>M</span><span>E</span><span>N</span><span>D</span><span class="tm">®</span></div>
+    <div class="preloader-count mono" id="plCount">00</div>
+    <div class="preloader-bar"><i id="plBar"></i></div>
+  </div>
+</div>
+
+<!-- CURSOR -->
+<div class="cursor" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"><span id="cursorText"></span></div>
+
+<!-- FLOATING SERVICE PREVIEW -->
+<div class="float-img ph" id="floatImg" aria-hidden="true">
+  <img data-key="03-emergency" data-float="emergency" alt="">
+  <img data-key="04-endo" data-float="endo" alt="">
+  <img data-key="05-surgery" data-float="surgery" alt="">
+  <img data-key="06-tmj" data-float="tmj" alt="">
+  <img data-key="07-sedation" data-float="sedation" alt="">
+</div>
+
+<!-- HEADER -->
+<header class="site-head" id="siteHead">
+  <a class="brand" href="#top" aria-label="MEND Dental Studio — back to top">
+    <span class="brand-mark">MEND<sup>®</sup></span>
+    <span class="brand-sub mono">Emergency &amp; Surgical Dentistry — Chennai</span>
+  </a>
+  <nav class="head-nav" aria-label="Primary">
+    <a href="#philosophy">Philosophy</a>
+    <a href="#services">Services</a>
+    <a href="#urgent">Urgent</a>
+    <a href="#doctor">Clinician</a>
+    <a href="#book">Book</a>
+  </nav>
+  <div class="head-right">
+    <span class="open-pill mono" id="openPill"><i></i><span id="openLabel">—</span></span>
+    <a class="call-pill" data-tel data-magnetic data-strength=".25" href="#">
+      <span class="long">In pain? </span><span>Call now</span>
+    </a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+      <i></i><i></i>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<nav class="menu" id="menu" aria-label="Mobile">
+  <a href="#philosophy"><em>01</em>Philosophy</a>
+  <a href="#services"><em>02</em>Services</a>
+  <a href="#urgent"><em>03</em>Urgent</a>
+  <a href="#doctor"><em>04</em>Clinician</a>
+  <a href="#book"><em>05</em>Book</a>
+  <div class="menu-meta mono">
+    24-hr line — <a data-tel data-tel-text href="#">…</a><br><br>
+    Pallavaram, Chennai
+  </div>
+</nav>
+
+<main id="scroller">
+<div id="page">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="top" data-theme="ink">
+    <canvas id="nerveCanvas" aria-hidden="true"></canvas>
+    <button class="seed-chip" id="seedChip" title="Re-seed the nerve field">Seed <span id="seedVal">—</span> ⟳</button>
+
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="hero-eyebrow mono" data-reveal="fade">Emergency · Endodontics · Oral Surgery — Chennai, IN</p>
+        <h1 class="display" id="heroTitle" aria-label="Vanity is optional. Pain is not.">
+          <span class="row" data-split>Vanity is</span>
+          <span class="row" data-split>optional.</span>
+          <span class="row accent" data-split>Pain is not.</span>
+        </h1>
+        <p class="hero-sub" data-reveal="fade">
+          MEND is a dental practice with one obsession: ending pain.
+          No veneer menus. No whitening packages. Urgent, surgical,
+          definitive care — when it hurts, we answer.
+        </p>
+        <div class="hero-cta" data-reveal="fade">
+          <a class="btn btn-solid" href="#book" data-magnetic data-strength=".3">Book urgent visit <span class="arrow">→</span></a>
+          <a class="btn btn-ghost" data-tel data-tel-text href="#" data-magnetic data-strength=".3">…</a>
+        </div>
+      </div>
+      <figure class="hero-fig">
+        <div class="mask ph" data-reveal="mask">
+          <img data-key="01-hero" alt="A monolithic carved molar standing in dramatic light — the MEND brand image" fetchpriority="high">
+        </div>
+        <figcaption class="mono">
+          <span>Fig. 01 — The Monolith</span><span>Kintsugi seam, vermilion</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="hero-foot mono">
+      <div class="meta">
+        <span id="todayHours">Open today 09:00–20:00</span>
+        <span>Same-day appointments</span>
+        <span class="accent">24-hr emergency line</span>
+      </div>
+      <div class="scroll-cue"><i></i><span>Scroll</span></div>
+    </div>
+  </section>
+
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="mqTrack">
+      <div>
+        <span>Toothache</span><span>Abscess</span><span>Root canal</span><span>Wisdom tooth</span>
+        <span>Knocked-out tooth</span><span>TMJ</span><span>Emergency</span><span>Sedation</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MANIFESTO ===== -->
+  <section class="sec manifesto" id="philosophy" data-theme="bone">
+    <div class="eyebrow mono">
+      <span class="dot">Philosophy</span><span>( 01 )</span>
+    </div>
+    <div class="grid-12">
+      <div class="manifesto-copy">
+        <h2 class="display">
+          <span class="line-wrap" data-reveal="line"><span class="line-in">We don't</span></span>
+          <span class="line-wrap" data-reveal="line"><span class="line-in">sell smiles.</span></span>
+          <span class="line-wrap" data-reveal="line"><span class="line-in">We end what keeps</span></span>
+          <span class="line-wrap" data-reveal="line"><span class="line-in">you up at <span class="accent">3 a.m.</span></span></span>
+        </h2>
+        <div class="measure" data-reveal="fade">
+          <p>Most dental marketing is about the mirror. Ours is about the night before —
+          the throb you can hear, the ice water test, the jaw you can't unclench.
+          We built MEND for exactly that patient. <strong>If it hurts, you're ours.</strong></p>
+          <p>Our mark is the kintsugi seam: a fracture, repaired and left visible.
+          We don't pretend nothing broke. We fix it properly, honour the repair,
+          and send you back to your life — usually the same day you called.</p>
+          <p>Cosmetic work is a fine craft. It just isn't our craft. We stay narrow on
+          purpose: emergency dentistry, root canals, surgical extractions, TMJ and
+          sedation. Depth over menu.</p>
+        </div>
+        <div class="chips mono" data-reveal="fade">
+          <span>Est. 2012</span><span>20,000+ emergencies answered</span><span>Microscope endodontics</span><span>Zero lectures</span>
+        </div>
+      </div>
+      <figure class="manifesto-fig">
+        <div class="sticky">
+          <div class="mask ph" data-reveal="mask" data-dir="up" data-parallax="-0.06">
+            <img data-key="02-kintsugi" alt="Macro of a fractured porcelain surface mended with a vermilion kintsugi seam" loading="lazy">
+          </div>
+          <figcaption class="mono"><span>Fig. 02 — Kintsugi</span><span>Broken / mended</span></figcaption>
+        </div>
+      </figure>
+    </div>
+    <svg class="seam" viewBox="0 0 1200 44" preserveAspectRatio="none" aria-hidden="true">
+      <path pathLength="1" d="M0 24 L220 24 L286 10 L330 34 L520 26 L562 14 L818 19 L862 31 L1024 25 L1200 25"/>
+      <circle cx="330" cy="34" r="3.5"/>
+    </svg>
+  </section>
+
+  <!-- ===== SERVICES INDEX ===== -->
+  <section class="sec" id="services" data-theme="bone">
+    <div class="eyebrow mono">
+      <span class="dot">The Index</span><span>( 02 )</span>
+    </div>
+    <div class="grid-12">
+      <p class="services-intro" data-reveal="fade">
+        Five disciplines, ordered the way pain arrives — from the midnight
+        phone call to the fear that kept you from making it.
+      </p>
+    </div>
+
+    <div class="svc-list">
+
+      <a class="svc" href="#book" data-float-key="emergency" data-cursor-text="View">
+        <span class="svc-idx mono">01</span>
+        <span class="svc-name display">Emergency dentistry</span>
+        <span class="svc-desc">Trauma, abscess, swelling, broken teeth, bleeding. Walk in, or call the 24-hour line — we hold same-day slots every single day.</span>
+        <span class="svc-tags mono"><span>Same-day</span><span>Walk-in</span><span>24-hr line</span></span>
+        <span class="svc-arrow" aria-hidden="true">→</span>
+        <figure class="svc-fig"><div class="mask ph" data-reveal="mask"><img data-key="03-emergency" alt="A dark corridor with one warmly lit open doorway" loading="lazy"></div></figure>
+      </a>
+
+      <a class="svc" href="#book" data-float-key="endo" data-cursor-text="View">
+        <span class="svc-idx mono">02</span>
+        <span class="svc-name display">Root canal therapy</span>
+        <span class="svc-desc">Single-visit endodontics under the operating microscope. Profound anaesthesia first, then we save the tooth — quietly, precisely.</span>
+        <span class="svc-tags mono"><span>Single visit</span><span>Microscope</span><span>Tooth saved</span></span>
+        <span class="svc-arrow" aria-hidden="true">→</span>
+        <figure class="svc-fig"><div class="mask ph" data-reveal="mask"><img data-key="04-endo" alt="A translucent glass molar glowing softly from within" loading="lazy"></div></figure>
+      </a>
+
+      <a class="svc" href="#book" data-float-key="surgery" data-cursor-text="View">
+        <span class="svc-idx mono">03</span>
+        <span class="svc-name display">Extractions &amp; oral surgery</span>
+        <span class="svc-desc">Wisdom teeth, surgical extractions, minor oral surgery. Planned on 3D imaging, executed gently, healed on schedule.</span>
+        <span class="svc-tags mono"><span>Wisdom teeth</span><span>3D-planned</span><span>Gentle</span></span>
+        <span class="svc-arrow" aria-hidden="true">→</span>
+        <figure class="svc-fig"><div class="mask ph" data-reveal="mask"><img data-key="05-surgery" alt="Surgical steel instruments arranged in precise parallel lines on black granite" loading="lazy"></div></figure>
+      </a>
+
+      <a class="svc" href="#book" data-float-key="tmj" data-cursor-text="View">
+        <span class="svc-idx mono">04</span>
+        <span class="svc-name display">TMJ &amp; facial pain</span>
+        <span class="svc-desc">Clicking jaws, morning headaches, clenching, ear pain with no ear problem. Diagnosis first, then splints and bite therapy that hold.</span>
+        <span class="svc-tags mono"><span>Jaw joint</span><span>Splint therapy</span><span>Headache</span></span>
+        <span class="svc-arrow" aria-hidden="true">→</span>
+        <figure class="svc-fig"><div class="mask ph" data-reveal="mask"><img data-key="06-tmj" alt="A marble sculpture fragment of a tensed human jaw" loading="lazy"></div></figure>
+      </a>
+
+      <a class="svc" href="#book" data-float-key="sedation" data-cursor-text="View">
+        <span class="svc-idx mono">05</span>
+        <span class="svc-name display">Sedation &amp; fear-free care</span>
+        <span class="svc-desc">For the ones who've been avoiding this page. Nitrous to IV sedation, a quiet room, and a team that has heard it all — no lectures, ever.</span>
+        <span class="svc-tags mono"><span>Nitrous / IV</span><span>Anxiety-safe</span><span>No lectures</span></span>
+        <span class="svc-arrow" aria-hidden="true">→</span>
+        <figure class="svc-fig"><div class="mask ph" data-reveal="mask"><img data-key="07-sedation" alt="A calm, light-filled treatment lounge with a single reclining chair" loading="lazy"></div></figure>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ===== URGENT / RED FLAGS ===== -->
+  <section class="sec urgent" id="urgent" data-theme="ink">
+    <div class="eyebrow mono">
+      <span class="dot">Urgent</span><span>( 03 )</span>
+    </div>
+    <div class="grid-12">
+      <div class="urgent-head">
+        <h2 class="display">
+          <span class="line-wrap" data-reveal="line"><span class="line-in">Don't wait</span></span>
+          <span class="line-wrap" data-reveal="line"><span class="line-in">it out.</span></span>
+          <span class="line-wrap accent" data-reveal="line"><span class="line-in">Call now if —</span></span>
+        </h2>
+      </div>
+      <div class="urgent-body">
+        <ul class="flag-list" data-reveal="fade">
+          <li><div>Facial swelling spreading toward the eye, jaw or neck<small>Infections in this region can escalate quickly.</small></div></li>
+          <li><div>Toothache with fever or feeling generally unwell<small>That combination is the body asking for help.</small></div></li>
+          <li><div>Bleeding that hasn't stopped after 20 minutes of firm pressure<small>After an extraction or an injury.</small></div></li>
+          <li><div>A knocked-out adult tooth<small>Keep it in milk, don't scrub it, come within the hour — it can often be saved.</small></div></li>
+          <li><div>Pain or difficulty swallowing or breathing<small>Treat this as an emergency. If it's severe, go to the nearest ER first.</small></div></li>
+        </ul>
+        <div class="urgent-cta">
+          <a class="btn btn-solid" data-tel data-tel-text href="#" data-magnetic data-strength=".3">…</a>
+          <p class="urgent-note mono">Answered by a human, day and night. Out of hours, the line forwards to the on-call clinician.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DOCTOR ===== -->
+  <section class="sec" id="doctor" data-theme="bone">
+    <div class="eyebrow mono">
+      <span class="dot">The Clinician</span><span>( 04 )</span>
+    </div>
+    <div class="grid-12">
+      <figure class="doc-fig">
+        <div class="mask ph" data-reveal="mask" data-parallax="-0.05">
+          <img data-key="10-portrait" alt="Portrait of Dr. Arjun Menon against a concrete wall" loading="lazy">
+        </div>
+        <figcaption class="mono"><span>Fig. 10 — Dr. A. Menon</span><span>Endodontics &amp; surgery</span></figcaption>
+      </figure>
+      <div class="doc-copy">
+        <h2 class="display" data-split data-reveal="chars">Dr. Arjun Menon</h2>
+        <span class="doc-role mono">MDS — Conservative Dentistry &amp; Endodontics</span>
+        <div data-reveal="fade">
+          <p>Fourteen years, one specialty: the tooth that hurts. Dr. Menon trained in
+          microscope-assisted endodontics and surgical dentistry, then built a practice
+          around the cases other clinics refer out — the hot tooth, the failed root canal,
+          the 11 p.m. phone call.</p>
+          <p>His operating philosophy is simple: numb completely before anything else,
+          explain everything in plain words, and never make a patient feel foolish for
+          having waited too long. Most people waited too long. That's why we exist.</p>
+          <blockquote class="doc-quote">"Nobody remembers a painless root canal. That's the point."</blockquote>
+        </div>
+        <ul class="creds" data-reveal="fade">
+          <li>MDS, Conservative Dentistry &amp; Endodontics</li>
+          <li>Fellowship, Oral Implantology &amp; Minor Oral Surgery</li>
+          <li>Certified — IV conscious sedation</li>
+          <li>20,000+ emergency cases since 2012</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat" data-reveal="fade"><b><span data-count="14">0</span><sup>yrs</sup></b><span class="mono">Pain-only practice</span></div>
+      <div class="stat" data-reveal="fade"><b><span data-count="20">0</span><sup>k+</sup></b><span class="mono">Emergencies answered</span></div>
+      <div class="stat" data-reveal="fade"><b><span data-count="92">0</span><sup>%</sup></b><span class="mono">Painful teeth saved, not pulled</span></div>
+      <div class="stat" data-reveal="fade"><b>24<sup>hr</sup></b><span class="mono">Emergency line</span></div>
+    </div>
+  </section>
+
+  <!-- ===== CLINIC BAND ===== -->
+  <section class="band ph" aria-label="The clinic">
+    <img data-key="08-clinic" data-parallax-img alt="The MEND clinic — board-formed concrete and warm light" loading="lazy">
+    <div class="band-caption" data-reveal="fade">
+      <span class="mono">Fig. 08 — The Studio, Pallavaram</span>
+      <p>Board-formed concrete, warm light, one piece of art.
+      No fish tank. No pop radio. Nothing here is louder than you need it to be.</p>
+    </div>
+  </section>
+
+  <!-- ===== QUOTE ===== -->
+  <section class="sec quote" data-theme="ink">
+    <div class="grid-12">
+      <blockquote data-reveal="fade">
+        <span class="qmark">"</span>I walked in at midnight holding my jaw and apologising for crying.
+        I walked out at 1:40 laughing at his bad jokes. The tooth?
+        Couldn't even tell you which one it was.<span class="qmark">"</span>
+      </blockquote>
+      <cite class="mono" data-reveal="fade">— A.R., emergency root canal, 2025</cite>
+    </div>
+  </section>
+
+  <!-- ===== RELIEF CTA ===== -->
+  <section class="relief ph" id="book" data-theme="ink">
+    <div class="relief-bg" aria-hidden="true">
+      <img data-key="12-relief" data-parallax-img alt="" loading="lazy">
+    </div>
+    <div class="relief-inner">
+      <h2 class="display">
+        <span class="line-wrap" data-reveal="line"><span class="line-in">The first</span></span>
+        <span class="line-wrap" data-reveal="line"><span class="line-in">morning</span></span>
+        <span class="line-wrap accent" data-reveal="line"><span class="line-in">without pain.</span></span>
+      </h2>
+      <p data-reveal="fade">It's closer than you think — usually one visit away.
+      Call, message, or walk in. If you're hurting right now, say so and we'll
+      move things to see you today.</p>
+      <div class="hero-cta" data-reveal="fade">
+        <a class="btn btn-solid" data-tel data-tel-text href="#" data-magnetic data-strength=".3">…</a>
+        <a class="btn btn-ghost" data-wa href="#" data-magnetic data-strength=".3">WhatsApp us <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer data-theme="ink">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <h3>Visit</h3>
+        <p>14, 2nd Cross Street<br>Sembakkam Main Road, Pallavaram<br>Chennai 600043, TN</p>
+        <p><a href="https://maps.google.com/?q=Pallavaram,Chennai" target="_blank" rel="noopener">Open in Maps ↗</a></p>
+      </div>
+      <div class="foot-col">
+        <h3>Talk</h3>
+        <ul>
+          <li><a data-tel data-tel-text href="#">…</a></li>
+          <li><a data-wa href="#" target="_blank" rel="noopener">WhatsApp ↗</a></li>
+          <li><a data-email href="#">front@menddental.in</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>Hours</h3>
+        <ul>
+          <li>Mon – Sat · 09:00 – 20:00</li>
+          <li>Sunday · Emergencies only</li>
+          <li class="accent">24-hr line, every day</li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>Elsewhere</h3>
+        <ul>
+          <li><a href="#" rel="noopener">Instagram ↗</a></li>
+          <li><a href="#" rel="noopener">Google Reviews ↗</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-mark" aria-hidden="true">
+      <div class="display">MEND</div>
+    </div>
+
+    <div class="foot-bar">
+      <span class="mono">© <span id="year">2026</span> MEND Dental Studio — Vanity optional. Pain not.</span>
+      <a class="to-top" href="#top">Back to top ↑</a>
+      <span class="mono credit">Website designed by <a href="https://stellarhausmedia.com" target="_blank" rel="noopener">Stellar Haus Media</a></span>
+    </div>
+  </footer>
+
+</div><!-- /#page -->
+</main>
+<script>
+/*__JS_START__*/
+/* ============================================================
+   MEND — interaction engine
+   Vanilla, dependency-free. Modules:
+   config · preloader · smooth-scroll+parallax · cursor ·
+   magnetic · split/reveals · counters · float-preview ·
+   nerve-field (seeded flow field) · header · menu
+   ============================================================ */
+(function(){
+"use strict";
+
+/* ---------- CONFIG — single source of truth -----------------
+   SWAP ZONE: when the final art-directed set arrives,
+   (1) replace each IMAGES url with e.g. "img/01-hero.png"
+   (2) set PLACEHOLDER_MODE to false (removes the grayscale
+       harmonizing filter applied to Unsplash stand-ins)
+   (3) update phone / address / email below
+-------------------------------------------------------------- */
+var CONFIG = {
+  PLACEHOLDER_MODE: true,
+  PHONE_DISPLAY: "+91 98765 43210",
+  PHONE_TEL:     "+919876543210",
+  WHATSAPP:      "919876543210",
+  EMAIL:         "front@menddental.in",
+  HOURS:         { open: 9, close: 20, days: [1,2,3,4,5,6] } // Mon–Sat
+};
+
+var IMAGES = {
+  "01-hero":      { url:"https://images.unsplash.com/photo-1486718448742-163732cd1544", w:1600 },
+  "02-kintsugi":  { url:"https://images.unsplash.com/photo-1550684376-efcbd6e3f031",   w:1200 },
+  "03-emergency": { url:"https://images.unsplash.com/photo-1504307651254-35680f356dfd", w:1200 },
+  "04-endo":      { url:"https://images.unsplash.com/photo-1515377905703-c4788e51af15", w:1200 },
+  "05-surgery":   { url:"https://images.unsplash.com/photo-1530497610245-94d3c16cda28", w:1200 },
+  "06-tmj":       { url:"https://images.unsplash.com/photo-1544413660-299165566b1d",   w:1200 },
+  "07-sedation":  { url:"https://images.unsplash.com/photo-1497366754035-f200968a6e72", w:1200 },
+  "08-clinic":    { url:"https://images.unsplash.com/photo-1518005020951-eccb494ad742", w:1800 },
+  "09-scan":      { url:"https://images.unsplash.com/photo-1493397212122-2b85dda8106b", w:1200 },
+  "10-portrait":  { url:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d", w:1200 },
+  "11-texture":   { url:"https://images.unsplash.com/photo-1487958449943-2429e8be8625", w:1600 },
+  "12-relief":    { url:"https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85", w:1800 }
+};
+
+/* ---------- utils ---------- */
+var lerp = function(a,b,t){ return a + (b-a)*t; };
+var clamp = function(v,min,max){ return Math.max(min, Math.min(max,v)); };
+var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var TOUCH = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+var raf = window.requestAnimationFrame.bind(window);
+
+function mulberry32(seed){
+  return function(){
+    seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+    var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/* ---------- inject config (phones, mail, images) ---------- */
+(function inject(){
+  document.querySelectorAll("[data-tel]").forEach(function(a){
+    a.setAttribute("href","tel:" + CONFIG.PHONE_TEL);
+    if (a.hasAttribute("data-tel-text")){
+      a.innerHTML = "Call " + CONFIG.PHONE_DISPLAY + ' <span class="arrow">→</span>';
+      if (a.closest(".menu, .foot-col")) a.textContent = CONFIG.PHONE_DISPLAY;
+    }
+  });
+  document.querySelectorAll("[data-wa]").forEach(function(a){
+    a.setAttribute("href","https://wa.me/" + CONFIG.WHATSAPP +
+      "?text=" + encodeURIComponent("Hi MEND — I'm in pain and need an appointment."));
+  });
+  document.querySelectorAll("[data-email]").forEach(function(a){
+    a.setAttribute("href","mailto:" + CONFIG.EMAIL);
+    a.textContent = CONFIG.EMAIL;
+  });
+  document.querySelectorAll("img[data-key]").forEach(function(img){
+    var item = IMAGES[img.getAttribute("data-key")];
+    if (!item) return;
+    var src = item.url;
+    if (/^https?:\/\/images\.unsplash\.com/.test(src)){
+      src += "?q=80&w=" + (item.w || 1200) + "&auto=format&fit=crop";
+    }
+    img.src = src;
+  });
+  if (!CONFIG.PLACEHOLDER_MODE){
+    document.querySelectorAll(".ph").forEach(function(el){ el.classList.remove("ph"); });
+  }
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+
+/* ---------- open-now pill ---------- */
+(function openNow(){
+  var pill = document.getElementById("openPill");
+  var label = document.getElementById("openLabel");
+  var today = document.getElementById("todayHours");
+  if (!pill) return;
+  var now = new Date(), d = now.getDay(), h = now.getHours();
+  var open = CONFIG.HOURS.days.indexOf(d) > -1 && h >= CONFIG.HOURS.open && h < CONFIG.HOURS.close;
+  pill.classList.toggle("is-open", open);
+  label.textContent = open ? "Open now" : "Closed — 24-hr line";
+  if (today && CONFIG.HOURS.days.indexOf(d) === -1) today.textContent = "Sunday — emergencies only";
+})();
+
+/* ---------- marquee: duplicate track ---------- */
+(function(){
+  var t = document.getElementById("mqTrack");
+  if (t && t.children.length === 1) t.appendChild(t.children[0].cloneNode(true));
+})();
+
+/* ---------- split text into chars ---------- */
+document.querySelectorAll("[data-split]").forEach(function(el){
+  var text = el.textContent.replace(/\s+/g," ").trim();
+  if (!el.closest("[aria-label]")) el.setAttribute("aria-label", text);
+  var html = "";
+  text.split(" ").forEach(function(word, wi){
+    html += '<span class="word" aria-hidden="true">';
+    for (var i=0;i<word.length;i++) html += '<span class="char">' + word[i] + "</span>";
+    html += "</span>" + (wi < text.split(" ").length-1 ? " " : "");
+  });
+  el.innerHTML = html;
+  el.querySelectorAll(".char").forEach(function(c,i){
+    c.style.transitionDelay = Math.min(i*26, 900) + "ms";
+  });
+});
+
+/* ---------- smooth scroll core ---------- */
+var page = document.getElementById("page");
+var SMOOTH = !TOUCH && !REDUCED;
+var cur = 0, target = 0;
+var winH = window.innerHeight;
+
+function setBodyHeight(){
+  document.body.style.height = SMOOTH ? page.scrollHeight + "px" : "";
+}
+if (SMOOTH){
+  document.documentElement.classList.add("has-smooth");
+  setBodyHeight();
+  if (window.ResizeObserver) new ResizeObserver(setBodyHeight).observe(page);
+}
+window.addEventListener("resize", function(){
+  winH = window.innerHeight;
+  setBodyHeight();
+});
+window.addEventListener("load", setBodyHeight);
+
+/* parallax registry */
+var pxEls = [].slice.call(document.querySelectorAll("[data-parallax]"));
+var pxImgs = [].slice.call(document.querySelectorAll("[data-parallax-img]"));
+
+function applyParallax(scrollY){
+  var i, el, r, c, off;
+  for (i=0;i<pxEls.length;i++){
+    el = pxEls[i]; r = el.getBoundingClientRect();
+    if (r.bottom < -80 || r.top > winH + 80) continue;
+    c = r.top + r.height/2 - winH/2;
+    el.style.transform = "translate3d(0," + (c * parseFloat(el.getAttribute("data-parallax"))).toFixed(2) + "px,0)";
+  }
+  for (i=0;i<pxImgs.length;i++){
+    el = pxImgs[i]; r = el.parentElement.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > winH) continue;
+    var p = clamp((winH - r.top) / (winH + r.height), 0, 1);
+    off = (p - .5) * r.height * 0.18;
+    el.style.transform = "translate3d(0," + off.toFixed(2) + "px,0)";
+  }
+}
+
+/* header behaviour */
+var head = document.getElementById("siteHead");
+var lastY = 0;
+function headerTick(y){
+  head.classList.toggle("solid", y > 30);
+  if (y > lastY + 6 && y > 140 && !document.documentElement.classList.contains("menu-open")) head.classList.add("hide");
+  else if (y < lastY - 4) head.classList.remove("hide");
+  lastY = y;
+}
+
+function frame(){
+  target = window.scrollY || window.pageYOffset;
+  if (SMOOTH){
+    cur = lerp(cur, target, 0.085);
+    if (Math.abs(cur - target) < 0.05) cur = target;
+    page.style.transform = "translate3d(0," + (-cur).toFixed(2) + "px,0)";
+  } else {
+    cur = target;
+  }
+  headerTick(cur);
+  if (!REDUCED) applyParallax(cur);
+  cursorTick();
+  floatTick();
+  raf(frame);
+}
+
+/* anchors through the smooth scroller */
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener("click", function(e){
+    var id = a.getAttribute("href");
+    if (id.length < 2) return;
+    var el = document.querySelector(id);
+    if (!el) return;
+    e.preventDefault();
+    closeMenu();
+    var y = el.getBoundingClientRect().top + (SMOOTH ? cur : window.scrollY) - 4;
+    window.scrollTo({ top: Math.max(0,y), behavior: SMOOTH ? "auto" : "smooth" });
+  });
+});
+
+/* ---------- cursor ---------- */
+var dot = document.querySelector(".cursor");
+var ring = document.querySelector(".cursor-ring");
+var ringText = document.getElementById("cursorText");
+var mx = innerWidth/2, my = innerHeight/2, rx = mx, ry = my;
+var cursorOn = !TOUCH && !REDUCED;
+if (cursorOn){
+  document.documentElement.classList.add("has-cursor");
+  window.addEventListener("mousemove", function(e){ mx = e.clientX; my = e.clientY; });
+  window.addEventListener("mousedown", function(){ ring.classList.add("is-down"); });
+  window.addEventListener("mouseup",   function(){ ring.classList.remove("is-down"); });
+  document.addEventListener("mouseover", function(e){
+    var t = e.target.closest("a,button,[data-cursor]");
+    var txt = e.target.closest("[data-cursor-text]");
+    ring.classList.toggle("is-hover", !!t && !txt);
+    ring.classList.toggle("is-text", !!txt);
+    ringText.textContent = txt ? txt.getAttribute("data-cursor-text") : "";
+  });
+}
+function cursorTick(){
+  if (!cursorOn) return;
+  rx = lerp(rx, mx, 0.16); ry = lerp(ry, my, 0.16);
+  dot.style.transform  = "translate(" + (mx-4) + "px," + (my-4) + "px)";
+  ring.style.left = rx + "px"; ring.style.top = ry + "px";
+}
+
+/* ---------- magnetic elements ---------- */
+if (!TOUCH && !REDUCED){
+  document.querySelectorAll("[data-magnetic]").forEach(function(el){
+    var s = parseFloat(el.getAttribute("data-strength")) || 0.25;
+    el.addEventListener("mousemove", function(e){
+      var r = el.getBoundingClientRect();
+      el.style.transform = "translate(" +
+        ((e.clientX - r.left - r.width/2) * s) + "px," +
+        ((e.clientY - r.top  - r.height/2) * s) + "px)";
+    });
+    el.addEventListener("mouseleave", function(){
+      el.style.transition = "transform .6s cubic-bezier(.16,1,.3,1)";
+      el.style.transform = "translate(0,0)";
+      setTimeout(function(){ el.style.transition = ""; }, 600);
+    });
+  });
+}
+
+/* ---------- reveal observer ---------- */
+var revealEls = [].slice.call(document.querySelectorAll("[data-reveal], .seam"));
+function armReveals(){
+  if (REDUCED){ revealEls.forEach(function(el){ el.classList.add("in"); }); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (!en.isIntersecting) return;
+      en.target.classList.add("in");
+      if (en.target.hasAttribute("data-reveal") &&
+          en.target.getAttribute("data-reveal") === "line"){
+        /* stagger sibling line-wraps inside same heading */
+        var sibs = en.target.parentElement.querySelectorAll('[data-reveal="line"]');
+        [].forEach.call(sibs, function(s,i){
+          s.querySelector(".line-in").style.transitionDelay = (i*110) + "ms";
+        });
+      }
+      io.unobserve(en.target);
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+  revealEls.forEach(function(el){ io.observe(el); });
+}
+
+/* counters */
+(function(){
+  var els = document.querySelectorAll("[data-count]");
+  if (!els.length) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (!en.isIntersecting) return;
+      var el = en.target, end = parseInt(el.getAttribute("data-count"),10), t0 = null;
+      function step(ts){
+        if (!t0) t0 = ts;
+        var p = clamp((ts - t0)/1300, 0, 1);
+        p = 1 - Math.pow(1-p, 3);
+        el.textContent = Math.round(end * p);
+        if (p < 1) raf(step);
+      }
+      REDUCED ? (el.textContent = end) : raf(step);
+      io.unobserve(el);
+    });
+  }, { threshold: 0.6 });
+  els.forEach(function(el){ io.observe(el); });
+})();
+
+/* ---------- services floating preview ---------- */
+var floatBox = document.getElementById("floatImg");
+var floatImgs = floatBox ? floatBox.querySelectorAll("img") : [];
+var fx = 0, fy = 0, ftx = 0, fty = 0, floatOn = false;
+if (floatBox && !TOUCH){
+  document.querySelectorAll(".svc").forEach(function(row){
+    row.addEventListener("mouseenter", function(){
+      var key = row.getAttribute("data-float-key");
+      [].forEach.call(floatImgs, function(im){
+        im.classList.toggle("show", im.getAttribute("data-float") === key);
+      });
+      floatOn = true; floatBox.classList.add("on");
+    });
+    row.addEventListener("mouseleave", function(){
+      floatOn = false; floatBox.classList.remove("on");
+    });
+    row.addEventListener("mousemove", function(e){ ftx = e.clientX; fty = e.clientY; });
+  });
+}
+function floatTick(){
+  if (!floatBox || TOUCH) return;
+  fx = lerp(fx, ftx, 0.12); fy = lerp(fy, fty, 0.12);
+  floatBox.style.left = (fx + 36) + "px";
+  floatBox.style.top  = (fy - floatBox.offsetHeight/2) + "px";
+}
+
+/* ---------- THE NERVE FIELD — seeded flow field ----------
+   Philosophy: "Field Dynamics / kintsugi" — invisible forces
+   (pain signals) made visible as drifting bone filaments; a
+   rare vermilion particle is the seam, the signal, the mend.
+   Seeded (Art-Blocks pattern): ?seed=NNNNN reproduces a run.
+   Click the seed chip to explore variations.
+---------------------------------------------------------- */
+var NerveField = (function(){
+  var cv = document.getElementById("nerveCanvas");
+  if (!cv) return null;
+  var ctx = cv.getContext("2d");
+  var hero = document.querySelector(".hero");
+  var dpr, W, H, parts, rnd, running = false, visible = true, t = 0;
+  var seedParam = parseInt(new URLSearchParams(location.search).get("seed"),10);
+  var seed = isNaN(seedParam) ? 20260613 : seedParam;
+
+  function size(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = hero.offsetWidth; H = hero.offsetHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.fillStyle = "#0B0B0B"; ctx.fillRect(0,0,W,H);
+  }
+  function spawn(p){
+    p.x = rnd()*W; p.y = rnd()*H;
+    p.life = 0; p.max = 240 + rnd()*420;
+    p.sp = 0.35 + rnd()*0.85;
+    p.verm = rnd() < 0.085;
+  }
+  function init(){
+    rnd = mulberry32(seed);
+    var n = clamp(Math.round(W*H/16000), 90, 240);
+    parts = [];
+    for (var i=0;i<n;i++){ var p = {}; spawn(p); p.life = rnd()*p.max; parts.push(p); }
+    var chipVal = document.getElementById("seedVal");
+    if (chipVal) chipVal.textContent = seed;
+    ctx.fillStyle = "#0B0B0B"; ctx.fillRect(0,0,W,H);
+  }
+  function angle(x,y){
+    return Math.sin(x*0.0016 + t*0.00045 + seed*0.0001) * 1.9
+         + Math.cos(y*0.0013 - t*0.00032) * 1.7
+         + Math.sin((x+y)*0.0007 + t*0.0002) * 1.1;
+  }
+  function step(){
+    if (!running) return;
+    t += 16;
+    ctx.fillStyle = "rgba(11,11,11,0.055)";
+    ctx.fillRect(0,0,W,H);
+    ctx.lineWidth = 1;
+    for (var i=0;i<parts.length;i++){
+      var p = parts[i];
+      var a = angle(p.x, p.y);
+      var nx = p.x + Math.cos(a)*p.sp;
+      var ny = p.y + Math.sin(a)*p.sp;
+      ctx.strokeStyle = p.verm
+        ? "rgba(255,61,0,0.34)"
+        : "rgba(234,230,220," + (0.045 + p.sp*0.05).toFixed(3) + ")";
+      ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(nx,ny); ctx.stroke();
+      p.x = nx; p.y = ny; p.life++;
+      if (p.life > p.max || p.x < -4 || p.x > W+4 || p.y < -4 || p.y > H+4) spawn(p);
+    }
+    raf(step);
+  }
+  function start(){
+    if (running || !visible || document.hidden) return;
+    running = true;
+    if (REDUCED){ for (var f=0; f<110; f++){ running = true; stepOnce(); } running = false; return; }
+    raf(step);
+  }
+  function stepOnce(){ var r = running; running = true; t += 16;
+    ctx.lineWidth = 1;
+    for (var i=0;i<parts.length;i++){
+      var p = parts[i], a = angle(p.x,p.y);
+      var nx = p.x + Math.cos(a)*p.sp*3, ny = p.y + Math.sin(a)*p.sp*3;
+      ctx.strokeStyle = p.verm ? "rgba(255,61,0,0.3)" : "rgba(234,230,220,0.06)";
+      ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(nx,ny); ctx.stroke();
+      p.x = nx; p.y = ny;
+      if (p.x<0||p.x>W||p.y<0||p.y>H) spawn(p);
+    }
+    running = r;
+  }
+  function stop(){ running = false; }
+  function reseed(s){
+    seed = s; size(); init();
+    var u = new URL(location.href); u.searchParams.set("seed", seed);
+    history.replaceState(null,"",u);
+  }
+  size(); init();
+  window.addEventListener("resize", function(){ size(); init(); });
+  document.addEventListener("visibilitychange", function(){
+    document.hidden ? stop() : start();
+  });
+  new IntersectionObserver(function(en){
+    visible = en[0].isIntersecting;
+    visible ? start() : stop();
+  }, { threshold: 0.02 }).observe(hero);
+  var chip = document.getElementById("seedChip");
+  if (chip) chip.addEventListener("click", function(){
+    reseed(1000 + Math.floor(Math.random()*89999));
+  });
+  return { start: start };
+})();
+
+/* ---------- menu ---------- */
+var burger = document.getElementById("burger");
+function closeMenu(){
+  document.documentElement.classList.remove("menu-open");
+  burger.setAttribute("aria-expanded","false");
+}
+burger.addEventListener("click", function(){
+  var open = document.documentElement.classList.toggle("menu-open");
+  burger.setAttribute("aria-expanded", String(open));
+});
+window.addEventListener("keydown", function(e){ if (e.key === "Escape") closeMenu(); });
+
+/* ---------- preloader → boot sequence ---------- */
+(function boot(){
+  var pl = document.getElementById("preloader");
+  var bar = document.getElementById("plBar");
+  var count = document.getElementById("plCount");
+
+  function finish(){
+    pl.classList.add("done");
+    pl.addEventListener("transitionend", function(){ pl.remove(); }, { once:true });
+    setTimeout(function(){ if (pl.parentNode) pl.remove(); }, 1400);
+    /* hero entrance */
+    var rows = document.querySelectorAll("#heroTitle .row");
+    rows.forEach(function(r,i){
+      r.querySelectorAll(".char").forEach(function(c,j){
+        c.style.transitionDelay = (i*130 + Math.min(j*26, 700)) + "ms";
+      });
+      r.classList.add("in");
+    });
+    document.querySelectorAll(".hero [data-reveal='fade'], .hero [data-reveal='mask']")
+      .forEach(function(el,i){
+        setTimeout(function(){ el.classList.add("in"); }, 450 + i*140);
+      });
+    armReveals();
+    if (NerveField) NerveField.start();
+  }
+
+  if (REDUCED || !pl){
+    if (pl) pl.remove();
+    document.querySelectorAll("#heroTitle .row").forEach(function(r){ r.classList.add("in"); });
+    armReveals();
+    if (NerveField) NerveField.start();
+    raf(frame);
+    return;
+  }
+
+  var p = 0;
+  var iv = setInterval(function(){
+    p = Math.min(100, p + Math.random()*16 + 5);
+    bar.style.transform = "scaleX(" + (p/100) + ")";
+    count.textContent = (p<10?"0":"") + Math.floor(p);
+    if (p >= 100){ clearInterval(iv); setTimeout(finish, 250); }
+  }, 90);
+  raf(frame);
+})();
+
+})();
+/*__JS_END__*/
+</script>
+</body>
+</html>

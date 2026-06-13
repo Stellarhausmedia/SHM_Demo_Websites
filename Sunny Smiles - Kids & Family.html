@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sunny Smiles Dental, Nungambakkam — Friendly Family Dentistry in Chennai</title>
+<meta name="description" content="Sunny Smiles Dental is a friendly, modern family dental clinic in Nungambakkam, Chennai. Check-ups, whitening, braces, implants, kids' dentistry & more — led by Dr. Meghna Rao, BDS, MDS (Pediatric & Family Dentistry), 11+ years' experience." />
+<!-- ============================================================
+     TEMPLATE 05 · "DENTAL CARE DSO" (Tino Agency) — custom illustration / playful / lead-first
+     Aesthetic: friendly illustrated brand · minimal · easy sign-up
+     Interactive: custom cursor (+labels) · magnetic buttons · spotlight cards ·
+                  parallax illustration · marquee · count-up
+     -----------------------------------------------------------------
+     PRACTO DATA TO SWAP (search & replace):
+       Sunny Smiles Dental ........... clinic name
+       Nungambakkam, Chennai ......... locality
+       Dr. Meghna Rao ................ dentist name + credentials block
+       919791012345 ................. WhatsApp / phone (wa.me + tel:)
+       4.9 / 365 / 97% / 11 .......... rating · stories · recommend · years
+       ₹300 .......................... consultation fee
+       Services / Reviews / FAQ / Insurers / Hours / Map — see each section
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --lav:#F3F0FB;        /* soft lavender-white bg */
+    --paper:#FFFFFF; --paper-2:#FAF8FF;
+    --ink:#211A33;        /* deep plum-black */
+    --text:#4A4360; --muted:#857C99;
+    --grape:#6C4DDA; --grape-deep:#5538C0; --grape-tint:#E7E0FB; --grape-soft:#F1ECFD;
+    --sun:#FFC83D; --sun-deep:#F0AE12; --sun-soft:#FFF3D2;
+    --peach:#FF8E72; --mint:#3FD0A8;     /* illustration accents */
+    --line:#E6E1F2; --line-soft:#EFEBF8;
+    --dark:#221A38; --ok:#2F9C6B;
+    --shadow-xs:0 1px 2px rgba(33,26,51,.06);
+    --shadow-sm:0 8px 22px rgba(33,26,51,.08);
+    --shadow-md:0 22px 50px rgba(60,40,120,.14);
+    --shadow-lg:0 46px 100px rgba(50,32,110,.22);
+    --r-sm:14px; --r-md:20px; --r-lg:28px; --r-xl:38px; --r-pill:999px;
+    --maxw:1200px; --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:92px;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+    .marquee-track{animation:none !important;}
+  }
+  body{margin:0; font-family:"Nunito Sans",system-ui,sans-serif; font-size:16px; line-height:1.65; color:var(--text); background:var(--lav); -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  h1,h2,h3,h4{font-family:"Fredoka",system-ui,sans-serif; color:var(--ink); line-height:1.05; margin:0; font-weight:600; letter-spacing:-.01em;}
+  p{margin:0;}
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%;}
+  .wrap{width:100%; max-width:var(--maxw); margin:0 auto; padding:0 26px;}
+
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--grape); outline-offset:3px; border-radius:8px;}
+  .skip-link{position:absolute; left:12px; top:-60px; z-index:300; background:var(--ink); color:#fff; padding:12px 18px; border-radius:10px; transition:top .2s var(--ease);}
+  .skip-link:focus{top:12px;}
+
+  /* ===== CUSTOM CURSOR ===== */
+  .cursor-dot,.cursor-ring{position:fixed; top:0; left:0; z-index:9999; pointer-events:none; border-radius:50%;}
+  .cursor-dot{width:8px; height:8px; background:var(--grape); margin:-4px 0 0 -4px; transition:opacity .2s;}
+  .cursor-ring{width:38px; height:38px; margin:-19px 0 0 -19px; border:2px solid var(--grape); display:flex; align-items:center; justify-content:center; transition:width .22s var(--ease), height .22s var(--ease), margin .22s var(--ease), background .2s, border-color .2s, opacity .2s, border-radius .2s;}
+  .cursor-ring .clabel{font-family:"Nunito Sans",sans-serif; font-size:.72rem; font-weight:800; color:#fff; opacity:0; white-space:nowrap; transition:opacity .15s;}
+  .cursor-ring.hover{width:56px; height:56px; margin:-28px 0 0 -28px; background:var(--grape-soft);}
+  .cursor-ring.label{width:auto; height:36px; margin:-18px 0 0 0; padding:0 16px; border-radius:var(--r-pill); background:var(--grape);}
+  .cursor-ring.label .clabel{opacity:1;}
+  .cursor-dot.hide,.cursor-ring.hide{opacity:0;}
+  body.has-cursor, body.has-cursor *{cursor:none;}
+  body.has-cursor :is(input[type="text"],input[type="tel"],input[type="email"],textarea){cursor:text;}
+
+  .tag{display:inline-flex; align-items:center; gap:8px; font-size:.76rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--grape-deep); background:var(--grape-soft); border:1px solid var(--grape-tint); padding:7px 14px; border-radius:var(--r-pill);}
+  .tag .dot{width:8px; height:8px; border-radius:50%; background:var(--sun); box-shadow:0 0 0 4px var(--sun-soft);}
+
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:54px; padding:15px 30px; border-radius:var(--r-pill); font-family:"Fredoka",sans-serif; font-size:1rem; font-weight:500; cursor:pointer; border:2px solid transparent; transition:transform .2s var(--ease), box-shadow .25s var(--ease), background .2s, color .2s, border-color .2s;}
+  .btn svg{width:18px; height:18px; flex:none;}
+  .btn-primary{background:var(--grape); color:#fff; box-shadow:0 14px 28px rgba(108,77,218,.32);}
+  .btn-primary:hover{background:var(--grape-deep); box-shadow:0 20px 40px rgba(108,77,218,.4);}
+  .btn-sun{background:var(--sun); color:var(--ink); box-shadow:0 14px 28px rgba(240,174,18,.3);}
+  .btn-sun:hover{background:var(--sun-deep);}
+  .btn-ghost{background:var(--paper); color:var(--ink); border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--grape); color:var(--grape-deep); box-shadow:var(--shadow-sm);}
+  .magnetic{transition:transform .2s var(--ease), box-shadow .25s var(--ease), background .2s;}
+
+  /* ===== HEADER ===== */
+  header.site{position:fixed; top:0; left:0; right:0; z-index:100; transition:background .3s var(--ease), box-shadow .3s, border-color .3s; border-bottom:1px solid transparent;}
+  header.site .nav{display:flex; align-items:center; justify-content:space-between; height:80px;}
+  .brand{display:flex; align-items:center; gap:11px; font-family:"Fredoka",sans-serif; font-weight:600; font-size:1.36rem; letter-spacing:-.01em; line-height:1; color:var(--ink);}
+  .brand .mark{width:44px; height:44px; flex:none;}
+  .brand .b-sub{display:block; font-family:"Nunito Sans",sans-serif; font-size:.58rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-top:3px;}
+  .nav-links{display:flex; align-items:center; gap:6px; list-style:none; margin:0; padding:0;}
+  .nav-links a{position:relative; display:inline-block; padding:8px 6px; margin:0 8px; font-size:.95rem; font-weight:700; color:var(--text); transition:color .2s;}
+  .nav-links a::after{content:""; position:absolute; left:0; right:100%; bottom:-2px; height:3px; border-radius:3px; background:var(--sun); transition:right .28s var(--ease);}
+  .nav-links a:hover{color:var(--ink);} .nav-links a:hover::after{right:0;}
+  .nav-links a.active{color:var(--grape-deep);} .nav-links a.active::after{right:0; background:var(--grape);}
+  .nav-meta{display:flex; align-items:center; gap:16px;}
+  .nav-phone{text-align:right; line-height:1.15;}
+  .nav-phone .num{font-weight:800; font-size:.98rem; color:var(--ink);}
+  .nav-phone .lab{font-size:.68rem; font-weight:700; letter-spacing:.06em; color:var(--muted); text-transform:uppercase;}
+  header.site.scrolled{background:rgba(243,240,251,.88); backdrop-filter:blur(16px); border-bottom-color:var(--line); box-shadow:var(--shadow-xs);}
+  .nav-toggle{display:none; width:46px; height:46px; border:1px solid var(--line); background:var(--paper); border-radius:12px; cursor:pointer; align-items:center; justify-content:center;}
+  .nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{content:""; display:block; width:20px; height:2px; background:var(--ink); border-radius:2px; transition:.25s var(--ease);}
+  .nav-toggle span{position:relative;}
+  .nav-toggle span::before{position:absolute; top:-6px;}
+  .nav-toggle span::after{position:absolute; top:6px;}
+  .mobile-menu{display:none;}
+
+  /* ===== HERO ===== */
+  .hero{position:relative; padding:140px 0 70px; overflow:hidden;}
+  .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:40px; align-items:center;}
+  .hero-copy{max-width:560px; position:relative; z-index:3;}
+  .hero h1{font-size:clamp(3rem,6.4vw,5rem); font-weight:700; margin-top:22px; letter-spacing:-.02em; line-height:1;}
+  .hero h1 .hl{position:relative; color:var(--grape-deep); white-space:nowrap;}
+  .hero h1 .hl svg{position:absolute; left:-2%; bottom:-12px; width:104%; height:18px;}
+  .hero-sub{margin-top:26px; font-size:1.16rem; color:var(--text); max-width:44ch;}
+  .hero-actions{margin-top:32px; display:flex; flex-wrap:wrap; gap:14px;}
+  /* quick callback capture */
+  .callback{margin-top:24px; display:flex; gap:10px; align-items:center; background:var(--paper); border:2px solid var(--line); border-radius:var(--r-pill); padding:7px 7px 7px 20px; max-width:430px; transition:border-color .2s, box-shadow .2s;}
+  .callback:focus-within{border-color:var(--grape); box-shadow:0 0 0 4px var(--grape-soft);}
+  .callback input{flex:1; border:none; outline:none; background:transparent; font-family:inherit; font-size:1rem; color:var(--ink); min-width:0;}
+  .callback .btn{min-height:46px; padding:11px 22px;}
+  .callback-note{margin-top:10px; font-size:.82rem; color:var(--muted);}
+  .callback-note b{color:var(--ok);}
+
+  .hero-art{position:relative; height:520px;}
+  .blob{position:absolute; border-radius:50%; filter:blur(8px); will-change:transform;}
+  .blob.b1{width:360px; height:360px; background:var(--grape-tint); top:8%; left:8%;}
+  .blob.b2{width:240px; height:240px; background:var(--sun-soft); bottom:6%; right:10%;}
+  .blob.b3{width:160px; height:160px; background:#FFE0D6; top:14%; right:18%;}
+  .art-disc{position:absolute; left:50%; top:50%; width:330px; height:330px; transform:translate(-50%,-50%); border-radius:50%; background:radial-gradient(circle at 50% 35%, #fff 0%, var(--sun-soft) 70%, #FFE7AE 100%); box-shadow:var(--shadow-md);}
+  .layer{position:absolute; will-change:transform;}
+  .bob{animation:bob 5.5s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(-8px) rotate(var(--rot,0deg));}50%{transform:translateY(10px) rotate(var(--rot,0deg));}}
+  .mascot{left:50%; top:50%; transform:translate(-50%,-50%); z-index:2;}
+  .mascot svg{width:230px; height:auto; filter:drop-shadow(0 24px 26px rgba(60,40,120,.22));}
+  .m-sparkle{top:14%; left:24%; --rot:-8deg;} .m-sparkle svg{width:56px;}
+  .m-heart{top:20%; right:18%; --rot:10deg;} .m-heart svg{width:46px;}
+  .m-shield{bottom:18%; left:16%; --rot:-6deg;} .m-shield svg{width:60px;}
+  .m-brush{bottom:14%; right:14%; --rot:14deg;} .m-brush svg{width:64px;}
+  .m-plus{top:42%; left:8%; --rot:0deg;} .m-plus svg{width:34px;}
+  .m-bubble{top:6%; left:48%; z-index:3;}
+  .m-bubble .bub{background:var(--paper); border:2px solid var(--line); border-radius:18px; padding:8px 14px; font-family:"Fredoka",sans-serif; font-weight:600; color:var(--grape-deep); box-shadow:var(--shadow-sm); position:relative;}
+  .m-bubble .bub::after{content:""; position:absolute; left:24px; bottom:-9px; width:14px; height:14px; background:var(--paper); border-right:2px solid var(--line); border-bottom:2px solid var(--line); transform:rotate(45deg);}
+
+  .hero-trust{margin-top:30px; display:flex; align-items:center; gap:12px;}
+  .hero-trust .stars{color:var(--sun-deep); letter-spacing:1px; font-size:1rem;}
+  .hero-trust .tt{font-size:.92rem; color:var(--muted);} .hero-trust .tt b{color:var(--ink);}
+
+  /* ===== MARQUEE ===== */
+  .marquee{background:var(--grape); color:#fff; padding:16px 0; overflow:hidden; border-top:3px solid var(--grape-deep); border-bottom:3px solid var(--grape-deep);}
+  .marquee-track{display:flex; align-items:center; gap:0; width:max-content; animation:marquee 30s linear infinite;}
+  .marquee:hover .marquee-track{animation-play-state:paused;}
+  @keyframes marquee{to{transform:translateX(-50%);}}
+  .marquee .mq{display:inline-flex; align-items:center; gap:14px; padding:0 26px; font-family:"Fredoka",sans-serif; font-weight:500; font-size:1.05rem;}
+  .marquee .mq svg{width:18px; height:18px; opacity:.9;}
+
+  /* ===== STRIP (count-up) ===== */
+  .strip .wrap{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; padding:46px 26px 6px;}
+  .scell{text-align:center;}
+  .scell .v{font-family:"Fredoka",sans-serif; font-weight:700; font-size:clamp(2rem,3.4vw,2.8rem); color:var(--grape-deep); line-height:1;}
+  .scell .v .star{color:var(--sun-deep);}
+  .scell .k{font-size:.84rem; font-weight:700; letter-spacing:.02em; color:var(--muted); margin-top:8px;}
+  .scell + .scell{border-left:1px solid var(--line);}
+
+  /* ===== SECTION SHELL ===== */
+  .block{padding:100px 0;}
+  .sec-head{max-width:660px; margin-bottom:50px;}
+  .sec-head.center{margin-inline:auto; text-align:center;}
+  .sec-head h2{font-size:clamp(2.2rem,4.2vw,3.3rem); margin-top:16px; font-weight:600;}
+  .sec-head p{margin-top:16px; font-size:1.08rem; color:var(--muted);}
+
+  /* ===== SERVICES (spotlight) ===== */
+  .svc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .svc{position:relative; overflow:hidden; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-lg); padding:30px 28px; transition:transform .25s var(--ease), box-shadow .25s, border-color .25s;}
+  .svc::before{content:""; position:absolute; inset:0; z-index:0; background:radial-gradient(180px circle at var(--mx,50%) var(--my,50%), var(--grape-soft), transparent 60%); opacity:0; transition:opacity .25s;}
+  .svc:hover{transform:translateY(-6px); box-shadow:var(--shadow-md); border-color:var(--grape-tint);}
+  .svc:hover::before{opacity:1;}
+  .svc > *{position:relative; z-index:1;}
+  .svc .ic{width:56px; height:56px; border-radius:16px; display:flex; align-items:center; justify-content:center; color:#fff; margin-bottom:18px;}
+  .svc .ic svg{width:28px; height:28px;}
+  .svc:nth-child(1) .ic{background:var(--grape);} .svc:nth-child(2) .ic{background:var(--sun-deep);}
+  .svc:nth-child(3) .ic{background:var(--peach);} .svc:nth-child(4) .ic{background:var(--mint);}
+  .svc:nth-child(5) .ic{background:var(--grape);} .svc:nth-child(6) .ic{background:var(--sun-deep);}
+  .svc h3{font-size:1.28rem; font-weight:600;}
+  .svc p{margin-top:9px; font-size:.95rem; color:var(--muted);}
+  .svc .from{display:inline-block; margin-top:16px; font-size:.78rem; font-weight:800; color:var(--grape-deep); background:var(--grape-soft); padding:5px 12px; border-radius:var(--r-pill);}
+
+  /* ===== LEAD BAND ===== */
+  .lead-sec{padding:30px 0;}
+  .lead-band{position:relative; overflow:hidden; background:linear-gradient(120deg,var(--grape) 0%, var(--grape-deep) 100%); border-radius:var(--r-xl); padding:54px 50px; box-shadow:var(--shadow-md);}
+  .lead-band::after{content:""; position:absolute; right:-40px; top:-40px; width:260px; height:260px; border-radius:50%; background:rgba(255,200,61,.18);}
+  .lead-band::before{content:""; position:absolute; left:-30px; bottom:-60px; width:200px; height:200px; border-radius:50%; background:rgba(255,255,255,.08);}
+  .lead-grid{position:relative; z-index:1; display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center;}
+  .lead-grid h2{color:#fff; font-size:clamp(1.9rem,3.4vw,2.7rem); font-weight:600;}
+  .lead-grid p{color:#E4DBFB; margin-top:12px; max-width:42ch;}
+  .lead-form{background:var(--paper); border-radius:var(--r-lg); padding:26px; box-shadow:var(--shadow-md);}
+  .lead-form h3{font-size:1.2rem; font-weight:600;}
+  .lead-form .row{display:grid; gap:12px; margin-top:14px;}
+  .lead-form input,.lead-form select{width:100%; font-family:inherit; font-size:1rem; color:var(--ink); background:var(--paper-2); border:1.5px solid var(--line); border-radius:12px; padding:13px 15px; transition:border-color .2s, box-shadow .2s;}
+  .lead-form input:focus,.lead-form select:focus{border-color:var(--grape); box-shadow:0 0 0 4px var(--grape-soft); outline:none; background:var(--paper);}
+  .lead-form .invalid{border-color:#D6453E !important; box-shadow:0 0 0 4px rgba(214,69,62,.12) !important;}
+  .lead-form .btn{width:100%; margin-top:14px;}
+  .lead-form .lf-status{margin-top:10px; font-size:.86rem; font-weight:700; min-height:1.1em;}
+  .lead-form .lf-status.ok{color:var(--ok);}
+
+  /* ===== PROCESS ===== */
+  .proc{background:var(--paper);}
+  .proc-list{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .pstep{position:relative; padding:32px 28px; background:var(--lav); border:1px solid var(--line); border-radius:var(--r-lg); transition:transform .25s var(--ease), box-shadow .25s;}
+  .pstep:hover{transform:translateY(-5px); box-shadow:var(--shadow-md);}
+  .pstep .no{width:48px; height:48px; border-radius:14px; background:var(--sun); color:var(--ink); display:flex; align-items:center; justify-content:center; font-family:"Fredoka",sans-serif; font-weight:700; font-size:1.2rem; margin-bottom:16px;}
+  .pstep h3{font-size:1.2rem; font-weight:600;}
+  .pstep p{margin-top:8px; color:var(--muted); font-size:.95rem;}
+
+  /* ===== DOCTOR ===== */
+  .doc-card{display:grid; grid-template-columns:.8fr 1.2fr; gap:0; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-xl); overflow:hidden; box-shadow:var(--shadow-md);}
+  .doc-photo{position:relative; background:radial-gradient(circle at 50% 30%, var(--grape-tint), var(--grape) 130%); min-height:400px; display:flex; align-items:flex-end; justify-content:center;}
+  .doc-photo .av{width:80%; height:90%; align-self:flex-end;}
+  .doc-photo .badge{position:absolute; top:18px; left:18px; display:inline-flex; align-items:center; gap:7px; background:rgba(255,255,255,.95); border-radius:var(--r-pill); padding:7px 13px; font-size:.78rem; font-weight:800; color:var(--grape-deep);}
+  .doc-photo .badge svg{width:15px; height:15px;}
+  .doc-photo .ph{position:absolute; left:50%; bottom:14px; transform:translateX(-50%); font-size:.62rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.8);}
+  .doc-body{padding:40px;}
+  .doc-body h3{font-size:2rem; font-weight:600; margin-top:14px;}
+  .doc-cred{font-weight:700; color:var(--grape-deep); margin-top:8px;}
+  .doc-roles{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0;}
+  .chip{font-size:.8rem; font-weight:700; color:var(--text); background:var(--lav); border:1px solid var(--line); padding:6px 13px; border-radius:var(--r-pill);}
+  .doc-body p{color:var(--text);}
+  .doc-meta{display:flex; margin-top:24px; border:1px solid var(--line); border-radius:var(--r-md); overflow:hidden;}
+  .doc-meta > div{flex:1; padding:16px 18px; text-align:center;}
+  .doc-meta > div + div{border-left:1px solid var(--line);}
+  .doc-meta .v{font-family:"Fredoka",sans-serif; font-weight:700; font-size:1.5rem; color:var(--ink); line-height:1;}
+  .doc-meta .k{font-size:.72rem; font-weight:700; letter-spacing:.02em; text-transform:uppercase; color:var(--muted); margin-top:6px;}
+
+  /* ===== REVIEWS ===== */
+  .reviews{background:var(--paper);}
+  .rev-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .rev-card{background:var(--lav); border:1px solid var(--line); border-radius:var(--r-lg); padding:28px 26px; transition:transform .25s var(--ease), box-shadow .25s;}
+  .rev-card:hover{transform:translateY(-5px); box-shadow:var(--shadow-md);}
+  .stars{color:var(--sun-deep); letter-spacing:2px; font-size:1rem;}
+  .rev-card blockquote{margin:14px 0 20px; font-size:1.02rem; color:var(--ink); line-height:1.6;}
+  .rev-author{display:flex; align-items:center; gap:12px;}
+  .rev-author .av{width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:"Fredoka",sans-serif; font-weight:700; font-size:1.1rem; color:#fff;}
+  .rev-author .nm{font-weight:800; color:var(--ink);}
+  .rev-author .for{font-size:.82rem; color:var(--muted);}
+  .rev-foot{margin-top:34px; text-align:center; font-size:.92rem; color:var(--muted);}
+  .rev-foot b{color:var(--ink);}
+
+  /* ===== INSURANCE (dark) ===== */
+  .ins-sec{background:var(--dark);}
+  .ins-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;}
+  .ins-sec .tag{background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.16); color:var(--grape-tint);}
+  .ins-sec h2{color:#fff; font-size:clamp(1.9rem,3.4vw,2.7rem); margin-top:16px; font-weight:600;}
+  .ins-sec p{color:#B4A9CE; margin-top:14px; max-width:46ch;}
+  .ins-logos{display:flex; flex-wrap:wrap; gap:12px;}
+  .ins-logos span{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14); color:#E7E1F6; padding:13px 22px; border-radius:var(--r-md); font-weight:700; font-size:.95rem;}
+
+  /* ===== FAQ ===== */
+  .faq-grid{display:grid; gap:14px; max-width:840px; margin-inline:auto;}
+  .faq{background:var(--paper); border:1px solid var(--line); border-radius:var(--r-md); overflow:hidden; transition:box-shadow .25s, border-color .25s;}
+  .faq[open]{box-shadow:var(--shadow-sm); border-color:var(--grape-tint);}
+  .faq summary{list-style:none; cursor:pointer; padding:21px 24px; display:flex; align-items:center; justify-content:space-between; gap:18px; font-family:"Fredoka",sans-serif; font-weight:500; font-size:1.1rem; color:var(--ink);}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary .pl{position:relative; width:22px; height:22px; flex:none;}
+  .faq summary .pl::before,.faq summary .pl::after{content:""; position:absolute; background:var(--grape); border-radius:2px; transition:transform .25s var(--ease);}
+  .faq summary .pl::before{top:10px; left:2px; width:18px; height:2px;}
+  .faq summary .pl::after{top:2px; left:10px; width:2px; height:18px;}
+  .faq[open] summary .pl::after{transform:scaleY(0);}
+  .faq .ans{padding:0 24px 22px; color:var(--muted); font-size:.98rem;}
+
+  /* ===== CONTACT ===== */
+  .contact{background:var(--lav);}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:start;}
+  .ct-info h2{font-size:clamp(2rem,3.6vw,2.9rem); font-weight:600;}
+  .ct-info p.lead{margin-top:16px; color:var(--muted);}
+  .ct-rows{margin-top:28px; display:grid; gap:16px;}
+  .ct-row{display:flex; gap:14px; align-items:flex-start;}
+  .ct-row .ci{width:46px; height:46px; flex:none; border-radius:13px; background:var(--grape-soft); color:var(--grape-deep); display:flex; align-items:center; justify-content:center;}
+  .ct-row .ci svg{width:21px; height:21px;}
+  .ct-row .cl{font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted);}
+  .ct-row .cv{font-weight:800; color:var(--ink); margin-top:2px;}
+  .ct-row .cv a:hover{color:var(--grape-deep);}
+  .ct-hours{margin-top:24px; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-md); padding:16px 20px; font-size:.92rem;}
+  .ct-hours .hr{display:flex; justify-content:space-between; padding:5px 0;}
+  .ct-hours .hr span:first-child{color:var(--muted);}
+  .ct-hours .hr b{color:var(--ink);}
+  .form-card{background:var(--paper); border:1px solid var(--line); border-radius:var(--r-xl); padding:34px; box-shadow:var(--shadow-sm);}
+  .form-card h3{font-size:1.5rem; font-weight:600;}
+  .form-card .fnote{font-size:.9rem; color:var(--muted); margin-top:8px;}
+  .field{margin-top:18px;}
+  .field label{display:block; font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:7px;}
+  .field input,.field select,.field textarea{width:100%; font-family:inherit; font-size:1rem; color:var(--ink); background:var(--paper-2); border:1.5px solid var(--line); border-radius:12px; padding:13px 15px; transition:border-color .2s, box-shadow .2s;}
+  .field textarea{resize:vertical; min-height:96px;}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--grape); box-shadow:0 0 0 4px var(--grape-soft); outline:none; background:var(--paper);}
+  .field.invalid input,.field.invalid select{border-color:#D6453E; box-shadow:0 0 0 4px rgba(214,69,62,.12);}
+  .form-card .btn{width:100%; margin-top:22px;}
+  .form-status{margin-top:14px; font-size:.92rem; min-height:1.2em; font-weight:700;}
+  .form-status.ok{color:var(--ok);}
+  .spin{width:17px; height:17px; border:2px solid rgba(255,255,255,.5); border-top-color:#fff; border-radius:50%; display:inline-block; animation:rot .7s linear infinite;}
+  @keyframes rot{to{transform:rotate(360deg);}}
+
+  /* ===== FOOTER ===== */
+  footer.site{background:var(--dark); color:#B4A9CE; padding:64px 0 30px;}
+  .foot-grid{display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:40px;}
+  footer .brand{color:#fff;}
+  footer .brand .b-sub{color:#8A7DB0;}
+  footer .f-blurb{margin-top:16px; max-width:38ch; color:#AEA2CC; font-size:.95rem;}
+  footer h4{color:#fff; font-size:.74rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px; font-family:"Nunito Sans",sans-serif;}
+  .foot-links{list-style:none; margin:0; padding:0; display:grid; gap:10px;}
+  .foot-links a,.foot-links li{color:#AEA2CC; font-size:.94rem; transition:color .2s;}
+  .foot-links a:hover{color:#fff;}
+  .foot-bottom{margin-top:46px; padding-top:22px; border-top:1px solid rgba(255,255,255,.1); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:.84rem; color:#8A7DB0;}
+  .foot-bottom a{color:var(--sun); font-weight:700;}
+  .foot-bottom a:hover{color:#fff;}
+
+  /* ===== WhatsApp FAB ===== */
+  .wa-fab{position:fixed; right:22px; bottom:22px; z-index:120; width:58px; height:58px; border-radius:50%; background:#25D366; box-shadow:0 12px 30px rgba(37,211,102,.45); display:flex; align-items:center; justify-content:center; transition:transform .2s var(--ease);}
+  .wa-fab:hover{transform:scale(1.08);}
+  .wa-fab svg{width:30px; height:30px;}
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(20px); transition:opacity .7s var(--ease), transform .7s var(--ease);}
+  .reveal.in{opacity:1; transform:none;}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr; gap:30px;}
+    .hero-art{height:420px; max-width:460px; margin:0 auto;}
+    .svc-grid{grid-template-columns:repeat(2,1fr);}
+    .lead-grid{grid-template-columns:1fr; gap:28px;}
+    .proc-list{grid-template-columns:1fr;}
+    .doc-card{grid-template-columns:1fr;}
+    .doc-photo{min-height:300px;}
+    .rev-grid{grid-template-columns:1fr;}
+    .ins-grid{grid-template-columns:1fr; gap:26px;}
+    .contact-grid{grid-template-columns:1fr; gap:34px;}
+    .foot-grid{grid-template-columns:1fr 1fr; gap:30px;}
+  }
+  @media (max-width:680px){
+    .nav-links,.nav-phone{display:none;}
+    .nav-toggle{display:flex;}
+    .mobile-menu{display:block; position:fixed; top:80px; left:0; right:0; z-index:99; background:var(--paper); border-bottom:1px solid var(--line); box-shadow:var(--shadow-md); max-height:0; overflow:hidden; transition:max-height .3s var(--ease);}
+    .mobile-menu.open{max-height:440px;}
+    .mobile-menu ul{list-style:none; margin:0; padding:14px 26px 22px; display:grid; gap:4px;}
+    .mobile-menu a{display:block; padding:13px 14px; border-radius:12px; font-weight:700; color:var(--text);}
+    .mobile-menu a:hover{background:var(--grape-soft); color:var(--grape-deep);}
+    .mobile-menu .btn{width:100%; margin-top:10px;}
+    .hero{padding:120px 0 48px;}
+    .strip .wrap{grid-template-columns:repeat(2,1fr); gap:26px 14px;}
+    .scell + .scell{border-left:none;}
+    .scell:nth-child(even){border-left:1px solid var(--line);}
+    .svc-grid{grid-template-columns:1fr;}
+    .lead-band{padding:38px 28px;}
+    .foot-grid{grid-template-columns:1fr;}
+    .block{padding:78px 0;}
+    .callback{flex-wrap:wrap; border-radius:var(--r-lg); padding:14px;}
+    .callback input{flex-basis:100%; padding:6px 6px 10px;}
+    .callback .btn{width:100%;}
+  }
+
+  /* Sunny Smiles mobile fixes */
+  @media(max-width:680px){
+    /* Header CTA */
+    header .btn{min-height:40px!important;padding:9px 18px!important;font-size:.82rem!important;white-space:nowrap!important;}
+    /* Mascot + floating icons: scale down and contain */
+    .mascot svg{width:160px!important;}
+    .m-sparkle,.m-heart,.m-shield,.m-brush,.m-plus{display:none;}
+    .m-bubble{top:2%;left:42%;}
+    /* Doc card: collapse to 1 col */
+    .doc-card{grid-template-columns:1fr!important;}
+    .doc-photo{min-height:260px!important;}
+    .doc-body{padding:24px!important;overflow:hidden;min-width:0;}
+    .doc-roles{flex-wrap:wrap;}
+    .doc-meta{flex-wrap:wrap;}
+    .doc-meta>div{flex:1;min-width:80px;}
+    /* Heading alignment: make all sec-head left-aligned on mobile */
+    .sec-head.center{text-align:left!important;margin-inline:0!important;}
+    /* Visit/book section: reduce top gap */
+    #contact,.contact{padding-top:60px!important;}
+  }
+  @media(max-width:430px){
+    header .btn{min-height:36px!important;padding:7px 14px!important;font-size:.78rem!important;}
+  }
+
+
+/* Mobile QA fix: prevent doctor-card stat labels from clipping */
+@media (max-width: 600px){
+  .doc-meta > div{padding:12px 4px;}
+  .doc-meta .k{font-size:.68rem;letter-spacing:.01em;}
+  .doc-meta .v{font-size:1.3rem;}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ===== HEADER ===== -->
+<header class="site" id="header">
+  <div class="wrap nav">
+    <a class="brand" href="#" aria-label="Sunny Smiles Dental home">
+      <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect width="48" height="48" rx="15" fill="#6C4DDA"/>
+        <circle cx="24" cy="20" r="9" fill="#FFC83D"/>
+        <path d="M24 27c-4 0-7 2.4-7 6.2 0 1.5.5 3.1 1 4.6.3.9.6 1.2 1.2 1.2s.9-.6 1.1-1.5c.1-.6.2-1.2.3-1.7.1-.5.4-.7.8-.7s.7.2.8.7c.1.5.2 1.1.3 1.7.2.9.5 1.5 1.1 1.5s.9-.3 1.2-1.2c.5-1.5 1-3.1 1-4.6 0-3.8-3-6.2-7-6.2Z" fill="#fff"/>
+      </svg>
+      <span>Sunny Smiles<span class="b-sub">Dental · Nungambakkam</span></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">How it works</a></li>
+        <li><a href="#doctor">Dentist</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-meta">
+      <div class="nav-phone">
+        <div class="num"><a href="tel:+919791012345">+91 97910 12345</a></div>
+        <div class="lab">Mon–Sat · 9–8</div>
+      </div>
+      <a class="btn btn-primary magnetic" data-cursor="Let's go" href="#contact">Book now</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">How it works</a></li>
+      <li><a href="#doctor">Dentist</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="btn btn-primary" href="#contact">Book now</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="tag"><span class="dot"></span> Friendly family dentistry · Nungambakkam</span>
+      <h1>Big smiles start <span class="hl">here<svg viewBox="0 0 200 18" fill="none" aria-hidden="true"><path d="M3 13C45 5 150 4 197 9" stroke="#FFC83D" stroke-width="6" stroke-linecap="round"/></svg></span>.</h1>
+      <p class="hero-sub">Gentle, modern dentistry the whole family will look forward to — honest advice, fair prices and a team that makes every visit easy.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary magnetic" data-cursor="Book 😁" href="https://wa.me/919791012345?text=Hi%20Sunny%20Smiles%20Dental%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">
+          Book an appointment
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#services">See treatments</a>
+      </div>
+      <div class="callback" id="callback">
+        <input id="cbPhone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="Your mobile number — we'll call you back" aria-label="Your mobile number for a callback" />
+        <button class="btn btn-sun magnetic" data-mag="0.2" id="cbBtn">Get a callback</button>
+      </div>
+      <div class="callback-note" id="cbNote">Prefer we reach out? Drop your number and we'll ring within working hours.</div>
+    </div>
+
+    <!-- Custom illustration scene (parallax) -->
+    <div class="hero-art" id="heroArt" data-cursor="Say hi 👋" aria-hidden="true">
+      <div class="blob b1 layer" data-depth="0.4"></div>
+      <div class="blob b2 layer" data-depth="0.6"></div>
+      <div class="blob b3 layer" data-depth="0.8"></div>
+      <div class="art-disc layer" data-depth="0.3"></div>
+
+      <div class="layer m-bubble" data-depth="1.4"><div class="bob"><span class="bub">Hi! 👋</span></div></div>
+
+      <div class="layer mascot" data-depth="0.6">
+        <div class="bob">
+          <svg viewBox="0 0 260 300">
+            <defs>
+              <linearGradient id="toothG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EFEAFB"/></linearGradient>
+            </defs>
+            <path d="M130 28C92 28 64 52 60 96c-3 34 8 74 22 112 9 25 14 38 22 38 7 0 9-12 11-26 1-9 2-18 3-26 .5-4 7-4 7.5 0 1 8 2 17 3 26 2 14 4 26 11 26 8 0 13-13 22-38 14-38 25-78 22-112-4-44-32-68-70-68Z" fill="url(#toothG)" stroke="#6C4DDA" stroke-width="4"/>
+            <circle cx="104" cy="120" r="9" fill="#211A33"/>
+            <circle cx="156" cy="120" r="9" fill="#211A33"/>
+            <circle cx="100" cy="124" r="3" fill="#fff"/><circle cx="152" cy="124" r="3" fill="#fff"/>
+            <circle cx="86" cy="142" r="11" fill="#FF8E72" opacity=".55"/>
+            <circle cx="174" cy="142" r="11" fill="#FF8E72" opacity=".55"/>
+            <path d="M108 146c8 9 36 9 44 0" stroke="#211A33" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <path d="M70 96c4-26 24-42 50-44" stroke="#fff" stroke-opacity=".8" stroke-width="6" stroke-linecap="round" fill="none"/>
+            <!-- waving arm -->
+            <path d="M196 150c18-6 30-20 30-36" stroke="#6C4DDA" stroke-width="9" stroke-linecap="round" fill="none"/>
+            <circle cx="228" cy="110" r="11" fill="#6C4DDA"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="layer m-sparkle" data-depth="2"><div class="bob"><svg viewBox="0 0 40 40" fill="none"><path d="M20 2l4 12 12 4-12 4-4 12-4-12-12-4 12-4 4-12Z" fill="#FFC83D"/></svg></div></div>
+      <div class="layer m-heart" data-depth="2.4"><div class="bob"><svg viewBox="0 0 40 40" fill="none"><path d="M20 35S4 24 4 13a8 8 0 0116-2 8 8 0 0116 2c0 11-16 22-16 22Z" fill="#FF8E72"/></svg></div></div>
+      <div class="layer m-shield" data-depth="1.8"><div class="bob"><svg viewBox="0 0 44 44" fill="none"><path d="M22 3l15 6v9c0 10-6.5 16-15 19-8.5-3-15-9-15-19V9l15-6Z" fill="#3FD0A8"/><path d="M15 21l5 5 9-9" stroke="#fff" stroke-width="3.4" stroke-linecap="round" fill="none"/></svg></div></div>
+      <div class="layer m-brush" data-depth="2.2"><div class="bob"><svg viewBox="0 0 48 48" fill="none"><rect x="6" y="22" width="30" height="9" rx="4.5" fill="#6C4DDA"/><rect x="33" y="20" width="9" height="13" rx="3" fill="#5538C0"/><g stroke="#FFC83D" stroke-width="3" stroke-linecap="round"><path d="M10 22v-6M16 22v-7M22 22v-6M28 22v-7"/></g></svg></div></div>
+      <div class="layer m-plus" data-depth="1.6"><div class="bob"><svg viewBox="0 0 34 34" fill="none"><path d="M17 5v24M5 17h24" stroke="#6C4DDA" stroke-width="6" stroke-linecap="round"/></svg></div></div>
+    </div>
+  </div>
+  <div class="wrap"><div class="hero-trust"><span class="stars">★★★★★</span> <span class="tt"><b>4.9/5</b> from 365 happy patients on Practo</span></div></div>
+</section>
+
+<!-- ===== MARQUEE ===== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="mqTrack">
+    <span class="mq">Check-ups <svg viewBox="0 0 24 24" fill="#FFC83D"><circle cx="12" cy="12" r="5"/></svg></span>
+    <span class="mq">Teeth Whitening <svg viewBox="0 0 24 24" fill="#FFC83D"><circle cx="12" cy="12" r="5"/></svg></span>
+    <span class="mq">Braces &amp; Aligners <svg viewBox="0 0 24 24" fill="#FFC83D"><circle cx="12" cy="12" r="5"/></svg></span>
+    <span class="mq">Dental Implants <svg viewBox="0 0 24 24" fill="#FFC83D"><circle cx="12" cy="12" r="5"/></svg></span>
+    <span class="mq">Root Canal <svg viewBox="0 0 24 24" fill="#FFC83D"><circle cx="12" cy="12" r="5"/></svg></span>
+    <span class="mq">Kids' Dentistry <svg viewBox="0 0 24 24" fill="#FFC83D"><circle cx="12" cy="12" r="5"/></svg></span>
+  </div>
+</div>
+
+<!-- ===== STRIP (count-up) ===== -->
+<div class="strip">
+  <div class="wrap">
+    <div class="scell"><div class="v"><span class="star">★</span> <span class="count" data-to="4.9" data-dec="1">0</span></div><div class="k">Patient rating</div></div>
+    <div class="scell"><div class="v"><span class="count" data-to="365" data-suffix="+">0</span></div><div class="k">Happy patients</div></div>
+    <div class="scell"><div class="v"><span class="count" data-to="97" data-suffix="%">0</span></div><div class="k">Recommend us</div></div>
+    <div class="scell"><div class="v"><span class="count" data-to="11" data-suffix="+">0</span></div><div class="k">Years of care</div></div>
+  </div>
+</div>
+
+<!-- ===== SERVICES (spotlight) ===== -->
+<section class="block" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag"><span class="dot"></span> What we do</span>
+      <h2>Friendly care for every smile.</h2>
+      <p>From quick check-ups to confident makeovers — gentle, modern treatment with prices you'll know up front, all under one roof.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c-3 0-5 2-5.4 5C6 11 7 15 8 18c.6 2 1 3.5 1.6 4 .6.5 1.2-.3 1.5-1.6.3-1.4.5-2.8.9-2.8s.6 1.4.9 2.8c.3 1.3.9 2.1 1.5 1.6.6-.5 1-2 1.6-4 1-3 2-7 1.4-10C17 5 15 3 12 3Z"/></svg></div>
+        <h3>Check-ups &amp; Cleaning</h3>
+        <p>Thorough exams, scaling and polishing to keep teeth and gums healthy.</p>
+        <span class="from">Consult ₹300</span>
+      </article>
+      <article class="svc reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l1.6 4.4L18 8l-4.4 1.6L12 14l-1.6-4.4L6 8l4.4-1.6L12 2Z"/><path d="M19 14l.8 2.2 2.2.8-2.2.8L19 20l-.8-2.2-2.2-.8 2.2-.8L19 14Z"/></svg></div>
+        <h3>Teeth Whitening</h3>
+        <p>Safe in-clinic and take-home whitening for a brighter, natural shade.</p>
+        <span class="from">from ₹6,000</span>
+      </article>
+      <article class="svc reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="4" width="14" height="4" rx="1.5"/><rect x="5" y="10" width="14" height="4" rx="1.5"/><rect x="5" y="16" width="14" height="4" rx="1.5"/></svg></div>
+        <h3>Braces &amp; Aligners</h3>
+        <p>Metal, ceramic and invisible clear-aligner options for straighter teeth.</p>
+        <span class="from">from ₹25,000</span>
+      </article>
+      <article class="svc reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18"/><path d="M7 7c0-2 2-3 5-3s5 1 5 3"/><path d="M6 12h12M7 17h10"/></svg></div>
+        <h3>Dental Implants</h3>
+        <p>Permanent, natural-feeling replacements for missing teeth.</p>
+        <span class="from">from ₹22,000</span>
+      </article>
+      <article class="svc reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c-3 0-5 2-5 5 0 4 2 9 5 13 3-4 5-9 5-13 0-3-2-5-5-5Z"/></svg></div>
+        <h3>Root Canal</h3>
+        <p>Single-sitting, virtually painless RCT to save a damaged tooth.</p>
+        <span class="from">from ₹3,500</span>
+      </article>
+      <article class="svc reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11a3 3 0 116 0c0 2-3 3-3 6"/><circle cx="12" cy="20" r="1"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>Kids' Dentistry</h3>
+        <p>Fear-free, friendly check-ups, sealants and fillings for little ones.</p>
+        <span class="from">from ₹800</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LEAD BAND ===== -->
+<section class="lead-sec">
+  <div class="wrap">
+    <div class="lead-band reveal">
+      <div class="lead-grid">
+        <div>
+          <h2>Your first visit is on us. 🎉</h2>
+          <p>New patients get a free first consultation and smile check. Pop in your details and we'll lock in a time that suits you.</p>
+        </div>
+        <div class="lead-form">
+          <h3>Claim your free consult</h3>
+          <div class="row">
+            <input id="ldName" type="text" autocomplete="name" placeholder="Your name" aria-label="Your name" />
+            <input id="ldPhone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="Mobile number" aria-label="Mobile number" />
+            <select id="ldService" aria-label="Treatment of interest">
+              <option>What are you interested in?</option>
+              <option>General check-up</option>
+              <option>Teeth whitening</option>
+              <option>Braces / aligners</option>
+              <option>Dental implants</option>
+              <option>Kids' dentistry</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <button class="btn btn-sun magnetic" data-mag="0.18" id="ldBtn">Book my free visit</button>
+          <div class="lf-status" id="ldStatus" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section class="block proc" id="process">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag"><span class="dot"></span> Easy as 1-2-3</span>
+      <h2>Booking is a breeze.</h2>
+    </div>
+    <div class="proc-list">
+      <div class="pstep reveal"><div class="no">1</div><h3>Say hello</h3><p>Message us on WhatsApp, call, or drop your number — no long forms.</p></div>
+      <div class="pstep reveal"><div class="no">2</div><h3>Pop in</h3><p>A friendly exam and clear plan, with fixed pricing before anything starts.</p></div>
+      <div class="pstep reveal"><div class="no">3</div><h3>Smile away</h3><p>Gentle, modern treatment — and a grin you'll be glad to show off.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOCTOR ===== -->
+<section class="block" id="doctor">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag"><span class="dot"></span> Your dentist</span>
+      <h2>The friendly face you'll see.</h2>
+    </div>
+    <div class="doc-card reveal">
+      <div class="doc-photo">
+        <!-- Replace with the dentist's photo -->
+        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4Z"/><path d="M9 12l2 2 4-4"/></svg> Verified Practo doctor</span>
+        <svg class="av" viewBox="0 0 320 360" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+          <circle cx="160" cy="120" r="64" fill="#FFFFFF" fill-opacity=".95"/>
+          <circle cx="138" cy="116" r="7" fill="#211A33"/><circle cx="182" cy="116" r="7" fill="#211A33"/>
+          <path d="M142 138c8 7 28 7 36 0" stroke="#211A33" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <path d="M70 360c0-56 40-92 90-92s90 36 90 92Z" fill="#FFFFFF" fill-opacity=".95"/>
+        </svg>
+        <span class="ph">Replace · doctor portrait</span>
+      </div>
+      <div class="doc-body">
+        <span class="tag"><span class="dot"></span> Pediatric &amp; Family Dentist</span>
+        <h3>Dr. Meghna Rao</h3>
+        <div class="doc-cred">BDS, MDS — Pediatric &amp; Family Dentistry</div>
+        <div class="doc-roles">
+          <span class="chip">Dentist</span>
+          <span class="chip">Pedodontist</span>
+          <span class="chip">Family Dentist</span>
+          <span class="chip">Cosmetic Dentist</span>
+        </div>
+        <p>With over 11 years caring for families, Dr. Meghna is loved for her warm, patient manner with kids and grown-ups alike — turning nervous first visits into easy, even fun ones, and always explaining things in plain language.</p>
+        <div class="doc-meta">
+          <div><div class="v">11 yrs</div><div class="k">Experience</div></div>
+          <div><div class="v">97%</div><div class="k">Recommend</div></div>
+          <div><div class="v">₹300</div><div class="k">Consultation</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="block reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag"><span class="dot"></span> Patient love</span>
+      <h2>365 smiles and counting.</h2>
+      <p>A few words from real, verified visitors — see all the stories on our Practo profile.</p>
+    </div>
+    <div class="rev-grid">
+      <article class="rev-card reveal"><span class="stars" aria-label="5 out of 5">★★★★★</span><blockquote>My 5-year-old actually asks to go to the dentist now! Dr. Meghna is so patient and kind. The clinic is bright and welcoming.</blockquote><div class="rev-author"><span class="av" style="background:linear-gradient(150deg,#6C4DDA,#5538C0)">D</span><div><div class="nm">Deepa Krishnan</div><div class="for">Kids' check-up</div></div></div></article>
+      <article class="rev-card reveal"><span class="stars" aria-label="5 out of 5">★★★★★</span><blockquote>Booked a callback and they rang back the same hour. Honest pricing, gentle cleaning and zero pressure. Highly recommend.</blockquote><div class="rev-author"><span class="av" style="background:linear-gradient(150deg,#FFC83D,#F0AE12)">S</span><div><div class="nm">Suresh B.</div><div class="for">Scaling &amp; check-up</div></div></div></article>
+      <article class="rev-card reveal"><span class="stars" aria-label="5 out of 5">★★★★★</span><blockquote>Got my whitening done here — quick, painless and the result is so natural. The whole team is genuinely lovely.</blockquote><div class="rev-author"><span class="av" style="background:linear-gradient(150deg,#FF8E72,#E86F50)">A</span><div><div class="nm">Aarthi V.</div><div class="for">Teeth whitening</div></div></div></article>
+    </div>
+    <div class="rev-foot reveal">Rated <b>4.9 / 5</b> across <b>365</b> verified patient stories on Practo.</div>
+  </div>
+</section>
+
+<!-- ===== INSURANCE (dark) ===== -->
+<section class="block ins-sec">
+  <div class="wrap ins-grid">
+    <div class="reveal">
+      <span class="tag"><span class="dot"></span> Cashless &amp; EMI</span>
+      <h2>Easy on your wallet, too.</h2>
+      <p>We work with leading health insurers for cashless treatment, and offer no-cost EMI on most major procedures.</p>
+    </div>
+    <div class="ins-logos reveal">
+      <span>Star Health</span><span>Niva Bupa</span><span>ICICI Lombard</span><span>Tata AIG</span><span>HDFC Ergo</span><span>No-cost EMI</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="block" id="faq">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag"><span class="dot"></span> Good to know</span>
+      <h2>Questions, answered.</h2>
+    </div>
+    <div class="faq-grid">
+      <details class="faq reveal" open>
+        <summary>How do I book an appointment?<span class="pl" aria-hidden="true"></span></summary>
+        <div class="ans">The quickest way is WhatsApp or a quick call — no forms needed. You can also drop your number for a callback or book through our Practo profile. New patients always welcome.</div>
+      </details>
+      <details class="faq reveal">
+        <summary>Is the first visit really free?<span class="pl" aria-hidden="true"></span></summary>
+        <div class="ans">Yes — new patients get a free first consultation and smile check. If treatment is needed, we'll share a clear, fixed-price plan before anything begins.</div>
+      </details>
+      <details class="faq reveal">
+        <summary>Are you good with nervous kids (and adults)?<span class="pl" aria-hidden="true"></span></summary>
+        <div class="ans">Absolutely — gentle, fear-free care is our speciality. We go at your child's (or your) pace and keep everyone comfortable throughout.</div>
+      </details>
+      <details class="faq reveal">
+        <summary>Do you offer EMI or accept insurance?<span class="pl" aria-hidden="true"></span></summary>
+        <div class="ans">Yes — no-cost EMI is available on most major treatments, and we accept cashless claims from leading insurers.</div>
+      </details>
+      <details class="faq reveal">
+        <summary>What are your timings?<span class="pl" aria-hidden="true"></span></summary>
+        <div class="ans">We're open Monday to Saturday, 9:00 AM–2:00 PM and 5:00–8:00 PM. Emergency Sunday slots are available on request.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="block contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="ct-info reveal">
+      <span class="tag"><span class="dot"></span> Visit / book</span>
+      <h2 style="margin-top:16px;">Come say hello. 👋</h2>
+      <p class="lead">Book in seconds on WhatsApp, or drop by. We'll find a time that works for you.</p>
+      <div class="ct-rows">
+        <div class="ct-row">
+          <div class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.7-7-11a7 7 0 1114 0c0 5.3-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
+          <div><div class="cl">Address</div><div class="cv">Khader Nawaz Khan Road, Nungambakkam, Chennai 600006</div></div>
+        </div>
+        <div class="ct-row">
+          <div class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5c0 9 6 15 15 15l1-3-5-2-2 2c-3-1.5-5.5-4-7-7l2-2-2-5-3 1Z"/></svg></div>
+          <div><div class="cl">Phone</div><div class="cv"><a href="tel:+919791012345">+91 97910 12345</a></div></div>
+        </div>
+        <div class="ct-row">
+          <div class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div><div class="cl">Hours</div><div class="cv">Mon–Sat · 9–2, 5–8</div></div>
+        </div>
+      </div>
+      <div class="ct-hours">
+        <div class="hr"><span>Monday – Friday</span><b>09:00–14:00 · 17:00–20:00</b></div>
+        <div class="hr"><span>Saturday</span><b>09:00–14:00 · 17:00–20:00</b></div>
+        <div class="hr"><span>Sunday</span><b>Emergencies only</b></div>
+      </div>
+      <a class="btn btn-ghost" style="margin-top:20px;" href="https://www.google.com/maps/search/?api=1&query=Nungambakkam+Chennai" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-5.7-7-11a7 7 0 1114 0c0 5.3-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        Get directions
+      </a>
+    </div>
+
+    <div class="form-card reveal">
+      <h3>Request an appointment</h3>
+      <p class="fnote">Fill this in and we'll confirm your slot on WhatsApp within working hours.</p>
+      <div class="field" id="f-name">
+        <label for="name">Your name</label>
+        <input id="name" type="text" autocomplete="name" placeholder="e.g. Priya R." />
+      </div>
+      <div class="field" id="f-phone">
+        <label for="phone">Phone number</label>
+        <input id="phone" type="tel" autocomplete="tel" inputmode="numeric" placeholder="10-digit mobile number" />
+      </div>
+      <div class="field">
+        <label for="service">Treatment</label>
+        <select id="service">
+          <option>General check-up</option>
+          <option>Teeth whitening</option>
+          <option>Braces / aligners</option>
+          <option>Dental implants</option>
+          <option>Root canal</option>
+          <option>Kids' dentistry</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="msg">Message <span style="text-transform:none; letter-spacing:0; font-weight:600;">(optional)</span></label>
+        <textarea id="msg" placeholder="Anything you'd like us to know?"></textarea>
+      </div>
+      <button class="btn btn-primary magnetic" data-mag="0.18" id="submitBtn"><span class="btn-label">Request appointment</span></button>
+      <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#" aria-label="Sunny Smiles Dental home">
+          <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect width="48" height="48" rx="15" fill="#6C4DDA"/><circle cx="24" cy="20" r="9" fill="#FFC83D"/><path d="M24 27c-4 0-7 2.4-7 6.2 0 1.5.5 3.1 1 4.6.3.9.6 1.2 1.2 1.2s.9-.6 1.1-1.5c.1-.6.2-1.2.3-1.7.1-.5.4-.7.8-.7s.7.2.8.7c.1.5.2 1.1.3 1.7.2.9.5 1.5 1.1 1.5s.9-.3 1.2-1.2c.5-1.5 1-3.1 1-4.6 0-3.8-3-6.2-7-6.2Z" fill="#fff"/></svg>
+          <span>Sunny Smiles<span class="b-sub">Dental · Nungambakkam</span></span>
+        </a>
+        <p class="f-blurb">A friendly, modern family dental clinic in Nungambakkam, Chennai — gentle, fear-free care that the whole family looks forward to.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="foot-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">How it works</a></li>
+          <li><a href="#doctor">Our dentist</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul class="foot-links">
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Nungambakkam+Chennai" target="_blank" rel="noopener">Get directions</a></li>
+          <li><a href="https://wa.me/919791012345" target="_blank" rel="noopener">WhatsApp: +91 97910 12345</a></li>
+          <li><a href="tel:+919791012345">Call: +91 97910 12345</a></li>
+          <li>Mon–Sat · 9–2, 5–8</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Sunny Smiles Dental, Nungambakkam. All rights reserved.</span>
+      <span>Created by <a href="https://stellarhausmedia.com" target="_blank" rel="noopener">stellarhausmedia.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/919791012345?text=Hi%20Sunny%20Smiles%20Dental%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" aria-label="Chat with Sunny Smiles Dental on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.7.9 3.7 1.4 5.8 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.3.8.8-4.2-.2-.4c-1-1.6-1.5-3.4-1.5-5.4 0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-9.7 10zm5.5-7.5c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5 4.5.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg>
+</a>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hoverCapable = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+  // Header scroll
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('mobileMenu');
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }));
+
+  // ---------- custom cursor (dot + ring + labels) ----------
+  if (hoverCapable && !prefersReduced){
+    document.body.classList.add('has-cursor');
+    const dot = document.createElement('div'); dot.className = 'cursor-dot';
+    const ring = document.createElement('div'); ring.className = 'cursor-ring';
+    const clabel = document.createElement('span'); clabel.className = 'clabel'; ring.appendChild(clabel);
+    document.body.append(dot, ring);
+    let mx = innerWidth/2, my = innerHeight/2, rx = mx, ry = my;
+    window.addEventListener('mousemove', (e) => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
+    });
+    (function loop(){ rx += (mx-rx)*0.18; ry += (my-ry)*0.18; ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px)'; requestAnimationFrame(loop); })();
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest('input,textarea,select')){ dot.classList.add('hide'); ring.classList.add('hide'); return; }
+      dot.classList.remove('hide'); ring.classList.remove('hide');
+      const lab = e.target.closest('[data-cursor]');
+      const inter = e.target.closest('a,button,summary,.magnetic,.svc,label');
+      if (lab){ ring.classList.add('label'); ring.classList.remove('hover'); clabel.textContent = lab.dataset.cursor; }
+      else if (inter){ ring.classList.add('hover'); ring.classList.remove('label'); }
+      else { ring.classList.remove('hover','label'); }
+    });
+    document.addEventListener('mouseleave', () => { dot.classList.add('hide'); ring.classList.add('hide'); });
+    document.addEventListener('mouseenter', () => { dot.classList.remove('hide'); ring.classList.remove('hide'); });
+  }
+  // dot uses margin offset for centering; ring too (set in CSS)
+  // (transforms above position top-left, CSS negative margins center them)
+
+  // ---------- magnetic buttons ----------
+  if (hoverCapable && !prefersReduced){
+    document.querySelectorAll('.magnetic').forEach(el => {
+      const strength = parseFloat(el.dataset.mag) || 0.3;
+      el.addEventListener('mousemove', (e) => {
+        const r = el.getBoundingClientRect();
+        const x = e.clientX - (r.left + r.width/2), y = e.clientY - (r.top + r.height/2);
+        el.style.transform = 'translate(' + (x*strength) + 'px,' + (y*strength) + 'px)';
+      });
+      el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+    });
+  }
+
+  // ---------- spotlight service cards ----------
+  if (hoverCapable){
+    document.querySelectorAll('.svc').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', ((e.clientX - r.left)/r.width*100) + '%');
+        card.style.setProperty('--my', ((e.clientY - r.top)/r.height*100) + '%');
+      });
+    });
+  }
+
+  // ---------- hero parallax illustration ----------
+  const art = document.getElementById('heroArt');
+  if (art && hoverCapable && !prefersReduced){
+    const layers = Array.from(art.querySelectorAll('.layer'));
+    let tx = 0, ty = 0, cx = 0, cy = 0, active = false;
+    art.addEventListener('mousemove', (e) => {
+      const r = art.getBoundingClientRect();
+      tx = (e.clientX - r.left)/r.width - 0.5; ty = (e.clientY - r.top)/r.height - 0.5; active = true;
+    });
+    art.addEventListener('mouseleave', () => { tx = 0; ty = 0; });
+    (function loop(){
+      cx += (tx-cx)*0.08; cy += (ty-cy)*0.08;
+      layers.forEach(l => { const d = parseFloat(l.dataset.depth) || 0.5; l.style.transform = 'translate(' + (cx*d*40) + 'px,' + (cy*d*30) + 'px)'; });
+      requestAnimationFrame(loop);
+    })();
+  }
+
+  // ---------- count-up ----------
+  function countUp(el){
+    const target = parseFloat(el.dataset.to), dur = 1300, dec = el.dataset.dec ? +el.dataset.dec : 0, suffix = el.dataset.suffix || '';
+    if (prefersReduced){ el.textContent = (dec ? target.toFixed(dec) : target) + suffix; return; }
+    const start = performance.now();
+    (function tick(now){
+      const p = Math.min(1, (now - start) / dur), eased = 1 - Math.pow(1 - p, 3), val = target * eased;
+      el.textContent = (dec ? val.toFixed(dec) : Math.round(val)) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    })(start);
+  }
+
+  // ---------- reveal + count-up ----------
+  const revealEls = document.querySelectorAll('.reveal');
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    revealEls.forEach(el => el.classList.add('in'));
+    document.querySelectorAll('.count').forEach(countUp);
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => { if (e.isIntersecting) { e.target.style.transitionDelay = Math.min(i*50,150)+'ms'; e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting){ countUp(e.target); cio.unobserve(e.target); } });
+    }, { threshold:0.6 });
+    document.querySelectorAll('.count').forEach(el => cio.observe(el));
+  }
+
+  // ---------- single-open FAQ ----------
+  const faqs = Array.from(document.querySelectorAll('.faq'));
+  faqs.forEach(d => d.addEventListener('toggle', () => { if (d.open) faqs.forEach(o => { if (o !== d) o.open = false; }); }));
+
+  // ---------- active nav ----------
+  const ids = ['services','process','doctor','reviews','contact'];
+  const navItems = {};
+  document.querySelectorAll('.nav-links a').forEach(a => { const id = a.getAttribute('href').slice(1); if (ids.includes(id)) navItems[id] = a; });
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { Object.values(navItems).forEach(a => a.classList.remove('active')); if (navItems[e.target.id]) navItems[e.target.id].classList.add('active'); } });
+  }, { rootMargin:'-45% 0px -50% 0px' });
+  ids.forEach(id => { const el = document.getElementById(id); if (el) spy.observe(el); });
+
+  // ---------- WhatsApp helpers ----------
+  const CLINIC_WHATSAPP = '919791012345';
+  const phoneOk = (v) => /^[6-9]\d{9}$/.test(v.replace(/\D/g,'').slice(-10));
+  function sendWhats(text){ window.open('https://wa.me/' + CLINIC_WHATSAPP + '?text=' + encodeURIComponent(text), '_blank'); }
+
+  // hero quick callback
+  (function(){
+    const phone = document.getElementById('cbPhone'), btn = document.getElementById('cbBtn'), note = document.getElementById('cbNote');
+    btn.addEventListener('click', () => {
+      if (!phoneOk(phone.value)){ phone.style.borderColor=''; phone.focus(); note.innerHTML = 'Please enter a valid 10-digit mobile number.'; return; }
+      sendWhats("Hi Sunny Smiles Dental, please call me back.\n\nPhone: " + phone.value.trim());
+      note.innerHTML = "<b>✓ Thanks!</b> Continue in WhatsApp and we'll call you back.";
+    });
+  })();
+
+  // lead band
+  (function(){
+    const name = document.getElementById('ldName'), phone = document.getElementById('ldPhone'), service = document.getElementById('ldService'), btn = document.getElementById('ldBtn'), status = document.getElementById('ldStatus');
+    btn.addEventListener('click', () => {
+      const nameOk = name.value.trim().length > 1, pOk = phoneOk(phone.value);
+      name.classList.toggle('invalid', !nameOk); phone.classList.toggle('invalid', !pOk);
+      if (!nameOk){ name.focus(); return; } if (!pOk){ phone.focus(); return; }
+      const svc = service.selectedIndex > 0 ? service.value : 'General check-up';
+      sendWhats("Hi Sunny Smiles Dental, I'd like to claim my free first consultation.\n\nName: " + name.value.trim() + "\nPhone: " + phone.value.trim() + "\nInterested in: " + svc);
+      status.className = 'lf-status ok'; status.textContent = '✓ Thanks! Continue in WhatsApp to confirm.';
+    });
+  })();
+
+  // main contact form
+  (function(){
+    const btn = document.getElementById('submitBtn'), statusEl = document.getElementById('formStatus');
+    const setError = (id, on) => document.getElementById(id).classList.toggle('invalid', on);
+    btn.addEventListener('click', () => {
+      const name = document.getElementById('name'), phone = document.getElementById('phone');
+      const service = document.getElementById('service').value, msg = document.getElementById('msg').value.trim();
+      const nameOk = name.value.trim().length > 1, pOk = phoneOk(phone.value);
+      setError('f-name', !nameOk); setError('f-phone', !pOk);
+      if (!nameOk){ name.focus(); return; } if (!pOk){ phone.focus(); return; }
+      btn.disabled = true; btn.innerHTML = '<span class="spin" aria-hidden="true"></span><span>Sending…</span>';
+      setTimeout(() => {
+        sendWhats("Hi Sunny Smiles Dental, I'd like to book an appointment.\n\nName: " + name.value.trim() + "\nPhone: " + phone.value.trim() + "\nTreatment: " + service + (msg ? "\nNote: " + msg : ""));
+        btn.disabled = false; btn.innerHTML = '<span class="btn-label">Request appointment</span>';
+        statusEl.className = 'form-status ok'; statusEl.textContent = '✓ Thanks! Continue in WhatsApp to confirm your slot.';
+      }, 700);
+    });
+  })();
+</script>
+</body>
+</html>

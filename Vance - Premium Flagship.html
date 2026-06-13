@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vance Dental — Multi-Speciality Dental & Implant Care in Madhavaram, Chennai</title>
+<meta name="description" content="Vance Dental is a top-rated multi-speciality dental & implant clinic in Madhavaram, Chennai. CEREC same-day crowns, dental implants, Invisalign, kids dentistry, root canal and cosmetic dentistry. Led by Dr. R. Sharath, MDS." />
+<meta name="theme-color" content="#002F7D" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#002F7D; --navy-ink:#06183A; --navy-2:#1E4FA0; --navy-3:#3E6FC9; --navy-deep:#04122E;
+    --gold:#FFCE01; --gold-soft:#FFE17A; --gold-deep:#C99700; --gold-ink:#8A6700;
+    --bg:#F2F7FE; --sky:#E7F0FC; --sky-2:#EFF5FE; --sky-3:#D7E5FA; --pale-navy:#E8EFFB;
+    --paper:#FFFFFF; --text:#3A4A66; --muted:#6B7B96; --line:#E1E9F6; --line-2:#D5E0F2;
+    --wa:#25D366; --wa-d:#1eb858;
+    --shadow-xs:0 1px 3px rgba(6,24,58,.06);
+    --shadow-s:0 4px 16px rgba(6,24,58,.07);
+    --shadow-m:0 18px 44px rgba(6,24,58,.12);
+    --shadow-l:0 36px 80px rgba(6,24,58,.20);
+    --shadow-gold:0 16px 40px rgba(201,151,0,.22);
+    --r-s:14px; --r-m:22px; --r-l:32px; --r-xl:42px; --pill:999px;
+    --maxw:1220px; --ease:cubic-bezier(.22,1,.36,1); --ease-2:cubic-bezier(.16,1,.3,1);
+    --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:92px;-webkit-text-size-adjust:100%}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+  body{font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:16px;line-height:1.65;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+  h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;color:var(--navy-ink);line-height:1.05;margin:0;font-weight:600;letter-spacing:-.01em}
+  p{margin:0}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+  ::selection{background:var(--navy);color:#fff}
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:2}
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--navy-2);outline-offset:3px;border-radius:8px}
+  .skip{position:absolute;left:12px;top:-60px;z-index:300;background:var(--navy);color:#fff;padding:12px 18px;border-radius:10px;transition:top .2s}
+  .skip:focus{top:12px}
+
+  /* global texture + grain */
+  .grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;mix-blend-mode:multiply;background-image:var(--grain)}
+  .progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:200;background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-soft));box-shadow:0 0 12px rgba(255,206,1,.5)}
+
+  /* decorative atoms */
+  .aura{position:absolute;border-radius:50%;background:radial-gradient(circle at center,var(--c,rgba(30,79,160,.2)),transparent 68%);filter:blur(30px);z-index:0;pointer-events:none}
+  .dotgrid{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(var(--d,rgba(8,34,76,.06)) 1.2px,transparent 1.3px);background-size:24px 24px;-webkit-mask-image:var(--m,none);mask-image:var(--m,none)}
+  .ring{position:absolute;border-radius:50%;border:1.5px dashed var(--rc,rgba(255,206,1,.5));z-index:0;pointer-events:none}
+  @keyframes drift{0%{transform:translate(0,0)}100%{transform:translate(26px,-22px)}}
+  @keyframes drift2{0%{transform:translate(0,0)}100%{transform:translate(-24px,18px)}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  @keyframes floatb{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+  .floaty .aura{animation:drift 22s var(--ease-2) infinite alternate}
+  .floaty .aura.b{animation:drift2 26s var(--ease-2) infinite alternate}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:15px 28px;border-radius:var(--pill);font-family:inherit;font-size:1rem;font-weight:700;cursor:pointer;border:1.6px solid transparent;transition:transform .22s var(--ease),box-shadow .25s,background .25s,color .25s,border-color .25s;letter-spacing:.01em}
+  .btn:hover{transform:translateY(-3px)}.btn:active{transform:translateY(-1px)}
+  .btn svg{width:19px;height:19px;flex:none}
+  .btn-navy{background:var(--navy);color:#fff;box-shadow:var(--shadow-s)}
+  .btn-navy:hover{background:var(--navy-ink);box-shadow:var(--shadow-m)}
+  .btn-gold{background:linear-gradient(180deg,var(--gold-soft),var(--gold));color:var(--navy-ink);box-shadow:var(--shadow-gold)}
+  .btn-gold:hover{box-shadow:0 22px 50px rgba(201,151,0,.34)}
+  .btn-wa{background:var(--wa);color:#fff;box-shadow:0 10px 26px rgba(37,211,102,.32)}
+  .btn-wa:hover{background:var(--wa-d);box-shadow:0 16px 36px rgba(37,211,102,.4)}
+  .btn-ghost{background:rgba(255,255,255,.7);color:var(--navy);border-color:var(--line-2);backdrop-filter:blur(6px)}
+  .btn-ghost:hover{border-color:var(--navy-2);color:var(--navy-ink);background:#fff}
+  .btn-light{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.28)}
+  .btn-light:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.5)}
+
+  /* eyebrow / tag */
+  .tag{display:inline-flex;align-items:center;gap:8px;font-family:"Plus Jakarta Sans";font-weight:800;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--navy-2)}
+  .tag::before{content:"";width:22px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--gold-deep),var(--gold))}
+  .tag.center{justify-content:center}
+  .tag.light{color:var(--gold-soft)}
+  .tag.light::before{background:var(--gold)}
+
+  /* header */
+  header.site{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .35s,box-shadow .35s,border-color .35s,backdrop-filter .35s;border-bottom:1px solid transparent}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:80px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .logo-ring{position:relative;width:50px;height:50px;border-radius:50%;padding:2px;background:conic-gradient(from 210deg,var(--gold),var(--gold-soft),var(--gold-deep),var(--gold));box-shadow:var(--shadow-s)}
+  .brand .logo-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;background:#fff}
+  .brand .bn{font-family:"Fraunces",serif;font-weight:700;font-size:1.3rem;color:var(--navy-ink);line-height:1}
+  .brand .bs{display:block;font-family:"Plus Jakarta Sans";font-size:.6rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--navy-2);margin-top:4px}
+  .nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+  .nav-links a{display:inline-block;padding:10px 15px;border-radius:var(--pill);font-size:.94rem;font-weight:600;color:var(--text);transition:.2s;position:relative}
+  .nav-links a:hover{color:var(--navy);background:var(--sky)}
+  .nav-links a.active{color:var(--navy)}
+  .nav-links a.active::after{content:"";position:absolute;left:50%;bottom:3px;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:var(--gold-deep)}
+  .nav-cta{display:flex;align-items:center;gap:12px}
+  .nav-toggle{display:none}
+  .mobile-menu{display:none}
+  @media (min-width:901px){.mobile-menu{display:none!important}}
+  header.site.scrolled{background:rgba(242,247,254,.82);backdrop-filter:blur(16px) saturate(1.4);border-bottom-color:var(--line);box-shadow:var(--shadow-xs)}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;background:linear-gradient(168deg,#E9F1FD 0%,#F2F7FE 52%,#FBFCFE 100%)}
+  .hero .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+  .hero .arc{position:absolute;right:-6%;bottom:-32%;width:min(56vw,720px);height:min(56vw,720px);border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(231,240,252,0),rgba(215,229,250,.7) 60%,rgba(231,240,252,0) 72%);z-index:0}
+  .hero .wrap{display:grid;grid-template-columns:1.06fr .94fr;gap:36px;align-items:center;padding-top:128px;padding-bottom:84px}
+  .h-eyebrow{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.85);border:1px solid var(--line);color:var(--navy-ink);font-weight:700;font-size:.82rem;padding:8px 16px 8px 9px;border-radius:var(--pill);box-shadow:var(--shadow-xs);backdrop-filter:blur(6px)}
+  .h-eyebrow .pp{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:linear-gradient(180deg,var(--gold-soft),var(--gold));color:var(--navy-ink);font-size:.7rem}
+  .h-eyebrow b{color:var(--navy)}
+  .h-kicker{font-family:"Fraunces",serif;font-style:italic;font-weight:500;font-size:1.18rem;color:var(--navy-2);margin:22px 0 6px}
+  .slides{position:relative;min-height:188px}
+  .slide{position:absolute;top:0;left:0;right:0;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+  .slide.active{opacity:1;visibility:visible;transform:none}
+  .slide h1{font-size:clamp(2.6rem,5.4vw,4.2rem);font-weight:600;letter-spacing:-.025em}
+  .slide h1 em{font-style:italic;color:var(--navy-2);position:relative}
+  .slide h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.13em;background:linear-gradient(90deg,var(--gold),var(--gold-soft));border-radius:3px;opacity:.55;z-index:-1}
+  .h-sub{margin-top:20px;font-size:1.13rem;color:var(--text);max-width:46ch}
+  .h-actions{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px}
+  .h-bottom{margin-top:34px;display:flex;align-items:center;gap:14px 30px;flex-wrap:wrap}
+  .h-stat{display:flex;flex-direction:column}
+  .h-stat .v{font-family:"Fraunces",serif;font-size:2rem;font-weight:600;color:var(--navy-ink);line-height:1;display:flex;align-items:baseline;gap:7px}
+  .h-stat .stars{color:var(--gold-deep);letter-spacing:1px;font-size:.92rem}
+  .h-stat .l{font-size:.84rem;color:var(--muted);margin-top:5px}
+  .h-divider{width:1px;height:40px;background:var(--line-2)}
+  .h-dots{display:flex;gap:9px;margin-top:30px}
+  .h-dots button{width:34px;height:5px;border-radius:5px;background:var(--sky-3);border:none;padding:0;cursor:pointer;transition:.3s}
+  .h-dots button.active{width:54px;background:linear-gradient(90deg,var(--navy),var(--navy-2))}
+  .h-dots button:hover{background:var(--navy-2)}
+
+  .hero-media{position:relative;justify-self:center;width:min(44vw,468px);height:min(44vw,468px);max-width:468px;max-height:468px;margin:0 auto;display:flex;align-items:center;justify-content:center}
+  .hero-disc.ring{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(52vw,544px);height:min(52vw,544px);max-width:544px;max-height:544px;background:none;border:2px dashed rgba(255,206,1,.55);border-radius:50%;animation:spin 60s linear infinite}
+  .hero-portrait{position:relative;z-index:2;width:100%;height:100%;border-radius:50%;padding:7px;background:conic-gradient(from 200deg,var(--gold),var(--gold-soft),var(--gold-deep),var(--gold-soft),var(--gold));box-shadow:0 34px 70px rgba(6,24,58,.24),0 6px 18px rgba(6,24,58,.14)}
+  .hero-portrait img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 40%;display:block;background:#E9F2FB;border:3px solid #fff}
+  .h-emerg{position:absolute;left:-14px;bottom:54px;z-index:5;background:#fff;border-radius:var(--r-m);box-shadow:var(--shadow-m);padding:13px 17px;display:flex;align-items:center;gap:13px;border:1px solid var(--line);animation:floatb 7s var(--ease-2) infinite}
+  .h-emerg .ic{width:46px;height:46px;border-radius:50%;background:var(--wa);display:grid;place-items:center;flex:none;box-shadow:0 6px 16px rgba(37,211,102,.35)}
+  .h-emerg .ic svg{width:25px;height:25px}
+  .h-emerg .t{font-size:.7rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--navy-2)}
+  .h-emerg .n{font-weight:800;color:var(--navy-ink);font-size:1.04rem}
+  .h-badge{position:absolute;right:-8px;top:30px;z-index:5;background:linear-gradient(165deg,var(--navy),var(--navy-2));color:#fff;border-radius:var(--r-m);box-shadow:var(--shadow-m);padding:13px 18px;text-align:center;animation:float 6s var(--ease-2) infinite}
+  .h-badge .b{font-family:"Fraunces",serif;font-size:1.5rem;font-weight:600;line-height:1;letter-spacing:.02em}
+  .h-badge .s{font-size:.72rem;color:#BFD2F2;margin-top:3px}
+  .h-rev{position:absolute;right:-22px;bottom:96px;z-index:5;background:#fff;border-radius:var(--pill);box-shadow:var(--shadow-m);padding:9px 16px 9px 10px;display:flex;align-items:center;gap:10px;border:1px solid var(--line);animation:float 8s var(--ease-2) .4s infinite}
+  .h-rev .g{width:34px;height:34px;border-radius:50%;background:#fff;display:grid;place-items:center;flex:none;border:1px solid var(--line)}
+  .h-rev .g svg{width:20px;height:20px}
+  .h-rev .st{color:var(--gold-deep);font-size:.8rem;letter-spacing:1px;line-height:1}
+  .h-rev .rt{font-size:.74rem;color:var(--muted);font-weight:600}
+  .hero-fade{position:absolute;left:0;right:0;bottom:0;height:80px;background:linear-gradient(transparent,rgba(251,252,254,.0));z-index:1}
+
+  /* trust strip */
+  .trust{background:linear-gradient(100deg,var(--navy-ink),var(--navy) 60%,var(--navy-2));color:#EAF1FC;position:relative;overflow:hidden}
+  .trust::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1.2px);background-size:26px 26px;opacity:.6}
+  .trust .wrap{display:flex;flex-wrap:wrap;gap:14px 18px;justify-content:center;align-items:center;padding:20px 28px}
+  .trust .it{display:flex;align-items:center;gap:10px;font-size:.95rem;font-weight:600;color:#E2EBFA}
+  .trust .it svg{width:21px;height:21px;color:var(--gold);flex:none}
+  .trust .sep{width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.7}
+  @media (max-width:760px){.trust .sep{display:none}.trust .wrap{gap:12px 22px}}
+
+  /* section shell */
+  section.block{padding:104px 0;position:relative;overflow:hidden}
+  .sec-head{max-width:660px;margin:0 auto 56px;text-align:center;position:relative;z-index:2}
+  .sec-head .tag{margin-bottom:16px}
+  .sec-head h2{font-size:clamp(2.1rem,4vw,3rem);letter-spacing:-.02em}
+  .sec-head p{margin-top:16px;font-size:1.08rem;color:var(--muted)}
+
+  /* about */
+  .about{background:linear-gradient(180deg,#FBFCFE,var(--bg))}
+  .about-grid{display:grid;grid-template-columns:1.04fr 1fr;gap:64px;align-items:center}
+  .about-photos{position:relative}
+  .ph-stack{display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:auto auto;gap:16px}
+  .ph-stack img{width:100%;height:100%;object-fit:cover;border-radius:var(--r-m);box-shadow:var(--shadow-m);background:var(--sky)}
+  .ph-stack .tall{grid-row:span 2;aspect-ratio:3/4.3}
+  .ph-stack .wide{aspect-ratio:4/3}
+  .about-photos .frame{position:absolute;top:-18px;left:-18px;width:120px;height:120px;border-top:2px solid var(--gold);border-left:2px solid var(--gold);border-top-left-radius:var(--r-m);z-index:1;pointer-events:none}
+  .about-photos .frame.br{top:auto;left:auto;bottom:-18px;right:-18px;border:none;border-bottom:2px solid var(--navy-2);border-right:2px solid var(--navy-2);border-radius:0 0 var(--r-m) 0}
+  .float-card{position:absolute;right:-18px;bottom:34px;z-index:3;background:#fff;border:1px solid var(--line);border-radius:var(--r-m);box-shadow:var(--shadow-l);padding:16px 20px;display:flex;align-items:center;gap:14px}
+  .float-card .num{font-family:"Fraunces",serif;font-size:1.9rem;font-weight:600;color:var(--navy-ink);line-height:1}
+  .float-card .lab{font-size:.78rem;color:var(--muted);font-weight:600;max-width:11ch}
+  .float-card .st{color:var(--gold-deep);font-size:.78rem;letter-spacing:1px}
+  .float-card .vline{width:1px;height:38px;background:var(--line-2)}
+  .about-copy h2{font-size:clamp(2.05rem,3.6vw,2.75rem);margin:14px 0 0}
+  .about-copy>p{margin-top:18px;color:var(--text);font-size:1.04rem}
+  .feat{list-style:none;margin:28px 0 0;display:grid;gap:8px}
+  .feat li{display:flex;gap:16px;align-items:flex-start;padding:14px;border-radius:var(--r-s);transition:background .25s,transform .25s}
+  .feat li:hover{background:#fff;box-shadow:var(--shadow-s);transform:translateX(4px)}
+  .feat .ic{flex:none;width:46px;height:46px;border-radius:13px;background:linear-gradient(160deg,var(--sky),var(--pale-navy));color:var(--navy);display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(30,79,160,.08)}
+  .feat .ic svg{width:22px;height:22px}
+  .feat .ft{font-weight:800;color:var(--navy-ink);font-size:1.02rem}
+  .feat .fd{font-size:.93rem;color:var(--muted);margin-top:2px}
+
+  /* services */
+  .services{background:linear-gradient(180deg,var(--pale-navy),#EDF3FC)}
+  .services .glyph{position:absolute;font-family:"Fraunces",serif;font-weight:700;font-size:30rem;line-height:.7;color:rgba(30,79,160,.04);right:-3%;top:-8%;z-index:0;pointer-events:none;user-select:none}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;z-index:2}
+  .svc{background:#fff;border:1px solid var(--line);border-radius:var(--r-m);padding:30px 26px 26px;transition:transform .3s var(--ease),box-shadow .3s,border-color .3s;position:relative;overflow:hidden}
+  .svc::before{content:"";position:absolute;left:0;top:0;height:4px;width:100%;background:linear-gradient(90deg,var(--navy),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+  .svc:hover{transform:translateY(-8px);box-shadow:var(--shadow-m);border-color:var(--sky-3)}
+  .svc:hover::before{transform:scaleX(1)}
+  .svc .idx{position:absolute;right:22px;top:20px;font-family:"Fraunces",serif;font-size:1.15rem;font-weight:600;color:var(--sky-3);transition:color .3s}
+  .svc:hover .idx{color:var(--gold-deep)}
+  .svc .ic{width:58px;height:58px;border-radius:16px;background:linear-gradient(160deg,var(--navy),var(--navy-2));color:#fff;display:grid;place-items:center;margin-bottom:20px;box-shadow:var(--shadow-s);transition:transform .3s var(--ease)}
+  .svc:hover .ic{transform:rotate(-6deg) scale(1.05)}
+  .svc .ic svg{width:29px;height:29px}
+  .svc h3{font-size:1.22rem;margin-bottom:8px}
+  .svc p{font-size:.93rem;color:var(--muted)}
+  .svc .arw{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-weight:700;font-size:.86rem;color:var(--navy-2);opacity:.65;transition:gap .25s,opacity .25s}
+  .svc:hover .arw{opacity:1;gap:11px}
+  .svc .arw svg{width:15px;height:15px}
+  .svc-cta{margin-top:24px;position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:linear-gradient(120deg,var(--navy),var(--navy-2));border-radius:var(--r-m);padding:24px 30px;color:#fff;box-shadow:var(--shadow-m);overflow:hidden}
+  .svc-cta::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,206,1,.22),transparent 65%)}
+  .svc-cta .ct{position:relative;z-index:1}
+  .svc-cta h3{color:#fff;font-size:1.3rem}
+  .svc-cta p{color:#C7D6F1;font-size:.95rem;margin-top:4px}
+  .svc-cta .btn{position:relative;z-index:1}
+
+  /* technology */
+  .tech{background:linear-gradient(180deg,#FBFCFE,var(--bg))}
+  .tech-grid{display:grid;grid-template-columns:1fr 1.02fr;gap:64px;align-items:center}
+  .tech-photo{position:relative}
+  .tech-photo .panel{position:absolute;inset:18px -18px -18px 18px;background:linear-gradient(150deg,var(--navy),var(--navy-deep));border-radius:var(--r-l);z-index:0}
+  .tech-photo .pic{position:relative;z-index:1;border-radius:var(--r-l);overflow:hidden;box-shadow:var(--shadow-l);border:5px solid #fff}
+  .tech-photo .pic img{width:100%;aspect-ratio:4/3.05;object-fit:cover;display:block}
+  .tech-chip{position:absolute;z-index:2;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-m);padding:11px 15px;display:flex;align-items:center;gap:10px;font-weight:700;font-size:.88rem;color:var(--navy-ink)}
+  .tech-chip .d{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(255,206,1,.2)}
+  .tech-chip.c1{left:-22px;top:30px;animation:float 7s var(--ease-2) infinite}
+  .tech-chip.c2{right:-14px;bottom:64px;animation:floatb 8s var(--ease-2) .3s infinite}
+  .tech-chip.c2 .d{background:var(--wa);box-shadow:0 0 0 4px rgba(37,211,102,.2)}
+  .tech-badge{position:absolute;z-index:2;right:-18px;top:-16px;background:linear-gradient(165deg,var(--navy),var(--navy-2));color:#fff;border-radius:18px;padding:14px 18px;box-shadow:var(--shadow-m);text-align:center}
+  .tech-badge .b{font-family:"Fraunces",serif;font-size:1.7rem;line-height:1;font-weight:600}
+  .tech-badge .s{font-size:.7rem;color:#BFD2F2;margin-top:4px;letter-spacing:.04em}
+  .tech-copy h2{font-size:clamp(2.05rem,3.6vw,2.75rem);margin:14px 0 0}
+  .tech-copy>p{margin-top:18px;color:var(--text);font-size:1.04rem}
+  .tcheck{list-style:none;margin:26px 0 0;display:grid;gap:15px}
+  .tcheck li{display:flex;gap:14px;align-items:flex-start;font-size:1rem;color:var(--text);font-weight:500}
+  .tcheck .ck{width:26px;height:26px;border-radius:50%;background:linear-gradient(160deg,var(--gold-soft),var(--gold));color:var(--navy-ink);display:grid;place-items:center;flex:none;box-shadow:0 4px 10px rgba(201,151,0,.25)}
+  .tcheck .ck svg{width:14px;height:14px}
+
+  /* doctor (dark) */
+  .doc{background:linear-gradient(165deg,var(--navy-deep),var(--navy-ink) 55%,#0A2350);color:#EAF1FC;position:relative;overflow:hidden}
+  .doc .quote{position:absolute;left:2%;top:3%;font-family:"Fraunces",serif;font-style:italic;font-size:22rem;line-height:.7;color:rgba(255,255,255,.03);z-index:0;pointer-events:none}
+  .doc .sec-head h2{color:#fff}
+  .doc-card{display:grid;grid-template-columns:330px 1fr;gap:54px;align-items:center;position:relative;z-index:2}
+  .doc-photo{position:relative}
+  .doc-photo .pic{position:relative;z-index:1;border-radius:var(--r-l);overflow:hidden;box-shadow:var(--shadow-l);border:1px solid rgba(255,255,255,.1)}
+  .doc-photo .pic::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(6,24,58,.5),transparent 45%)}
+  .doc-photo img{width:100%;aspect-ratio:1/1.04;object-fit:cover;object-position:center 14%;display:block}
+  .doc-photo .gframe{position:absolute;inset:-12px;border:1.5px solid rgba(255,206,1,.4);border-radius:calc(var(--r-l) + 8px);z-index:0}
+  .doc-photo .pill{position:absolute;z-index:2;right:-16px;bottom:24px;background:linear-gradient(180deg,var(--gold-soft),var(--gold));color:var(--navy-ink);border-radius:var(--pill);padding:9px 16px;font-weight:800;font-size:.84rem;box-shadow:var(--shadow-gold);display:flex;align-items:center;gap:6px}
+  .doc-info h3{color:#fff;font-size:clamp(1.9rem,3vw,2.5rem)}
+  .doc-cred{color:var(--gold-soft);font-weight:700;margin-top:8px;font-size:1.02rem}
+  .doc-roles{display:flex;flex-wrap:wrap;gap:9px;margin:20px 0}
+  .doc-roles .chip{background:rgba(255,255,255,.08);color:#DCE8FA;font-size:.82rem;font-weight:600;padding:7px 14px;border-radius:var(--pill);border:1px solid rgba(255,255,255,.12)}
+  .doc-info>p{color:#C3D4F0;margin-top:6px;font-size:1.04rem;max-width:54ch}
+  .doc-meta{display:flex;flex-wrap:wrap;gap:14px 36px;margin:24px 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.12)}
+  .doc-meta .v{font-family:"Fraunces",serif;font-size:1.7rem;color:#fff;font-weight:600;line-height:1}
+  .doc-meta .v em{color:var(--gold-soft);font-style:normal}
+  .doc-meta .k{font-size:.82rem;color:#9FB5DC;margin-top:5px}
+  .doc-meta .mline{width:1px;background:rgba(255,255,255,.14)}
+
+  /* reviews */
+  .rev{background:linear-gradient(180deg,var(--bg),#EDF3FC)}
+  .rev-top{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center;position:relative;z-index:2}
+  .rev-score{background:#fff;border:1px solid var(--line);border-radius:var(--r-l);padding:40px 36px;box-shadow:var(--shadow-m);text-align:center;position:relative;overflow:hidden}
+  .rev-score::before{content:"";position:absolute;left:0;top:0;width:100%;height:5px;background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-soft))}
+  .rev-big{font-family:"Fraunces",serif;font-size:5rem;font-weight:600;color:var(--navy-ink);line-height:.9}
+  .rev-out{color:var(--muted);font-weight:600;font-size:.95rem}
+  .rev-stars{color:var(--gold-deep);font-size:1.7rem;letter-spacing:4px;margin:10px 0 6px}
+  .rev-stars span{display:inline-block;animation:float 3s var(--ease-2) infinite}
+  .rev-stars span:nth-child(2){animation-delay:.15s}.rev-stars span:nth-child(3){animation-delay:.3s}.rev-stars span:nth-child(4){animation-delay:.45s}.rev-stars span:nth-child(5){animation-delay:.6s}
+  .rev-sub{color:var(--text);font-size:1rem;margin-top:4px}
+  .rev-sub b{color:var(--navy-ink)}
+  .rev-google{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-size:.84rem;color:var(--muted);font-weight:600}
+  .gicon{width:18px;height:18px}
+  .rev-cards{display:grid;gap:16px}
+  .rev-c{background:#fff;border:1px solid var(--line);border-radius:var(--r-m);padding:22px 24px;box-shadow:var(--shadow-s);display:flex;gap:16px;align-items:flex-start;transition:transform .25s,box-shadow .25s}
+  .rev-c:hover{transform:translateX(5px);box-shadow:var(--shadow-m)}
+  .rev-c .ic{flex:none;width:44px;height:44px;border-radius:13px;background:linear-gradient(160deg,var(--sky),var(--pale-navy));color:var(--navy);display:grid;place-items:center}
+  .rev-c .ic svg{width:22px;height:22px}
+  .rev-c .st{color:var(--gold-deep);font-size:.78rem;letter-spacing:1px;margin-bottom:3px}
+  .rev-c h4{font-family:"Fraunces",serif;font-size:1.12rem;color:var(--navy-ink);font-weight:600}
+  .rev-c p{font-size:.9rem;color:var(--muted);margin-top:3px}
+  .rev-actions{margin-top:36px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap;position:relative;z-index:2}
+
+  /* booking (dark) */
+  .book{background:linear-gradient(160deg,var(--navy),var(--navy-deep) 70%);color:#fff;position:relative;overflow:hidden}
+  .book::before{content:"";position:absolute;right:-160px;top:-160px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(255,206,1,.18),transparent 65%);z-index:0}
+  .book .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .book-left h2{color:#fff;font-size:clamp(2.05rem,3.8vw,2.85rem);margin-top:16px}
+  .book-left>p{color:#C3D4F0;margin-top:16px;font-size:1.06rem;max-width:42ch}
+  .binfo{list-style:none;margin:30px 0 0;display:grid;gap:8px}
+  .binfo li{display:flex;gap:15px;align-items:flex-start;padding:12px;border-radius:var(--r-s);transition:background .25s}
+  .binfo li:hover{background:rgba(255,255,255,.05)}
+  .binfo .ic{flex:none;width:46px;height:46px;border-radius:13px;background:rgba(255,255,255,.09);color:var(--gold);display:grid;place-items:center;border:1px solid rgba(255,255,255,.12)}
+  .binfo .ic svg{width:22px;height:22px}
+  .binfo .t{font-weight:800;color:#fff;font-size:1rem}
+  .binfo .d{color:#BCCEEC;font-size:.94rem;margin-top:2px}
+  .binfo a.d:hover{color:#fff;text-decoration:underline}
+  .map{margin-top:22px;border-radius:var(--r-m);overflow:hidden;border:1px solid rgba(255,255,255,.16);box-shadow:var(--shadow-m)}
+  .map iframe{display:block;width:100%;height:210px;border:0;filter:grayscale(.25) contrast(1.05)}
+
+  .qform{background:#fff;border-radius:var(--r-l);padding:36px;box-shadow:var(--shadow-l);position:relative;z-index:1}
+  .qform .fh{display:flex;align-items:center;gap:13px}
+  .qform .fh .wa{width:46px;height:46px;border-radius:13px;background:var(--wa);display:grid;place-items:center;flex:none;box-shadow:0 6px 16px rgba(37,211,102,.3)}
+  .qform .fh .wa svg{width:26px;height:26px}
+  .qform h3{font-size:1.5rem}
+  .qform .sub{color:var(--muted);font-size:.93rem;margin-top:2px}
+  .qform .frm{margin-top:24px}
+  .q-label{display:block;font-weight:800;font-size:.88rem;color:var(--navy-ink);margin:0 0 10px}
+  .q-label .req{color:#C0492F}
+  .q-field{margin-bottom:20px}
+  .q-field input{width:100%;font-family:inherit;font-size:1rem;color:var(--navy-ink);padding:14px 16px;border:1.6px solid var(--line);border-radius:var(--r-s);background:var(--bg);transition:.2s}
+  .q-field input::placeholder{color:#9aa8c0}
+  .q-field input:focus{border-color:var(--navy-2);box-shadow:0 0 0 4px var(--sky-3);outline:none;background:#fff}
+  .q-field.invalid input{border-color:#C0492F}
+  .q-err{display:none;color:#C0492F;font-size:.82rem;margin-top:6px;font-weight:600}
+  .q-field.invalid .q-err{display:block}
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chipbtn{font-family:inherit;font-size:.9rem;font-weight:700;color:var(--text);background:var(--bg);border:1.6px solid var(--line);border-radius:var(--pill);padding:10px 16px;min-height:44px;cursor:pointer;transition:.18s}
+  .chipbtn:hover{border-color:var(--navy-2);color:var(--navy);transform:translateY(-1px)}
+  .chipbtn.sel{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:var(--shadow-s)}
+  .q-send{width:100%;margin-top:6px}
+  .q-status{display:none;margin-top:14px;padding:14px 16px;border-radius:var(--r-s);font-size:.92rem;font-weight:700;background:#E7F8EE;color:#15803d;border:1px solid #BBE9CC}
+  .q-status.show{display:block}
+  .q-note{font-size:.78rem;color:var(--muted);margin-top:12px;text-align:center;display:flex;align-items:center;justify-content:center;gap:7px}
+  .q-note svg{width:14px;height:14px;color:var(--wa)}
+
+  /* footer */
+  footer.site{background:var(--navy-deep);color:#AFC3E6;padding:72px 0 32px;position:relative;overflow:hidden;border-top:1px solid rgba(255,206,1,.18)}
+  footer.site .aura{opacity:.5}
+  .foot-grid{display:grid;grid-template-columns:1.8fr 1fr 1.2fr;gap:48px;position:relative;z-index:2}
+  .foot-brand{display:flex;align-items:center;gap:12px}
+  .foot-brand .logo-ring{width:50px;height:50px;border-radius:50%;padding:2px;background:conic-gradient(from 210deg,var(--gold),var(--gold-soft),var(--gold-deep),var(--gold))}
+  .foot-brand .logo-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;background:#fff}
+  .foot-brand .bn{font-family:"Fraunces",serif;font-weight:700;font-size:1.32rem;color:#fff}
+  .foot-brand .bs{display:block;font-size:.6rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);margin-top:3px}
+  footer.site p.ft-about{font-size:.94rem;margin-top:18px;max-width:38ch;color:#9FB5DC}
+  .foot-social{display:flex;gap:10px;margin-top:20px}
+  .foot-social a{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;color:#CFE0F8;transition:.2s}
+  .foot-social a:hover{background:var(--wa);border-color:var(--wa);color:#fff;transform:translateY(-2px)}
+  .foot-social svg{width:20px;height:20px}
+  footer.site h4{color:#fff;font-family:"Plus Jakarta Sans";font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+  .foot-links{list-style:none;display:grid;gap:12px}
+  .foot-links a,.foot-links li{font-size:.94rem;transition:.2s;color:#A9BEE2}
+  .foot-links a:hover{color:#fff}
+  .foot-links .ic{display:inline-flex;align-items:center;gap:9px}
+  .foot-links .ic svg{width:16px;height:16px;color:var(--gold);flex:none}
+  .foot-bottom{margin-top:52px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:.85rem;color:#7E97C4;position:relative;z-index:2}
+  .foot-bottom a{color:var(--gold-soft);font-weight:600}
+
+  /* wa fab */
+  .wa-fab{position:fixed;right:24px;bottom:24px;z-index:120;display:flex;align-items:center;gap:0;height:62px;padding:0;border-radius:var(--pill);background:var(--wa);box-shadow:0 12px 30px rgba(37,211,102,.42),0 0 0 6px rgba(37,211,102,.14);transition:transform .25s var(--ease),box-shadow .25s,padding .3s var(--ease)}
+  .wa-fab .ico{width:62px;height:62px;display:grid;place-items:center;flex:none}
+  .wa-fab .ico svg{width:33px;height:33px}
+  .wa-fab .lbl{max-width:0;overflow:hidden;white-space:nowrap;color:#fff;font-weight:800;font-size:.95rem;opacity:0;transition:max-width .3s var(--ease),opacity .25s,padding .3s}
+  .wa-fab:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(37,211,102,.5),0 0 0 6px rgba(37,211,102,.18)}
+  .wa-fab:hover .lbl{max-width:160px;opacity:1;padding-right:22px}
+  .wa-fab::after{content:"";position:absolute;right:0;bottom:0;width:62px;height:62px;border-radius:50%;background:var(--wa);z-index:-1;animation:wapulse 2.4s var(--ease) infinite}
+  @keyframes wapulse{0%{transform:scale(1);opacity:.5}70%{transform:scale(1.5);opacity:0}100%{opacity:0}}
+  @media (prefers-reduced-motion:reduce){.wa-fab::after{display:none}}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+
+  /* responsive */
+  @media (max-width:1024px){
+    .svc-grid{grid-template-columns:repeat(2,1fr)}
+    .hero .wrap{gap:20px}
+    .about-grid,.tech-grid{gap:44px}
+    .doc-card{grid-template-columns:280px 1fr;gap:40px}
+  }
+  @media (max-width:900px){
+    .nav-links,.nav-cta .btn-ghost{display:none}
+    .nav-toggle{display:grid;place-items:center;width:50px;height:50px;border-radius:13px;background:var(--sky);border:none;cursor:pointer;color:var(--navy)}
+    .nav-toggle svg{width:24px;height:24px}
+    .mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;z-index:60;flex-direction:column;gap:4px;padding:12px 28px 24px;background:rgba(242,247,254,.98);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);box-shadow:var(--shadow-m)}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{padding:14px 16px;border-radius:12px;font-weight:600;min-height:48px;display:flex;align-items:center;color:var(--text)}
+    .mobile-menu a:hover{background:var(--sky)}.mobile-menu .btn{margin-top:10px}
+    .hero .wrap,.about-grid,.tech-grid,.doc-card,.book .wrap,.rev-top{grid-template-columns:1fr}
+    .hero{padding-bottom:0}
+    .hero .wrap{padding-top:120px;padding-bottom:30px}
+    .hero-media{margin-top:18px;order:2}
+    .about-photos{max-width:520px;margin:0 auto}
+    .tech-photo{max-width:560px;margin:0 auto 26px}
+    .tech-photo .panel{inset:14px -14px -14px 14px}
+    .doc-card{text-align:center}
+    .doc-photo{max-width:300px;margin:0 auto}
+    .doc-roles,.doc-meta{justify-content:center}
+    .doc-meta{display:flex}
+    .doc .quote{font-size:14rem}
+    .rev-score{max-width:420px;margin:0 auto;width:100%}
+    .foot-grid{grid-template-columns:1fr 1fr}.foot-brand-col{grid-column:1/-1}
+    .services .glyph{font-size:20rem}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 20px}section.block{padding:72px 0}
+    .svc-grid{grid-template-columns:1fr}.foot-grid{grid-template-columns:1fr}
+    .hero-media{width:min(84vw,360px);height:min(84vw,360px)}
+    .hero-disc.ring{width:min(96vw,420px);height:min(96vw,420px)}
+    .h-badge{right:-2px;top:14px}.h-emerg{left:-4px;bottom:30px}.h-rev{right:-6px;bottom:74px}
+    .h-bottom{gap:14px 22px}
+    .doc-meta .mline{display:none}
+    .svc-cta{padding:22px}
+    .float-card{right:0}
+    .wa-fab .lbl{display:none}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- HEADER -->
+<header class="site" id="header">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Vance Dental home">
+      <span class="logo-ring"><svg width="50" height="50" viewBox="0 0 50 50" style="display:block;border-radius:50%" role="img" aria-label="Vance Dental logo"><circle cx="25" cy="25" r="25" fill="#002F7D"/><path d="M25 13c-3.4 0-5.2 2.4-5.2 5.2 0 1.6.7 3.3 1.3 5 .5 1.5.9 3.4 1.2 4.8.2 1.1.4 1.8 1.1 1.8.6 0 .8-.7 1-1.6.2-.8.3-1.4.6-1.4s.4.6.6 1.4c.2.9.4 1.6 1 1.6.7 0 .9-.7 1.1-1.8.3-1.4.7-3.3 1.2-4.8.6-1.7 1.3-3.4 1.3-5 0-2.8-1.8-5.2-5.2-5.2Z" fill="#FFCE01" opacity=".9"/><path d="M14 31l6 7h2l-4.5-7H14Zm22 0h-3.5L28 38h2l6-7Z" fill="#FFCE01"/><text x="25" y="27" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="15" fill="#FFCE01">V</text></svg></span>
+      <span><span class="bn">Vance Dental</span><span class="bs">Madhavaram, Chennai</span></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#technology">Technology</a></li>
+        <li><a href="#doctor">Our Dentist</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#book">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-navy" href="https://wa.me/919000012345?text=Hi%20Vance%20Dental%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Book on WhatsApp
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a><a href="#services">Services</a><a href="#technology">Technology</a>
+    <a href="#doctor">Our Dentist</a><a href="#reviews">Reviews</a><a href="#book">Contact</a>
+    <a class="btn btn-navy" href="https://wa.me/919000012345?text=Hi%20Vance%20Dental%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Book on WhatsApp</a>
+  </div>
+</header>
+
+<main id="main"><span id="top"></span>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg floaty" aria-hidden="true">
+    <span class="aura" style="--c:rgba(30,79,160,.20);width:540px;height:540px;top:-160px;left:-160px"></span>
+    <span class="aura b" style="--c:rgba(255,206,1,.16);width:420px;height:420px;bottom:-120px;left:6%"></span>
+    <span class="aura" style="--c:rgba(62,111,201,.14);width:480px;height:480px;top:8%;right:-140px"></span>
+    <span class="dotgrid" style="--d:rgba(8,34,76,.05);--m:radial-gradient(circle at 70% 60%,#000 0%,transparent 60%)"></span>
+    <span class="arc"></span>
+  </div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="h-eyebrow"><span class="pp">★</span> Rated <b>4.8</b> by <b>433+</b> patients in Madhavaram</span>
+      <div class="h-kicker">A smile worth showing off —</div>
+      <div class="slides" id="slides">
+        <div class="slide active"><h1>Your best smile <em>starts here.</em></h1></div>
+        <div class="slide"><h1>Advanced dentistry, <em>gentle care.</em></h1></div>
+        <div class="slide"><h1>Healthy smiles for <em>all ages.</em></h1></div>
+      </div>
+      <p class="h-sub">World-class, ethical dental care for the whole family — from same-day CEREC crowns and dental implants to Invisalign and gentle kids' dentistry, right here in Madhavaram.</p>
+      <div class="h-actions">
+        <a class="btn btn-wa" href="#book">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Book on WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="#services">View treatments</a>
+      </div>
+      <div class="h-bottom">
+        <div class="h-stat">
+          <div class="v"><span class="count" data-to="4.8" data-dec="1">4.8</span><span class="stars" aria-hidden="true">★★★★★</span></div>
+          <div class="l"><span class="count" data-to="433" data-suffix="+">433+</span> verified reviews</div>
+        </div>
+        <div class="h-divider" aria-hidden="true"></div>
+        <div class="h-stat">
+          <div class="v"><span class="count" data-to="12" data-suffix="+">12+</span></div>
+          <div class="l">Years of experience</div>
+        </div>
+        <div class="h-divider" aria-hidden="true"></div>
+        <div class="h-stat">
+          <div class="v">Same-day</div>
+          <div class="l">CEREC crowns</div>
+        </div>
+      </div>
+      <div class="h-dots" role="tablist" aria-label="Highlights">
+        <button class="active" data-i="0" aria-label="Slide 1"></button>
+        <button data-i="1" aria-label="Slide 2"></button>
+        <button data-i="2" aria-label="Slide 3"></button>
+      </div>
+    </div>
+
+    <div class="hero-media">
+      <div class="hero-disc ring" aria-hidden="true"></div>
+      <div class="hero-portrait">
+        <div role="img" aria-label="Patient at Vance Dental" style="width:100%;height:100%;min-height:200px;border-radius:50%;position:relative;overflow:hidden;background:linear-gradient(135deg,#E8EFFB,#F2F7FE 55%,#FFFDF4);display:flex;align-items:center;justify-content:center;"><span style="position:absolute;inset:0;background:radial-gradient(140px 140px at 28% 22%,rgba(0,47,125,.07),transparent),radial-gradient(170px 170px at 78% 74%,rgba(255,206,1,.12),transparent);"></span><svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#9DB4D8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" style="opacity:.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+      </div>
+      <div class="h-badge"><div class="b">CEREC</div><div class="s">Same-day crowns</div></div>
+      <a class="h-emerg" href="https://wa.me/919000012345?text=Hi%20Vance%20Dental%2C%20I%20have%20a%20dental%20emergency." target="_blank" rel="noopener" aria-label="Message us on WhatsApp for emergencies">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
+        <span><span class="t">Dental help on WhatsApp</span><br><span class="n">90000 12345</span></span>
+      </a>
+      <div class="h-rev" aria-hidden="true">
+        <span class="g"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45 24c0-1.4-.1-2.8-.4-4H24v8h11.8c-.5 2.7-2 5-4.3 6.6v5.5h7C42.7 36.6 45 30.8 45 24z"/><path fill="#34A853" d="M24 46c5.8 0 10.7-1.9 14.3-5.3l-7-5.5c-1.9 1.3-4.4 2.1-7.3 2.1-5.6 0-10.4-3.8-12.1-8.9H4.7v5.6C8.3 41.2 15.6 46 24 46z"/><path fill="#FBBC05" d="M11.9 28.4c-.4-1.3-.7-2.7-.7-4.4s.3-3.1.7-4.4v-5.6H4.7C3.2 17 2.4 20.4 2.4 24s.8 7 2.3 10l7.2-5.6z"/><path fill="#EA4335" d="M24 11.1c3.2 0 6 1.1 8.2 3.2l6.1-6.1C34.7 4.7 29.8 2.7 24 2.7 15.6 2.7 8.3 7.5 4.7 14l7.2 5.6c1.7-5.1 6.5-8.5 12.1-8.5z"/></svg></span>
+        <span><span class="st">★★★★★</span><br><span class="rt">4.8 · 433+ reviews</span></span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-fade" aria-hidden="true"></div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="trust" aria-label="Why patients choose Vance Dental">
+  <div class="wrap">
+    <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/></svg> Advanced CEREC digital lab</div>
+    <span class="sep" aria-hidden="true"></span>
+    <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg> Gentle, painless treatments</div>
+    <span class="sep" aria-hidden="true"></span>
+    <div class="it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="3"/><path d="M3 21c0-3.3 2.7-6 6-6s6 2.7 6 6M16 11l2 2 4-4"/></svg> Kids &amp; family friendly</div>
+    <span class="sep" aria-hidden="true"></span>
+    <div class="it"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.5 1.6 6.7L12 16.9 5.8 20.6l1.6-6.7L2.2 9l6.9-.6z"/></svg> 4.8★ rated by 433+ patients</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="block about" id="about">
+  <span class="aura" style="--c:rgba(30,79,160,.10);width:520px;height:520px;top:-120px;right:-180px"></span>
+  <span class="dotgrid" style="--d:rgba(8,34,76,.04);--m:radial-gradient(circle at 12% 30%,#000,transparent 45%)" aria-hidden="true"></span>
+  <div class="wrap about-grid">
+    <div class="about-photos reveal">
+      <span class="frame" aria-hidden="true"></span>
+      <span class="frame br" aria-hidden="true"></span>
+      <div class="ph-stack">
+        <div class="tall" role="img" aria-label="Vance Dental reception with the clinic signage, Madhavaram" style="width:100%;height:100%;min-height:220px;border-radius:inherit;background:linear-gradient(135deg,#E8EFFB,#F2F7FE 55%,#FFF);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;"><span style="position:absolute;inset:0;background:radial-gradient(120px 120px at 30% 25%,rgba(0,47,125,.06),transparent),radial-gradient(160px 160px at 75% 70%,rgba(255,206,1,.10),transparent);"></span><svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#9DB4D8" stroke-width="1.3" style="opacity:.7"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="2"/><path d="m4 17 5-4 4 3 3-2 4 3"/></svg></div>
+        <div class="wide" role="img" aria-label="Modern reception desk at Vance Dental" style="width:100%;height:100%;min-height:220px;border-radius:inherit;background:linear-gradient(135deg,#E8EFFB,#F2F7FE 55%,#FFF);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;"><span style="position:absolute;inset:0;background:radial-gradient(120px 120px at 30% 25%,rgba(0,47,125,.06),transparent),radial-gradient(160px 160px at 75% 70%,rgba(255,206,1,.10),transparent);"></span><svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#9DB4D8" stroke-width="1.3" style="opacity:.7"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="2"/><path d="m4 17 5-4 4 3 3-2 4 3"/></svg></div>
+        <div class="wide" role="img" aria-label="Comfortable waiting lounge at Vance Dental" style="width:100%;height:100%;min-height:220px;border-radius:inherit;background:linear-gradient(135deg,#E8EFFB,#F2F7FE 55%,#FFF);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;"><span style="position:absolute;inset:0;background:radial-gradient(120px 120px at 30% 25%,rgba(0,47,125,.06),transparent),radial-gradient(160px 160px at 75% 70%,rgba(255,206,1,.10),transparent);"></span><svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#9DB4D8" stroke-width="1.3" style="opacity:.7"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="2"/><path d="m4 17 5-4 4 3 3-2 4 3"/></svg></div>
+      </div>
+      <div class="float-card" aria-hidden="true">
+        <div><div class="num">433+</div><div class="st">★★★★★</div></div>
+        <div class="vline"></div>
+        <div class="lab">Happy patients across Madhavaram</div>
+      </div>
+    </div>
+    <div class="about-copy reveal">
+      <span class="tag">About the clinic</span>
+      <h2>World-class dental care, the ethical way</h2>
+      <p>Vance Dental is a multi-speciality dental, implant and child-care clinic in Madhavaram, built on a simple promise: high-quality, honest treatment that brings out the beautiful smile hidden in everyone. Modern facilities, advanced technology and a gentle, patient-first team make every visit calm and comfortable.</p>
+      <ul class="feat">
+        <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.4 8 11 4.6-2.6 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><div><div class="ft">Ethical, transparent care</div><div class="fd">Honest advice and clear treatment plans — never over-treatment.</div></div></li>
+        <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/></svg></span><div><div class="ft">Latest dental technology</div><div class="fd">CEREC digital scanning and same-day restorations for precision and speed.</div></div></li>
+        <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="3"/><path d="M3 21c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 11l2 2 4-4"/></svg></span><div><div class="ft">Caring with children</div><div class="fd">A warm, friendly approach that puts young and nervous patients at ease.</div></div></li>
+        <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></span><div><div class="ft">Comfort at every step</div><div class="fd">A calm, premium environment designed around your comfort.</div></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="block services" id="services">
+  <span class="glyph" aria-hidden="true">+</span>
+  <span class="aura" style="--c:rgba(255,206,1,.10);width:440px;height:440px;bottom:-140px;left:-120px" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag center">Our treatments</span>
+      <h2>Complete dental care, under one roof</h2>
+      <p>From routine check-ups to advanced implants and smile makeovers — for every member of the family.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc reveal"><span class="idx">01</span><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2c-3 0-4.5 1.5-6.5 1.5C4 3.5 3 4.5 3 6.5c0 3 1.5 9 3 12 .8 1.5 2 1 2.5-.5l1.5-5c.3-1 .7-1.5 2-1.5s1.7.5 2 1.5l1.5 5c.5 1.5 1.7 2 2.5.5 1.5-3 3-9 3-12 0-2-1-3-2.5-3C16.5 3.5 15 2 12 2Z"/></svg></div><h3>General Dentistry</h3><p>Check-ups, cleanings, fillings and preventive care for the whole family.</p><span class="arw">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
+      <article class="svc reveal"><span class="idx">02</span><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M8 6c0-2 1.5-4 4-4s4 2 4 4M7 11h10M8 16h8"/></svg></div><h3>Dental Implants</h3><p>Permanent, natural-looking tooth replacement — including full-arch All-on-4.</p><span class="arw">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
+      <article class="svc reveal"><span class="idx">03</span><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 6h14M5 12h14M5 18h14"/><circle cx="8" cy="6" r="2" fill="currentColor" stroke="none"/><circle cx="14" cy="12" r="2" fill="currentColor" stroke="none"/><circle cx="10" cy="18" r="2" fill="currentColor" stroke="none"/></svg></div><h3>Invisalign &amp; Aligners</h3><p>Discreet, comfortable teeth straightening with virtually invisible aligners.</p><span class="arw">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
+      <article class="svc reveal"><span class="idx">04</span><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="4"/><path d="M3 21c0-3.5 2.7-6 6-6s6 2.5 6 6"/><path d="M17 9l1.5 1.5L22 7"/></svg></div><h3>Kids Dentistry</h3><p>Gentle, preventive and child-friendly care that builds healthy habits early.</p><span class="arw">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
+      <article class="svc reveal"><span class="idx">05</span><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2c-3 0-4.5 1.5-6.5 1.5C4 3.5 3 4.5 3 6.5c0 3 1.5 9 3 12 .8 1.5 2 1 2.5-.5l1.5-5c.3-1 .7-1.5 2-1.5s1.7.5 2 1.5l1.5 5c.5 1.5 1.7 2 2.5.5 1.5-3 3-9 3-12 0-2-1-3-2.5-3"/></svg></div><h3>Root Canal (RCT)</h3><p>Comfortable, modern root canal therapy to save and protect damaged teeth.</p><span class="arw">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
+      <article class="svc reveal"><span class="idx">06</span><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 2 7 6l-3 1 2 3-1 4 4-1 3 2 3-2 4 1-1-4 2-3-3-1-2-4-3 2-3-2Z"/></svg></div><h3>Cosmetic &amp; Whitening</h3><p>Veneers, smile makeovers and professional whitening for a brighter smile.</p><span class="arw">Learn more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
+    </div>
+    <div class="svc-cta reveal">
+      <div class="ct">
+        <h3>Not sure what you need?</h3>
+        <p>Tell us in a quick message and our team will guide you — no obligation.</p>
+      </div>
+      <a class="btn btn-gold" href="https://wa.me/919000012345?text=Hi%20Vance%20Dental%2C%20I%27m%20not%20sure%20which%20treatment%20I%20need%20%E2%80%94%20can%20you%20help%3F" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Ask on WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY -->
+<section class="block tech" id="technology">
+  <span class="aura" style="--c:rgba(30,79,160,.12);width:480px;height:480px;top:-120px;left:-160px" aria-hidden="true"></span>
+  <div class="wrap tech-grid">
+    <div class="tech-photo reveal">
+      <span class="panel" aria-hidden="true"></span>
+      <div class="pic"><div role="img" aria-label="CEREC digital scanner" style="width:100%;aspect-ratio:4/3;min-height:200px;border-radius:inherit;position:relative;overflow:hidden;background:linear-gradient(135deg,#E8EFFB,#F2F7FE 55%,#FFFDF4);display:flex;align-items:center;justify-content:center;"><span style="position:absolute;inset:0;background:radial-gradient(140px 140px at 28% 22%,rgba(0,47,125,.07),transparent),radial-gradient(170px 170px at 78% 74%,rgba(255,206,1,.12),transparent);"></span><svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#9DB4D8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" style="opacity:.7"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/></svg></div></div>
+      <span class="tech-badge" aria-hidden="true"><div class="b">1 visit</div><div class="s">instead of weeks</div></span>
+      <span class="tech-chip c1"><span class="d"></span> CEREC Primemill</span>
+      <span class="tech-chip c2"><span class="d"></span> Digital scan · no goop</span>
+    </div>
+    <div class="tech-copy reveal">
+      <span class="tag">Advanced technology</span>
+      <h2>Same-day smiles with digital dentistry</h2>
+      <p>Our in-clinic CEREC system scans, designs and mills custom crowns and restorations digitally — so many treatments that once took weeks can be done in a single visit, with a precise, comfortable fit.</p>
+      <ul class="tcheck">
+        <li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span> Digital intra-oral scanning — no messy impressions</li>
+        <li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span> Same-day crowns, inlays and veneers</li>
+        <li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span> Precise, natural-looking, long-lasting results</li>
+        <li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg></span> Fewer appointments, less waiting</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTOR -->
+<section class="block doc" id="doctor">
+  <span class="quote" aria-hidden="true">&ldquo;</span>
+  <span class="aura" style="--c:rgba(62,111,201,.28);width:520px;height:520px;top:-140px;right:-120px" aria-hidden="true"></span>
+  <span class="aura" style="--c:rgba(255,206,1,.12);width:380px;height:380px;bottom:-120px;left:-80px" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="tag center light">Meet your dentist</span><h2>Care led by an experienced specialist</h2></div>
+    <div class="doc-card reveal">
+      <div class="doc-photo">
+        <span class="gframe" aria-hidden="true"></span>
+        <div class="pic"><div role="img" aria-label="Dr. R. Sharath, MDS" style="width:100%;aspect-ratio:3/4;min-height:200px;border-radius:inherit;position:relative;overflow:hidden;background:linear-gradient(135deg,#E8EFFB,#F2F7FE 55%,#FFFDF4);display:flex;align-items:center;justify-content:center;"><span style="position:absolute;inset:0;background:radial-gradient(140px 140px at 28% 22%,rgba(0,47,125,.07),transparent),radial-gradient(170px 170px at 78% 74%,rgba(255,206,1,.12),transparent);"></span><svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#9DB4D8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" style="opacity:.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div></div>
+        <span class="pill" aria-hidden="true">★ 4.8 rating</span>
+      </div>
+      <div class="doc-info">
+        <h3>Dr. R. Sharath</h3>
+        <div class="doc-cred">MDS — Consultant Maxillofacial Prosthodontist &amp; Implantologist</div>
+        <div class="doc-roles">
+          <span class="chip">Prosthodontist</span><span class="chip">Implantologist</span><span class="chip">Cosmetic Dentistry</span><span class="chip">Founder &amp; Lead Dentist</span>
+        </div>
+        <p>With over a decade of clinical experience, Dr. Sharath specialises in tooth replacement, dental implants and full-mouth rehabilitation — combining advanced technology with a calm, honest, patient-first approach.</p>
+        <div class="doc-meta">
+          <div><div class="v"><em>12+</em> yrs</div><div class="k">Clinical experience</div></div>
+          <div class="mline" aria-hidden="true"></div>
+          <div><div class="v">MDS</div><div class="k">Prosthodontics</div></div>
+          <div class="mline" aria-hidden="true"></div>
+          <div><div class="v">4.8<em>★</em></div><div class="k">Patient rating</div></div>
+        </div>
+        <a class="btn btn-gold" href="https://wa.me/919000012345?text=Hi%20Vance%20Dental%2C%20I%27d%20like%20to%20book%20a%20consultation%20with%20Dr.%20Sharath." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Book with Dr. Sharath
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="block rev" id="reviews">
+  <span class="dotgrid" style="--d:rgba(8,34,76,.04);--m:radial-gradient(circle at 85% 20%,#000,transparent 50%)" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="tag center">Patient reviews</span><h2>Trusted by families across Madhavaram</h2></div>
+    <div class="rev-top">
+      <div class="rev-score reveal">
+        <div class="rev-big"><span class="count" data-to="4.8" data-dec="1">4.8</span></div>
+        <div class="rev-out">out of 5.0</div>
+        <div class="rev-stars" aria-label="4.8 out of 5 stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <div class="rev-sub">Across <b><span class="count" data-to="433" data-suffix="+">433+</span> verified</b> patient reviews</div>
+        <div class="rev-google"><svg class="gicon" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45 24c0-1.4-.1-2.8-.4-4H24v8h11.8c-.5 2.7-2 5-4.3 6.6v5.5h7C42.7 36.6 45 30.8 45 24z"/><path fill="#34A853" d="M24 46c5.8 0 10.7-1.9 14.3-5.3l-7-5.5c-1.9 1.3-4.4 2.1-7.3 2.1-5.6 0-10.4-3.8-12.1-8.9H4.7v5.6C8.3 41.2 15.6 46 24 46z"/><path fill="#FBBC05" d="M11.9 28.4c-.4-1.3-.7-2.7-.7-4.4s.3-3.1.7-4.4v-5.6H4.7C3.2 17 2.4 20.4 2.4 24s.8 7 2.3 10l7.2-5.6z"/><path fill="#EA4335" d="M24 11.1c3.2 0 6 1.1 8.2 3.2l6.1-6.1C34.7 4.7 29.8 2.7 24 2.7 15.6 2.7 8.3 7.5 4.7 14l7.2 5.6c1.7-5.1 6.5-8.5 12.1-8.5z"/></svg> Verified on Google Reviews</div>
+      </div>
+      <div class="rev-cards">
+        <div class="rev-c reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></svg></span><div><div class="st" aria-hidden="true">★★★★★</div><h4>Gentle &amp; painless</h4><p>Calm, comfortable treatment that patients consistently highlight.</p></div></div>
+        <div class="rev-c reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.4 8 11 4.6-2.6 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span><div><div class="st" aria-hidden="true">★★★★★</div><h4>Honest &amp; transparent</h4><p>Clear treatment plans and fair pricing — never over-treatment.</p></div></div>
+        <div class="rev-c reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="3"/><path d="M3 21c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 11l2 2 4-4"/></svg></span><div><div class="st" aria-hidden="true">★★★★★</div><h4>Wonderful with kids</h4><p>A friendly, reassuring team that families come back to again and again.</p></div></div>
+      </div>
+    </div>
+    <div class="rev-actions reveal">
+      <a class="btn btn-navy" href="https://www.google.com/search?q=Vance+Dental+Madhavaram+reviews" target="_blank" rel="noopener"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45 24c0-1.4-.1-2.8-.4-4H24v8h11.8c-.5 2.7-2 5-4.3 6.6v5.5h7C42.7 36.6 45 30.8 45 24z"/><path fill="#34A853" d="M24 46c5.8 0 10.7-1.9 14.3-5.3l-7-5.5c-1.9 1.3-4.4 2.1-7.3 2.1-5.6 0-10.4-3.8-12.1-8.9H4.7v5.6C8.3 41.2 15.6 46 24 46z"/><path fill="#FBBC05" d="M11.9 28.4c-.4-1.3-.7-2.7-.7-4.4s.3-3.1.7-4.4v-5.6H4.7C3.2 17 2.4 20.4 2.4 24s.8 7 2.3 10l7.2-5.6z"/><path fill="#EA4335" d="M24 11.1c3.2 0 6 1.1 8.2 3.2l6.1-6.1C34.7 4.7 29.8 2.7 24 2.7 15.6 2.7 8.3 7.5 4.7 14l7.2 5.6c1.7-5.1 6.5-8.5 12.1-8.5z"/></svg> Read our reviews on Google</a>
+      <a class="btn btn-ghost" href="#book">Book your visit</a>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING / QUESTIONNAIRE -->
+<section class="block book" id="book">
+  <span class="aura b" style="--c:rgba(62,111,201,.3);width:420px;height:420px;bottom:-160px;left:-120px" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="book-left reveal">
+      <span class="tag light">Book your visit</span>
+      <h2>Let's get you smiling</h2>
+      <p>Answer three quick taps and we'll open WhatsApp with your details ready to send — no forms, no waiting on hold.</p>
+      <ul class="binfo">
+        <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></span><div><div class="t">Address</div><div class="d">12 &amp; 13, 1st Floor, Grand Northern Trunk Rd., near Madhavaram Roundabout, Madhavaram, Chennai 600060</div></div></li>
+        <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><div><div class="t">Hours</div><div class="d">Monday – Saturday · 9:00 AM – 9:00 PM · Sunday closed</div></div></li>
+        <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span><div><div class="t">WhatsApp</div><a class="d" href="https://wa.me/919000012345" target="_blank" rel="noopener">+91 90000 12345</a></div></li>
+      </ul>
+      <div class="map">
+        <iframe title="Map to Vance Dental, Madhavaram" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Madhavaram,%20Chennai,%20Tamil%20Nadu%20600060&t=&z=14&ie=UTF8&iwloc=&output=embed"></iframe>
+      </div>
+    </div>
+
+    <div class="qform reveal">
+      <div class="fh">
+        <span class="wa" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
+        <div><h3>Request an appointment</h3><p class="sub">Takes 15 seconds — we'll confirm on WhatsApp.</p></div>
+      </div>
+      <div class="frm">
+        <div class="q-field" id="f-name">
+          <label class="q-label" for="qname">Your name <span class="req" aria-hidden="true">*</span></label>
+          <input id="qname" type="text" autocomplete="name" placeholder="e.g. Priya" />
+          <span class="q-err" id="e-name">Please enter your name.</span>
+        </div>
+        <div class="q-field" id="f-treat">
+          <span class="q-label">What do you need? <span class="req" aria-hidden="true">*</span></span>
+          <div class="chips" id="treatChips" role="group" aria-label="Treatment">
+            <button type="button" class="chipbtn" data-v="a general check-up">Check-up</button>
+            <button type="button" class="chipbtn" data-v="dental implants">Implants</button>
+            <button type="button" class="chipbtn" data-v="Invisalign / braces">Invisalign / braces</button>
+            <button type="button" class="chipbtn" data-v="kids dentistry">Kids dentistry</button>
+            <button type="button" class="chipbtn" data-v="a root canal">Root canal</button>
+            <button type="button" class="chipbtn" data-v="teeth whitening / cosmetic work">Whitening / cosmetic</button>
+            <button type="button" class="chipbtn" data-v="a dental emergency">Emergency</button>
+            <button type="button" class="chipbtn" data-v="something else">Something else</button>
+          </div>
+          <span class="q-err" id="e-treat">Please pick one.</span>
+        </div>
+        <div class="q-field">
+          <span class="q-label">Preferred time</span>
+          <div class="chips" id="timeChips" role="group" aria-label="Preferred time">
+            <button type="button" class="chipbtn" data-v="mornings">Morning</button>
+            <button type="button" class="chipbtn" data-v="afternoons">Afternoon</button>
+            <button type="button" class="chipbtn" data-v="evenings">Evening</button>
+            <button type="button" class="chipbtn" data-v="weekends">Weekend</button>
+          </div>
+        </div>
+        <button class="btn btn-wa q-send" id="qsend" type="button">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Send on WhatsApp
+        </button>
+        <div class="q-status" id="qstatus" role="status" aria-live="polite"></div>
+        <div class="q-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg> We usually reply within minutes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site">
+  <span class="aura" style="--c:rgba(62,111,201,.2);width:420px;height:420px;top:-160px;right:-100px" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand-col">
+        <div class="foot-brand"><span class="logo-ring"><svg width="50" height="50" viewBox="0 0 50 50" style="display:block;border-radius:50%" role="img" aria-label="Vance Dental logo"><circle cx="25" cy="25" r="25" fill="#002F7D"/><path d="M25 13c-3.4 0-5.2 2.4-5.2 5.2 0 1.6.7 3.3 1.3 5 .5 1.5.9 3.4 1.2 4.8.2 1.1.4 1.8 1.1 1.8.6 0 .8-.7 1-1.6.2-.8.3-1.4.6-1.4s.4.6.6 1.4c.2.9.4 1.6 1 1.6.7 0 .9-.7 1.1-1.8.3-1.4.7-3.3 1.2-4.8.6-1.7 1.3-3.4 1.3-5 0-2.8-1.8-5.2-5.2-5.2Z" fill="#FFCE01" opacity=".9"/><path d="M14 31l6 7h2l-4.5-7H14Zm22 0h-3.5L28 38h2l6-7Z" fill="#FFCE01"/><text x="25" y="27" text-anchor="middle" font-family="Georgia,serif" font-weight="700" font-size="15" fill="#FFCE01">V</text></svg></span><span><span class="bn">Vance Dental</span><span class="bs">Madhavaram, Chennai</span></span></div>
+        <p class="ft-about">A multi-speciality dental, implant &amp; child-care clinic in Madhavaram, Chennai — world-class treatment, the ethical way.</p>
+        <div class="foot-social">
+          <a href="https://wa.me/919000012345" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          <a href="https://www.google.com/maps?q=Vance+Dental+Madhavaram+Chennai" target="_blank" rel="noopener" aria-label="Find us on Google Maps"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="foot-links"><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#technology">Technology</a></li><li><a href="#doctor">Our Dentist</a></li><li><a href="#reviews">Reviews</a></li></ul>
+      </div>
+      <div>
+        <h4>Visit &amp; Contact</h4>
+        <ul class="foot-links">
+          <li><a class="ic" href="https://wa.me/919000012345" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> +91 90000 12345</a></li>
+          <li><a class="ic" href="https://www.google.com/maps?q=Vance+Dental+Madhavaram+Chennai" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Get directions</a></li>
+          <li class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Mon–Sat · 9 AM – 9 PM</li>
+          <li class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Madhavaram, Chennai 600060</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Vance Dental. All rights reserved.</span>
+      <span>Website by <a href="https://stellarhausmedia.com" target="_blank" rel="noopener">Stellar Haus Media</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/919000012345?text=Hi%20Vance%20Dental%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
+  <span class="lbl">Chat with us</span>
+</a>
+
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  var prefersReduced=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  // scroll progress + header
+  var header=document.getElementById('header'), bar=document.getElementById('progress');
+  function onScroll(){
+    header.classList.toggle('scrolled',window.scrollY>40);
+    var h=document.documentElement;
+    var sc=(h.scrollTop)/(h.scrollHeight-h.clientHeight)||0;
+    bar.style.width=(sc*100)+'%';
+  }
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  // mobile menu
+  var toggle=document.getElementById('navToggle'),menu=document.getElementById('mobileMenu');
+  toggle.addEventListener('click',function(){var o=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',o?'true':'false');toggle.setAttribute('aria-label',o?'Close menu':'Open menu');});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');});});
+
+  // hero slider (fixed-height locked)
+  var slides=Array.prototype.slice.call(document.querySelectorAll('#slides .slide'));
+  var dots=Array.prototype.slice.call(document.querySelectorAll('.h-dots button'));
+  var cur=0,timer=null;
+  function show(i){cur=(i+slides.length)%slides.length;slides.forEach(function(s,n){s.classList.toggle('active',n===cur);});dots.forEach(function(d,n){d.classList.toggle('active',n===cur);});}
+  function start(){if(prefersReduced)return;stop();timer=setInterval(function(){show(cur+1);},5500);}
+  function stop(){if(timer)clearInterval(timer);}
+  dots.forEach(function(d){d.addEventListener('click',function(){show(+d.dataset.i);start();});});
+  var heroEl=document.querySelector('.hero');heroEl.addEventListener('mouseenter',stop);heroEl.addEventListener('mouseleave',start);
+  start();
+  var slidesEl=document.getElementById('slides');
+  function lockSlides(){slidesEl.style.height='auto';var m=0;slides.forEach(function(s){if(s.offsetHeight>m)m=s.offsetHeight;});if(m)slidesEl.style.height=m+'px';}
+  lockSlides();var lk;window.addEventListener('resize',function(){clearTimeout(lk);lk=setTimeout(lockSlides,150);});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(lockSlides);
+
+  // reveal + count-up
+  function runCount(el){
+    var to=parseFloat(el.dataset.to),dec=parseInt(el.dataset.dec||'0',10),suf=el.dataset.suffix||'';
+    if(prefersReduced){el.textContent=to.toFixed(dec)+suf;return;}
+    var dur=1300,t0=null;
+    function step(t){if(!t0)t0=t;var p=Math.min((t-t0)/dur,1);var e=1-Math.pow(1-p,3);el.textContent=(to*e).toFixed(dec)+suf;if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  }
+  var rev=document.querySelectorAll('.reveal');
+  if(prefersReduced||!('IntersectionObserver'in window)){
+    rev.forEach(function(e){e.classList.add('in');});
+    document.querySelectorAll('.count').forEach(runCount);
+  } else {
+    var io=new IntersectionObserver(function(es){es.forEach(function(e,i){if(e.isIntersecting){e.target.style.transitionDelay=Math.min(i*60,220)+'ms';e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -50px 0px'});
+    rev.forEach(function(e){io.observe(e);});
+    var co=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){runCount(e.target);co.unobserve(e.target);}});},{threshold:.5});
+    document.querySelectorAll('.count').forEach(function(e){co.observe(e);});
+  }
+
+  // active nav spy
+  var ids=['about','services','technology','doctor','reviews','book'],ni={};
+  document.querySelectorAll('.nav-links a').forEach(function(a){var id=a.getAttribute('href').slice(1);if(ids.indexOf(id)>=0)ni[id]=a;});
+  var spy=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){Object.keys(ni).forEach(function(k){ni[k].classList.remove('active');});if(ni[e.target.id])ni[e.target.id].classList.add('active');}});},{rootMargin:'-45% 0px -50% 0px'});
+  ids.forEach(function(id){var el=document.getElementById(id);if(el)spy.observe(el);});
+
+  // chip groups (single-select)
+  function chipGroup(elId){var box=document.getElementById(elId);var val=null;box.querySelectorAll('.chipbtn').forEach(function(b){b.addEventListener('click',function(){box.querySelectorAll('.chipbtn').forEach(function(x){x.classList.remove('sel');x.setAttribute('aria-pressed','false');});b.classList.add('sel');b.setAttribute('aria-pressed','true');val=b.dataset.v;box.closest('.q-field').classList.remove('invalid');});});return function(){return val;};}
+  var getTreat=chipGroup('treatChips'),getTime=chipGroup('timeChips');
+
+  // build WhatsApp message
+  var WA='919000012345';
+  document.getElementById('qsend').addEventListener('click',function(ev){
+    ev.preventDefault();
+    var name=document.getElementById('qname');
+    var treat=getTreat(),time=getTime();
+    var nameOk=name.value.trim().length>1, treatOk=!!treat;
+    document.getElementById('f-name').classList.toggle('invalid',!nameOk);
+    document.getElementById('f-treat').classList.toggle('invalid',!treatOk);
+    if(!nameOk){name.focus();return;}
+    if(!treatOk){document.getElementById('treatChips').scrollIntoView({behavior:prefersReduced?'auto':'smooth',block:'center'});return;}
+    var msg="Hi Vance Dental! I'd like to book an appointment.\n\nName: "+name.value.trim()+"\nFor: "+treat+(time?("\nPreferred time: "+time):"");
+    window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(msg),'_blank');
+    var st=document.getElementById('qstatus');st.className='q-status show';st.textContent='✓ Opening WhatsApp with your details — just hit send to confirm.';
+  });
+</script>
+</body>
+</html>

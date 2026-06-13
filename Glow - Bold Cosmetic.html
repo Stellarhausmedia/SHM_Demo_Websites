@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Glow Dental, Adyar — Smile Makeovers &amp; Modern Dentistry in Chennai</title>
+<meta name="description" content="Glow Dental is a cosmetic-led dental clinic in Adyar, Chennai. Smile makeovers, veneers, whitening, implants, aligners &amp; gentle family dentistry — led by Dr. Nikhil Reddy, BDS, MDS (Cosmetic &amp; Aesthetic Dentistry). Book a free smile consultation on WhatsApp." />
+<!-- ============================================================
+     TEMPLATE 07 · "SMILE WOW DENTAL" (Naresh) — conversion-focused, strong visual hierarchy, bold CTAs
+     Motif: organic BLOBS everywhere (morphing bg shapes, blob-masked photos, blob icon accents)
+     Signature interaction: "pop & split" blob playground (tap a blob → splits into smaller blobs + sparkle)
+     -----------------------------------------------------------------
+     PRACTO DATA TO SWAP (search & replace):
+       Glow Dental ................... clinic name
+       Adyar, Chennai ................ locality
+       Dr. Nikhil Reddy .............. dentist name + credentials block
+       919884012345 ................. WhatsApp / phone (wa.me + tel:)
+       4.9 / 612 / 99% / 13 .......... rating · stories · recommend · years
+       ₹500 .......................... consultation fee (free this month — see offer band)
+       Services / Reviews / FAQ / Insurers / Hours / Map — see each section
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#FBFAFF; --paper:#FFFFFF;
+    --ink:#171327; --text:#4A4660; --muted:#7C7796;
+    --pink:#FF3D7F; --pink-deep:#E62E6E;
+    --violet:#6A5CFF; --violet-deep:#5847E6;
+    --cyan:#22D3EE; --amber:#FFB23D;
+    --grad:linear-gradient(135deg, #FF3D7F 0%, #6A5CFF 100%);
+    --grad-soft:linear-gradient(135deg, #FFE7F0 0%, #ECE9FF 100%);
+    --line:#ECE9F5; --line-soft:#F4F2FB;
+    --soft-pink:#FFE7F0; --soft-violet:#ECE9FF;
+    --shadow-sm:0 6px 18px rgba(23,19,39,.06);
+    --shadow-md:0 18px 44px rgba(23,19,39,.10);
+    --shadow-lg:0 40px 90px rgba(23,19,39,.16);
+    --glow-pink:0 16px 36px rgba(255,61,127,.36);
+    --glow-violet:0 16px 36px rgba(106,92,255,.34);
+    --r-sm:12px; --r-md:18px; --r-lg:26px; --r-xl:34px; --r-pill:999px;
+    --maxw:1200px; --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:92px;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+  }
+  body{margin:0; font-family:"Be Vietnam Pro",system-ui,sans-serif; font-size:16px; line-height:1.65; color:var(--text); background:var(--bg); -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  h1,h2,h3,h4{font-family:"Space Grotesk",system-ui,sans-serif; color:var(--ink); line-height:1.05; margin:0; font-weight:700; letter-spacing:-.02em;}
+  p{margin:0;}
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%;}
+  .wrap{width:100%; max-width:var(--maxw); margin:0 auto; padding:0 26px; position:relative;}
+  .grad-text{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;}
+
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--violet); outline-offset:3px; border-radius:8px;}
+  .skip-link{position:absolute; left:12px; top:-60px; z-index:300; background:var(--ink); color:#fff; padding:12px 18px; border-radius:10px; transition:top .2s var(--ease);}
+  .skip-link:focus{top:12px;}
+
+  /* ===== BLOB MOTIF ===== */
+  @keyframes blobMorph{
+    0%,100%{border-radius:42% 58% 63% 37% / 47% 42% 58% 53%;}
+    33%{border-radius:58% 42% 40% 60% / 54% 58% 42% 46%;}
+    66%{border-radius:38% 62% 56% 44% / 60% 38% 62% 40%;}
+  }
+  .bg-blob{position:absolute; z-index:0; border-radius:42% 58% 63% 37% / 47% 42% 58% 53%; filter:blur(8px); opacity:.5; pointer-events:none; animation:blobMorph 16s ease-in-out infinite;}
+  .bg-blob.pink{background:radial-gradient(circle at 35% 30%, #FFA6C6, #FF3D7F);}
+  .bg-blob.violet{background:radial-gradient(circle at 35% 30%, #B7AEFF, #6A5CFF);}
+  .bg-blob.cyan{background:radial-gradient(circle at 35% 30%, #9BEFFB, #22D3EE);}
+  .bg-blob.amber{background:radial-gradient(circle at 35% 30%, #FFD79B, #FFB23D);}
+  .blob-mask{border-radius:42% 58% 63% 37% / 47% 42% 58% 53%; overflow:hidden; animation:blobMorph 18s ease-in-out infinite;}
+
+  /* ===== BUTTONS / CTA hierarchy ===== */
+  .btn{position:relative; overflow:hidden; display:inline-flex; align-items:center; justify-content:center; gap:10px; font-family:"Be Vietnam Pro",sans-serif; font-weight:700; cursor:pointer; border:2px solid transparent; transition:transform .2s var(--ease), box-shadow .25s var(--ease), background .2s, color .2s, border-color .2s;}
+  .btn:hover{transform:translateY(-3px);}
+  .btn:active{transform:translateY(-1px);}
+  .btn svg{width:19px; height:19px; flex:none;}
+  /* primary = the dominant conversion action */
+  .btn-primary{min-height:56px; padding:16px 30px; font-size:1.02rem; border-radius:var(--r-pill); background:var(--grad); color:#fff; box-shadow:var(--glow-pink);}
+  .btn-primary:hover{box-shadow:0 22px 48px rgba(255,61,127,.46);}
+  .btn-primary::after{content:""; position:absolute; top:0; left:-130%; width:60%; height:100%; background:linear-gradient(100deg, transparent, rgba(255,255,255,.45), transparent); transform:skewX(-18deg); transition:left .7s var(--ease);}
+  .btn-primary:hover::after{left:150%;}
+  .btn-lg{min-height:62px; padding:18px 38px; font-size:1.1rem;}
+  .btn-ghost{min-height:56px; padding:16px 28px; font-size:1rem; border-radius:var(--r-pill); background:var(--paper); color:var(--ink); border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--violet); color:var(--violet-deep); box-shadow:var(--shadow-sm);}
+  .btn-white{min-height:56px; padding:16px 30px; font-size:1.02rem; border-radius:var(--r-pill); background:#fff; color:var(--ink);}
+  .btn-white:hover{box-shadow:var(--shadow-md);}
+
+  .tag{display:inline-flex; align-items:center; gap:8px; font-size:.78rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--violet-deep); background:var(--soft-violet); padding:7px 15px; border-radius:var(--r-pill);}
+  .tag .dot{width:8px; height:8px; border-radius:50%; background:var(--grad);}
+
+  /* ===== HEADER ===== */
+  header.site{position:fixed; top:0; left:0; right:0; z-index:100; transition:background .3s var(--ease), box-shadow .3s, border-color .3s; border-bottom:1px solid transparent;}
+  header.site .nav{display:flex; align-items:center; justify-content:space-between; height:80px;}
+  .brand{display:flex; align-items:center; gap:11px; font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:1.34rem; letter-spacing:-.02em; line-height:1; color:var(--ink);}
+  .brand .mark{width:42px; height:42px; flex:none;}
+  .nav-links{display:flex; align-items:center; gap:2px; list-style:none; margin:0; padding:0;}
+  .nav-links a{display:inline-block; padding:9px 15px; border-radius:var(--r-pill); font-size:.96rem; font-weight:500; color:var(--text); transition:color .2s, background .2s;}
+  .nav-links a:hover{background:var(--soft-violet); color:var(--violet-deep);}
+  .nav-links a.active{color:var(--violet-deep);}
+  .nav-cta{display:flex; align-items:center; gap:14px;}
+  .nav-cta .callnum{font-weight:700; color:var(--ink); font-size:.96rem;}
+  .nav-cta .callnum:hover{color:var(--pink-deep);}
+  header.site.scrolled{background:rgba(251,250,255,.86); backdrop-filter:blur(16px); border-bottom-color:var(--line); box-shadow:var(--shadow-sm);}
+  .nav-toggle{display:none; width:48px; height:48px; border:1px solid var(--line); background:var(--paper); border-radius:14px; cursor:pointer; align-items:center; justify-content:center;}
+  .nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{content:""; display:block; width:20px; height:2px; background:var(--ink); border-radius:2px; transition:.25s var(--ease);}
+  .nav-toggle span{position:relative;}
+  .nav-toggle span::before{position:absolute; top:-6px;}
+  .nav-toggle span::after{position:absolute; top:6px;}
+  .mobile-menu{display:none;}
+
+  /* ===== HERO (centered statement + full-width band) ===== */
+  .hero{position:relative; padding:158px 0 84px; overflow:hidden; text-align:center;}
+  .hero .bg-blob.hb-a{width:380px; height:380px; top:84px; left:-30px; opacity:.45;}
+  .hero .bg-blob.hb-b{width:300px; height:300px; top:50px; right:-20px; opacity:.4;}
+  .hero .bg-blob.hb-c{width:230px; height:230px; bottom:150px; left:48%; opacity:.26;}
+  .hero-inner{position:relative; z-index:2; max-width:960px; margin:0 auto;}
+  .hero-eyebrow{display:inline-flex; align-items:center; gap:9px; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-pill); padding:7px 8px 7px 16px; box-shadow:var(--shadow-sm); font-size:.86rem; font-weight:600; color:var(--ink);}
+  .hero-eyebrow .stars{color:var(--amber); letter-spacing:1px;}
+  .hero-eyebrow b{background:var(--grad); color:#fff; border-radius:var(--r-pill); padding:4px 11px; font-size:.78rem;}
+  .hero h1{font-size:clamp(3rem,8.4vw,6.2rem); font-weight:700; margin-top:26px; letter-spacing:-.04em; line-height:.92;}
+  .hero-sub{margin:26px auto 0; font-size:1.2rem; color:var(--text); max-width:56ch;}
+  .hero-actions{margin-top:36px; display:flex; flex-wrap:wrap; gap:15px; justify-content:center;}
+  .hero-quick{margin-top:28px; display:flex; align-items:center; gap:15px; flex-wrap:wrap; justify-content:center; font-size:.95rem; color:var(--muted); font-weight:500;}
+  .hero-quick .star{color:var(--amber); letter-spacing:1px;}
+  .hero-quick b{color:var(--ink);}
+  .hero-quick .sep{width:5px; height:5px; border-radius:50%; background:var(--line);}
+  .hero-band{position:relative; z-index:2; margin-top:62px;}
+  .hero-band .wide{position:relative; width:100%; aspect-ratio:24/9; background:linear-gradient(120deg,#FFC6DD 0%, #C9C1FF 52%, #9BEFFB 100%); border-radius:64px 40px 72px 38px; box-shadow:var(--shadow-lg); overflow:hidden; animation:bandMorph 16s ease-in-out infinite;}
+  @keyframes bandMorph{0%,100%{border-radius:64px 40px 72px 38px;}50%{border-radius:40px 72px 38px 64px;}}
+  .hero-band .scene{position:absolute; inset:0; width:100%; height:100%;}
+  .hero-band .ph{position:absolute; left:50%; bottom:16px; transform:translateX(-50%); z-index:3; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(23,19,39,.55); font-weight:600;}
+  .hero-band .chip{position:absolute; z-index:3; display:inline-flex; align-items:center; gap:9px; background:var(--paper); border-radius:var(--r-pill); padding:9px 16px; box-shadow:var(--shadow-md); font-weight:600; font-size:.9rem; color:var(--ink);}
+  .hero-band .chip .star{color:var(--amber); letter-spacing:1px;}
+  .hero-band .chip.c1{top:20px; left:20px;}
+  .hero-band .chip.c2{top:20px; right:20px; background:var(--grad); color:#fff;}
+  @keyframes floaty{0%,100%{transform:translateY(-7px);}50%{transform:translateY(7px);}}
+
+  /* ===== MARQUEE / proof strip ===== */
+  .proofbar{background:var(--ink); color:#fff; padding:20px 0; overflow:hidden;}
+  .proofbar .track{display:flex; gap:48px; white-space:nowrap; width:max-content; animation:scroll 26s linear infinite; align-items:center;}
+  @keyframes scroll{to{transform:translateX(-50%);}}
+  .proofbar .item{display:inline-flex; align-items:center; gap:12px; font-family:"Space Grotesk",sans-serif; font-weight:500; font-size:1.05rem; color:#fff;}
+  .proofbar .item svg{width:20px; height:20px; color:var(--pink);}
+  .proofbar .item .star{color:var(--amber);}
+
+  /* ===== SECTION SHELL ===== */
+  .block{position:relative; padding:106px 0; overflow:hidden;}
+  .sec-head{max-width:680px; margin-bottom:54px; position:relative; z-index:2;}
+  .sec-head.center{margin-inline:auto; text-align:center;}
+  .sec-head h2{font-size:clamp(2.2rem,4.6vw,3.5rem); margin-top:18px; font-weight:700; letter-spacing:-.03em;}
+  .sec-head p{margin-top:18px; font-size:1.1rem; color:var(--muted);}
+
+  /* ===== STATS ===== */
+  .stats{position:relative; z-index:2; display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .stat{background:var(--paper); border:1px solid var(--line); border-radius:var(--r-lg); padding:30px 26px; text-align:center; box-shadow:var(--shadow-sm);}
+  .stat .v{font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:clamp(2.2rem,4vw,3rem); line-height:1;}
+  .stat .v .star{font-size:.7em;}
+  .stat .k{font-size:.92rem; font-weight:500; color:var(--muted); margin-top:10px;}
+
+  /* ===== SERVICES ===== */
+  .svc-grid{position:relative; z-index:2; display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .svc{position:relative; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-lg); padding:30px; overflow:hidden; transition:transform .25s var(--ease), box-shadow .25s, border-color .25s;}
+  .svc::before{content:""; position:absolute; top:-40px; right:-40px; width:120px; height:120px; border-radius:42% 58% 63% 37% / 47% 42% 58% 53%; background:var(--grad-soft); opacity:.9; transition:transform .4s var(--ease); animation:blobMorph 14s ease-in-out infinite;}
+  .svc:hover{transform:translateY(-6px); box-shadow:var(--shadow-md); border-color:transparent;}
+  .svc:hover::before{transform:scale(1.4);}
+  .svc .ic{position:relative; z-index:1; width:58px; height:58px; border-radius:18px; display:flex; align-items:center; justify-content:center; background:var(--grad); color:#fff; box-shadow:var(--glow-violet); margin-bottom:18px;}
+  .svc .ic svg{width:28px; height:28px;}
+  .svc h3{position:relative; z-index:1; font-size:1.24rem; font-weight:700;}
+  .svc p{position:relative; z-index:1; margin-top:9px; font-size:.95rem; color:var(--muted);}
+  .svc .foot{position:relative; z-index:1; margin-top:18px; display:flex; align-items:center; justify-content:space-between;}
+  .svc .from{font-family:"Space Grotesk",sans-serif; font-weight:600; font-size:.9rem; color:var(--violet-deep);}
+  .svc .go{width:38px; height:38px; border-radius:50%; border:1.5px solid var(--line); display:flex; align-items:center; justify-content:center; color:var(--ink); transition:.2s var(--ease);}
+  .svc:hover .go{background:var(--ink); color:#fff; border-color:var(--ink);}
+  .svc .go svg{width:17px; height:17px;}
+
+  /* ===== PLAYFUL BLOB PLAYGROUND ===== */
+  .playful{background:linear-gradient(180deg,#fff 0%, var(--soft-violet) 100%);}
+  .blob-stage{position:relative; z-index:2; height:440px; margin:0 auto; max-width:880px; border-radius:var(--r-xl); background:rgba(255,255,255,.5); border:1px solid var(--line); box-shadow:var(--shadow-sm); overflow:hidden; touch-action:manipulation;}
+  .blob-cell{position:absolute; border:none; padding:0; cursor:pointer; transform:translate(-50%,-50%); box-shadow:0 14px 32px rgba(106,92,255,.28); animation:blobMorph var(--d,8s) ease-in-out infinite; transition:filter .2s;}
+  .blob-cell:hover{filter:brightness(1.07) saturate(1.12);}
+  .blob-cell:focus-visible{outline:3px solid var(--ink); outline-offset:3px;}
+  .spark{position:absolute; width:9px; height:9px; border-radius:50%; pointer-events:none; z-index:5;}
+  .blob-controls{position:relative; z-index:2; margin-top:26px; display:flex; align-items:center; justify-content:center; gap:18px; flex-wrap:wrap;}
+  .blob-hint{font-size:.92rem; font-weight:600; color:var(--muted);}
+
+  /* ===== RESULTS GALLERY ===== */
+  .results{background:var(--paper);}
+  .gal-grid{position:relative; z-index:2; display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .gal{position:relative;}
+  .gal .pic{aspect-ratio:1/1; box-shadow:var(--shadow-md);}
+  .gal .pic .person{position:absolute; inset:0; display:flex; align-items:flex-end; justify-content:center;}
+  .gal .pic .ph{position:absolute; left:50%; bottom:12px; transform:translateX(-50%); font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.85); font-weight:600;}
+  .gal .cap{margin-top:16px; text-align:center;}
+  .gal .cap b{font-family:"Space Grotesk",sans-serif; color:var(--ink); display:block;}
+  .gal .cap span{font-size:.86rem; color:var(--muted);}
+
+  /* ===== WHY / FEATURES ===== */
+  .why{background:var(--bg);}
+  .why-grid{position:relative; z-index:2; display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+  .feat{display:flex; gap:18px; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-lg); padding:26px; box-shadow:var(--shadow-sm);}
+  .feat .fic{width:54px; height:54px; flex:none; border-radius:16px; display:flex; align-items:center; justify-content:center; color:#fff;}
+  .feat .fic svg{width:26px; height:26px;}
+  .feat h3{font-size:1.16rem; font-weight:700;}
+  .feat p{margin-top:7px; font-size:.94rem; color:var(--muted);}
+
+  /* ===== DOCTOR ===== */
+  .doctor{background:var(--paper);}
+  .doc-grid{position:relative; z-index:2; display:grid; grid-template-columns:.85fr 1.15fr; gap:54px; align-items:center;}
+  .doc-visual{position:relative; display:flex; align-items:center; justify-content:center; min-height:420px;}
+  .doc-photo{position:relative; z-index:2; width:360px; max-width:90%; aspect-ratio:1/1.05; background:linear-gradient(160deg,#C9C1FF 0%, #FFC6DD 100%); box-shadow:var(--shadow-lg);}
+  .doc-photo .person{position:absolute; inset:0; display:flex; align-items:flex-end; justify-content:center;}
+  .doc-photo .ph{position:absolute; left:50%; bottom:14px; transform:translateX(-50%); z-index:3; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(23,19,39,.5); font-weight:600;}
+  .doc-badge{position:absolute; z-index:3; top:14px; right:0; background:var(--paper); border-radius:18px; box-shadow:var(--shadow-md); padding:12px 16px; display:flex; align-items:center; gap:10px; animation:floaty 6s ease-in-out infinite;}
+  .doc-badge svg{width:22px; height:22px; color:var(--violet);}
+  .doc-badge b{font-family:"Space Grotesk",sans-serif; color:var(--ink); font-size:.92rem; display:block; line-height:1;} .doc-badge span{font-size:.72rem; color:var(--muted);}
+  .doc-body h2{font-size:clamp(2rem,3.8vw,3rem); font-weight:700; margin-top:16px;}
+  .doc-cred{font-family:"Space Grotesk",sans-serif; font-size:.96rem; color:var(--violet-deep); margin-top:10px; font-weight:500;}
+  .doc-roles{display:flex; flex-wrap:wrap; gap:9px; margin:20px 0;}
+  .chip{font-size:.84rem; font-weight:500; color:var(--text); background:var(--soft-violet); padding:7px 15px; border-radius:var(--r-pill);}
+  .doc-body p{color:var(--text);}
+  .doc-meta{display:flex; gap:14px; margin:26px 0; flex-wrap:wrap;}
+  .doc-meta > div{flex:1; min-width:120px; background:var(--bg); border:1px solid var(--line); border-radius:var(--r-md); padding:16px 18px; text-align:center;}
+  .doc-meta .v{font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:1.7rem; line-height:1;}
+  .doc-meta .k{font-size:.76rem; color:var(--muted); margin-top:6px;}
+
+  /* ===== OFFER BAND ===== */
+  .offer{position:relative; overflow:hidden; background:var(--ink); border-radius:var(--r-xl); padding:60px; text-align:center; box-shadow:var(--shadow-lg);}
+  .offer .bg-blob.o1{width:340px; height:340px; top:-120px; left:-80px; opacity:.5; filter:blur(4px);}
+  .offer .bg-blob.o2{width:300px; height:300px; bottom:-130px; right:-70px; opacity:.45; filter:blur(4px);}
+  .offer-in{position:relative; z-index:2;}
+  .offer .tagline{display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,.12); color:#fff; border-radius:var(--r-pill); padding:7px 16px; font-weight:600; font-size:.84rem; letter-spacing:.04em; text-transform:uppercase;}
+  .offer h2{color:#fff; font-size:clamp(2.2rem,4.6vw,3.6rem); margin-top:18px; font-weight:700; letter-spacing:-.03em;}
+  .offer p{color:#C9C3DE; margin-top:16px; max-width:54ch; margin-inline:auto; font-size:1.08rem;}
+  .offer .offer-actions{margin-top:32px; display:flex; gap:15px; justify-content:center; flex-wrap:wrap;}
+
+  /* ===== REVIEWS ===== */
+  .reviews{background:var(--bg);}
+  .rev-grid{position:relative; z-index:2; display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .rev{background:var(--paper); border:1px solid var(--line); border-radius:var(--r-lg); padding:30px; box-shadow:var(--shadow-sm); transition:transform .25s var(--ease), box-shadow .25s;}
+  .rev:hover{transform:translateY(-5px); box-shadow:var(--shadow-md);}
+  .rev .stars{color:var(--amber); letter-spacing:2px;}
+  .rev blockquote{margin:14px 0 22px; font-size:1.04rem; color:var(--ink); line-height:1.6;}
+  .rev .who{display:flex; align-items:center; gap:13px;}
+  .rev .who .av{width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:1.1rem;}
+  .rev .who .nm{font-weight:700; color:var(--ink);}
+  .rev .who .for{font-size:.82rem; color:var(--muted);}
+
+  /* ===== FAQ ===== */
+  .faq-wrap{position:relative; z-index:2; max-width:840px; margin-inline:auto; display:grid; gap:14px;}
+  .faq{background:var(--paper); border:1px solid var(--line); border-radius:var(--r-md); overflow:hidden; transition:box-shadow .25s, border-color .25s;}
+  .faq[open]{box-shadow:var(--shadow-sm); border-color:transparent;}
+  .faq summary{list-style:none; cursor:pointer; padding:22px 26px; display:flex; align-items:center; justify-content:space-between; gap:18px; font-family:"Space Grotesk",sans-serif; font-weight:600; font-size:1.08rem; color:var(--ink);}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary .pl{position:relative; width:24px; height:24px; flex:none;}
+  .faq summary .pl::before,.faq summary .pl::after{content:""; position:absolute; background:var(--violet); border-radius:2px; transition:transform .25s var(--ease);}
+  .faq summary .pl::before{top:11px; left:3px; width:18px; height:2px;}
+  .faq summary .pl::after{top:3px; left:11px; width:2px; height:18px;}
+  .faq[open] summary .pl::after{transform:scaleY(0);}
+  .faq .ans{padding:0 26px 24px; color:var(--muted); font-size:.98rem;}
+
+  /* ===== CONTACT ===== */
+  .contact{background:var(--paper);}
+  .contact-grid{position:relative; z-index:2; display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;}
+  .ct-info h2{font-size:clamp(2.1rem,4vw,3.1rem); font-weight:700;}
+  .ct-info p.lead{margin-top:16px; color:var(--muted); font-size:1.06rem;}
+  .ct-rows{margin-top:30px; display:grid; gap:16px;}
+  .ct-row{display:flex; gap:15px; align-items:flex-start;}
+  .ct-row .ci{width:50px; height:50px; flex:none; border-radius:16px; background:var(--soft-violet); color:var(--violet-deep); display:flex; align-items:center; justify-content:center;}
+  .ct-row .ci svg{width:22px; height:22px;}
+  .ct-row .cl{font-size:.74rem; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); font-weight:600;}
+  .ct-row .cv{font-weight:700; color:var(--ink); margin-top:2px;}
+  .ct-row .cv a:hover{color:var(--pink-deep);}
+  .ct-hours{margin-top:24px; background:var(--bg); border:1px solid var(--line); border-radius:var(--r-md); padding:16px 22px; font-size:.94rem;}
+  .ct-hours .hr{display:flex; justify-content:space-between; padding:5px 0;}
+  .ct-hours .hr span:first-child{color:var(--muted);} .ct-hours .hr b{color:var(--ink);}
+  .form-card{position:relative; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-xl); padding:36px; box-shadow:var(--shadow-md); overflow:hidden;}
+  .form-card::before{content:""; position:absolute; top:-60px; right:-60px; width:170px; height:170px; border-radius:42% 58% 63% 37% / 47% 42% 58% 53%; background:var(--grad-soft); animation:blobMorph 15s ease-in-out infinite; z-index:0;}
+  .form-card > *{position:relative; z-index:1;}
+  .form-card h3{font-size:1.6rem; font-weight:700;}
+  .form-card .fnote{font-size:.92rem; color:var(--muted); margin-top:8px;}
+  .field{margin-top:18px;}
+  .field label{display:block; font-size:.74rem; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:8px;}
+  .field input,.field select,.field textarea{width:100%; font-family:inherit; font-size:1rem; color:var(--ink); background:var(--paper); border:1.5px solid var(--line); border-radius:14px; padding:14px 16px; transition:border-color .2s, box-shadow .2s;}
+  .field textarea{resize:vertical; min-height:100px;}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--violet); box-shadow:0 0 0 4px var(--soft-violet); outline:none;}
+  .field.invalid input,.field.invalid select{border-color:var(--pink); box-shadow:0 0 0 4px rgba(255,61,127,.12);}
+  .form-card .btn{width:100%; margin-top:24px;}
+  .form-status{margin-top:14px; font-size:.92rem; min-height:1.2em; font-weight:600;}
+  .form-status.ok{color:var(--violet-deep);}
+  .spin{width:18px; height:18px; border:2px solid rgba(255,255,255,.5); border-top-color:#fff; border-radius:50%; display:inline-block; animation:rot .7s linear infinite;}
+  @keyframes rot{to{transform:rotate(360deg);}}
+
+  /* ===== FOOTER ===== */
+  footer.site{position:relative; background:var(--ink); color:#A39DBC; padding:70px 0 30px; overflow:hidden;}
+  footer .bg-blob.f1{width:360px; height:360px; top:-140px; right:-80px; opacity:.3; filter:blur(6px);}
+  .foot-grid{position:relative; z-index:2; display:grid; grid-template-columns:1.6fr 1fr 1fr; gap:40px;}
+  footer .brand{color:#fff;}
+  footer .f-blurb{margin-top:16px; max-width:38ch; color:#9890B5; font-size:.95rem;}
+  footer h4{color:#fff; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; margin-bottom:16px; font-family:"Space Grotesk",sans-serif;}
+  .foot-links{list-style:none; margin:0; padding:0; display:grid; gap:11px;}
+  .foot-links a,.foot-links li{color:#9890B5; font-size:.95rem; transition:color .2s;}
+  .foot-links a:hover{color:#fff;}
+  .foot-bottom{position:relative; z-index:2; margin-top:46px; padding-top:24px; border-top:1px solid rgba(255,255,255,.1); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:.84rem; color:#7C7596;}
+  .foot-bottom a{background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:700;}
+
+  /* ===== WhatsApp FAB ===== */
+  .wa-fab{position:fixed; right:22px; bottom:22px; z-index:120; width:60px; height:60px; border-radius:50%; background:#25D366; box-shadow:0 12px 30px rgba(37,211,102,.45); display:flex; align-items:center; justify-content:center; transition:transform .2s var(--ease);}
+  .wa-fab:hover{transform:scale(1.08);}
+  .wa-fab svg{width:31px; height:31px;}
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s var(--ease), transform .7s var(--ease);}
+  .reveal.in{opacity:1; transform:none;}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:980px){
+    .hero-band .wide{aspect-ratio:18/9;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .svc-grid{grid-template-columns:repeat(2,1fr);}
+    .gal-grid{grid-template-columns:repeat(3,1fr); gap:16px;}
+    .why-grid{grid-template-columns:1fr;}
+    .doc-grid{grid-template-columns:1fr; gap:44px;}
+    .rev-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr; gap:36px;}
+    .foot-grid{grid-template-columns:1fr 1fr; gap:30px;}
+    .offer{padding:46px 30px;}
+  }
+  @media (max-width:680px){
+    .nav-links,.nav-cta .callnum{display:none;}
+    .nav-toggle{display:flex;}
+    .nav-cta .btn{min-height:40px!important;padding:9px 18px!important;font-size:.82rem!important;white-space:nowrap!important;}
+    .mobile-menu{display:block; position:fixed; top:80px; left:0; right:0; z-index:99; background:var(--paper); border-bottom:1px solid var(--line); box-shadow:var(--shadow-md); max-height:0; overflow:hidden; transition:max-height .3s var(--ease);}
+    .mobile-menu.open{max-height:460px;}
+    .mobile-menu ul{list-style:none; margin:0; padding:14px 26px 22px; display:grid; gap:4px;}
+    .mobile-menu a{display:block; padding:13px 14px; border-radius:12px; font-weight:500; color:var(--text);}
+    .mobile-menu a:hover{background:var(--soft-violet); color:var(--violet-deep);}
+    .mobile-menu .btn{width:100%; margin-top:10px;}
+    .hero{padding:124px 0 60px;}
+    .hero-band{margin-top:46px;}
+    .hero-band .wide{aspect-ratio:4/3;}
+    .hero-band .chip{font-size:.78rem; padding:7px 13px;}
+    .stats{grid-template-columns:1fr 1fr; gap:14px;}
+    .svc-grid{grid-template-columns:1fr;}
+    .gal-grid{grid-template-columns:1fr; gap:24px; max-width:340px; margin-inline:auto;}
+    .blob-stage{height:380px;}
+    .foot-grid{grid-template-columns:1fr;}
+    .block{padding:78px 0;}
+    .doc-meta{gap:10px;}
+  }
+
+  @media(max-width:430px){
+    .nav-cta .btn{min-height:36px!important;padding:7px 14px!important;font-size:.78rem!important;}
+  }
+
+  .result-img{position:relative;}
+  .result-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55) 0%,rgba(0,0,0,.0) 50%);pointer-events:none;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ===== HEADER ===== -->
+<header class="site" id="header">
+  <div class="wrap nav">
+    <a class="brand" href="#" aria-label="Glow Dental home">
+      <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <defs><linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF3D7F"/><stop offset="1" stop-color="#6A5CFF"/></linearGradient></defs>
+        <path d="M24 4C13 4 4 11 4 23c0 9 6 16 14 19 2 .7 3 .4 3-1.6V36c0-2 1.4-3 3-3s3 1 3 3v3.4c0 2 1 2.3 3 1.6 8-3 14-10 14-19C44 11 35 4 24 4Z" fill="url(#bm)"/>
+        <circle cx="17" cy="21" r="3.4" fill="#fff"/><circle cx="31" cy="21" r="3.4" fill="#fff"/>
+      </svg>
+      Glow Dental
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#services">Treatments</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#doctor">Your dentist</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="callnum" href="tel:+919884012345">+91 98840 12345</a>
+      <a class="btn btn-primary" style="min-height:46px; padding:11px 22px; font-size:.92rem;" href="#contact">Book free consult</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#services">Treatments</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#doctor">Your dentist</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="btn btn-primary" href="#contact">Book free consult</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="bg-blob pink hb-a" aria-hidden="true"></div>
+  <div class="bg-blob violet hb-b" aria-hidden="true"></div>
+  <div class="bg-blob cyan hb-c" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="hero-eyebrow"><span class="stars">★★★★★</span> Rated 4.9 on Practo <b>612 reviews</b></span>
+      <h1>Smiles that make<br>you go <span class="grad-text">wow</span>.</h1>
+      <p class="hero-sub">Cosmetic-led, gentle dentistry in Adyar — from confidence-boosting smile makeovers to painless everyday care. Your first consultation is free this month.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="https://wa.me/919884012345?text=Hi%20Glow%20Dental%2C%20I%27d%20like%20to%20book%20a%20free%20smile%20consultation." target="_blank" rel="noopener">
+          Book free consultation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#results">See smile makeovers</a>
+      </div>
+      <div class="hero-quick">
+        <span><span class="star">★</span> <b>4.9</b>/5 rating</span>
+        <span class="sep" aria-hidden="true"></span>
+        <span><b>10,000+</b> happy smiles</span>
+        <span class="sep" aria-hidden="true"></span>
+        <span><b>13+</b> years in Chennai</span>
+      </div>
+    </div>
+
+    <div class="hero-band">
+      <!-- Replace with a wide, smiling-patients photo -->
+      <div class="wide">
+        <svg class="scene" viewBox="0 0 1200 450" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+          <g fill="#FFFFFF" fill-opacity=".32">
+            <circle cx="372" cy="176" r="80"/>
+            <path d="M236 450c0-80 60-134 136-134s136 54 136 134Z"/>
+          </g>
+          <g fill="#FFFFFF" fill-opacity=".32">
+            <circle cx="828" cy="176" r="80"/>
+            <path d="M692 450c0-80 60-134 136-134s136 54 136 134Z"/>
+          </g>
+          <g fill="#FFFFFF" fill-opacity=".9">
+            <circle cx="600" cy="150" r="96"/>
+            <path d="M448 450c0-88 68-150 152-150s152 62 152 150Z"/>
+          </g>
+        </svg>
+        <span class="chip c1"><span class="star">★</span> 4.9 · 612 reviews</span>
+        <span class="chip c2">Free first visit ✦</span>
+        <span class="ph">Replace · wide hero photo (smiling patients)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROOF MARQUEE ===== -->
+<div class="proofbar" aria-hidden="true">
+  <div class="track" id="proofTrack">
+    <span class="item"><span class="star">★</span> 4.9 / 5 patient rating</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg> 10,000+ happy smiles</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5Z"/></svg> Smile makeover experts</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v8M8 12h8"/><circle cx="12" cy="12" r="9"/></svg> No-cost EMI available</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg> Cashless insurance</span>
+    <span class="item"><span class="star">★</span> 4.9 / 5 patient rating</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg> 10,000+ happy smiles</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5Z"/></svg> Smile makeover experts</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v8M8 12h8"/><circle cx="12" cy="12" r="9"/></svg> No-cost EMI available</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 7"/></svg> Cashless insurance</span>
+  </div>
+</div>
+
+<!-- ===== STATS ===== -->
+<section class="block">
+  <div class="bg-blob violet" style="width:300px;height:300px;top:-60px;left:-120px;opacity:.28;" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat reveal"><div class="v grad-text"><span class="star">★</span> <span class="count" data-to="4.9" data-dec="1">0</span></div><div class="k">Average rating</div></div>
+      <div class="stat reveal"><div class="v grad-text"><span class="count" data-to="612" data-suffix="+">0</span></div><div class="k">Verified reviews</div></div>
+      <div class="stat reveal"><div class="v grad-text"><span class="count" data-to="99" data-suffix="%">0</span></div><div class="k">Would recommend</div></div>
+      <div class="stat reveal"><div class="v grad-text"><span class="count" data-to="13" data-suffix="+">0</span></div><div class="k">Years of smiles</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="block" id="services">
+  <div class="bg-blob pink" style="width:320px;height:320px;top:40px;right:-140px;opacity:.22;" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag"><span class="dot"></span> Treatments</span>
+      <h2>Everything for a smile you'll love.</h2>
+      <p>Cosmetic-led care, gentle everyday dentistry, and clear pricing — pick what you need and we'll handle the rest.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l1.6 4.4L18 8l-4.4 1.6L12 14l-1.6-4.4L6 8l4.4-1.6L12 2Z"/><path d="M19 14l.8 2.2 2.2.8-2.2.8L19 20l-.8-2.2-2.2-.8 2.2-.8L19 14Z"/></svg></div>
+        <h3>Smile Makeovers</h3>
+        <p>Veneers, bonding and full smile design for a natural, camera-ready look.</p>
+        <div class="foot"><span class="from">from ₹8,000</span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </article>
+      <article class="svc reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M9 10s1-1.5 3-1.5S15 10 15 10M9 15c1 1 2 1.2 3 1.2S14 16 15 15"/></svg></div>
+        <h3>Teeth Whitening</h3>
+        <p>Safe in-clinic whitening that lifts years of stains in a single visit.</p>
+        <div class="foot"><span class="from">from ₹6,000</span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </article>
+      <article class="svc reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="4" width="14" height="4" rx="1.5"/><rect x="5" y="10" width="14" height="4" rx="1.5"/><rect x="5" y="16" width="14" height="4" rx="1.5"/></svg></div>
+        <h3>Braces &amp; Aligners</h3>
+        <p>Invisible clear aligners and modern braces for beautifully straight teeth.</p>
+        <div class="foot"><span class="from">from ₹25,000</span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </article>
+      <article class="svc reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v18"/><path d="M7 7c0-2 2-3 5-3s5 1 5 3"/><path d="M6 12h12M7 17h10"/></svg></div>
+        <h3>Dental Implants</h3>
+        <p>Permanent, natural-feeling replacements for missing teeth.</p>
+        <div class="foot"><span class="from">from ₹22,000</span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </article>
+      <article class="svc reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c-3 0-5 2-5 5 0 4 2 9 5 13 3-4 5-9 5-13 0-3-2-5-5-5Z"/></svg></div>
+        <h3>Root Canal</h3>
+        <p>Single-sitting, virtually painless RCT to save a damaged tooth.</p>
+        <div class="foot"><span class="from">from ₹3,500</span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </article>
+      <article class="svc reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c-3 0-5 2-5.4 5C6 11 7 15 8 18c.6 2 1 3.5 1.6 4 .6.5 1.2-.3 1.5-1.6.3-1.4.5-2.8.9-2.8s.6 1.4.9 2.8c.3 1.3.9 2.1 1.5 1.6.6-.5 1-2 1.6-4 1-3 2-7 1.4-10C17 5 15 3 12 3Z"/></svg></div>
+        <h3>Check-ups &amp; Cleaning</h3>
+        <p>Thorough exams and gentle scaling to keep every smile healthy.</p>
+        <div class="foot"><span class="from">consult ₹500</span><span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BLOB PLAYGROUND ===== -->
+<section class="block playful" id="vibes">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag"><span class="dot"></span> Good vibes only</span>
+      <h2>Tap the blobs. <span class="grad-text">Pop, split, smile.</span></h2>
+      <p>A tiny stress-buster on us — because a visit here should feel light and easy. Give a blob a tap.</p>
+    </div>
+    <div class="blob-stage reveal" id="blobStage" role="group" aria-label="Interactive blobs — tap a blob to split it into smaller blobs"></div>
+    <div class="blob-controls reveal">
+      <button class="btn btn-ghost" id="blobReset" style="min-height:48px; padding:13px 24px;">Reset blobs</button>
+      <span class="blob-hint">Tap a blob to split it ✨</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESULTS GALLERY ===== -->
+<section class="block results" id="results">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag"><span class="dot"></span> Real results</span>
+      <h2>Smiles we're proud of.</h2>
+      <p>A glimpse of the makeovers our patients walk out with. Swap these for your own before-and-after photos.</p>
+    </div>
+    <div class="gal-grid">
+      <figure class="gal reveal">
+        <div class="pic blob-mask" style="background:linear-gradient(160deg,#FFC6DD,#FF8AB0);">
+          <div class="person" aria-hidden="true"><svg width="76%" height="90%" viewBox="0 0 300 300" preserveAspectRatio="xMidYMax meet"><circle cx="150" cy="118" r="60" fill="#fff" fill-opacity=".85"/><path d="M64 300c0-48 38-80 86-80s86 32 86 80Z" fill="#fff" fill-opacity=".85"/></svg></div>
+          <span class="ph">Replace · result photo</span>
+        </div>
+        <figcaption class="cap"><b>Veneers makeover</b><span>8 veneers · 2 visits</span></figcaption>
+      </figure>
+      <figure class="gal reveal">
+        <div class="pic blob-mask" style="background:linear-gradient(160deg,#C9C1FF,#9B8CFF); animation-delay:-6s;">
+          <div class="person" aria-hidden="true"><svg width="76%" height="90%" viewBox="0 0 300 300" preserveAspectRatio="xMidYMax meet"><circle cx="150" cy="118" r="60" fill="#fff" fill-opacity=".85"/><path d="M64 300c0-48 38-80 86-80s86 32 86 80Z" fill="#fff" fill-opacity=".85"/></svg></div>
+          <span class="ph">Replace · result photo</span>
+        </div>
+        <figcaption class="cap"><b>Whitening</b><span>in-clinic · 1 visit</span></figcaption>
+      </figure>
+      <figure class="gal reveal">
+        <div class="pic blob-mask" style="background:linear-gradient(160deg,#9BEFFB,#5FC9E8); animation-delay:-12s;">
+          <div class="person" aria-hidden="true"><svg width="76%" height="90%" viewBox="0 0 300 300" preserveAspectRatio="xMidYMax meet"><circle cx="150" cy="118" r="60" fill="#fff" fill-opacity=".85"/><path d="M64 300c0-48 38-80 86-80s86 32 86 80Z" fill="#fff" fill-opacity=".85"/></svg></div>
+          <span class="ph">Replace · result photo</span>
+        </div>
+        <figcaption class="cap"><b>Clear aligners</b><span>9 months</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHY US ===== -->
+<section class="block why">
+  <div class="bg-blob cyan" style="width:280px;height:280px;bottom:-80px;right:-110px;opacity:.22;" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag"><span class="dot"></span> Why Glow</span>
+      <h2>Care that actually feels good.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="feat reveal"><div class="fic" style="background:var(--grad)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5Z"/></svg></div><div><h3>Cosmetic specialists</h3><p>Smile design is what we do best — natural, balanced results that suit your face.</p></div></div>
+      <div class="feat reveal"><div class="fic" style="background:linear-gradient(135deg,#22D3EE,#6A5CFF)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12c0 9 7 13 7 13s7-4 7-13a7 7 0 10-14 0Z"/><path d="M9 11l2 2 4-4"/></svg></div><div><h3>Genuinely painless</h3><p>Modern, gentle techniques and a calm space — 99% of patients recommend us.</p></div></div>
+      <div class="feat reveal"><div class="fic" style="background:linear-gradient(135deg,#FFB23D,#FF3D7F)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><h3>Easy &amp; flexible</h3><p>Book on WhatsApp in seconds, evening slots, and no-cost EMI on big treatments.</p></div></div>
+      <div class="feat reveal"><div class="fic" style="background:linear-gradient(135deg,#6A5CFF,#FF3D7F)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4Z"/><path d="M9 12l2 2 4-4"/></svg></div><div><h3>Honest pricing</h3><p>Clear, fixed estimates before we begin — no surprises, no pressure, ever.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOCTOR ===== -->
+<section class="block doctor" id="doctor">
+  <div class="wrap">
+    <div class="doc-grid">
+      <div class="doc-visual reveal">
+        <div class="bg-blob pink" style="width:320px;height:320px;z-index:1;opacity:.5;" aria-hidden="true"></div>
+        <!-- Replace with the dentist's photo -->
+        <div class="doc-photo blob-mask">
+          <div class="person" aria-hidden="true">
+            <svg width="78%" height="92%" viewBox="0 0 300 320" preserveAspectRatio="xMidYMax meet">
+              <circle cx="150" cy="116" r="62" fill="#FFFFFF" fill-opacity=".42"/>
+              <circle cx="150" cy="108" r="42" fill="#FFFFFF" fill-opacity=".92"/>
+              <path d="M62 320c0-50 38-84 88-84s88 34 88 84Z" fill="#FFFFFF" fill-opacity=".92"/>
+            </svg>
+          </div>
+          <span class="ph">Replace · doctor portrait</span>
+        </div>
+        <div class="doc-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4Z"/><path d="M9 12l2 2 4-4"/></svg>
+          <span><b>Verified</b><span>Practo doctor</span></span>
+        </div>
+      </div>
+      <div class="doc-body reveal">
+        <span class="tag"><span class="dot"></span> Your dentist</span>
+        <h2>Dr. Nikhil Reddy</h2>
+        <div class="doc-cred">BDS, MDS — Cosmetic &amp; Aesthetic Dentistry · Smile Designer</div>
+        <div class="doc-roles">
+          <span class="chip">Cosmetic Dentist</span>
+          <span class="chip">Smile Design</span>
+          <span class="chip">Veneers</span>
+          <span class="chip">Implantologist</span>
+        </div>
+        <p>For 13 years, Dr. Reddy has designed natural, confidence-boosting smiles for patients across Chennai. He's known for an artist's eye, a featherlight touch, and explaining everything clearly so you feel completely at ease.</p>
+        <div class="doc-meta">
+          <div><div class="v grad-text">13+</div><div class="k">Years experience</div></div>
+          <div><div class="v grad-text">99%</div><div class="k">Recommend</div></div>
+          <div><div class="v grad-text">₹500</div><div class="k">Consultation</div></div>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/919884012345?text=Hi%20Dr.%20Reddy%2C%20I%27d%20like%20to%20book%20a%20consultation." target="_blank" rel="noopener">
+          Book with Dr. Reddy
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OFFER BAND ===== -->
+<section class="block">
+  <div class="wrap">
+    <div class="offer reveal">
+      <div class="bg-blob pink o1" aria-hidden="true"></div>
+      <div class="bg-blob violet o2" aria-hidden="true"></div>
+      <div class="offer-in">
+        <span class="tagline">✦ Limited time this month</span>
+        <h2>Your first smile consultation is <span class="grad-text">free</span>.</h2>
+        <p>Sit down with Dr. Reddy, talk through your goals, and get a clear, no-pressure plan and price — completely free this month.</p>
+        <div class="offer-actions">
+          <a class="btn btn-primary btn-lg" href="https://wa.me/919884012345?text=Hi%20Glow%20Dental%2C%20I%27d%20like%20to%20claim%20the%20free%20consultation%20offer." target="_blank" rel="noopener">
+            Claim free consultation
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-white" href="tel:+919884012345">Call +91 98840 12345</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="block reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag"><span class="dot"></span> Patient love</span>
+      <h2>People can't stop smiling.</h2>
+      <p>A few words from verified patients — read all 612 stories on our Practo profile.</p>
+    </div>
+    <div class="rev-grid">
+      <article class="rev reveal"><div class="stars" aria-label="5 out of 5">★★★★★</div><blockquote>I was so nervous about veneers, but Dr. Reddy made it painless and the result looks completely natural. I can't stop smiling in photos now!</blockquote><div class="who"><span class="av" style="background:linear-gradient(135deg,#FF3D7F,#FF8AB0)">D</span><div><div class="nm">Divya R.</div><div class="for">Smile makeover</div></div></div></article>
+      <article class="rev reveal"><div class="stars" aria-label="5 out of 5">★★★★★</div><blockquote>Booked on WhatsApp, got an evening slot, and the whitening took one visit. Clean, friendly clinic and honest pricing. Highly recommend.</blockquote><div class="who"><span class="av" style="background:linear-gradient(135deg,#6A5CFF,#A99FFF)">K</span><div><div class="nm">Karthik S.</div><div class="for">Teeth whitening</div></div></div></article>
+      <article class="rev reveal"><div class="stars" aria-label="5 out of 5">★★★★★</div><blockquote>My aligner journey was so smooth — clear updates at every step and the team genuinely cares. Worth every rupee for the confidence.</blockquote><div class="who"><span class="av" style="background:linear-gradient(135deg,#22D3EE,#7DE8F7)">M</span><div><div class="nm">Meera P.</div><div class="for">Clear aligners</div></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="block" id="faq">
+  <div class="bg-blob amber" style="width:260px;height:260px;top:0;left:-120px;opacity:.2;" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag"><span class="dot"></span> Good to know</span>
+      <h2>Questions, answered.</h2>
+    </div>
+    <div class="faq-wrap">
+      <details class="faq reveal" open>
+        <summary>Is the free consultation really free?<span class="pl" aria-hidden="true"></span></summary>
+        <div class="ans">Yes — this month your first smile consultation with Dr. Reddy is completely free, including a full assessment and a clear treatment plan with pricing. No obligation to proceed.</div>
+      </details>
+      <details class="faq reveal">
+        <summary>How do I book an appointment?<span class="pl" aria-hidden="true"></span></summary>
+        <div class="ans">The fastest way is WhatsApp or a quick call — you'll get an instant confirmation. New patients are always welcome, and evening slots are available.</div>
+      </details>
+      <details class="faq reveal">
+        <summary>Do veneers and whitening look natural?<span class="pl" aria-hidden="true"></span></summary>
+        <div class="ans">Absolutely. Dr. Reddy designs every smile to suit your face and features, so results look balanced and natural — never fake or "too white".</div>
+      </details>
+      <details class="faq reveal">
+        <summary>Can I pay in instalments?<span class="pl" aria-hidden="true"></span></summary>
+        <div class="ans">Yes. We offer no-cost EMI on most major treatments and accept cashless claims from leading insurers, so care fits your budget.</div>
+      </details>
+      <details class="faq reveal">
+        <summary>What are your timings?<span class="pl" aria-hidden="true"></span></summary>
+        <div class="ans">We're open Monday to Saturday, 9:30 AM–2:00 PM and 5:00–9:00 PM. Sunday appointments are available on request for urgent needs.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="block contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="ct-info reveal">
+      <span class="tag"><span class="dot"></span> Book / visit</span>
+      <h2 style="margin-top:16px;">Let's get you <span class="grad-text">glowing</span>.</h2>
+      <p class="lead">Message us on WhatsApp for an instant reply, or drop into the clinic in Adyar.</p>
+      <div class="ct-rows">
+        <div class="ct-row">
+          <div class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.7-7-11a7 7 0 1114 0c0 5.3-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
+          <div><div class="cl">Address</div><div class="cv">2nd Avenue, Indira Nagar, Adyar, Chennai 600020</div></div>
+        </div>
+        <div class="ct-row">
+          <div class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5c0 9 6 15 15 15l1-3-5-2-2 2c-3-1.5-5.5-4-7-7l2-2-2-5-3 1Z"/></svg></div>
+          <div><div class="cl">Phone / WhatsApp</div><div class="cv"><a href="tel:+919884012345">+91 98840 12345</a></div></div>
+        </div>
+        <div class="ct-row">
+          <div class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div><div class="cl">Hours</div><div class="cv">Mon–Sat · 9:30–2, 5–9</div></div>
+        </div>
+      </div>
+      <div class="ct-hours">
+        <div class="hr"><span>Monday – Saturday</span><b>09:30–14:00 · 17:00–21:00</b></div>
+        <div class="hr"><span>Sunday</span><b>On request (urgent care)</b></div>
+      </div>
+      <a class="btn btn-ghost" style="margin-top:22px;" href="https://www.google.com/maps/search/?api=1&query=Adyar+Chennai" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-5.7-7-11a7 7 0 1114 0c0 5.3-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        Get directions
+      </a>
+    </div>
+
+    <div class="form-card reveal">
+      <h3>Book your free consultation</h3>
+      <p class="fnote">Pop in your details and we'll confirm on WhatsApp within working hours.</p>
+      <div class="field" id="f-name">
+        <label for="name">Your name</label>
+        <input id="name" type="text" autocomplete="name" placeholder="e.g. Aishwarya R." />
+      </div>
+      <div class="field" id="f-phone">
+        <label for="phone">Phone number</label>
+        <input id="phone" type="tel" autocomplete="tel" inputmode="numeric" placeholder="10-digit mobile number" />
+      </div>
+      <div class="field">
+        <label for="service">What are you interested in?</label>
+        <select id="service">
+          <option>Free smile consultation</option>
+          <option>Smile makeover / veneers</option>
+          <option>Teeth whitening</option>
+          <option>Braces / aligners</option>
+          <option>Dental implants</option>
+          <option>Check-up &amp; cleaning</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="msg">Message <span style="text-transform:none; letter-spacing:0;">(optional)</span></label>
+        <textarea id="msg" placeholder="Tell us a little about what you'd like"></textarea>
+      </div>
+      <button class="btn btn-primary" id="submitBtn"><span class="btn-label">Book my free consult</span></button>
+      <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site">
+  <div class="bg-blob violet f1" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#" aria-label="Glow Dental home">
+          <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <defs><linearGradient id="bm2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF3D7F"/><stop offset="1" stop-color="#6A5CFF"/></linearGradient></defs>
+            <path d="M24 4C13 4 4 11 4 23c0 9 6 16 14 19 2 .7 3 .4 3-1.6V36c0-2 1.4-3 3-3s3 1 3 3v3.4c0 2 1 2.3 3 1.6 8-3 14-10 14-19C44 11 35 4 24 4Z" fill="url(#bm2)"/>
+            <circle cx="17" cy="21" r="3.4" fill="#fff"/><circle cx="31" cy="21" r="3.4" fill="#fff"/>
+          </svg>
+          Glow Dental
+        </a>
+        <p class="f-blurb">Cosmetic-led, gentle dentistry in Adyar, Chennai — smile makeovers, whitening, aligners and everyday care that feels good.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="foot-links">
+          <li><a href="#services">Treatments</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#doctor">Your dentist</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul class="foot-links">
+          <li><a href="https://wa.me/919884012345" target="_blank" rel="noopener">WhatsApp: +91 98840 12345</a></li>
+          <li><a href="tel:+919884012345">Call: +91 98840 12345</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Adyar+Chennai" target="_blank" rel="noopener">Adyar, Chennai 600020</a></li>
+          <li>Mon–Sat · 9:30–2, 5–9</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Glow Dental, Adyar. All rights reserved.</span>
+      <span>Created by <a href="https://stellarhausmedia.com" target="_blank" rel="noopener">stellarhausmedia.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/919884012345?text=Hi%20Glow%20Dental%2C%20I%27d%20like%20to%20book%20a%20free%20consultation." target="_blank" rel="noopener" aria-label="Chat with Glow Dental on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.7.9 3.7 1.4 5.8 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.3.8.8-4.2-.2-.4c-1-1.6-1.5-3.4-1.5-5.4 0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-9.7 10zm5.5-7.5c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5 4.5.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg>
+</a>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Header scroll
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('mobileMenu');
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }));
+
+  // count-up
+  function countUp(el){
+    const target = parseFloat(el.dataset.to), dur = 1400, dec = el.dataset.dec ? +el.dataset.dec : 0, suffix = el.dataset.suffix || '';
+    if (prefersReduced){ el.textContent = (dec ? target.toFixed(dec) : target) + suffix; return; }
+    const start = performance.now();
+    (function tick(now){
+      const p = Math.min(1, (now - start) / dur), eased = 1 - Math.pow(1 - p, 3), val = target * eased;
+      el.textContent = (dec ? val.toFixed(dec) : Math.round(val)) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    })(start);
+  }
+
+  // reveal + count-up
+  const revealEls = document.querySelectorAll('.reveal');
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    revealEls.forEach(el => el.classList.add('in'));
+    document.querySelectorAll('.count').forEach(countUp);
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => { if (e.isIntersecting) { e.target.style.transitionDelay = Math.min(i*45,140)+'ms'; e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting){ countUp(e.target); cio.unobserve(e.target); } });
+    }, { threshold:0.6 });
+    document.querySelectorAll('.count').forEach(el => cio.observe(el));
+  }
+
+  // single-open FAQ
+  const faqs = Array.from(document.querySelectorAll('.faq'));
+  faqs.forEach(d => d.addEventListener('toggle', () => { if (d.open) faqs.forEach(o => { if (o !== d) o.open = false; }); }));
+
+  // active nav
+  const ids = ['services','results','doctor','reviews','contact'];
+  const navItems = {};
+  document.querySelectorAll('.nav-links a').forEach(a => { const id = a.getAttribute('href').slice(1); if (ids.includes(id)) navItems[id] = a; });
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { Object.values(navItems).forEach(a => a.classList.remove('active')); if (navItems[e.target.id]) navItems[e.target.id].classList.add('active'); } });
+  }, { rootMargin:'-45% 0px -50% 0px' });
+  ids.forEach(id => { const el = document.getElementById(id); if (el) spy.observe(el); });
+
+  // ---------- interactive blob playground (tap to split) ----------
+  (function(){
+    const stage = document.getElementById('blobStage');
+    const resetBtn = document.getElementById('blobReset');
+    if (!stage) return;
+    const palettes = [
+      ['#FF3D7F','#6A5CFF'], ['#6A5CFF','#22D3EE'], ['#FF8A3D','#FF3D7F'],
+      ['#22D3EE','#6A5CFF'], ['#FFC23D','#FF3D7F'], ['#A55CFF','#22D3EE']
+    ];
+    const MAX = 46, MIN = 30;
+    let blobs = [];
+    const rand = (a,b) => Math.random()*(b-a)+a;
+    const clamp = (v,a,b) => Math.max(a,Math.min(b,v));
+    function radius(){
+      const r = () => Math.round(rand(36,64));
+      return `${r()}% ${100-r()}% ${r()}% ${100-r()}% / ${r()}% ${r()}% ${100-r()}% ${100-r()}%`;
+    }
+    function sparkle(x, y, colors){
+      for (let i=0;i<6;i++){
+        const s = document.createElement('span');
+        s.className = 'spark';
+        s.style.left = x+'%'; s.style.top = y+'%';
+        s.style.background = colors[i%2];
+        stage.appendChild(s);
+        const ang = rand(0, Math.PI*2), dist = rand(30,80);
+        s.animate(
+          [{transform:'translate(-50%,-50%) scale(1)', opacity:1},
+           {transform:`translate(${Math.cos(ang)*dist - 50}%, ${Math.sin(ang)*dist - 50}%) scale(0)`, opacity:0}],
+          {duration: rand(450,750), easing:'cubic-bezier(.22,1,.36,1)'}
+        ).onfinish = () => s.remove();
+      }
+    }
+    function makeBlob(x, y, size){
+      const el = document.createElement('button');
+      el.className = 'blob-cell';
+      el.style.width = el.style.height = size+'px';
+      el.style.left = x+'%'; el.style.top = y+'%';
+      el.style.borderRadius = radius();
+      const p = palettes[Math.floor(Math.random()*palettes.length)];
+      el.style.background = `linear-gradient(135deg, ${p[0]}, ${p[1]})`;
+      el.style.setProperty('--d', rand(6,11).toFixed(1)+'s');
+      el.style.animationDelay = '-'+rand(0,4).toFixed(1)+'s';
+      el.dataset.size = size;
+      el.dataset.c0 = p[0]; el.dataset.c1 = p[1];
+      el.setAttribute('aria-label','Split this blob');
+      el.addEventListener('click', () => split(el));
+      stage.appendChild(el);
+      blobs.push(el);
+      if (!prefersReduced){
+        el.animate(
+          [{transform:'translate(-50%,-50%) scale(0)'},
+           {transform:'translate(-50%,-50%) scale(1.12)'},
+           {transform:'translate(-50%,-50%) scale(1)'}],
+          {duration:360, easing:'cubic-bezier(.22,1,.36,1)'}
+        );
+      }
+      return el;
+    }
+    function removeBlob(el){
+      const done = () => { el.remove(); blobs = blobs.filter(b => b !== el); };
+      if (prefersReduced){ done(); return; }
+      el.animate(
+        [{transform:'translate(-50%,-50%) scale(1)', opacity:1},
+         {transform:'translate(-50%,-50%) scale(0)', opacity:0}],
+        {duration:240, easing:'ease-in'}
+      ).onfinish = done;
+    }
+    function split(el){
+      if (el.dataset.popping) return;
+      el.dataset.popping = '1';
+      el.style.pointerEvents = 'none';
+      const size = +el.dataset.size;
+      const x = parseFloat(el.style.left), y = parseFloat(el.style.top);
+      sparkle(x, y, [el.dataset.c0, el.dataset.c1]);
+      removeBlob(el);
+      if (size <= MIN || blobs.length >= MAX) return;        // smallest blobs just pop
+      const n = size > 78 ? 3 : 2;
+      const child = Math.round(size * 0.62);
+      for (let i=0;i<n;i++){
+        makeBlob(clamp(x + rand(-9,9), 6, 94), clamp(y + rand(-9,9), 8, 90), child);
+      }
+    }
+    function seed(){
+      blobs.slice().forEach(b => b.remove());
+      blobs = [];
+      makeBlob(30, 42, 150);
+      makeBlob(64, 36, 116);
+      makeBlob(50, 70, 92);
+    }
+    if (resetBtn) resetBtn.addEventListener('click', seed);
+    // seed when the stage scrolls into view (or immediately if no IO)
+    if (!('IntersectionObserver' in window)) seed();
+    else {
+      const bio = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting){ seed(); bio.disconnect(); } });
+      }, { threshold:0.25 });
+      bio.observe(stage);
+    }
+  })();
+
+  // booking form -> WhatsApp
+  const CLINIC_WHATSAPP = '919884012345';
+  const btn = document.getElementById('submitBtn');
+  const statusEl = document.getElementById('formStatus');
+  const setError = (id, on) => document.getElementById(id).classList.toggle('invalid', on);
+  btn.addEventListener('click', () => {
+    const name = document.getElementById('name'), phone = document.getElementById('phone');
+    const service = document.getElementById('service').value, msg = document.getElementById('msg').value.trim();
+    const nameOk = name.value.trim().length > 1;
+    const phoneOk = /^[6-9]\d{9}$/.test(phone.value.replace(/\D/g,'').slice(-10));
+    setError('f-name', !nameOk); setError('f-phone', !phoneOk);
+    if (!nameOk){ name.focus(); return; } if (!phoneOk){ phone.focus(); return; }
+    btn.disabled = true; btn.innerHTML = '<span class="spin" aria-hidden="true"></span><span>Sending…</span>';
+    setTimeout(() => {
+      const text = encodeURIComponent("Hi Glow Dental, I'd like to book a free consultation.\n\nName: " + name.value.trim() + "\nPhone: " + phone.value.trim() + "\nInterested in: " + service + (msg ? "\nNote: " + msg : ""));
+      window.open('https://wa.me/' + CLINIC_WHATSAPP + '?text=' + text, '_blank');
+      btn.disabled = false; btn.innerHTML = '<span class="btn-label">Book my free consult</span>';
+      statusEl.className = 'form-status ok'; statusEl.textContent = '✓ Thanks! Continue in WhatsApp to confirm your free consult.';
+    }, 700);
+  });
+</script>
+</body>
+</html>

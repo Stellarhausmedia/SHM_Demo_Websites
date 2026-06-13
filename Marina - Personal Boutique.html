@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Marina Dental Studio, Besant Nagar — Personal, Gentle Dentistry in Chennai</title>
+<meta name="description" content="Marina Dental Studio is a warm, patient-first dental clinic in Besant Nagar, Chennai. Check-ups, cosmetic dentistry, implants, aligners, gum care & more — led by Dr. Kavya Subramaniam, BDS, MDS (Periodontics & Implantology), 12+ years' experience." />
+<!-- ============================================================
+     TEMPLATE 04 · "SAN FRANCISCO DENTAL" (Songeez) — patient-imagery-led / editorial
+     Aesthetic: warm, human, photo-forward · imagery focused on the patient
+     Interactive: hero image parallax · patient-story spotlight · hover smile gallery
+     -----------------------------------------------------------------
+     PHOTO SLOTS: every .photo block is a warm placeholder. Drop a real
+     image in by replacing the inner SVG with <img ... style="position:absolute;
+     inset:0;width:100%;height:100%;object-fit:cover"> (keep the .grain overlay).
+     -----------------------------------------------------------------
+     PRACTO DATA TO SWAP (search & replace):
+       Marina Dental Studio .......... clinic name
+       Besant Nagar, Chennai ......... locality
+       Dr. Kavya Subramaniam ......... dentist name + credentials block
+       919840012345 ................. WhatsApp / phone (wa.me + tel:)
+       4.9 / 286 / 96% / 12 .......... rating · stories · recommend · years
+       ₹400 .......................... consultation fee
+       Services / Stories / FAQ / Insurers / Hours / Map — see each section
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --sand:#F4EFE6;        /* warm oat bg */
+    --paper:#FFFFFF; --paper-2:#FBF7F0;
+    --ink:#1F2421;         /* deep neutral */
+    --text:#4C504A; --muted:#857F73;
+    --accent:#2D7FC4;      /* coastal sky-blue */
+    --accent-deep:#1F5C95; --accent-tint:#D9E8F4; --accent-soft:#EEF5FB;
+    --peach:#F6C9A8; --peach-soft:#FBE9DA;   /* warm secondary */
+    --line:#E6DECF; --line-soft:#EFE8DA;
+    --slate:#1B2A33;       /* deep band */
+    --ok:#2F8F5B;
+    --shadow-xs:0 1px 2px rgba(31,36,33,.06);
+    --shadow-sm:0 8px 22px rgba(31,36,33,.08);
+    --shadow-md:0 22px 50px rgba(27,42,51,.14);
+    --shadow-lg:0 46px 100px rgba(20,32,40,.22);
+    --r-sm:12px; --r-md:18px; --r-lg:24px; --r-xl:34px; --r-pill:999px;
+    --maxw:1200px; --ease:cubic-bezier(.22,1,.36,1);
+    --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:92px;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important;}
+  }
+  body{margin:0; font-family:"Figtree",system-ui,sans-serif; font-size:16px; line-height:1.65; color:var(--text); background:var(--sand); -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  h1,h2,h3,h4{font-family:"Newsreader",Georgia,serif; color:var(--ink); line-height:1.08; margin:0; font-weight:500; letter-spacing:-.01em;}
+  p{margin:0;}
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%;}
+  .wrap{width:100%; max-width:var(--maxw); margin:0 auto; padding:0 26px;}
+
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--accent); outline-offset:3px; border-radius:8px;}
+  .skip-link{position:absolute; left:12px; top:-60px; z-index:300; background:var(--ink); color:#fff; padding:12px 18px; border-radius:10px; transition:top .2s var(--ease);}
+  .skip-link:focus{top:12px;}
+
+  .tag{display:inline-flex; align-items:center; gap:8px; font-size:.74rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-deep); background:var(--accent-soft); border:1px solid var(--accent-tint); padding:7px 14px; border-radius:var(--r-pill);}
+  .tag .dot{width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--accent-tint);}
+
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:52px; padding:14px 28px; border-radius:var(--r-pill); font-family:inherit; font-size:.98rem; font-weight:600; cursor:pointer; border:1.5px solid transparent; transition:transform .2s var(--ease), box-shadow .25s var(--ease), background .2s, color .2s, border-color .2s;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn:active{transform:translateY(0);}
+  .btn svg{width:18px; height:18px; flex:none;}
+  .btn-primary{background:var(--accent); color:#fff; box-shadow:0 12px 26px rgba(45,127,196,.30);}
+  .btn-primary:hover{background:var(--accent-deep); box-shadow:0 18px 36px rgba(45,127,196,.38);}
+  .btn-dark{background:var(--ink); color:#fff;}
+  .btn-dark:hover{background:#000;}
+  .btn-ghost{background:var(--paper); color:var(--ink); border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--accent); color:var(--accent-deep); box-shadow:var(--shadow-sm);}
+
+  /* ===== PHOTO PLACEHOLDER ===== */
+  .photo{position:relative; overflow:hidden; background:linear-gradient(150deg,#A9C7DD 0%, #CFE0EC 45%, #F6D8BE 100%);}
+  .photo .portrait{position:absolute; inset:0; width:100%; height:100%;}
+  .photo .grain{position:absolute; inset:0; background-image:var(--grain); background-size:140px; opacity:.16; mix-blend-mode:overlay; pointer-events:none;}
+  .photo .ph{position:absolute; left:14px; bottom:12px; z-index:2; font-size:.6rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.9); background:rgba(31,36,33,.32); padding:5px 10px; border-radius:var(--r-pill); backdrop-filter:blur(4px);}
+  .photo.warm{background:linear-gradient(150deg,#F2B58C 0%, #F7D2B4 50%, #DCE7EF 100%);}
+  .photo.cool{background:linear-gradient(150deg,#8FB6D6 0%, #BCD6E7 50%, #EAD7C6 100%);}
+  .photo.sage{background:linear-gradient(150deg,#A7C2AE 0%, #CFE0D2 50%, #EBDAC6 100%);}
+
+  /* ===== HEADER ===== */
+  header.site{position:fixed; top:0; left:0; right:0; z-index:100; transition:background .3s var(--ease), box-shadow .3s, border-color .3s; border-bottom:1px solid transparent;}
+  header.site .nav{display:flex; align-items:center; justify-content:space-between; height:80px;}
+  .brand{display:flex; align-items:center; gap:11px; font-family:"Newsreader",serif; font-weight:600; font-size:1.42rem; letter-spacing:-.01em; line-height:1; color:var(--ink);}
+  .brand .mark{width:42px; height:42px; flex:none;}
+  .brand .b-sub{display:block; font-family:"Figtree",sans-serif; font-size:.58rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; color:var(--muted); margin-top:3px;}
+  .nav-links{display:flex; align-items:center; gap:2px; list-style:none; margin:0; padding:0;}
+  .nav-links a{display:inline-block; padding:10px 15px; border-radius:var(--r-pill); font-size:.94rem; font-weight:500; color:var(--text); transition:color .2s, background .2s;}
+  .nav-links a:hover{background:var(--accent-soft); color:var(--accent-deep);}
+  .nav-links a.active{background:var(--accent-tint); color:var(--accent-deep);}
+  .nav-meta{display:flex; align-items:center; gap:16px;}
+  .nav-phone{text-align:right; line-height:1.15;}
+  .nav-phone .num{font-weight:700; font-size:.98rem; color:var(--ink);}
+  .nav-phone .lab{font-size:.68rem; font-weight:600; letter-spacing:.06em; color:var(--muted); text-transform:uppercase;}
+  header.site.scrolled{background:rgba(244,239,230,.86); backdrop-filter:blur(16px); border-bottom-color:var(--line); box-shadow:var(--shadow-xs);}
+  .nav-toggle{display:none; width:46px; height:46px; border:1px solid var(--line); background:var(--paper); border-radius:12px; cursor:pointer; align-items:center; justify-content:center;}
+  .nav-toggle span,.nav-toggle span::before,.nav-toggle span::after{content:""; display:block; width:20px; height:2px; background:var(--ink); border-radius:2px; transition:.25s var(--ease);}
+  .nav-toggle span{position:relative;}
+  .nav-toggle span::before{position:absolute; top:-6px;}
+  .nav-toggle span::after{position:absolute; top:6px;}
+  .mobile-menu{display:none;}
+
+  /* ===== HERO ===== */
+  .hero{position:relative; padding:140px 0 60px;}
+  .hero-grid{display:grid; grid-template-columns:1.02fr 1.05fr; gap:46px; align-items:center;}
+  .hero-copy{max-width:540px; position:relative; z-index:2;}
+  .hero h1{font-size:clamp(2.8rem,5.6vw,4.6rem); font-weight:500; margin-top:22px; letter-spacing:-.02em; line-height:1.04;}
+  .hero h1 em{font-style:italic; color:var(--accent-deep);}
+  .hero-sub{margin-top:24px; font-size:1.16rem; color:var(--text); max-width:44ch;}
+  .hero-actions{margin-top:34px; display:flex; flex-wrap:wrap; gap:14px;}
+  .hero-trust{margin-top:36px; display:flex; align-items:center; gap:26px; flex-wrap:wrap;}
+  .hero-trust .rt{display:flex; align-items:center; gap:11px;}
+  .hero-trust .avs{display:flex;}
+  .hero-trust .avs span{width:40px; height:40px; border-radius:50%; border:2.5px solid var(--sand); margin-left:-12px; background-size:cover;}
+  .hero-trust .avs span:first-child{margin-left:0;}
+  .hero-trust .rt .tx{line-height:1.2;}
+  .hero-trust .rt .stars{color:#E8A13B; font-size:.95rem; letter-spacing:1px;}
+  .hero-trust .rt .tx b{color:var(--ink);} .hero-trust .rt .tx span{font-size:.86rem; color:var(--muted);}
+
+  .hero-media{position:relative;}
+  .hero-photo{position:relative; border-radius:var(--r-xl); aspect-ratio:4/4.4; box-shadow:var(--shadow-lg); will-change:transform;}
+  .hero-photo .portrait, .hero-photo .grain{border-radius:var(--r-xl);}
+  .hero-card{position:absolute; left:-28px; bottom:34px; z-index:3; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--shadow-md); padding:16px 20px; display:flex; align-items:center; gap:14px;}
+  .hero-card .ring{width:46px; height:46px; border-radius:50%; background:conic-gradient(var(--accent) 0 96%, var(--accent-tint) 96% 100%); display:flex; align-items:center; justify-content:center;}
+  .hero-card .ring i{width:36px; height:36px; border-radius:50%; background:var(--paper); display:flex; align-items:center; justify-content:center; font-family:"Newsreader",serif; font-weight:600; color:var(--accent-deep); font-size:.92rem; font-style:normal;}
+  .hero-card .hc b{display:block; font-family:"Newsreader",serif; color:var(--ink); font-size:1.05rem; line-height:1;}
+  .hero-card .hc span{font-size:.8rem; color:var(--muted);}
+  .hero-chip{position:absolute; right:-16px; top:30px; z-index:3; background:var(--ink); color:#fff; border-radius:var(--r-pill); padding:10px 16px; font-size:.82rem; font-weight:600; box-shadow:var(--shadow-md); display:flex; align-items:center; gap:8px;}
+  .hero-chip svg{width:16px; height:16px;}
+
+  /* ===== STRIP (count-up) ===== */
+  .strip{background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .strip .wrap{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; padding:32px 26px;}
+  .scell{text-align:center;}
+  .scell .v{font-family:"Newsreader",serif; font-weight:600; font-size:clamp(1.8rem,3.2vw,2.5rem); color:var(--ink); line-height:1;}
+  .scell .v .star{color:var(--accent);}
+  .scell .k{font-size:.82rem; font-weight:600; letter-spacing:.04em; color:var(--muted); margin-top:8px;}
+  .scell + .scell{border-left:1px solid var(--line);}
+
+  /* ===== SECTION SHELL ===== */
+  .block{padding:108px 0;}
+  .sec-head{max-width:660px; margin-bottom:54px;}
+  .sec-head.center{margin-inline:auto; text-align:center;}
+  .sec-head h2{font-size:clamp(2.2rem,4.2vw,3.3rem); margin-top:16px; font-weight:500;}
+  .sec-head p{margin-top:16px; font-size:1.08rem; color:var(--muted);}
+
+  /* ===== SERVICES ===== */
+  .svc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .svc{background:var(--paper); border:1px solid var(--line); border-radius:var(--r-lg); padding:30px 28px; transition:transform .25s var(--ease), box-shadow .25s, border-color .25s;}
+  .svc:hover{transform:translateY(-5px); box-shadow:var(--shadow-md); border-color:var(--accent-tint);}
+  .svc .ic{width:54px; height:54px; border-radius:15px; display:flex; align-items:center; justify-content:center; background:var(--accent-soft); color:var(--accent-deep); margin-bottom:18px;}
+  .svc .ic svg{width:27px; height:27px;}
+  .svc h3{font-size:1.3rem; font-weight:600;}
+  .svc p{margin-top:9px; font-size:.95rem; color:var(--muted);}
+  .svc .from{display:inline-block; margin-top:16px; font-size:.78rem; font-weight:600; color:var(--accent-deep); background:var(--accent-soft); padding:5px 12px; border-radius:var(--r-pill);}
+
+  /* ===== SMILE GALLERY (hover) ===== */
+  .gallery{background:var(--paper);}
+  .gal-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+  .gal{position:relative; aspect-ratio:3/4; border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--shadow-sm);}
+  .gal .photo{position:absolute; inset:0;}
+  .gal .cap{position:absolute; left:0; right:0; bottom:0; z-index:3; padding:18px 16px 16px; color:#fff; background:linear-gradient(to top, rgba(20,28,33,.82), rgba(20,28,33,0)); transform:translateY(14px); opacity:0; transition:.3s var(--ease);}
+  .gal:hover .cap, .gal:focus-within .cap{transform:none; opacity:1;}
+  .gal .cap b{display:block; font-family:"Newsreader",serif; font-size:1.05rem;}
+  .gal .cap span{font-size:.8rem; opacity:.9;}
+  .gal .badge{position:absolute; top:12px; left:12px; z-index:3; font-size:.68rem; font-weight:700; color:var(--accent-deep); background:rgba(255,255,255,.92); padding:5px 11px; border-radius:var(--r-pill);}
+
+  /* ===== STORY SPOTLIGHT ===== */
+  .spot-sec{background:var(--sand);}
+  .spot{display:grid; grid-template-columns:.85fr 1.15fr; gap:46px; align-items:center; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-xl); overflow:hidden; box-shadow:var(--shadow-md);}
+  .spot-photo{position:relative; align-self:stretch; min-height:440px;}
+  .spot-photo .photo{position:absolute; inset:0;}
+  .spot-photo .who{position:absolute; left:20px; bottom:20px; z-index:3; color:#fff;}
+  .spot-photo .who b{display:block; font-family:"Newsreader",serif; font-size:1.3rem;}
+  .spot-photo .who span{font-size:.86rem; opacity:.92;}
+  .spot-body{padding:44px 44px 40px;}
+  .spot-body .qmark{font-family:"Newsreader",serif; font-size:4rem; color:var(--accent-tint); line-height:.6;}
+  .spot-body .stars{color:#E8A13B; letter-spacing:2px; font-size:1.05rem; display:block; margin:10px 0 14px;}
+  .spot-quote{font-family:"Newsreader",serif; font-size:clamp(1.3rem,2.2vw,1.7rem); color:var(--ink); line-height:1.42; font-weight:400; transition:opacity .3s var(--ease);}
+  .spot-quote.fade{opacity:0;}
+  .spot-foot{margin-top:28px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  .spot-thumbs{display:flex; gap:10px;}
+  .spot-thumbs button{width:46px; height:46px; border-radius:50%; border:2px solid transparent; cursor:pointer; padding:0; overflow:hidden; transition:.2s var(--ease); position:relative;}
+  .spot-thumbs button .photo{position:absolute; inset:0;}
+  .spot-thumbs button[aria-pressed="true"]{border-color:var(--accent); transform:scale(1.06);}
+  .spot-nav{display:flex; gap:10px;}
+  .spot-nav button{width:48px; height:48px; border-radius:50%; border:1.5px solid var(--line); background:var(--paper); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.2s var(--ease);}
+  .spot-nav button:hover{border-color:var(--accent); color:var(--accent-deep); transform:translateY(-2px);}
+  .spot-nav button svg{width:20px; height:20px;}
+
+  /* ===== ABOUT ===== */
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:54px; align-items:center;}
+  .about-visual{position:relative;}
+  .about-visual .photo{border-radius:var(--r-xl); aspect-ratio:5/6; box-shadow:var(--shadow-lg);}
+  .about-visual .photo .portrait,.about-visual .photo .grain{border-radius:var(--r-xl);}
+  .about-badge{position:absolute; right:-22px; bottom:-22px; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--shadow-md); padding:18px 22px;}
+  .about-badge .v{font-family:"Newsreader",serif; font-weight:600; font-size:1.9rem; color:var(--ink); line-height:1;}
+  .about-badge .k{font-size:.8rem; color:var(--muted); margin-top:4px;}
+  .about-copy h2{font-size:clamp(2.1rem,3.8vw,3rem); font-weight:500;}
+  .about-copy p{margin-top:18px; color:var(--text);}
+  .about-list{margin-top:24px; display:grid; gap:14px;}
+  .ab{display:flex; gap:13px; align-items:flex-start;}
+  .ab .ck{width:26px; height:26px; flex:none; border-radius:50%; background:var(--accent-soft); color:var(--accent-deep); display:flex; align-items:center; justify-content:center; margin-top:2px;}
+  .ab .ck svg{width:15px; height:15px;}
+  .ab b{color:var(--ink); font-weight:700;}
+
+  /* ===== DOCTOR ===== */
+  .doc{background:var(--paper);}
+  .doc-card{display:grid; grid-template-columns:.8fr 1.2fr; gap:46px; align-items:center;}
+  .doc-photo{position:relative;}
+  .doc-photo .photo{border-radius:var(--r-xl); aspect-ratio:1/1.12; box-shadow:var(--shadow-lg);}
+  .doc-photo .photo .portrait,.doc-photo .photo .grain{border-radius:var(--r-xl);}
+  .doc-photo .badge{position:absolute; top:16px; left:16px; z-index:3; display:inline-flex; align-items:center; gap:7px; background:rgba(255,255,255,.94); border-radius:var(--r-pill); padding:7px 13px; font-size:.78rem; font-weight:700; color:var(--accent-deep);}
+  .doc-photo .badge svg{width:15px; height:15px;}
+  .doc-body h3{font-size:2.1rem; font-weight:600; margin-top:14px;}
+  .doc-cred{font-weight:600; color:var(--accent-deep); margin-top:8px;}
+  .doc-roles{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0;}
+  .chip{font-size:.8rem; font-weight:600; color:var(--text); background:var(--sand); border:1px solid var(--line); padding:6px 13px; border-radius:var(--r-pill);}
+  .doc-body p{color:var(--text);}
+  .doc-meta{display:flex; margin-top:24px; border:1px solid var(--line); border-radius:var(--r-md); overflow:hidden; max-width:520px;}
+  .doc-meta > div{flex:1; padding:16px 18px; text-align:center;}
+  .doc-meta > div + div{border-left:1px solid var(--line);}
+  .doc-meta .v{font-family:"Newsreader",serif; font-weight:600; font-size:1.5rem; color:var(--ink); line-height:1;}
+  .doc-meta .k{font-size:.72rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin-top:6px;}
+
+  /* ===== INSURANCE (dark) ===== */
+  .ins-sec{background:var(--slate);}
+  .ins-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;}
+  .ins-sec .tag{background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.16); color:var(--accent-tint);}
+  .ins-sec h2{color:#fff; font-size:clamp(1.9rem,3.4vw,2.7rem); margin-top:16px; font-weight:500;}
+  .ins-sec p{color:#AEC0CC; margin-top:14px; max-width:46ch;}
+  .ins-logos{display:flex; flex-wrap:wrap; gap:12px;}
+  .ins-logos span{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14); color:#E4EDF2; padding:13px 22px; border-radius:var(--r-md); font-weight:600; font-size:.95rem;}
+
+  /* ===== FAQ ===== */
+  .faq-grid{display:grid; gap:14px; max-width:840px; margin-inline:auto;}
+  .faq{background:var(--paper); border:1px solid var(--line); border-radius:var(--r-md); overflow:hidden; transition:box-shadow .25s, border-color .25s;}
+  .faq[open]{box-shadow:var(--shadow-sm); border-color:var(--accent-tint);}
+  .faq summary{list-style:none; cursor:pointer; padding:21px 24px; display:flex; align-items:center; justify-content:space-between; gap:18px; font-family:"Newsreader",serif; font-weight:500; font-size:1.15rem; color:var(--ink);}
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary .pl{position:relative; width:22px; height:22px; flex:none;}
+  .faq summary .pl::before,.faq summary .pl::after{content:""; position:absolute; background:var(--accent); border-radius:2px; transition:transform .25s var(--ease);}
+  .faq summary .pl::before{top:10px; left:2px; width:18px; height:2px;}
+  .faq summary .pl::after{top:2px; left:10px; width:2px; height:18px;}
+  .faq[open] summary .pl::after{transform:scaleY(0);}
+  .faq .ans{padding:0 24px 22px; color:var(--muted); font-size:.98rem;}
+
+  /* ===== CONTACT ===== */
+  .contact{background:var(--sand);}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:44px; align-items:start;}
+  .ct-info h2{font-size:clamp(2rem,3.6vw,2.9rem); font-weight:500;}
+  .ct-info p.lead{margin-top:16px; color:var(--muted);}
+  .ct-rows{margin-top:28px; display:grid; gap:16px;}
+  .ct-row{display:flex; gap:14px; align-items:flex-start;}
+  .ct-row .ci{width:46px; height:46px; flex:none; border-radius:13px; background:var(--accent-soft); color:var(--accent-deep); display:flex; align-items:center; justify-content:center;}
+  .ct-row .ci svg{width:21px; height:21px;}
+  .ct-row .cl{font-size:.68rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--muted);}
+  .ct-row .cv{font-weight:700; color:var(--ink); margin-top:2px;}
+  .ct-row .cv a:hover{color:var(--accent-deep);}
+  .ct-hours{margin-top:24px; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-md); padding:16px 20px; font-size:.92rem;}
+  .ct-hours .hr{display:flex; justify-content:space-between; padding:5px 0;}
+  .ct-hours .hr span:first-child{color:var(--muted);}
+  .ct-hours .hr b{color:var(--ink);}
+  .form-card{background:var(--paper); border:1px solid var(--line); border-radius:var(--r-xl); padding:34px; box-shadow:var(--shadow-sm);}
+  .form-card h3{font-size:1.6rem; font-weight:600;}
+  .form-card .fnote{font-size:.9rem; color:var(--muted); margin-top:8px;}
+  .field{margin-top:18px;}
+  .field label{display:block; font-size:.72rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:7px;}
+  .field input,.field select,.field textarea{width:100%; font-family:inherit; font-size:1rem; color:var(--ink); background:var(--paper-2); border:1.5px solid var(--line); border-radius:12px; padding:13px 15px; transition:border-color .2s, box-shadow .2s;}
+  .field textarea{resize:vertical; min-height:96px;}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent); box-shadow:0 0 0 4px var(--accent-soft); outline:none; background:var(--paper);}
+  .field.invalid input,.field.invalid select{border-color:#D6453E; box-shadow:0 0 0 4px rgba(214,69,62,.12);}
+  .form-card .btn{width:100%; margin-top:22px;}
+  .form-status{margin-top:14px; font-size:.92rem; min-height:1.2em; font-weight:600;}
+  .form-status.ok{color:var(--ok);}
+  .spin{width:17px; height:17px; border:2px solid rgba(255,255,255,.5); border-top-color:#fff; border-radius:50%; display:inline-block; animation:rot .7s linear infinite;}
+  @keyframes rot{to{transform:rotate(360deg);}}
+
+  /* ===== FOOTER ===== */
+  footer.site{background:var(--slate); color:#AEC0CC; padding:64px 0 30px;}
+  .foot-grid{display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:40px;}
+  footer .brand{color:#fff;}
+  footer .brand .b-sub{color:#7E93A0;}
+  footer .f-blurb{margin-top:16px; max-width:38ch; color:#A6B8C4; font-size:.95rem;}
+  footer h4{color:#fff; font-size:.74rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px; font-family:"Figtree",sans-serif;}
+  .foot-links{list-style:none; margin:0; padding:0; display:grid; gap:10px;}
+  .foot-links a,.foot-links li{color:#A6B8C4; font-size:.94rem; transition:color .2s;}
+  .foot-links a:hover{color:#fff;}
+  .foot-bottom{margin-top:46px; padding-top:22px; border-top:1px solid rgba(255,255,255,.1); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:.84rem; color:#7E93A0;}
+  .foot-bottom a{color:var(--accent-tint); font-weight:600;}
+  .foot-bottom a:hover{color:#fff;}
+
+  /* ===== WhatsApp FAB ===== */
+  .wa-fab{position:fixed; right:22px; bottom:22px; z-index:120; width:58px; height:58px; border-radius:50%; background:#25D366; box-shadow:0 12px 30px rgba(37,211,102,.45); display:flex; align-items:center; justify-content:center; transition:transform .2s var(--ease);}
+  .wa-fab:hover{transform:scale(1.08);}
+  .wa-fab svg{width:30px; height:30px;}
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(20px); transition:opacity .7s var(--ease), transform .7s var(--ease);}
+  .reveal.in{opacity:1; transform:none;}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr; gap:48px;}
+    .hero-media{max-width:460px;}
+    .svc-grid{grid-template-columns:repeat(2,1fr);}
+    .gal-grid{grid-template-columns:repeat(2,1fr);}
+    .spot{grid-template-columns:1fr;}
+    .spot-photo{min-height:320px;}
+    .about-grid{grid-template-columns:1fr; gap:60px;}
+    .doc-card{grid-template-columns:1fr; gap:40px;}
+    .ins-grid{grid-template-columns:1fr; gap:26px;}
+    .contact-grid{grid-template-columns:1fr; gap:34px;}
+    .foot-grid{grid-template-columns:1fr 1fr; gap:30px;}
+  }
+  @media (max-width:680px){
+    .nav-links,.nav-phone{display:none;}
+    .nav-toggle{display:flex; width:44px; height:44px;}
+    .nav-meta{gap:10px;}
+    .nav-meta .btn-primary{min-height:44px; padding:0 16px; font-size:.85rem; white-space:nowrap; box-shadow:0 8px 18px rgba(45,127,196,.28);}
+    .mobile-menu{display:block; position:fixed; top:80px; left:0; right:0; z-index:99; background:var(--paper); border-bottom:1px solid var(--line); box-shadow:var(--shadow-md); max-height:0; overflow:hidden; transition:max-height .3s var(--ease);}
+    .mobile-menu.open{max-height:440px;}
+    .mobile-menu ul{list-style:none; margin:0; padding:14px 26px 22px; display:grid; gap:4px;}
+    .mobile-menu a{display:block; padding:13px 14px; border-radius:12px; font-weight:600; color:var(--text);}
+    .mobile-menu a:hover{background:var(--accent-soft); color:var(--accent-deep);}
+    .mobile-menu .btn{width:100%; margin-top:10px;}
+    .hero{padding:120px 0 48px;}
+    .strip .wrap{grid-template-columns:repeat(2,1fr); gap:26px 14px;}
+    .scell + .scell{border-left:none;}
+    .scell:nth-child(even){border-left:1px solid var(--line);}
+    .svc-grid{grid-template-columns:1fr;}
+    .gal-grid{grid-template-columns:1fr 1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .block{padding:80px 0;}
+    .hero-card{left:0;} .hero-chip{right:0;}
+  }
+  @media (max-width:430px){
+    .wrap{padding:0 18px;}
+    .nav-meta{gap:8px; flex:none;}
+    .nav-meta .btn-primary{padding:0 13px; font-size:.8rem;}
+    .nav-toggle{width:42px; height:42px;}
+    .brand{font-size:1.22rem; gap:9px; min-width:0;}
+    .brand .mark{width:36px; height:36px;}
+  }
+
+  /* Marina: doctor section overflow fix */
+  @media(max-width:680px){
+    .about-badge{right:8px!important;bottom:8px!important;}
+    .doc-meta{flex-wrap:wrap;}
+    .doc-meta > div{min-width:0;flex:1;}
+    .about-section,.doc-section{overflow:hidden;}
+  }
+
+
+/* Mobile QA fix: prevent doctor-card stat labels from clipping */
+@media (max-width: 600px){
+  .doc-meta > div{padding:12px 4px;}
+  .doc-meta .k{font-size:.68rem;letter-spacing:.01em;}
+  .doc-meta .v{font-size:1.3rem;}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ===== HEADER ===== -->
+<header class="site" id="header">
+  <div class="wrap nav">
+    <a class="brand" href="#" aria-label="Marina Dental Studio home">
+      <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect width="48" height="48" rx="14" fill="#2D7FC4"/>
+        <path d="M24 12c-3.6 0-6.4 2.2-6.4 5.7 0 1.9.8 4.2 1.5 6.6.6 2.1 1.1 4.4 1.5 6.3.3 1.5.5 2.4 1.5 2.4s1.2-.9 1.5-2.4c.2-.9.4-1.8.6-2.6.1-.6.4-.9 1-.9s.9.3 1 .9c.2.8.4 1.7.6 2.6.3 1.5.5 2.4 1.5 2.4s1.2-.9 1.5-2.4c.4-1.9.9-4.2 1.5-6.3.7-2.4 1.5-4.7 1.5-6.6 0-3.5-2.8-5.7-6.4-5.7-1.4 0-2.6.5-3.6.5s-2.2-.5-3.6-.5Z" fill="#fff"/>
+      </svg>
+      <span>Marina Dental<span class="b-sub">Studio · Besant Nagar</span></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#smiles">Smiles</a></li>
+        <li><a href="#stories">Stories</a></li>
+        <li><a href="#doctor">Dentist</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-meta">
+      <div class="nav-phone">
+        <div class="num"><a href="tel:+919840012345">+91 98400 12345</a></div>
+        <div class="lab">Mon–Sat · 9–8</div>
+      </div>
+      <a class="btn btn-primary" href="#contact">Book a visit</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#smiles">Smiles</a></li>
+      <li><a href="#stories">Stories</a></li>
+      <li><a href="#doctor">Dentist</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="btn btn-primary" href="#contact">Book a visit</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="tag"><span class="dot"></span> Besant Nagar · by the beach</span>
+      <h1>Dentistry that feels <em>personal</em>, not clinical.</h1>
+      <p class="hero-sub">Warm, unhurried care built around you — honest advice, comfortable treatment and a team that remembers your name. Right by the Besant Nagar beach.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://wa.me/919840012345?text=Hi%20Marina%20Dental%20Studio%2C%20I%27d%20like%20to%20book%20a%20visit." target="_blank" rel="noopener">
+          Book a visit
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#stories">Hear from patients</a>
+      </div>
+      <div class="hero-trust">
+        <div class="rt">
+          <div class="avs" aria-hidden="true">
+            <span style="background:linear-gradient(150deg,#A9C7DD,#F6D8BE)"></span>
+            <span style="background:linear-gradient(150deg,#F2B58C,#DCE7EF)"></span>
+            <span style="background:linear-gradient(150deg,#A7C2AE,#EBDAC6)"></span>
+          </div>
+          <div class="tx"><span class="stars">★★★★★</span><br><b>4.9/5</b> <span>· 286 patient stories</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-media">
+      <div class="hero-photo photo" id="heroPhoto">
+        <!-- Replace with a real patient photo (smiling person) -->
+        <svg class="portrait" viewBox="0 0 400 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <circle cx="200" cy="170" r="92" fill="#FFFFFF" fill-opacity=".22"/>
+          <circle cx="200" cy="160" r="58" fill="#FFFFFF" fill-opacity=".82"/>
+          <path d="M104 440c0-66 44-104 96-104s96 38 96 104Z" fill="#FFFFFF" fill-opacity=".82"/>
+          <path d="M176 168c8 9 40 9 48 0" stroke="#1F5C95" stroke-opacity=".5" stroke-width="5" stroke-linecap="round" fill="none"/>
+        </svg>
+        <div class="grain"></div>
+        <span class="ph">Replace · happy patient photo</span>
+      </div>
+      <div class="hero-card">
+        <div class="ring" aria-hidden="true"><i>96%</i></div>
+        <div class="hc"><b>Patients recommend us</b><span>Verified on Practo</span></div>
+      </div>
+      <div class="hero-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4Z"/><path d="M9 12l2 2 4-4"/></svg> Gentle &amp; anxiety-friendly</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STRIP ===== -->
+<div class="strip">
+  <div class="wrap">
+    <div class="scell"><div class="v"><span class="star">★</span> <span class="count" data-to="4.9" data-dec="1">0</span></div><div class="k">Patient rating</div></div>
+    <div class="scell"><div class="v"><span class="count" data-to="286" data-suffix="+">0</span></div><div class="k">Patient stories</div></div>
+    <div class="scell"><div class="v"><span class="count" data-to="96" data-suffix="%">0</span></div><div class="k">Recommend us</div></div>
+    <div class="scell"><div class="v"><span class="count" data-to="12" data-suffix="+">0</span></div><div class="k">Years of care</div></div>
+  </div>
+</div>
+
+<!-- ===== SERVICES ===== -->
+<section class="block" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag"><span class="dot"></span> What we do</span>
+      <h2>Care for every member of the family.</h2>
+      <p>From routine cleanings to cosmetic makeovers — gentle, modern treatment with pricing explained up front, all under one roof.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c-3 0-5 2-5.4 5C6 11 7 15 8 18c.6 2 1 3.5 1.6 4 .6.5 1.2-.3 1.5-1.6.3-1.4.5-2.8.9-2.8s.6 1.4.9 2.8c.3 1.3.9 2.1 1.5 1.6.6-.5 1-2 1.6-4 1-3 2-7 1.4-10C17 5 15 3 12 3Z"/></svg></div>
+        <h3>Check-ups &amp; Cleaning</h3>
+        <p>Thorough exams, scaling and polishing to keep teeth and gums healthy.</p>
+        <span class="from">Consult ₹400</span>
+      </article>
+      <article class="svc reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l1.6 4.4L18 8l-4.4 1.6L12 14l-1.6-4.4L6 8l4.4-1.6L12 2Z"/><path d="M19 14l.8 2.2 2.2.8-2.2.8L19 20l-.8-2.2-2.2-.8 2.2-.8L19 14Z"/></svg></div>
+        <h3>Cosmetic &amp; Whitening</h3>
+        <p>Whitening, veneers and smile makeovers for a brighter, natural look.</p>
+        <span class="from">from ₹6,000</span>
+      </article>
+      <article class="svc reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v18"/><path d="M7 7c0-2 2-3 5-3s5 1 5 3"/><path d="M6 12h12M7 17h10"/></svg></div>
+        <h3>Dental Implants</h3>
+        <p>Permanent, natural-feeling replacements for missing teeth.</p>
+        <span class="from">from ₹22,000</span>
+      </article>
+      <article class="svc reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 9c2-1 5 1 7 1s5-2 7-1M5 14c2-1 5 1 7 1s5-2 7-1"/><path d="M6 5v14M18 5v14"/></svg></div>
+        <h3>Gum Care</h3>
+        <p>Specialist treatment for healthy gums — from deep cleaning to surgery.</p>
+        <span class="from">from ₹2,500</span>
+      </article>
+      <article class="svc reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="4" width="14" height="4" rx="1.5"/><rect x="5" y="10" width="14" height="4" rx="1.5"/><rect x="5" y="16" width="14" height="4" rx="1.5"/></svg></div>
+        <h3>Braces &amp; Aligners</h3>
+        <p>Metal, ceramic and invisible clear-aligner options for straighter teeth.</p>
+        <span class="from">from ₹25,000</span>
+      </article>
+      <article class="svc reveal">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 11a3 3 0 116 0c0 2-3 3-3 6"/><circle cx="12" cy="20" r="1"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>Kids' Dentistry</h3>
+        <p>Friendly, fear-free check-ups, sealants and fillings for little ones.</p>
+        <span class="from">from ₹800</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SMILE GALLERY ===== -->
+<section class="block gallery" id="smiles">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag"><span class="dot"></span> Real people, real smiles</span>
+      <h2>The faces behind our 5-star care.</h2>
+      <p>A glimpse of the patients we've cared for. Hover a photo to see their story.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal reveal"><div class="photo warm"><svg class="portrait" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="150" cy="150" r="70" fill="#fff" fill-opacity=".8"/><path d="M70 400c0-58 36-92 80-92s80 34 80 92Z" fill="#fff" fill-opacity=".8"/></svg><div class="grain"></div></div><span class="badge">Veneers</span><div class="cap"><b>Ananya, 29</b><span>Smile makeover · 2 visits</span></div></div>
+      <div class="gal reveal"><div class="photo cool"><svg class="portrait" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="150" cy="150" r="70" fill="#fff" fill-opacity=".8"/><path d="M70 400c0-58 36-92 80-92s80 34 80 92Z" fill="#fff" fill-opacity=".8"/></svg><div class="grain"></div></div><span class="badge">Implants</span><div class="cap"><b>Rajesh, 54</b><span>Two implants · back to biting</span></div></div>
+      <div class="gal reveal"><div class="photo sage"><svg class="portrait" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="150" cy="150" r="70" fill="#fff" fill-opacity=".8"/><path d="M70 400c0-58 36-92 80-92s80 34 80 92Z" fill="#fff" fill-opacity=".8"/></svg><div class="grain"></div></div><span class="badge">Whitening</span><div class="cap"><b>Sneha, 34</b><span>In-clinic whitening · 1 visit</span></div></div>
+      <div class="gal reveal"><div class="photo"><svg class="portrait" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="150" cy="150" r="70" fill="#fff" fill-opacity=".8"/><path d="M70 400c0-58 36-92 80-92s80 34 80 92Z" fill="#fff" fill-opacity=".8"/></svg><div class="grain"></div></div><span class="badge">Aligners</span><div class="cap"><b>Karthik, 26</b><span>Clear aligners · 6 months</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STORY SPOTLIGHT ===== -->
+<section class="block spot-sec" id="stories">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag"><span class="dot"></span> Patient stories</span>
+      <h2>Why patients keep coming back.</h2>
+    </div>
+    <div class="spot reveal">
+      <div class="spot-photo">
+        <!-- Photo swaps with the story below -->
+        <div class="photo warm" id="spotPhoto">
+          <svg class="portrait" viewBox="0 0 400 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="200" cy="160" r="74" fill="#fff" fill-opacity=".82"/><path d="M96 440c0-64 44-100 104-100s104 36 104 100Z" fill="#fff" fill-opacity=".82"/></svg>
+          <div class="grain"></div>
+        </div>
+        <div class="who"><b id="spotName">Ananya R.</b><span id="spotTreat">Smile makeover · veneers</span></div>
+      </div>
+      <div class="spot-body">
+        <div class="qmark" aria-hidden="true">&ldquo;</div>
+        <span class="stars" id="spotStars" aria-label="5 out of 5 stars">★★★★★</span>
+        <p class="spot-quote" id="spotQuote">I was so nervous about veneers, but Dr. Kavya talked me through everything and never rushed me. The result looks completely natural — I finally smile in photos again.</p>
+        <div class="spot-foot">
+          <div class="spot-thumbs" role="group" aria-label="Choose a patient story">
+            <button class="t-warm" data-i="0" aria-pressed="true" aria-label="Ananya's story"><span class="photo warm"></span></button>
+            <button class="t-cool" data-i="1" aria-pressed="false" aria-label="Rajesh's story"><span class="photo cool"></span></button>
+            <button class="t-sage" data-i="2" aria-pressed="false" aria-label="Sneha's story"><span class="photo sage"></span></button>
+            <button class="t-base" data-i="3" aria-pressed="false" aria-label="Vikram's story"><span class="photo"></span></button>
+          </div>
+          <div class="spot-nav">
+            <button id="spotPrev" aria-label="Previous story"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <button id="spotNext" aria-label="Next story"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="block" id="about">
+  <div class="wrap about-grid">
+    <div class="about-visual reveal">
+      <div class="photo cool">
+        <!-- Replace with a warm clinic / reception photo -->
+        <svg class="portrait" viewBox="0 0 400 480" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <g fill="none" stroke="#FFFFFF" stroke-opacity=".22" stroke-width="1.5"><circle cx="200" cy="240" r="150"/><circle cx="200" cy="240" r="100"/></g>
+          <rect x="120" y="150" width="160" height="200" rx="20" fill="#FFFFFF" fill-opacity=".5"/>
+        </svg>
+        <div class="grain"></div>
+        <span class="ph">Replace · clinic interior photo</span>
+      </div>
+      <div class="about-badge"><div class="v">12+ yrs</div><div class="k">caring for the neighbourhood</div></div>
+    </div>
+    <div class="about-copy reveal">
+      <span class="tag"><span class="dot"></span> Why Marina</span>
+      <h2 style="margin-top:16px;">A neighbourhood studio that treats you like a person.</h2>
+      <p>We're not a conveyor-belt clinic. We take time to listen, explain your options in plain language, and tell you honestly what you need — and what can wait.</p>
+      <div class="about-list">
+        <div class="ab"><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 7"/></svg></span><div><b>Honest, no-pressure advice</b> — only what genuinely helps your smile.</div></div>
+        <div class="ab"><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 7"/></svg></span><div><b>Calm, anxiety-friendly visits</b> — gentle, paced and genuinely painless.</div></div>
+        <div class="ab"><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4L19 7"/></svg></span><div><b>Everything in one place</b> — exams, cosmetic, gum care, implants and kids.</div></div>
+      </div>
+      <a class="btn btn-dark" style="margin-top:28px;" href="#doctor">Meet your dentist</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOCTOR ===== -->
+<section class="block doc" id="doctor">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag"><span class="dot"></span> Your dentist</span>
+      <h2>The person you'll actually see.</h2>
+    </div>
+    <div class="doc-card reveal">
+      <div class="doc-photo">
+        <!-- Replace with the dentist's photo -->
+        <div class="photo sage">
+          <svg class="portrait" viewBox="0 0 360 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="180" cy="150" r="72" fill="#fff" fill-opacity=".85"/><path d="M86 400c0-58 42-94 94-94s94 36 94 94Z" fill="#fff" fill-opacity=".85"/></svg>
+          <div class="grain"></div>
+          <span class="ph">Replace · doctor portrait</span>
+        </div>
+        <span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4Z"/><path d="M9 12l2 2 4-4"/></svg> Verified Practo doctor</span>
+      </div>
+      <div class="doc-body">
+        <span class="tag"><span class="dot"></span> Periodontist · Implantologist</span>
+        <h3>Dr. Kavya Subramaniam</h3>
+        <div class="doc-cred">BDS, MDS — Periodontics &amp; Implantology</div>
+        <div class="doc-roles">
+          <span class="chip">Dentist</span>
+          <span class="chip">Periodontist</span>
+          <span class="chip">Implantologist</span>
+          <span class="chip">Cosmetic Dentist</span>
+        </div>
+        <p>With over 12 years of clinical experience, Dr. Kavya is known for her warm, reassuring manner and meticulous, natural-looking work — taking the time to understand each patient and make even the most nervous feel completely at ease.</p>
+        <div class="doc-meta">
+          <div><div class="v">12 yrs</div><div class="k">Experience</div></div>
+          <div><div class="v">96%</div><div class="k">Recommend</div></div>
+          <div><div class="v">₹400</div><div class="k">Consultation</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INSURANCE (dark) ===== -->
+<section class="block ins-sec">
+  <div class="wrap ins-grid">
+    <div class="reveal">
+      <span class="tag"><span class="dot"></span> Cashless &amp; EMI</span>
+      <h2>Care that's easy on your wallet.</h2>
+      <p>We work with leading health insurers for cashless treatment, and offer no-cost EMI on most major procedures.</p>
+    </div>
+    <div class="ins-logos reveal">
+      <span>Star Health</span><span>Care Health</span><span>ManipalCigna</span><span>Bajaj Allianz</span><span>HDFC Ergo</span><span>No-cost EMI</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="block" id="faq">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="tag"><span class="dot"></span> Good to know</span>
+      <h2>Questions, answered.</h2>
+    </div>
+    <div class="faq-grid">
+      <details class="faq reveal" open>
+        <summary>How do I book an appointment?<span class="pl" aria-hidden="true"></span></summary>
+        <div class="ans">The quickest way is WhatsApp or a quick call — no forms needed. You can also book through our Practo profile. New patients are always welcome.</div>
+      </details>
+      <details class="faq reveal">
+        <summary>What does a consultation cost?<span class="pl" aria-hidden="true"></span></summary>
+        <div class="ans">A standard consultation is ₹400 and includes a full exam. If treatment is needed, we'll explain a clear, fixed-price plan before anything begins.</div>
+      </details>
+      <details class="faq reveal">
+        <summary>I'm anxious about the dentist — can you help?<span class="pl" aria-hidden="true"></span></summary>
+        <div class="ans">Absolutely. A large part of what we do is gentle, paced care for nervous patients — we'll go at your speed and keep you comfortable throughout.</div>
+      </details>
+      <details class="faq reveal">
+        <summary>Do you offer EMI or accept insurance?<span class="pl" aria-hidden="true"></span></summary>
+        <div class="ans">Yes — no-cost EMI is available on most major treatments, and we accept cashless claims from leading insurers.</div>
+      </details>
+      <details class="faq reveal">
+        <summary>What are your timings?<span class="pl" aria-hidden="true"></span></summary>
+        <div class="ans">We're open Monday to Saturday, 9:00 AM–2:00 PM and 5:00–8:00 PM. Emergency Sunday slots are available on request.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="block contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="ct-info reveal">
+      <span class="tag"><span class="dot"></span> Visit / book</span>
+      <h2 style="margin-top:16px;">Come say hello.</h2>
+      <p class="lead">Book in seconds on WhatsApp, or drop by the studio. We'll find a time that works for you.</p>
+      <div class="ct-rows">
+        <div class="ct-row">
+          <div class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.7-7-11a7 7 0 1114 0c0 5.3-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg></div>
+          <div><div class="cl">Address</div><div class="cv">2nd Avenue, Besant Nagar, Chennai 600090</div></div>
+        </div>
+        <div class="ct-row">
+          <div class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5c0 9 6 15 15 15l1-3-5-2-2 2c-3-1.5-5.5-4-7-7l2-2-2-5-3 1Z"/></svg></div>
+          <div><div class="cl">Phone</div><div class="cv"><a href="tel:+919840012345">+91 98400 12345</a></div></div>
+        </div>
+        <div class="ct-row">
+          <div class="ci" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div><div class="cl">Hours</div><div class="cv">Mon–Sat · 9–2, 5–8</div></div>
+        </div>
+      </div>
+      <div class="ct-hours">
+        <div class="hr"><span>Monday – Friday</span><b>09:00–14:00 · 17:00–20:00</b></div>
+        <div class="hr"><span>Saturday</span><b>09:00–14:00 · 17:00–20:00</b></div>
+        <div class="hr"><span>Sunday</span><b>Emergencies only</b></div>
+      </div>
+      <a class="btn btn-ghost" style="margin-top:20px;" href="https://www.google.com/maps/search/?api=1&query=Besant+Nagar+Chennai" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-5.7-7-11a7 7 0 1114 0c0 5.3-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        Get directions
+      </a>
+    </div>
+
+    <div class="form-card reveal">
+      <h3>Request an appointment</h3>
+      <p class="fnote">Fill this in and we'll confirm your slot on WhatsApp within working hours.</p>
+      <div class="field" id="f-name">
+        <label for="name">Your name</label>
+        <input id="name" type="text" autocomplete="name" placeholder="e.g. Nithya S." />
+      </div>
+      <div class="field" id="f-phone">
+        <label for="phone">Phone number</label>
+        <input id="phone" type="tel" autocomplete="tel" inputmode="numeric" placeholder="10-digit mobile number" />
+      </div>
+      <div class="field">
+        <label for="service">Treatment</label>
+        <select id="service">
+          <option>General check-up</option>
+          <option>Cosmetic / whitening</option>
+          <option>Dental implants</option>
+          <option>Gum care</option>
+          <option>Braces / aligners</option>
+          <option>Kids' dentistry</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="msg">Message <span style="text-transform:none; letter-spacing:0; font-weight:500;">(optional)</span></label>
+        <textarea id="msg" placeholder="Anything you'd like us to know?"></textarea>
+      </div>
+      <button class="btn btn-primary" id="submitBtn"><span class="btn-label">Request appointment</span></button>
+      <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#" aria-label="Marina Dental Studio home">
+          <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect width="48" height="48" rx="14" fill="#2D7FC4"/><path d="M24 12c-3.6 0-6.4 2.2-6.4 5.7 0 1.9.8 4.2 1.5 6.6.6 2.1 1.1 4.4 1.5 6.3.3 1.5.5 2.4 1.5 2.4s1.2-.9 1.5-2.4c.2-.9.4-1.8.6-2.6.1-.6.4-.9 1-.9s.9.3 1 .9c.2.8.4 1.7.6 2.6.3 1.5.5 2.4 1.5 2.4s1.2-.9 1.5-2.4c.4-1.9.9-4.2 1.5-6.3.7-2.4 1.5-4.7 1.5-6.6 0-3.5-2.8-5.7-6.4-5.7-1.4 0-2.6.5-3.6.5s-2.2-.5-3.6-.5Z" fill="#fff"/></svg>
+          <span>Marina Dental<span class="b-sub">Studio · Besant Nagar</span></span>
+        </a>
+        <p class="f-blurb">A warm, patient-first multi-speciality dental studio in Besant Nagar, Chennai — personal, gentle care for the whole neighbourhood.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="foot-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#smiles">Smiles</a></li>
+          <li><a href="#stories">Patient stories</a></li>
+          <li><a href="#doctor">Our dentist</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul class="foot-links">
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Besant+Nagar+Chennai" target="_blank" rel="noopener">Get directions</a></li>
+          <li><a href="https://wa.me/919840012345" target="_blank" rel="noopener">WhatsApp: +91 98400 12345</a></li>
+          <li><a href="tel:+919840012345">Call: +91 98400 12345</a></li>
+          <li>Mon–Sat · 9–2, 5–8</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Marina Dental Studio, Besant Nagar. All rights reserved.</span>
+      <span>Created by <a href="https://stellarhausmedia.com" target="_blank" rel="noopener">stellarhausmedia.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/919840012345?text=Hi%20Marina%20Dental%20Studio%2C%20I%27d%20like%20to%20book%20a%20visit." target="_blank" rel="noopener" aria-label="Chat with Marina Dental Studio on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.7.9 3.7 1.4 5.8 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.3.8.8-4.2-.2-.4c-1-1.6-1.5-3.4-1.5-5.4 0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-9.7 10zm5.5-7.5c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.6.1-.2.2-.3.3-.5.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5 4.5.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg>
+</a>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Header scroll
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('mobileMenu');
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }));
+
+  // Subtle hero image parallax
+  const heroPhoto = document.getElementById('heroPhoto');
+  if (heroPhoto && !prefersReduced){
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(() => { heroPhoto.style.transform = 'translateY(' + (window.scrollY * 0.05) + 'px)'; ticking = false; });
+    }, { passive:true });
+  }
+
+  // count-up
+  function countUp(el){
+    const target = parseFloat(el.dataset.to), dur = 1300, dec = el.dataset.dec ? +el.dataset.dec : 0, suffix = el.dataset.suffix || '';
+    if (prefersReduced){ el.textContent = (dec ? target.toFixed(dec) : target) + suffix; return; }
+    const start = performance.now();
+    (function tick(now){
+      const p = Math.min(1, (now - start) / dur), eased = 1 - Math.pow(1 - p, 3), val = target * eased;
+      el.textContent = (dec ? val.toFixed(dec) : Math.round(val)) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    })(start);
+  }
+
+  // reveal + count-up
+  const revealEls = document.querySelectorAll('.reveal');
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    revealEls.forEach(el => el.classList.add('in'));
+    document.querySelectorAll('.count').forEach(countUp);
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => { if (e.isIntersecting) { e.target.style.transitionDelay = Math.min(i*50,150)+'ms'; e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold:0.12, rootMargin:'0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting){ countUp(e.target); cio.unobserve(e.target); } });
+    }, { threshold:0.6 });
+    document.querySelectorAll('.count').forEach(el => cio.observe(el));
+  }
+
+  // ---------- patient story spotlight ----------
+  (function(){
+    const stories = [
+      { name:"Ananya R.", treat:"Smile makeover · veneers", tint:"warm", quote:"I was so nervous about veneers, but Dr. Kavya talked me through everything and never rushed me. The result looks completely natural — I finally smile in photos again." },
+      { name:"Rajesh M.", treat:"Two dental implants", tint:"cool", quote:"After years of avoiding certain foods, my implants feel just like my own teeth. The whole process was calm, clearly explained and far more comfortable than I expected." },
+      { name:"Sneha P.", treat:"In-clinic whitening", tint:"sage", quote:"Quick, painless and the shade looks so natural — not fake-white. The team is genuinely warm and made the whole visit feel easy." },
+      { name:"Vikram S.", treat:"Clear aligners", tint:"base", quote:"They walked me through the aligner journey with honest timelines and no upselling. Six months later my smile is straight and I couldn't be happier." }
+    ];
+    const photo = document.getElementById('spotPhoto'), nameEl = document.getElementById('spotName'),
+          treatEl = document.getElementById('spotTreat'), quoteEl = document.getElementById('spotQuote');
+    const thumbs = Array.from(document.querySelectorAll('.spot-thumbs button'));
+    let i = 0;
+    function tintClass(t){ return t === 'base' ? 'photo' : 'photo ' + t; }
+    function show(n){
+      i = (n + stories.length) % stories.length;
+      const s = stories[i];
+      quoteEl.classList.add('fade');
+      setTimeout(() => {
+        photo.className = tintClass(s.tint);
+        photo.innerHTML = '<svg class="portrait" viewBox="0 0 400 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="200" cy="160" r="74" fill="#fff" fill-opacity=".82"/><path d="M96 440c0-64 44-100 104-100s104 36 104 100Z" fill="#fff" fill-opacity=".82"/></svg><div class="grain"></div>';
+        nameEl.textContent = s.name; treatEl.textContent = s.treat; quoteEl.textContent = s.quote;
+        quoteEl.classList.remove('fade');
+      }, prefersReduced ? 0 : 200);
+      thumbs.forEach((b, k) => b.setAttribute('aria-pressed', k === i ? 'true' : 'false'));
+    }
+    thumbs.forEach(b => b.addEventListener('click', () => show(+b.dataset.i)));
+    document.getElementById('spotPrev').addEventListener('click', () => show(i - 1));
+    document.getElementById('spotNext').addEventListener('click', () => show(i + 1));
+  })();
+
+  // single-open FAQ
+  const faqs = Array.from(document.querySelectorAll('.faq'));
+  faqs.forEach(d => d.addEventListener('toggle', () => { if (d.open) faqs.forEach(o => { if (o !== d) o.open = false; }); }));
+
+  // active nav
+  const ids = ['services','smiles','stories','doctor','contact'];
+  const navItems = {};
+  document.querySelectorAll('.nav-links a').forEach(a => { const id = a.getAttribute('href').slice(1); if (ids.includes(id)) navItems[id] = a; });
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { Object.values(navItems).forEach(a => a.classList.remove('active')); if (navItems[e.target.id]) navItems[e.target.id].classList.add('active'); } });
+  }, { rootMargin:'-45% 0px -50% 0px' });
+  ids.forEach(id => { const el = document.getElementById(id); if (el) spy.observe(el); });
+
+  // booking form -> WhatsApp
+  const CLINIC_WHATSAPP = '919840012345';
+  const btn = document.getElementById('submitBtn');
+  const statusEl = document.getElementById('formStatus');
+  const setError = (id, on) => document.getElementById(id).classList.toggle('invalid', on);
+  btn.addEventListener('click', () => {
+    const name = document.getElementById('name'), phone = document.getElementById('phone');
+    const service = document.getElementById('service').value, msg = document.getElementById('msg').value.trim();
+    const nameOk = name.value.trim().length > 1;
+    const phoneOk = /^[6-9]\d{9}$/.test(phone.value.replace(/\D/g,'').slice(-10));
+    setError('f-name', !nameOk); setError('f-phone', !phoneOk);
+    if (!nameOk) { name.focus(); return; }
+    if (!phoneOk) { phone.focus(); return; }
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spin" aria-hidden="true"></span><span>Sending…</span>';
+    setTimeout(() => {
+      const text = encodeURIComponent("Hi Marina Dental Studio, I'd like to book a visit.\n\nName: " + name.value.trim() + "\nPhone: " + phone.value.trim() + "\nTreatment: " + service + (msg ? "\nNote: " + msg : ""));
+      window.open('https://wa.me/' + CLINIC_WHATSAPP + '?text=' + text, '_blank');
+      btn.disabled = false;
+      btn.innerHTML = '<span class="btn-label">Request appointment</span>';
+      statusEl.className = 'form-status ok';
+      statusEl.textContent = '✓ Thanks! Continue in WhatsApp to confirm your slot.';
+    }, 700);
+  });
+</script>
+</body>
+</html>

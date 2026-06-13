@@ -1,0 +1,989 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crown Dental Co. — Everything Your Smile Needs · R.A. Puram, Chennai</title>
+<meta name="description" content="Crown Dental Co. is a modern, all-in-one dental clinic in R.A. Puram, Chennai. Browse treatments — check-ups, whitening, aligners, implants, kids' care and emergencies — with transparent pricing, 0% EMI and easy WhatsApp booking.">
+
+<!-- ============================================================================
+  SWAP-MAP  ·  Crown Dental Co.  (clinic built on a "dental store / catalog" layout)
+  Find & replace these literal strings to re-theme for a new clinic.
+  ----------------------------------------------------------------------------
+  CLINIC NAME ........ "Crown Dental Co."            (wordmark + copy + JS const CLINIC)
+  TAGLINE ............ "Everything your smile needs"
+  LOCALITY ........... "R.A. Puram"  (+ "R.A. Puram, Chennai")
+  FULL ADDRESS ....... "2nd Floor, 14 Greenways Road, R.A. Puram, Chennai 600028"
+  PHONE (display) .... "+91 90420 16016"
+  PHONE (tel:) ....... "tel:+919042016016"
+  WHATSAPP (digits) .. "919042016016"                (JS const WA_NUMBER + wa.me + FAB)
+  DOCTOR ............. "Dr. Vikram Shenoy"
+  DOCTOR QUALS ....... "BDS, MDS — Prosthodontics & Implantology"
+  (prices / consult fee removed in this version — re-add to the treatment cards if you want them shown)
+  EMAIL .............. "hello@crowndentalco.in"
+  MAP LINK ........... the google.com/maps href on "Get directions"
+  SOCIAL ............. the # placeholder hrefs (header-less; footer + promo)
+  COLOURS ............ CSS vars in :root  (--bg / --ink / --lime …)
+  FONTS .............. Google Fonts <link> + --font-display (Familjen Grotesk) / --font-ui (Work Sans)
+  PRICES ............. removed in this version (re-add a .prod-foot price block to a card if wanted)
+  IMAGERY ............ photo-free — every panel is a gradient + SVG icon (.shot.ph / .cat-ic / .prod-ic).
+                       To switch a panel back to a photo, drop an <img> inside it (object-fit:cover)
+                       and remove the icon. (free stock: unsplash.com / pexels.com)
+  INSURERS ........... the marquee list (.tick) — swap for your real cashless partners
+  REVIEWS ............ labelled "sample" — replace with verified reviews before publishing
+============================================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================ TOKENS ============================ */
+:root{
+  --bg:#F4EFE6; --bg-2:#FBF8F1; --paper:#FFFFFF; --warm:#EFE8DA;
+  --ink:#17160F; --ink-2:#423E33; --muted:#8C8473; --line:#E4DDCD; --line-2:#EFE9DC;
+  --lime:#BEF23E; --lime-deep:#A4D726; --lime-soft:#EAF6C9;
+  --r:14px; --r-md:20px; --r-lg:26px; --pill:999px;
+  --maxw:1240px;
+  --font-display:'Familjen Grotesk',system-ui,-apple-system,sans-serif;
+  --font-ui:'Work Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --sh-sm:0 4px 18px -8px rgba(23,22,15,.18);
+  --sh:0 22px 60px -22px rgba(23,22,15,.30);
+  --sh-lift:0 34px 70px -26px rgba(23,22,15,.40);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============================ BASE ============================ */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--font-ui);background:var(--bg);color:var(--ink);
+  font-size:17px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+body.lock{overflow:hidden}
+h1,h2,h3,h4{margin:0;font-family:var(--font-display);font-weight:700;line-height:1.04;letter-spacing:-.03em}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+ul{margin:0;padding:0;list-style:none}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+input,select,textarea{font-family:inherit;font-size:1rem;color:inherit}
+::selection{background:var(--lime);color:var(--ink)}
+:focus-visible{outline:2.5px solid var(--ink);outline-offset:3px;border-radius:4px}
+.container{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(20px,5vw,56px)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:14px;top:-70px;z-index:400;background:var(--ink);color:var(--lime);padding:.75em 1.1em;border-radius:10px;font-weight:600;transition:top .25s}
+.skip:focus{top:14px}
+.icon{width:1.25em;height:1.25em;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;fill:none;flex:none}
+.icon.fill{fill:currentColor;stroke:none}
+
+/* eyebrow pill */
+.eyebrow{display:inline-flex;align-items:center;gap:.55em;font-family:var(--font-display);font-weight:600;
+  font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);
+  background:var(--bg-2);border:1px solid var(--line);padding:.5em 1em;border-radius:var(--pill)}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime-deep)}
+.eyebrow.on-dark{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16);color:#EDE7D9}
+
+.sec-head{max-width:680px}
+.sec-head h2{font-size:clamp(2.1rem,4.8vw,3.7rem);margin-top:1.1rem}
+.sec-head h2 em{font-style:normal;color:var(--lime-deep)}
+.sec-head .lead{color:var(--ink-2);font-size:1.08rem;margin-top:1rem;max-width:54ch}
+.sec-top{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.link-arrow{display:inline-flex;align-items:center;gap:.5em;font-family:var(--font-display);font-weight:600;font-size:.95rem;color:var(--ink);border-bottom:2px solid var(--lime);padding-bottom:3px;transition:gap .25s}
+.link-arrow:hover{gap:.85em}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out);transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
+
+/* ============================ BUTTONS ============================ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;font-family:var(--font-display);font-weight:600;
+  font-size:1rem;letter-spacing:-.01em;padding:1em 1.7em;border-radius:var(--pill);
+  transition:transform .25s var(--ease),background .25s,color .25s,box-shadow .25s,border-color .25s;white-space:nowrap}
+.btn .icon{width:1.15em;height:1.15em;stroke-width:2}
+.btn:hover{transform:translateY(-2px)} .btn:active{transform:translateY(0)}
+.btn-lime{background:var(--lime);color:var(--ink);box-shadow:0 14px 34px -12px rgba(164,215,38,.8)}
+.btn-lime:hover{background:#cbf659;box-shadow:0 20px 42px -12px rgba(164,215,38,.95)}
+.btn-ink{background:var(--ink);color:var(--bg)}
+.btn-ink:hover{background:#000}
+.btn-ghost{border:1.6px solid var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--bg)}
+.btn-light{border:1.6px solid rgba(255,255,255,.4);color:#fff}
+.btn-light:hover{background:#fff;color:var(--ink);border-color:#fff}
+.btn-sm{padding:.7em 1.2em;font-size:.9rem}
+.btn-block{width:100%}
+
+/* ============================ PROMO BAR ============================ */
+.promo{background:var(--ink);color:#EDE7D9;font-size:.83rem}
+.promo-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:42px}
+.promo-msg{display:inline-flex;align-items:center;gap:.6em;font-weight:300}
+.promo-msg b{font-weight:600;color:#fff}
+.promo-msg .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);flex:none}
+.promo a{display:inline-flex;align-items:center;gap:.45em;color:var(--lime);font-weight:600;transition:opacity .2s}
+.promo a:hover{opacity:.8}
+.promo a .icon{width:1em;height:1em}
+
+/* ============================ HEADER ============================ */
+.header{position:sticky;top:0;z-index:100;background:rgba(244,239,230,.82);backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;transition:border-color .3s,background .3s,box-shadow .3s}
+.header.scrolled{border-color:var(--line);background:rgba(244,239,230,.94);box-shadow:0 6px 24px -18px rgba(23,22,15,.4)}
+.header-in{display:flex;align-items:center;gap:1.6rem;height:78px}
+.brand{display:flex;align-items:center;gap:.6rem}
+.brand .mark{width:42px;height:42px;border-radius:12px;background:var(--ink);color:var(--lime);display:grid;place-items:center;flex:none}
+.brand .mark .icon{width:24px;height:24px;stroke-width:1.6}
+.brand .name{font-family:var(--font-display);font-weight:700;font-size:1.28rem;letter-spacing:-.03em;line-height:1}
+.brand .name span{color:var(--muted);font-weight:500}
+.nav{display:flex;align-items:center;gap:2rem;margin-left:auto}
+.nav a{font-family:var(--font-display);font-weight:500;font-size:1rem;color:var(--ink-2);position:relative;padding:.4em 0;transition:color .2s}
+.nav a::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--lime-deep);transition:width .3s var(--ease)}
+.nav a:hover,.nav a.active{color:var(--ink)} .nav a:hover::after,.nav a.active::after{width:100%}
+.header-actions{display:flex;align-items:center;gap:1rem}
+.header-call{display:inline-flex;align-items:center;gap:.45em;font-family:var(--font-display);font-weight:600;font-size:.95rem;color:var(--ink)}
+.header-call .icon{width:1.1em;height:1.1em;color:var(--lime-deep)}
+.hamburger{display:none;width:46px;height:46px;border:1.5px solid var(--line);border-radius:12px;place-items:center;color:var(--ink);background:var(--bg-2);margin-left:auto}
+.hamburger .icon{width:22px;height:22px}
+
+.mobile-nav{position:fixed;inset:0;z-index:130;background:var(--bg);transform:translateY(-100%);transition:transform .45s var(--ease);display:flex;flex-direction:column;padding:1.3rem;overflow-y:auto}
+.mobile-nav.open{transform:none}
+.mn-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.6rem}
+.mobile-nav a.mn-link{font-family:var(--font-display);font-weight:600;font-size:2rem;letter-spacing:-.03em;padding:.55rem 0;border-bottom:1px solid var(--line-2);display:flex;align-items:center;justify-content:space-between}
+.mobile-nav a.mn-link .icon{width:.7em;height:.7em;color:var(--lime-deep)}
+.mn-cta{margin-top:auto;padding-top:1.4rem;display:grid;gap:.7rem}
+
+/* ============================ HERO ============================ */
+.hero{position:relative;padding-top:clamp(2.5rem,6vw,5rem);padding-bottom:clamp(2.5rem,6vw,5rem);overflow:hidden}
+.hero::before{content:"";position:absolute;top:-12%;right:-8%;width:46vw;height:46vw;max-width:640px;max-height:640px;
+  background:radial-gradient(circle at 50% 50%,rgba(190,242,62,.5),rgba(190,242,62,0) 68%);filter:blur(10px);z-index:0;pointer-events:none}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.hero-eyebrow{margin-bottom:1.6rem}
+.hero h1{font-size:clamp(2.9rem,7.2vw,5.7rem);letter-spacing:-.045em;line-height:.98}
+.hero h1 .hl{position:relative;white-space:nowrap}
+.hero h1 .hl::after{content:"";position:absolute;left:-.04em;right:-.04em;bottom:.06em;height:.34em;background:var(--lime);z-index:-1;border-radius:3px}
+.hero .sub{color:var(--ink-2);font-size:1.16rem;line-height:1.6;margin-top:1.6rem;max-width:45ch}
+.hero-cta{display:flex;gap:.9rem;margin-top:2.1rem;flex-wrap:wrap}
+.hero-trust{display:flex;align-items:center;gap:1.5rem;margin-top:2.4rem;flex-wrap:wrap}
+.hero-trust .ht{display:flex;align-items:center;gap:.5em;font-size:.92rem;color:var(--ink-2)}
+.hero-trust .ht .icon{width:1.15em;height:1.15em;color:var(--lime-deep)}
+.hero-trust .ht b{font-family:var(--font-display);font-weight:700;color:var(--ink);font-size:1.05rem}
+.hero-trust .div{width:1px;height:26px;background:var(--line)}
+
+.hero-media{position:relative}
+.hero-media .shot{position:relative;z-index:2;border-radius:var(--r-lg);width:100%;aspect-ratio:4/4.4;object-fit:cover;box-shadow:var(--sh)}
+.hero-media::after{content:"";position:absolute;right:-18px;bottom:-18px;width:62%;height:70%;background:var(--lime);border-radius:var(--r-lg);z-index:1}
+.float-card{position:absolute;left:-22px;bottom:30px;z-index:3;background:var(--paper);border-radius:var(--r-md);padding:1rem 1.2rem;box-shadow:var(--sh);display:flex;align-items:center;gap:.85rem;max-width:240px}
+.float-card .fc-ic{width:46px;height:46px;border-radius:12px;background:var(--ink);color:var(--lime);display:grid;place-items:center;flex:none}
+.float-card .fc-ic .icon{width:24px;height:24px}
+.float-card .stars{display:flex;gap:1px;color:#F2B53C}.float-card .stars .icon{width:14px;height:14px}
+.float-card b{font-family:var(--font-display);font-weight:700;font-size:1.05rem;display:block;line-height:1.1}
+.float-card span{font-size:.78rem;color:var(--muted)}
+
+/* hero page-load animation */
+[data-anim]{opacity:0;transform:translateY(24px);animation:rise .9s var(--ease-out) forwards;animation-delay:var(--ad,0s)}
+@keyframes rise{to{opacity:1;transform:none}}
+.hero-media[data-anim]{transform:translateY(0) scale(.96);animation:pop 1s var(--ease-out) forwards}
+@keyframes pop{to{opacity:1;transform:none}}
+
+/* ============================ TRUST STRIP + MARQUEE ============================ */
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding-block:clamp(1.8rem,3.5vw,2.6rem)}
+.stat{text-align:center;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:var(--font-display);font-weight:700;font-size:clamp(1.9rem,3.6vw,2.7rem);letter-spacing:-.03em;line-height:1}
+.stat b .accent{color:var(--lime-deep)}
+.stat span{display:block;font-size:.84rem;color:var(--muted);margin-top:.5rem;letter-spacing:.02em}
+.marquee{border-top:1px solid var(--line);overflow:hidden;padding-block:1rem;display:flex;align-items:center;gap:1.4rem}
+.marquee .mlabel{flex:none;font-family:var(--font-display);font-weight:600;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-left:clamp(20px,5vw,56px)}
+.mwrap{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.tick{display:flex;gap:2.6rem;width:max-content;animation:ticker 26s linear infinite}
+.tick span{font-family:var(--font-display);font-weight:600;font-size:1.05rem;color:var(--ink-2);white-space:nowrap;display:inline-flex;align-items:center;gap:.6em}
+.tick span::before{content:"✦";color:var(--lime-deep);font-size:.8em}
+@keyframes ticker{to{transform:translateX(-50%)}}
+.marquee:hover .tick{animation-play-state:paused}
+
+/* ============================ SECTION SHELL ============================ */
+.section{padding-block:clamp(3.5rem,7vw,6.5rem)}
+
+/* ============================ CATEGORY BENTO ============================ */
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:200px;gap:14px;margin-top:2.6rem}
+.cat{position:relative;border-radius:var(--r-md);overflow:hidden;display:block;background:var(--warm);isolation:isolate}
+.cat:nth-child(1){grid-column:span 2;grid-row:span 2}
+.cat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease-out)}
+.cat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,22,15,0) 32%,rgba(23,22,15,.82));z-index:1}
+.cat:hover img{transform:scale(1.07)}
+.cat .cat-body{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:1.2rem 1.3rem;display:flex;align-items:flex-end;justify-content:space-between;gap:.6rem;color:#fff}
+.cat .cat-name{font-family:var(--font-display);font-weight:700;font-size:1.18rem;letter-spacing:-.02em}
+.cat:nth-child(1) .cat-name{font-size:clamp(1.5rem,2.6vw,2rem)}
+.cat .cat-sub{font-size:.82rem;color:rgba(255,255,255,.78);margin-top:.2rem}
+.cat .cat-arrow{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);display:grid;place-items:center;flex:none;transition:background .25s,color .25s,transform .25s}
+.cat .cat-arrow .icon{width:18px;height:18px}
+.cat:hover .cat-arrow{background:var(--lime);color:var(--ink);border-color:var(--lime);transform:rotate(-45deg)}
+
+/* ============================ PRODUCT (TREATMENT) CARDS ============================ */
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem;margin-top:2.6rem}
+.prod{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .35s var(--ease),box-shadow .35s,border-color .35s}
+.prod:hover{transform:translateY(-7px);box-shadow:var(--sh-lift);border-color:transparent}
+.prod-media{position:relative;aspect-ratio:5/3.6;overflow:hidden;background:var(--warm)}
+.prod-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease-out)}
+.prod:hover .prod-media img{transform:scale(1.08)}
+.prod-tag{position:absolute;top:.8rem;left:.8rem;z-index:2;background:var(--lime);color:var(--ink);font-family:var(--font-display);font-weight:600;font-size:.72rem;letter-spacing:.04em;padding:.35em .7em;border-radius:var(--pill)}
+.prod-rate{position:absolute;top:.8rem;right:.8rem;z-index:2;background:rgba(23,22,15,.78);color:#fff;font-size:.74rem;font-weight:600;padding:.35em .6em;border-radius:var(--pill);display:inline-flex;align-items:center;gap:.3em}
+.prod-rate .icon{width:.9em;height:.9em;color:#F2B53C}
+.prod-body{padding:1.3rem 1.3rem 1.4rem;display:flex;flex-direction:column;flex:1}
+.prod-body h3{font-size:1.22rem;letter-spacing:-.02em}
+.prod-body p{color:var(--muted);font-size:.92rem;line-height:1.5;margin-top:.45rem;flex:1}
+.prod-foot{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-top:1.2rem}
+.prod-price em{font-style:normal;font-size:.72rem;color:var(--muted);display:block;letter-spacing:.04em}
+.prod-price strong{font-family:var(--font-display);font-weight:700;font-size:1.32rem;letter-spacing:-.02em}
+.prod-book{display:inline-flex;align-items:center;gap:.4em;font-family:var(--font-display);font-weight:600;font-size:.92rem;
+  background:var(--ink);color:var(--bg);padding:.62em 1em;border-radius:var(--pill);transition:gap .25s,background .25s}
+.prod-book .icon{width:1em;height:1em;stroke-width:2}
+.prod:hover .prod-book{background:var(--lime-deep);color:var(--ink);gap:.7em}
+
+/* ============================ WHY (DARK BAND) ============================ */
+.why{position:relative;background:var(--ink);color:#EDE7D9;overflow:hidden;padding-block:clamp(3.5rem,7vw,6.5rem)}
+.why::before{content:"";position:absolute;inset:0;background:var(--grain);background-size:160px;opacity:.07;pointer-events:none;mix-blend-mode:overlay}
+.why::after{content:"";position:absolute;top:-20%;left:-10%;width:40vw;height:40vw;max-width:520px;max-height:520px;background:radial-gradient(circle,rgba(190,242,62,.16),transparent 70%);pointer-events:none}
+.why .inner{position:relative;z-index:2}
+.why .sec-head h2{color:#fff}
+.why .sec-head h2 em{color:var(--lime)}
+.why .sec-head .lead{color:rgba(237,231,217,.72)}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem 2.2rem;margin-top:3rem}
+.feat{border-top:1px solid rgba(255,255,255,.14);padding-top:1.4rem}
+.feat .fic{width:48px;height:48px;border-radius:12px;background:rgba(190,242,62,.12);color:var(--lime);display:grid;place-items:center;margin-bottom:1rem}
+.feat .fic .icon{width:25px;height:25px}
+.feat h3{font-size:1.22rem;color:#fff;letter-spacing:-.02em}
+.feat p{color:rgba(237,231,217,.66);font-size:.95rem;line-height:1.55;margin-top:.5rem}
+
+/* ============================ ABOUT / DOCTOR ============================ */
+.about-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.about-media{position:relative}
+.about-media .shot{border-radius:var(--r-lg);width:100%;aspect-ratio:4/4.4;object-fit:cover;box-shadow:var(--sh)}
+.about-media .badge{position:absolute;right:-16px;top:28px;background:var(--ink);color:#fff;border-radius:var(--r-md);padding:1rem 1.2rem;box-shadow:var(--sh);text-align:center}
+.about-media .badge b{display:block;font-family:var(--font-display);font-weight:700;font-size:1.9rem;color:var(--lime);line-height:1}
+.about-media .badge span{font-size:.74rem;color:rgba(255,255,255,.7);letter-spacing:.04em}
+.about-text h2{font-size:clamp(2rem,4.4vw,3.3rem);margin-top:1.1rem}
+.about-text h2 em{font-style:normal;color:var(--lime-deep)}
+.about-text p{color:var(--ink-2);font-size:1.05rem;line-height:1.7;margin-top:1.2rem}
+.about-points{display:grid;gap:.7rem;margin-top:1.6rem}
+.about-points li{display:flex;align-items:flex-start;gap:.7rem;font-size:1rem}
+.about-points .ck{width:24px;height:24px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center;flex:none;margin-top:1px}
+.about-points .ck .icon{width:14px;height:14px;stroke-width:2.4}
+.doc-card{display:flex;align-items:center;gap:1rem;margin-top:1.9rem;padding:1.1rem 1.3rem;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-md)}
+.doc-card .av{width:56px;height:56px;border-radius:50%;background:linear-gradient(150deg,var(--lime),var(--lime-deep));display:grid;place-items:center;color:var(--ink);flex:none}
+.doc-card .av .icon{width:28px;height:28px}
+.doc-card b{font-family:var(--font-display);font-weight:700;font-size:1.1rem}
+.doc-card span{display:block;font-size:.85rem;color:var(--muted)}
+.doc-card .fee{margin-left:auto;text-align:right;flex:none}
+.doc-card .fee em{font-style:normal;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:block}
+.doc-card .fee strong{font-family:var(--font-display);font-weight:700;font-size:1.2rem;color:var(--lime-deep)}
+
+/* ============================ REVIEWS ============================ */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2.6rem}
+.rev{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);padding:1.7rem;display:flex;flex-direction:column;gap:1rem}
+.rev .stars{display:flex;gap:2px;color:#F2B53C}.rev .stars .icon{width:17px;height:17px}
+.rev p{color:var(--ink-2);font-size:1rem;line-height:1.6;flex:1}
+.rev .who{display:flex;align-items:center;gap:.75rem}
+.rev .who .av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:var(--font-display);font-weight:700;color:var(--ink);flex:none}
+.rev .who b{font-family:var(--font-display);font-weight:700;font-size:.95rem;display:block;line-height:1.2}
+.rev .who span{font-size:.78rem;color:var(--muted)}
+.rev-note{text-align:center;margin-top:2rem;font-size:.8rem;color:var(--muted);font-style:italic}
+
+/* ============================ CONTACT / BOOKING ============================ */
+.contact{background:var(--bg-2);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+.contact-info h2{font-size:clamp(2rem,4.4vw,3.2rem);margin-top:1.1rem}
+.contact-info h2 em{font-style:normal;color:var(--lime-deep)}
+.contact-info .lead{color:var(--ink-2);font-size:1.05rem;margin-top:1rem}
+.info-list{margin-top:1.9rem;display:grid;gap:1.1rem}
+.info-row{display:flex;align-items:flex-start;gap:.9rem}
+.info-row .ic{width:46px;height:46px;border-radius:12px;background:var(--ink);color:var(--lime);display:grid;place-items:center;flex:none}
+.info-row .ic .icon{width:22px;height:22px}
+.info-row .t{font-family:var(--font-display);font-weight:600;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.info-row .v{font-size:1.04rem;color:var(--ink);font-weight:500}
+.info-row a.v:hover{color:var(--lime-deep)}
+.map-card{margin-top:1.6rem;position:relative;border-radius:var(--r-md);overflow:hidden;min-height:160px;border:1px solid var(--line)}
+.map-card svg{width:100%;height:100%;display:block}
+.map-card .open-map{position:absolute;right:.8rem;bottom:.8rem}
+
+.book-card{background:var(--ink);color:#EDE7D9;border-radius:var(--r-lg);padding:clamp(1.7rem,3vw,2.6rem);box-shadow:var(--sh);position:relative;overflow:hidden}
+.book-card::before{content:"";position:absolute;inset:0;background:var(--grain);background-size:160px;opacity:.06;pointer-events:none;mix-blend-mode:overlay}
+.book-card .bc-in{position:relative;z-index:2}
+.book-card h3{color:#fff;font-size:1.7rem}
+.book-card .sub{color:rgba(237,231,217,.65);font-size:.95rem;margin-top:.4rem}
+.form{margin-top:1.6rem;display:grid;gap:1rem}
+.field{display:flex;flex-direction:column;gap:.4rem}
+.field.two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.field label{font-family:var(--font-display);font-weight:500;font-size:.78rem;letter-spacing:.06em;color:rgba(237,231,217,.8)}
+.field .req{color:var(--lime)}
+.field input,.field select,.field textarea{border:1.5px solid rgba(255,255,255,.16);border-radius:12px;padding:.85em .95em;background:rgba(255,255,255,.05);color:#fff;transition:border-color .2s,box-shadow .2s,background .2s;width:100%}
+.field input::placeholder,.field textarea::placeholder{color:rgba(237,231,217,.4)}
+.field select{color:#fff}
+.field select option{color:#17160F}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--lime);box-shadow:0 0 0 3px rgba(190,242,62,.22);background:rgba(255,255,255,.08)}
+.field textarea{resize:vertical;min-height:76px}
+.field.invalid input,.field.invalid select{border-color:#FF8A6B;box-shadow:0 0 0 3px rgba(255,138,107,.22)}
+.err{display:none;color:#FFB59B;font-size:.78rem;font-weight:600}
+.field.invalid .err{display:block}
+.phone-in{display:flex}
+.phone-in .cc{display:flex;align-items:center;padding:0 .85em;background:rgba(190,242,62,.14);border:1.5px solid rgba(255,255,255,.16);border-right:0;border-radius:12px 0 0 12px;font-weight:600;color:var(--lime)}
+.phone-in input{border-radius:0 12px 12px 0}
+.book-card .alt{margin-top:1rem;font-size:.84rem;color:rgba(237,231,217,.6);text-align:center}
+.book-card .alt a{color:var(--lime);font-weight:600}
+
+/* ============================ FOOTER ============================ */
+.footer{background:var(--ink);color:rgba(237,231,217,.66)}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:2rem;padding-block:clamp(3rem,5vw,4.5rem)}
+.foot-brand .brand .name{color:#fff}
+.foot-brand p{margin-top:1.1rem;font-size:.95rem;line-height:1.6;max-width:30ch}
+.foot-social{display:flex;gap:.6rem;margin-top:1.4rem}
+.foot-social a{width:40px;height:40px;border-radius:11px;border:1px solid rgba(255,255,255,.18);display:grid;place-items:center;color:rgba(237,231,217,.75);transition:.2s}
+.foot-social a:hover{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.foot-social .icon{width:18px;height:18px}
+.foot-col h4{font-family:var(--font-display);font-weight:600;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#fff;margin-bottom:1.1rem}
+.foot-col a{display:block;font-size:.95rem;padding:.32em 0;transition:color .2s}
+.foot-col a:hover{color:var(--lime)}
+.foot-news p{font-size:.92rem;line-height:1.55;margin-bottom:1rem}
+.news-form{display:flex;gap:.5rem}
+.news-form input{flex:1;min-width:0;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05);color:#fff;border-radius:11px;padding:.7em .9em}
+.news-form input::placeholder{color:rgba(237,231,217,.4)}
+.news-form input:focus{outline:0;border-color:var(--lime)}
+.news-form button{background:var(--lime);color:var(--ink);border-radius:11px;padding:0 1em;font-family:var(--font-display);font-weight:600;display:grid;place-items:center}
+.news-form button .icon{width:20px;height:20px;stroke-width:2}
+.news-msg{font-size:.84rem;color:var(--lime);margin-top:.6rem;min-height:1.1em}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-block:1.4rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.82rem}
+.foot-bottom a{color:#fff;font-weight:600}
+.foot-bottom .note{color:rgba(237,231,217,.4)}
+
+/* ============================ FAB + MOBILE BAR ============================ */
+.fab{position:fixed;right:20px;bottom:24px;z-index:90;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25D366;color:#0a3a1f;box-shadow:0 14px 34px rgba(37,211,102,.45);transition:transform .25s var(--ease)}
+.fab:hover{transform:scale(1.08) translateY(-2px)}.fab .icon{width:28px;height:28px;stroke-width:1.7}
+.fab .ping{position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;animation:ping 2.4s ease-out infinite;pointer-events:none}
+@keyframes ping{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.65);opacity:0}}
+.mobile-bar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:95;background:rgba(244,239,230,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:.5rem;grid-template-columns:1fr 1fr 1.25fr;gap:.5rem}
+.mobile-bar a{display:flex;flex-direction:column;align-items:center;gap:2px;padding:.5em;border-radius:12px;font-family:var(--font-display);font-size:.68rem;font-weight:600;color:var(--ink-2)}
+.mobile-bar a .icon{width:20px;height:20px}
+.mobile-bar a.book{background:var(--lime);color:var(--ink)}
+
+/* ============================ ILLUSTRATED PANELS (photo-free) ============================ */
+.shot.ph{display:grid;place-items:center;background:linear-gradient(150deg,#EFF4DD 0%,#F6E9D1 100%)}
+.ph-ic .icon{width:clamp(120px,34%,196px);height:auto;aspect-ratio:1;color:var(--ink);opacity:.9;stroke-width:1.05}
+.cat{background:linear-gradient(155deg,#24221B,#15140E);border:0}
+.cat-ic{position:absolute;top:-14px;right:-14px;z-index:1;color:var(--lime);opacity:.5;transition:transform .55s var(--ease-out),opacity .3s;pointer-events:none}
+.cat-ic .icon{width:118px;height:118px;stroke-width:1.05}
+.cat:nth-child(1) .cat-ic .icon{width:188px;height:188px}
+.cat:hover .cat-ic{transform:scale(1.07) rotate(-5deg);opacity:.72}
+.prod-media{background:linear-gradient(150deg,var(--bg-2),var(--warm));display:grid;place-items:center}
+.prod-ic{color:var(--lime-deep);opacity:.92;transition:transform .55s var(--ease-out)}
+.prod-ic .icon{width:60px;height:60px;stroke-width:1.15}
+.prod:hover .prod-ic{transform:scale(1.1) rotate(-4deg)}
+.prod-foot .prod-book{flex:1;justify-content:center}
+
+/* ============================ RESPONSIVE ============================ */
+@media (max-width:980px){
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:2.4rem}
+  .hero-media,.about-media{max-width:480px}
+  .prod-grid{grid-template-columns:1fr 1fr}
+  .feat-grid{grid-template-columns:1fr 1fr}
+  .foot-top{grid-template-columns:1fr 1fr;gap:2.2rem}
+}
+@media (max-width:760px){
+  .nav,.header-call{display:none}
+  .hamburger{display:grid}
+  .stats{grid-template-columns:1fr 1fr;gap:1.4rem 0}
+  .stat:nth-child(2){border-right:0}
+  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line);padding-bottom:1.4rem}
+  .cat-grid{grid-template-columns:1fr 1fr;grid-auto-rows:160px}
+  .cat:nth-child(1){grid-column:span 2;grid-row:span 1}
+  .rev-grid{grid-template-columns:1fr}
+  .feat-grid{grid-template-columns:1fr}
+  .promo .promo-msg .hide-sm{display:none}
+  .mobile-bar{display:grid} .fab{display:none}
+  body{padding-bottom:74px}
+  .foot-top{grid-template-columns:1fr;gap:2rem}
+  .foot-bottom{flex-direction:column;align-items:flex-start;gap:.5rem}
+}
+@media (max-width:520px){
+  .prod-grid{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:1fr;grid-auto-rows:170px}
+  .cat:nth-child(1){grid-column:span 1}
+  .field.two{grid-template-columns:1fr}
+  .hero-trust .div{display:none}
+}
+
+/* ============================ REDUCED MOTION ============================ */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1!important;transform:none!important;transition:none}
+  [data-anim],.hero-media[data-anim]{opacity:1!important;transform:none!important;animation:none}
+  .tick{animation:none}
+  .fab .ping{animation:none;display:none}
+  *{transition-duration:.001ms!important}
+}
+
+  @media(max-width:760px){
+    .nav .btn,.btn.header-book{min-height:40px!important;padding:9px 18px!important;font-size:.82rem!important;white-space:nowrap!important;}
+  }
+  @media(max-width:430px){
+    .nav .btn,.btn.header-book{min-height:36px!important;padding:7px 14px!important;font-size:.78rem!important;}
+  }
+
+  @media(max-width:760px){
+    body{font-size:16.5px;}
+    .stat span,.stat b{color:var(--ink)!important;}
+  }
+
+  /* Crown readability */
+  @media(max-width:760px){
+    :root{--muted:#5a5446;}
+    body{font-size:16.5px;}
+    .stat span,.muted,.label,.sub{color:var(--muted)!important;}
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ===== SVG SPRITE ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-crown" viewBox="0 0 24 24"><path d="M4 18 L4 8 L8.3 11.5 L12 6 L15.7 11.5 L20 8 L20 18 Z"/><path d="M4 15.4h16"/></symbol>
+<symbol id="i-tooth" viewBox="0 0 24 24"><path d="M8 4.4c-2 0-3.3 1.5-3.3 3.4 0 1.5.5 2.5.9 3.9.5 1.7.7 4.2 1.7 7.1.4 1.2 1.4 1.2 1.7-.1.2-1 .5-2 1.1-2s.9 1 1.1 2c.3 1.3 1.3 1.3 1.7.1 1-2.9 1.2-5.4 1.7-7.1.4-1.4.9-2.4.9-3.9 0-1.9-1.3-3.4-3.3-3.4-1.2 0-1.9.5-2.6.5s-1.4-.5-2.6-.5z"/></symbol>
+<symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14c1 1.6 2.4 2.4 4 2.4s3-.8 4-2.4"/><path d="M9 9.6v.8M15 9.6v.8"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.6 5L18 9.6 13.6 11 12 16l-1.6-5L6 9.6 10.4 8z"/><path d="M18.4 14l.6 2 2 .6-2 .6-.6 2-.6-2-2-.6 2-.6z"/></symbol>
+<symbol id="i-braces" viewBox="0 0 24 24"><path d="M3 11.5c0 4 3.5 7 9 7s9-3 9-7"/><path d="M3 11.5h18"/><path d="M7.5 10v3M12 9.5v4M16.5 10v3"/></symbol>
+<symbol id="i-implant" viewBox="0 0 24 24"><path d="M12 3.5v13"/><path d="M8.5 6.5h7M9 9.5h6M9.5 12.5h5"/><path d="M12 16.5l-2.2 4h4.4z"/></symbol>
+<symbol id="i-balloon" viewBox="0 0 24 24"><path d="M12 3.5c3 0 5 2.3 5 5.1 0 3.4-3 6.4-5 6.4s-5-3-5-6.4C7 5.8 9 3.5 12 3.5z"/><path d="M12 15v2.2c0 1-1.2 1.2-1.2 2.3"/></symbol>
+<symbol id="i-arrow-r" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 4h3l1.5 4-2 1.5a11 11 0 0 0 4.5 4.5l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A15 15 0 0 1 4.5 6.2 2 2 0 0 1 6.5 4z"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.2l2.6 5.3 5.8.8-4.2 4.1 1 5.8L12 16.9 6.9 19.2l1-5.8L3.7 9.3l5.8-.8z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4 4 10-10"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M12 12.5a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M4.5 21c0-4.1 3.4-7 7.5-7s7.5 2.9 7.5 7"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2.4"/><path d="M4 7l8 6 8-6"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7.5V12l3 2"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M4.5 19.5l1.3-3.6A7.3 7.3 0 1 1 8 18.1z"/><path d="M9 11c.4 1.2 1.6 2 3 2s2.6-.8 3-2"/></symbol>
+<symbol id="i-calendar" viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="15" rx="2.6"/><path d="M4 10h16M8.5 3.5v3.6M15.5 3.5v3.6"/></symbol>
+<symbol id="i-feather" viewBox="0 0 24 24"><path d="M19.5 5C12 5 6 10 5 19c0 0 5-1 8-4l6.5-6.5z"/><path d="M9.5 14.5l5-5M5 19l4-4"/></symbol>
+<symbol id="i-tag" viewBox="0 0 24 24"><path d="M4 13.2l6.8 6.8 9-9V4.4h-6.6z"/><circle cx="8.4" cy="8.4" r="1.3"/></symbol>
+<symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3 5 13.5h5.5L9 21l8-10.5h-5.5z"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 5 3 7.6 7 9 4-1.4 7-4 7-9V6z"/><path d="M9 11.5l2 2 4-4"/></symbol>
+<symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3.5" y="6.5" width="17" height="12" rx="2.6"/><path d="M3.5 10.2h17"/><circle cx="16.4" cy="14" r="1.2" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+<symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+<symbol id="i-fb" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4.5"/><path d="M14 8.4h-1.2c-.9 0-1.6.7-1.6 1.8V20"/><path d="M9.9 12.6h4.1"/></symbol>
+<symbol id="i-ig" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></symbol>
+</defs></svg>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ===== PROMO BAR ===== -->
+<div class="promo">
+  <div class="container promo-in">
+    <span class="promo-msg"><span class="dot"></span><b>New patients</b> <span class="hide-sm">— complimentary first scan &amp; consult this month in R.A. Puram</span></span>
+    <a href="tel:+919042016016"><svg class="icon"><use href="#i-phone"/></svg> +91 90420 16016</a>
+  </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="container header-in">
+    <a class="brand" href="#home" aria-label="Crown Dental Co. — home">
+      <span class="mark"><svg class="icon"><use href="#i-crown"/></svg></span>
+      <span class="name">Crown Dental <span>Co.</span></span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#treatments" data-spy="treatments">Treatments</a>
+      <a href="#why" data-spy="why">Why us</a>
+      <a href="#about" data-spy="about">About</a>
+      <a href="#reviews" data-spy="reviews">Reviews</a>
+      <a href="#contact" data-spy="contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a class="header-call" href="tel:+919042016016"><svg class="icon"><use href="#i-phone"/></svg> +91 90420 16016</a>
+      <a class="btn btn-lime btn-sm" href="#contact">Book visit</a>
+    </div>
+    <button class="hamburger" id="nav-open" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><svg class="icon"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<!-- ===== MOBILE NAV ===== -->
+<div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <div class="mn-head">
+    <a class="brand" href="#home"><span class="mark"><svg class="icon"><use href="#i-crown"/></svg></span><span class="name">Crown Dental <span>Co.</span></span></a>
+    <button class="hamburger" id="nav-close" aria-label="Close menu" style="display:grid"><svg class="icon"><use href="#i-close"/></svg></button>
+  </div>
+  <a class="mn-link" href="#treatments">Treatments <svg class="icon"><use href="#i-arrow-r"/></svg></a>
+  <a class="mn-link" href="#why">Why us <svg class="icon"><use href="#i-arrow-r"/></svg></a>
+  <a class="mn-link" href="#about">About <svg class="icon"><use href="#i-arrow-r"/></svg></a>
+  <a class="mn-link" href="#reviews">Reviews <svg class="icon"><use href="#i-arrow-r"/></svg></a>
+  <a class="mn-link" href="#contact">Contact <svg class="icon"><use href="#i-arrow-r"/></svg></a>
+  <div class="mn-cta">
+    <a class="btn btn-lime btn-block" href="#contact">Book a visit</a>
+    <a class="btn btn-ghost btn-block" href="tel:+919042016016"><svg class="icon"><use href="#i-phone"/></svg> +91 90420 16016</a>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <div class="hero-eyebrow"><span class="eyebrow" data-anim style="--ad:.05s">Modern dentistry · Chennai</span></div>
+      <h1 data-anim style="--ad:.12s">Everything your <span class="hl">smile</span> needs, in one calm place.</h1>
+      <p class="sub" data-anim style="--ad:.22s">From routine check-ups to whitening, clear aligners and implants — Crown Dental Co. brings every treatment under one warm, unhurried roof in R.A. Puram, Chennai.</p>
+      <div class="hero-cta" data-anim style="--ad:.32s">
+        <a class="btn btn-lime" href="#contact">Book a visit <svg class="icon"><use href="#i-arrow-r"/></svg></a>
+        <a class="btn btn-ghost" href="#treatments">Browse treatments</a>
+      </div>
+      <div class="hero-trust" data-anim style="--ad:.42s">
+        <span class="ht"><svg class="icon fill"><use href="#i-star"/></svg> <b>4.9</b> Google rating</span>
+        <span class="div"></span>
+        <span class="ht"><b>12,400+</b> smiles cared for</span>
+        <span class="div"></span>
+        <span class="ht"><svg class="icon"><use href="#i-shield"/></svg> Cashless insurance</span>
+      </div>
+    </div>
+    <div class="hero-media" data-anim style="--ad:.2s">
+      <div class="shot ph"><span class="ph-ic"><svg class="icon"><use href="#i-crown"/></svg></span></div>
+      <div class="float-card">
+        <span class="fc-ic"><svg class="icon fill"><use href="#i-star"/></svg></span>
+        <div>
+          <span class="stars"><svg class="icon fill"><use href="#i-star"/></svg><svg class="icon fill"><use href="#i-star"/></svg><svg class="icon fill"><use href="#i-star"/></svg><svg class="icon fill"><use href="#i-star"/></svg><svg class="icon fill"><use href="#i-star"/></svg></span>
+          <b>4.9 / 5</b><span>1,200+ verified reviews</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST STRIP + MARQUEE ===== -->
+<section class="trust" aria-label="At a glance">
+  <div class="container">
+    <div class="stats">
+      <div class="stat reveal"><b><span data-count="12">0</span></b><span>Years in Chennai</span></div>
+      <div class="stat reveal" style="--d:.06s"><b><span data-count="12400">0</span><span class="accent">+</span></b><span>Smiles cared for</span></div>
+      <div class="stat reveal" style="--d:.12s"><b><span data-count="4.9" data-decimals="1">0</span><span class="accent">★</span></b><span>Average rating</span></div>
+      <div class="stat reveal" style="--d:.18s"><b><span data-count="60">0</span><span class="accent">+</span></b><span>Cashless insurers</span></div>
+    </div>
+  </div>
+  <div class="marquee">
+    <span class="mlabel">Cashless at</span>
+    <div class="mwrap"><div class="tick">
+      <span>Star Health</span><span>ICICI Lombard</span><span>HDFC Ergo</span><span>Niva Bupa</span><span>Care Health</span><span>Aditya Birla</span><span>Tata AIG</span><span>Bajaj Allianz</span>
+      <span>Star Health</span><span>ICICI Lombard</span><span>HDFC Ergo</span><span>Niva Bupa</span><span>Care Health</span><span>Aditya Birla</span><span>Tata AIG</span><span>Bajaj Allianz</span>
+    </div></div>
+  </div>
+</section>
+
+<!-- ===== TREATMENTS (browse + popular) ===== -->
+<section class="section" id="treatments">
+  <div class="container">
+    <div class="sec-top reveal">
+      <div class="sec-head">
+        <span class="eyebrow">Browse treatments</span>
+        <h2>Find what your <em>smile</em> needs.</h2>
+        <p class="lead">Six ways we help — tap any to see what's involved and book a visit in seconds.</p>
+      </div>
+      <a class="link-arrow" href="#contact">See all &amp; book <svg class="icon"><use href="#i-arrow-r"/></svg></a>
+    </div>
+
+    <div class="cat-grid">
+      <a class="cat reveal" href="#contact">
+        <span class="cat-ic"><svg class="icon"><use href="#i-spark"/></svg></span>
+        <div class="cat-body"><div><div class="cat-name">Cosmetic &amp; whitening</div><div class="cat-sub">Whitening · veneers · smile design</div></div><span class="cat-arrow"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></div>
+      </a>
+      <a class="cat reveal" href="#contact" style="--d:.05s">
+        <span class="cat-ic"><svg class="icon"><use href="#i-tooth"/></svg></span>
+        <div class="cat-body"><div><div class="cat-name">Routine &amp; general</div><div class="cat-sub">Check-ups · cleanings · fillings</div></div><span class="cat-arrow"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></div>
+      </a>
+      <a class="cat reveal" href="#contact" style="--d:.1s">
+        <span class="cat-ic"><svg class="icon"><use href="#i-braces"/></svg></span>
+        <div class="cat-body"><div><div class="cat-name">Orthodontics</div><div class="cat-sub">Braces · clear aligners</div></div><span class="cat-arrow"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></div>
+      </a>
+      <a class="cat reveal" href="#contact">
+        <span class="cat-ic"><svg class="icon"><use href="#i-crown"/></svg></span>
+        <div class="cat-body"><div><div class="cat-name">Implants &amp; crowns</div><div class="cat-sub">Implants · crowns · bridges</div></div><span class="cat-arrow"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></div>
+      </a>
+      <a class="cat reveal" href="#contact" style="--d:.05s">
+        <span class="cat-ic"><svg class="icon"><use href="#i-balloon"/></svg></span>
+        <div class="cat-body"><div><div class="cat-name">Kids' dentistry</div><div class="cat-sub">Gentle care from age one</div></div><span class="cat-arrow"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></div>
+      </a>
+      <a class="cat reveal" href="#contact" style="--d:.1s">
+        <span class="cat-ic"><svg class="icon"><use href="#i-bolt"/></svg></span>
+        <div class="cat-body"><div><div class="cat-name">Emergency care</div><div class="cat-sub">Same-day relief, 7 days</div></div><span class="cat-arrow"><svg class="icon"><use href="#i-arrow-ur"/></svg></span></div>
+      </a>
+    </div>
+
+    <div class="reveal" style="margin-top:clamp(3rem,5vw,4.5rem)">
+      <span class="eyebrow">Most booked</span>
+      <h2 style="font-size:clamp(1.7rem,3.6vw,2.7rem);margin-top:1rem">Our most-<em>booked</em> treatments.</h2>
+    </div>
+    <div class="prod-grid">
+      <article class="prod reveal">
+        <div class="prod-media"><span class="prod-ic"><svg class="icon"><use href="#i-tooth"/></svg></span><span class="prod-tag">Everyday</span><span class="prod-rate"><svg class="icon fill"><use href="#i-star"/></svg>4.9</span></div>
+        <div class="prod-body"><h3>Routine check-up &amp; clean</h3><p>Exam, scale, polish &amp; digital X-rays, all in one visit.</p><div class="prod-foot"><a class="prod-book" href="#contact">Book <svg class="icon"><use href="#i-arrow-r"/></svg></a></div></div>
+      </article>
+      <article class="prod reveal" style="--d:.05s">
+        <div class="prod-media"><span class="prod-ic"><svg class="icon"><use href="#i-spark"/></svg></span><span class="prod-tag">Cosmetic</span><span class="prod-rate"><svg class="icon fill"><use href="#i-star"/></svg>4.8</span></div>
+        <div class="prod-body"><h3>Professional whitening</h3><p>Brighten several shades in a single, comfortable sitting.</p><div class="prod-foot"><a class="prod-book" href="#contact">Book <svg class="icon"><use href="#i-arrow-r"/></svg></a></div></div>
+      </article>
+      <article class="prod reveal" style="--d:.1s">
+        <div class="prod-media"><span class="prod-ic"><svg class="icon"><use href="#i-braces"/></svg></span><span class="prod-tag">Popular</span><span class="prod-rate"><svg class="icon fill"><use href="#i-star"/></svg>4.9</span></div>
+        <div class="prod-body"><h3>Clear aligners</h3><p>Discreet, removable and monitored by your dentist throughout.</p><div class="prod-foot"><a class="prod-book" href="#contact">Book <svg class="icon"><use href="#i-arrow-r"/></svg></a></div></div>
+      </article>
+      <article class="prod reveal" style="--d:.15s">
+        <div class="prod-media"><span class="prod-ic"><svg class="icon"><use href="#i-implant"/></svg></span><span class="prod-tag">Restore</span><span class="prod-rate"><svg class="icon fill"><use href="#i-star"/></svg>4.9</span></div>
+        <div class="prod-body"><h3>Single tooth implant</h3><p>A permanent, natural-feeling replacement for a missing tooth.</p><div class="prod-foot"><a class="prod-book" href="#contact">Book <svg class="icon"><use href="#i-arrow-r"/></svg></a></div></div>
+      </article>
+    </div>
+    
+  </div>
+</section>
+
+<!-- ===== WHY (dark band) ===== -->
+<section class="why" id="why">
+  <div class="container inner">
+    <div class="sec-head reveal">
+      <span class="eyebrow on-dark">Why Crown</span>
+      <h2>Dentistry that respects your <em>time</em>, comfort &amp; wallet.</h2>
+      <p class="lead">Six things we get right, every single visit.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat reveal"><div class="fic"><svg class="icon"><use href="#i-feather"/></svg></div><h3>Gentle, painless care</h3><p>Numbing that actually works, sedation when you want it, and zero judgement — ever.</p></div>
+      <div class="feat reveal" style="--d:.05s"><div class="fic"><svg class="icon"><use href="#i-tag"/></svg></div><h3>Transparent pricing</h3><p>A clear written quote before anything begins. No surprises on the bill.</p></div>
+      <div class="feat reveal" style="--d:.1s"><div class="fic"><svg class="icon"><use href="#i-crown"/></svg></div><h3>Same-day crowns</h3><p>Digitally scanned, designed and fitted in a single appointment.</p></div>
+      <div class="feat reveal"><div class="fic"><svg class="icon"><use href="#i-shield"/></svg></div><h3>Sterile &amp; safe</h3><p>Hospital-grade sterilisation and single-use kits as standard.</p></div>
+      <div class="feat reveal" style="--d:.05s"><div class="fic"><svg class="icon"><use href="#i-clock"/></svg></div><h3>Evenings &amp; weekends</h3><p>Open till late and on Sundays, built around your schedule.</p></div>
+      <div class="feat reveal" style="--d:.1s"><div class="fic"><svg class="icon"><use href="#i-wallet"/></svg></div><h3>0% EMI available</h3><p>Spread bigger treatments over easy, interest-free monthly instalments.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT / DOCTOR ===== -->
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="about-media reveal">
+      <div class="shot ph"><span class="ph-ic"><svg class="icon"><use href="#i-smile"/></svg></span></div>
+      <div class="badge"><b>12</b><span>years caring<br>for Chennai</span></div>
+    </div>
+    <div class="about-text reveal" style="--d:.1s">
+      <span class="eyebrow">About the clinic</span>
+      <h2>One team, one roof, <em>every</em> treatment.</h2>
+      <p>Crown Dental Co. was built so a family never has to clinic-hop again. From a child's first check-up to aligners, implants and cosmetic work, everything happens in-house in R.A. Puram — with the same gentle team who already know you.</p>
+      <ul class="about-points">
+        <li><span class="ck"><svg class="icon"><use href="#i-check"/></svg></span> Specialists across orthodontics, implants &amp; cosmetics — all under one roof</li>
+        <li><span class="ck"><svg class="icon"><use href="#i-check"/></svg></span> Digital scanners and same-day crowns, so you make fewer trips</li>
+        <li><span class="ck"><svg class="icon"><use href="#i-check"/></svg></span> Honest, written quotes with interest-free EMI</li>
+      </ul>
+      <div class="doc-card">
+        <span class="av"><svg class="icon"><use href="#i-doc"/></svg></span>
+        <div><b>Dr. Vikram Shenoy</b><span>BDS, MDS — Prosthodontics &amp; Implantology · Clinical Director</span></div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="section" id="reviews" style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div class="sec-head reveal" style="text-align:center;margin-inline:auto">
+      <span class="eyebrow">Reviews</span>
+      <h2>Loved by <em>12,000+</em> Chennai smiles.</h2>
+      <p class="lead" style="margin-inline:auto">A 4.9 average across Google &amp; Practo, from verified visits.</p>
+    </div>
+    <div class="rev-grid">
+      <div class="rev reveal">
+        <span class="stars" aria-hidden="true"><svg class="icon fill"><use href="#i-star"/></svg><svg class="icon fill"><use href="#i-star"/></svg><svg class="icon fill"><use href="#i-star"/></svg><svg class="icon fill"><use href="#i-star"/></svg><svg class="icon fill"><use href="#i-star"/></svg></span>
+        <p>Booked an implant consult online and had a written quote the same day. The whole team is warm and weirdly un-scary.</p>
+        <div class="who"><span class="av" style="background:#BEF23E">AD</span><span><b>Anjali D.</b><span>Implant &amp; crown</span></span></div>
+      </div>
+      <div class="rev reveal" style="--d:.07s">
+        <span class="stars" aria-hidden="true"><svg class="icon fill"><use href="#i-star"/></svg><svg class="icon fill"><use href="#i-star"/></svg><svg class="icon fill"><use href="#i-star"/></svg><svg class="icon fill"><use href="#i-star"/></svg><svg class="icon fill"><use href="#i-star"/></svg></span>
+        <p>Brought both kids and myself in the same evening. One place, late slots, zero drama — exactly what a busy family needs.</p>
+        <div class="who"><span class="av" style="background:#D7E8A0">RM</span><span><b>Rohit M.</b><span>Family visit</span></span></div>
+      </div>
+      <div class="rev reveal" style="--d:.14s">
+        <span class="stars" aria-hidden="true"><svg class="icon fill"><use href="#i-star"/></svg><svg class="icon fill"><use href="#i-star"/></svg><svg class="icon fill"><use href="#i-star"/></svg><svg class="icon fill"><use href="#i-star"/></svg><svg class="icon fill"><use href="#i-star"/></svg></span>
+        <p>My aligners are nearly done and Dr. Shenoy has been brilliant the whole way. The 0% EMI made it genuinely affordable.</p>
+        <div class="who"><span class="av" style="background:#E9C7A2">FS</span><span><b>Fatima S.</b><span>Clear aligners</span></span></div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- ===== CONTACT / BOOKING ===== -->
+<section class="section contact" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-info reveal">
+      <span class="eyebrow">Visit us</span>
+      <h2>Book your first visit in <em>R.A. Puram</em>.</h2>
+      <p class="lead">Tell us what you need and we'll confirm on WhatsApp, usually within a couple of hours.</p>
+      <div class="info-list">
+        <div class="info-row"><span class="ic"><svg class="icon"><use href="#i-pin"/></svg></span><div><div class="t">Clinic</div><div class="v">2nd Floor, 14 Greenways Road,<br>R.A. Puram, Chennai 600028</div></div></div>
+        <div class="info-row"><span class="ic"><svg class="icon"><use href="#i-phone"/></svg></span><div><div class="t">Phone</div><a class="v" href="tel:+919042016016">+91 90420 16016</a></div></div>
+        <div class="info-row"><span class="ic"><svg class="icon"><use href="#i-mail"/></svg></span><div><div class="t">Email</div><a class="v" href="mailto:hello@crowndentalco.in">hello@crowndentalco.in</a></div></div>
+        <div class="info-row"><span class="ic"><svg class="icon"><use href="#i-clock"/></svg></span><div><div class="t">Hours</div><div class="v">Mon–Sat 9:30–8:30 · Sun 10:00–3:00</div></div></div>
+      </div>
+      <div class="map-card">
+        <svg viewBox="0 0 500 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="500" height="200" fill="#EFE8DA"/>
+          <path d="M0 64 H500 M0 150 H500" stroke="#E2DAC9" stroke-width="9"/>
+          <path d="M150 0 V200 M340 0 V200" stroke="#E2DAC9" stroke-width="9"/>
+          <path d="M0 104 H500" stroke="#D8CFBC" stroke-width="15"/>
+          <rect x="30" y="22" width="80" height="28" rx="4" fill="#E6DECF"/>
+          <rect x="380" y="74" width="92" height="58" rx="4" fill="#E6DECF"/>
+          <rect x="180" y="162" width="130" height="32" rx="4" fill="#E6DECF"/>
+          <circle cx="250" cy="98" r="17" fill="#A4D726"/><circle cx="250" cy="98" r="6" fill="#17160F"/>
+          <path d="M250 115 L241 130 H259 Z" fill="#A4D726"/>
+        </svg>
+        <span class="prod-tag" style="position:absolute;top:.8rem;left:.8rem">Replace · embed your Google Map</span>
+        <a class="btn btn-ink btn-sm open-map" href="https://www.google.com/maps/search/?api=1&amp;query=Greenways+Road+R.A.+Puram+Chennai" target="_blank" rel="noopener"><svg class="icon"><use href="#i-pin"/></svg> Get directions</a>
+      </div>
+    </div>
+    <div class="book-card reveal" style="--d:.1s">
+      <div class="bc-in">
+        <h3>Request an appointment</h3>
+        <p class="sub">No payment now · free to reschedule anytime.</p>
+        <form class="form" id="book-form" novalidate>
+          <div class="field">
+            <label for="bk-name">Your name <span class="req">*</span></label>
+            <input id="bk-name" name="name" type="text" autocomplete="name" placeholder="e.g. Anjali Raman">
+            <span class="err" id="f-name">Please enter your name.</span>
+          </div>
+          <div class="field">
+            <label for="bk-mobile">Mobile number <span class="req">*</span></label>
+            <div class="phone-in"><span class="cc">+91</span><input id="bk-mobile" name="mobile" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile"></div>
+            <span class="err" id="f-mobile">Enter a valid 10-digit Indian mobile number.</span>
+          </div>
+          <div class="field two">
+            <div class="field" style="gap:.4rem">
+              <label for="bk-service">Treatment</label>
+              <select id="bk-service" name="service"><option>General check-up</option><option>Teeth whitening</option><option>Clear aligners</option><option>Braces</option><option>Implant / crown</option><option>Kids' dentistry</option><option>Emergency / toothache</option><option>Something else</option></select>
+            </div>
+            <div class="field" style="gap:.4rem">
+              <label for="bk-time">Preferred time</label>
+              <select id="bk-time" name="time"><option>As soon as possible</option><option>Weekday morning</option><option>Weekday evening</option><option>Weekend</option></select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="bk-msg">Message (optional)</label>
+            <textarea id="bk-msg" name="msg" placeholder="Anything we should know — a nervous child, a specific tooth, insurance…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-lime btn-block"><svg class="icon"><use href="#i-chat"/></svg> Send via WhatsApp</button>
+          <p class="alt">Prefer to talk? Call <a href="tel:+919042016016">+91 90420 16016</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="#home" aria-label="Crown Dental Co. — home">
+          <span class="mark" style="background:var(--lime);color:var(--ink)"><svg class="icon"><use href="#i-crown"/></svg></span>
+          <span class="name">Crown Dental <span>Co.</span></span>
+        </a>
+        <p>Modern, all-in-one dentistry in R.A. Puram, Chennai — every treatment under one calm roof.</p>
+        <div class="foot-social">
+          <a href="#" aria-label="Facebook"><svg class="icon"><use href="#i-fb"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg class="icon"><use href="#i-ig"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Treatments</h4>
+        <a href="#treatments">Check-ups &amp; cleaning</a><a href="#treatments">Teeth whitening</a><a href="#treatments">Clear aligners</a><a href="#treatments">Implants &amp; crowns</a><a href="#treatments">Kids' dentistry</a><a href="#treatments">Emergency care</a>
+      </div>
+      <div class="foot-col">
+        <h4>Clinic</h4>
+        <a href="#about">About us</a><a href="#why">Why Crown</a><a href="#reviews">Reviews</a><a href="#contact">Book a visit</a><a href="#contact">Contact &amp; hours</a>
+      </div>
+      <div class="foot-news">
+        <h4>Smile tips &amp; offers</h4>
+        <p>Join for occasional care tips and member-only offers. No spam, ever.</p>
+        <div class="news-form">
+          <input id="news-email" type="email" placeholder="you@email.com" aria-label="Email address">
+          <button id="news-btn" aria-label="Subscribe"><svg class="icon"><use href="#i-arrow-r"/></svg></button>
+        </div>
+        <div class="news-msg" id="news-msg" role="status"></div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> Crown Dental Co. · R.A. Puram, Chennai. Created by <a href="https://stellarhausmedia.com">stellarhausmedia.com</a></span>
+      
+    </div>
+  </div>
+</footer>
+</main>
+
+<!-- ===== FAB + MOBILE BAR ===== -->
+<a class="fab" href="https://wa.me/919042016016" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" data-wa><span class="ping" aria-hidden="true"></span><svg class="icon"><use href="#i-chat"/></svg></a>
+<nav class="mobile-bar" aria-label="Quick actions">
+  <a class="call" href="tel:+919042016016"><svg class="icon"><use href="#i-phone"/></svg> Call</a>
+  <a class="wa" href="https://wa.me/919042016016" target="_blank" rel="noopener" data-wa><svg class="icon"><use href="#i-chat"/></svg> WhatsApp</a>
+  <a class="book" href="#contact"><svg class="icon"><use href="#i-calendar"/></svg> Book</a>
+</nav>
+
+<script>
+(function(){
+  "use strict";
+  var CLINIC = "Crown Dental Co.";
+  var WA_NUMBER = "919042016016";
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $  = function(s, c){ return (c||document).querySelector(s); };
+  var $$ = function(s, c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
+
+  /* ---- placeholder photo fallback (swap to guaranteed source if primary fails) ---- */
+  $$("img[data-fallback]").forEach(function(img){
+    img.addEventListener("error", function(){
+      var fb = img.getAttribute("data-fallback");
+      if (fb){ img.removeAttribute("data-fallback"); img.src = fb; }
+    });
+  });
+
+  /* ---- year ---- */
+  var y = $("#year"); if (y) y.textContent = new Date().getFullYear();
+
+  /* ---- header scrolled ---- */
+  var header = $("#header");
+  function onScroll(){ if (header) header.classList.toggle("scrolled", window.scrollY > 8); }
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive:true });
+
+  /* ---- mobile nav ---- */
+  var mnav = $("#mobile-nav"), navOpen = $("#nav-open"), navClose = $("#nav-close");
+  function setNav(open){
+    if (!mnav) return;
+    mnav.classList.toggle("open", open);
+    mnav.setAttribute("aria-hidden", open ? "false" : "true");
+    if (navOpen) navOpen.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.classList.toggle("lock", open);
+  }
+  if (navOpen)  navOpen.addEventListener("click", function(){ setNav(true); });
+  if (navClose) navClose.addEventListener("click", function(){ setNav(false); });
+  $$(".mobile-nav a.mn-link, .mn-cta a").forEach(function(a){ a.addEventListener("click", function(){ setNav(false); }); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape") setNav(false); });
+
+  /* ---- count-up ---- */
+  (function(){
+    var nums = $$("[data-count]");
+    if (!nums.length) return;
+    function run(el){
+      var target = parseFloat(el.getAttribute("data-count"));
+      var dec = parseInt(el.getAttribute("data-decimals") || "0", 10);
+      if (reduce){ el.textContent = dec ? target.toFixed(dec) : Math.round(target).toLocaleString("en-IN"); return; }
+      var dur = 1500, t0 = null;
+      function step(ts){
+        if (!t0) t0 = ts;
+        var p = Math.min((ts - t0) / dur, 1);
+        var e = 1 - Math.pow(1 - p, 3);
+        var v = target * e;
+        el.textContent = dec ? v.toFixed(dec) : Math.round(v).toLocaleString("en-IN");
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    if (!("IntersectionObserver" in window)){ nums.forEach(run); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting){ run(en.target); io.unobserve(en.target); } });
+    }, { threshold: 0.6 });
+    nums.forEach(function(n){ io.observe(n); });
+  })();
+
+  /* ---- reveal on scroll ---- */
+  (function(){
+    var els = $$(".reveal");
+    if (!els.length) return;
+    if (reduce || !("IntersectionObserver" in window)){ els.forEach(function(el){ el.classList.add("in"); }); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    els.forEach(function(el){ io.observe(el); });
+  })();
+
+  /* ---- scroll-spy ---- */
+  (function(){
+    var links = $$(".nav a[data-spy]");
+    if (!links.length || !("IntersectionObserver" in window)) return;
+    var map = {};
+    links.forEach(function(a){ map[a.getAttribute("data-spy")] = a; });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){
+          links.forEach(function(a){ a.classList.remove("active"); });
+          var a = map[en.target.id]; if (a) a.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+    Object.keys(map).forEach(function(id){ var s = document.getElementById(id); if (s) io.observe(s); });
+  })();
+
+  /* ---- WhatsApp links (FAB + mobile bar) ---- */
+  (function(){
+    var msg = "Hi " + CLINIC + ", I'd like to book a dental appointment.";
+    var href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+    $$("[data-wa]").forEach(function(a){ a.setAttribute("href", href); });
+  })();
+
+  /* ---- booking form -> WhatsApp ---- */
+  (function(){
+    var form = $("#book-form");
+    if (!form) return;
+    var nameEl = $("#bk-name"), mobEl = $("#bk-mobile");
+    var mobRe = /^[6-9]\d{9}$/;
+
+    mobEl.addEventListener("input", function(){
+      mobEl.value = mobEl.value.replace(/\D/g, "").slice(0, 10);
+      clear(mobEl);
+    });
+    nameEl.addEventListener("input", function(){ clear(nameEl); });
+
+    function fieldOf(el){ return el.closest(".field"); }
+    function clear(el){ var f = fieldOf(el); if (f) f.classList.remove("invalid"); }
+    function flag(el){ var f = fieldOf(el); if (f) f.classList.add("invalid"); }
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var ok = true, first = null;
+      if (!nameEl.value.trim()){ flag(nameEl); ok = false; first = first || nameEl; }
+      if (!mobRe.test(mobEl.value.trim())){ flag(mobEl); ok = false; first = first || mobEl; }
+      if (!ok){ if (first) first.focus(); return; }
+
+      var svc = $("#bk-service"), tim = $("#bk-time"), msg = $("#bk-msg");
+      var lines = [
+        "Hi " + CLINIC + ", I'd like to book an appointment.",
+        "",
+        "Name: " + nameEl.value.trim(),
+        "Mobile: +91 " + mobEl.value.trim(),
+        "Treatment: " + (svc ? svc.value : ""),
+        "Preferred time: " + (tim ? tim.value : "")
+      ];
+      if (msg && msg.value.trim()) lines.push("Note: " + msg.value.trim());
+      var url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));
+      window.open(url, "_blank", "noopener");
+    });
+  })();
+
+  /* ---- newsletter (decorative) ---- */
+  (function(){
+    var btn = $("#news-btn"), inp = $("#news-email"), msg = $("#news-msg");
+    if (!btn || !inp || !msg) return;
+    var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    function submit(){
+      var v = inp.value.trim();
+      if (!re.test(v)){ msg.style.color = "#FFB59B"; msg.textContent = "Please enter a valid email."; inp.focus(); return; }
+      msg.style.color = "#BEF23E"; msg.textContent = "Thanks — you're on the list."; inp.value = "";
+    }
+    btn.addEventListener("click", submit);
+    inp.addEventListener("keydown", function(e){ if (e.key === "Enter"){ e.preventDefault(); submit(); } });
+  })();
+})();
+</script>
+</body>
+</html>

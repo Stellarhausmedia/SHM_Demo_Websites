@@ -1,0 +1,1290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ════════════════════════════════════════════════════════════════════
+     ACUTE — pain-first dentistry · Chennai
+     A Stellar Haus Media demo build · single-file, no dependencies
+     ────────────────────────────────────────────────────────────────────
+     ALGORITHMIC PHILOSOPHY — "RESOLUTION SIGNAL"
+     A nociceptive waveform is the only living thing on this page.
+     It begins erratic: layered value-noise octaves carrying sharp,
+     asymmetric spike trains — the shape of a tooth that will not let
+     you sleep. The visitor's scroll is the anaesthetic: progress
+     toward the booking section is mapped, eased, and fed back into
+     the system as falling amplitude and decaying spike probability,
+     until only a resting ~1.1 Hz pulse remains. Treatment, rendered.
+
+     Seeded & deterministic (mulberry32 + 1-D value noise). The seed
+     is 32 — one per adult tooth. Segment count, octave ratios and
+     spike periods are all multiples of it. Same seed, same pain,
+     same relief: reproducible like a good clinical outcome.
+
+     EDIT POINTS (search for "EDIT:"):
+       · phone numbers / WhatsApp link
+       · address & hours
+       · clinician name + portrait
+       · image URLs (verified Unsplash placeholders for now)
+     ════════════════════════════════════════════════════════════════ -->
+
+<title>ACUTE — Root Canals, Extractions & Dental Emergencies · Chennai</title>
+<meta name="description" content="Pain-first dentistry in Chennai. No veneers, no makeovers — root canals, wisdom teeth, TMJ and same-day emergencies, done under the microscope. Open till 9 pm.">
+<meta property="og:title" content="ACUTE — We don't do veneers. We end pain.">
+<meta property="og:description" content="Root canals, extractions and dental emergencies in Chennai. A clinician calls back within 10 minutes. Same-day chairs for genuine emergencies.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F2F0EA">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" fill="%23F2F0EA"/><rect x="3.5" y="3.5" width="33" height="33" fill="none" stroke="%2315130F" stroke-width="2"/><path d="M11 29 L20 10 L29 29" fill="none" stroke="%23E8390E" stroke-width="3.4"/></svg>'>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║ 01 · TOKENS — the entire visual system                             ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+:root{
+  /* monochrome chart */
+  --paper:   #F2F0EA;   /* gauze white          */
+  --paper-2: #EAE7DF;   /* recessed panel       */
+  --ink:     #15130F;   /* chart ink            */
+  --ink-2:   #2A2720;   /* soft ink             */
+  --muted:   #5D584F;   /* secondary text       */
+  --faint:   #8B857A;   /* big mono labels only */
+
+  /* the singular accent */
+  --red:      #E8390E;  /* signal red — display sizes        */
+  --red-deep: #C02B06;  /* signal red — small text, AA safe  */
+
+  /* structure */
+  --rule:        rgba(21,19,15,.92);
+  --rule-soft:   rgba(21,19,15,.16);
+  --rule-faint:  rgba(21,19,15,.08);
+
+  /* type */
+  --f-disp: 'Archivo', sans-serif;       /* font-stretch 125% */
+  --f-body: 'Archivo', sans-serif;
+  --f-mono: 'IBM Plex Mono', monospace;
+
+  /* rhythm */
+  --pad: clamp(20px, 4vw, 72px);
+  --maxw: 1680px;
+  --strip-h: 46px;                        /* fixed signal strip */
+
+  --ease-out: cubic-bezier(.19,1,.22,1);
+  --ease-soft: cubic-bezier(.22,.61,.36,1);
+}
+
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║ 02 · BASE                                                          ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+html,body{ margin:0; }
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font:400 17px/1.62 var(--f-body);
+  -webkit-font-smoothing:antialiased;
+  padding-bottom:var(--strip-h);
+}
+img{ display:block; max-width:100%; }
+a{ color:inherit; }
+::selection{ background:var(--ink); color:var(--paper); }
+
+.skip{
+  position:fixed; left:12px; top:-60px; z-index:120;
+  background:var(--ink); color:var(--paper);
+  font:500 12px/1 var(--f-mono); letter-spacing:.12em; text-transform:uppercase;
+  padding:12px 16px; text-decoration:none; transition:top .25s;
+}
+.skip:focus-visible{ top:12px; }
+:focus-visible{ outline:2px solid var(--red-deep); outline-offset:3px; }
+
+/* structural page frame — two verticals running the document */
+#page{
+  max-width:var(--maxw); margin:0 auto;
+  border-inline:1px solid var(--rule);
+}
+
+/* shared atoms */
+.wrap{ padding-inline:var(--pad); }
+.mono{
+  font:500 11px/1 var(--f-mono);
+  letter-spacing:.18em; text-transform:uppercase;
+}
+.mono--lg{ font-size:12px; }
+.filecode{ color:var(--muted); display:flex; align-items:center; gap:14px; }
+.filecode::before{ content:""; width:30px; height:1px; background:var(--red); }
+.sec{ border-top:1px solid var(--rule); }
+.sec-head{
+  display:flex; justify-content:space-between; align-items:center; gap:16px;
+  padding-block:18px; border-bottom:1px solid var(--rule-soft);
+}
+h1,h2,h3{ margin:0; font-family:var(--f-disp); font-stretch:125%; letter-spacing:-.022em; }
+.h-giant{ font-weight:800; font-size:clamp(44px, 7.9vw, 124px); line-height:.97; text-transform:uppercase; }
+.h-big  { font-weight:800; font-size:clamp(34px, 4.8vw, 76px);  line-height:1.0;  text-transform:uppercase; }
+.lead{ font-size:clamp(17px, 1.35vw, 21px); line-height:1.6; color:var(--ink-2); max-width:56ch; }
+.red{ color:var(--red); }
+
+/* struck word — the editorial refusal */
+.strike{ position:relative; white-space:nowrap; }
+.strike::after{
+  content:""; position:absolute; left:-2%; right:-2%; top:54%;
+  height:.075em; background:var(--red);
+  transform:rotate(-1.6deg) scaleX(var(--sx,0));
+  transform-origin:left center;
+  transition:transform .7s var(--ease-out) .65s;
+}
+.in .strike::after, .strike.in::after{ --sx:1; }
+
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║ 03 · CURSOR + SIGNAL STRIP (fixed chrome)                          ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+#cursor{ position:fixed; inset:0; z-index:110; pointer-events:none; display:none; }
+#cursor .dot,#cursor .ring{ position:absolute; top:0; left:0; will-change:transform; }
+#cursor .dot{
+  width:6px; height:6px; margin:-3px 0 0 -3px;
+  background:var(--red); border-radius:50%;
+}
+#cursor .ring{
+  width:38px; height:38px; margin:-19px 0 0 -19px;
+  border:1px solid var(--ink); border-radius:50%;
+  display:grid; place-items:center;
+  font:500 8.5px/1 var(--f-mono); letter-spacing:.14em; text-transform:uppercase;
+  color:var(--paper); background:transparent;
+  transition:width .3s var(--ease-soft), height .3s var(--ease-soft),
+             margin .3s var(--ease-soft), background-color .3s, border-color .3s;
+}
+#cursor.is-act .ring{
+  width:64px; height:64px; margin:-32px 0 0 -32px;
+  background:var(--ink); border-color:var(--ink);
+}
+#cursor.is-act .dot{ opacity:0; }
+#cursor .dot{ transition:opacity .2s; }
+body.cursor-on, body.cursor-on a, body.cursor-on button,
+body.cursor-on summary, body.cursor-on input{ cursor:none; }
+
+#strip{
+  position:fixed; left:0; right:0; bottom:0; z-index:100;
+  height:var(--strip-h);
+  background:var(--paper);
+  border-top:1px solid var(--rule);
+  display:grid; grid-template-columns:auto 1fr auto;
+  align-items:stretch;
+}
+#strip .cell{
+  display:flex; align-items:center; gap:10px;
+  padding-inline:16px; white-space:nowrap;
+}
+#strip .cell--l{ border-right:1px solid var(--rule-soft); color:var(--muted); }
+#strip .cell--r{ border-left:1px solid var(--rule-soft); }
+#strip .wave{ position:relative; }
+#strip canvas{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+#painPct{
+  font:500 13px/1 var(--f-mono); letter-spacing:.06em; color:var(--red-deep);
+  min-width:4ch; text-align:right;
+}
+#painState{ color:var(--muted); }
+
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║ 04 · HEADER                                                        ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+header{
+  position:sticky; top:0; z-index:90;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+}
+.nav{
+  display:flex; align-items:stretch; min-height:64px;
+}
+.brand{
+  display:flex; align-items:center; gap:10px;
+  padding-inline:var(--pad) 28px;
+  border-right:1px solid var(--rule-soft);
+  text-decoration:none;
+}
+.brand b{
+  font:800 22px/1 var(--f-disp); font-stretch:125%;
+  letter-spacing:-.01em;
+}
+.brand i{ width:9px; height:9px; background:var(--red); }
+.brand .mono{ color:var(--muted); display:none; }
+@media(min-width:1100px){ .brand .mono{ display:inline; } }
+
+.nav-links{ display:none; align-items:stretch; margin-right:auto; }
+@media(min-width:880px){ .nav-links{ display:flex; } }
+.nav-links a{
+  display:flex; align-items:center;
+  padding-inline:22px;
+  border-right:1px solid var(--rule-faint);
+  text-decoration:none;
+  font:500 11px/1 var(--f-mono); letter-spacing:.18em; text-transform:uppercase;
+  color:var(--ink-2);
+  transition:background-color .25s, color .25s;
+}
+.nav-links a:hover{ background:var(--ink); color:var(--paper); }
+
+.nav-call{
+  margin-left:auto;
+  display:flex; align-items:center; gap:10px;
+  padding-inline:24px var(--pad);
+  border-left:1px solid var(--rule);
+  background:var(--red); color:var(--paper);
+  text-decoration:none;
+  font:500 12px/1 var(--f-mono); letter-spacing:.14em; text-transform:uppercase;
+  transition:background-color .25s;
+}
+.nav-call:hover{ background:var(--ink); }
+.nav-call .short{ display:none; }
+@media(max-width:560px){
+  .nav-call{ padding-inline:18px; }
+  .nav-call .long{ display:none; }
+  .nav-call .short{ display:inline; }
+}
+.nav-call .pulse{
+  width:8px; height:8px; border-radius:50%; background:var(--paper);
+  animation:pulse 1.4s ease-in-out infinite;
+}
+@keyframes pulse{ 0%,100%{opacity:1; transform:scale(1)} 50%{opacity:.35; transform:scale(.7)} }
+
+#menuBtn{
+  display:flex; align-items:center;
+  padding-inline:20px;
+  border:0; border-left:1px solid var(--rule-soft);
+  background:none; font:500 11px/1 var(--f-mono); letter-spacing:.18em;
+  text-transform:uppercase; color:var(--ink);
+}
+@media(min-width:880px){ #menuBtn{ display:none; } }
+#mnav{ display:none; border-top:1px solid var(--rule); }
+#mnav.open{ display:block; }
+#mnav a{
+  display:block; padding:16px var(--pad);
+  border-bottom:1px solid var(--rule-faint);
+  text-decoration:none;
+  font:500 12px/1 var(--f-mono); letter-spacing:.18em; text-transform:uppercase;
+}
+
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║ 05 · FILE 00 — HERO / INTAKE                                       ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+.hero{ padding-top:clamp(40px, 6vw, 84px); }
+.hero .filecode{ margin-bottom:clamp(24px, 3vw, 44px); }
+.hero h1{ grid-column:1 / -1; }
+.hero h1 .line{ display:block; }
+.hero-grid{
+  display:grid; gap:clamp(28px, 4vw, 56px);
+  grid-template-columns:1fr;
+  padding-bottom:clamp(36px, 5vw, 72px);
+}
+@media(min-width:1020px){
+  .hero-grid{ grid-template-columns:1fr minmax(380px, 520px); align-items:start; }
+  .hero-side{ grid-column:2; }
+}
+.hero-side{ display:flex; flex-direction:column; gap:26px; }
+.hero-side .lead{ max-width:44ch; }
+.cta-row{ display:flex; flex-wrap:wrap; gap:14px 22px; align-items:center; }
+
+.btn{
+  --bx:0px; --by:0px;
+  position:relative; display:inline-flex; align-items:center; gap:14px;
+  padding:20px 32px;
+  background:var(--ink); color:var(--paper);
+  font:600 13px/1 var(--f-mono); letter-spacing:.16em; text-transform:uppercase;
+  text-decoration:none; border:1px solid var(--ink);
+  transform:translate(var(--bx), var(--by));
+  transition:background-color .3s, color .3s, border-color .3s;
+}
+.btn .arr{ transition:transform .35s var(--ease-soft); }
+.btn:hover{ background:var(--red); border-color:var(--red); }
+.btn:hover .arr{ transform:translateX(5px); }
+.btn--ghost{ background:transparent; color:var(--ink); }
+.btn--ghost:hover{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.btn--paper{ background:var(--paper); color:var(--ink); border-color:var(--paper); }
+.btn--paper:hover{ background:var(--red); color:var(--paper); border-color:var(--red); }
+.link-mono{
+  font:500 12px/1.5 var(--f-mono); letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink); text-decoration:none;
+  border-bottom:1px solid var(--rule-soft); padding-bottom:4px;
+  transition:border-color .25s, color .25s;
+}
+.link-mono:hover{ border-color:var(--red); color:var(--red-deep); }
+
+.hero-meta{
+  display:flex; flex-wrap:wrap; gap:10px 28px;
+  color:var(--muted);
+}
+.hero-meta span{ display:flex; gap:8px; align-items:center; }
+.hero-meta b{ color:var(--ink); font-weight:500; }
+
+/* the monitor — generative signal panel */
+.monitor{
+  border-top:1px solid var(--rule);
+  position:relative;
+}
+.monitor-bar{
+  display:flex; justify-content:space-between; gap:14px;
+  padding:14px var(--pad);
+  border-bottom:1px solid var(--rule-soft);
+  color:var(--muted);
+}
+.monitor-bar .seed{ color:var(--faint); display:none; }
+@media(min-width:740px){ .monitor-bar .seed{ display:inline; } }
+.monitor-canvas{
+  position:relative; height:clamp(180px, 26vw, 300px);
+  background:
+    repeating-linear-gradient(90deg, var(--rule-faint) 0 1px, transparent 1px 56px),
+    repeating-linear-gradient(0deg,  var(--rule-faint) 0 1px, transparent 1px 56px),
+    var(--paper-2);
+}
+.monitor-canvas canvas{ position:absolute; inset:0; width:100%; height:100%; }
+
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║ 06 · FILE 01 — STANCE (the refusal ledger)                         ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+.stance .h-big{ max-width:14ch; padding-block:clamp(34px,4.5vw,64px) clamp(26px,3vw,44px); }
+.ledger{
+  display:grid; border-top:1px solid var(--rule);
+  grid-template-columns:1fr;
+}
+@media(min-width:880px){ .ledger{ grid-template-columns:1fr 1fr; } }
+.ledger-col{ padding:clamp(26px,3vw,44px) var(--pad) clamp(34px,4vw,56px); }
+.ledger-col + .ledger-col{ border-top:1px solid var(--rule); }
+@media(min-width:880px){
+  .ledger-col + .ledger-col{ border-top:0; border-left:1px solid var(--rule); }
+}
+.ledger-col > .mono{ display:block; margin-bottom:22px; }
+.ledger-col--no  > .mono{ color:var(--red-deep); }
+.ledger-col--yes > .mono{ color:var(--muted); }
+.ledger ul{ list-style:none; margin:0; padding:0; }
+.ledger li{
+  font:700 clamp(22px,2.6vw,38px)/1.18 var(--f-disp); font-stretch:108%;
+  letter-spacing:-.01em; text-transform:uppercase;
+  padding:14px 0; border-bottom:1px solid var(--rule-soft);
+  display:flex; align-items:baseline; gap:16px;
+}
+.ledger li .mono{ color:var(--faint); letter-spacing:.14em; }
+.ledger-col--no li{ color:var(--muted); }
+.ledger-col--yes li{ color:var(--ink); }
+
+.no-fig{
+  margin:30px 0 0; position:relative; max-width:330px;
+  border:1px solid var(--rule);
+}
+.no-fig img{ filter:grayscale(1) contrast(1.05); aspect-ratio:4/3; object-fit:cover; width:100%; }
+.no-fig::before,.no-fig::after{
+  content:""; position:absolute; left:-4%; right:-4%; top:50%;
+  height:5px; background:var(--red); z-index:2;
+}
+.no-fig::before{ transform:rotate(8deg); }
+.no-fig::after { transform:rotate(-8deg); }
+.no-fig figcaption{
+  padding:10px 12px; border-top:1px solid var(--rule);
+  font:500 10.5px/1.5 var(--f-mono); letter-spacing:.12em; text-transform:uppercase;
+  color:var(--muted); background:var(--paper);
+}
+.stance-foot{
+  padding:22px var(--pad) clamp(40px,5vw,72px);
+  border-top:1px solid var(--rule);
+  color:var(--muted); font-size:15.5px; max-width:72ch;
+}
+.stance-foot b{ color:var(--ink); font-weight:600; }
+
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║ 07 · FILE 02 — PROCEDURES (the index)                              ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+.procs .h-big{ padding-block:clamp(34px,4.5vw,64px) clamp(26px,3vw,40px); }
+.proc-list{ border-top:1px solid var(--rule); }
+.proc{
+  display:grid; align-items:center;
+  grid-template-columns:minmax(54px,80px) 1.15fr 1fr auto;
+  gap:clamp(14px,2.4vw,40px);
+  padding:clamp(20px,2.6vw,30px) var(--pad);
+  border-bottom:1px solid var(--rule);
+  text-decoration:none;
+  transition:background-color .3s, color .3s;
+}
+.proc:hover, .proc:focus-visible{ background:var(--ink); color:var(--paper); }
+.proc .idx{
+  font:500 12px/1 var(--f-mono); letter-spacing:.14em; color:var(--faint);
+  transition:color .3s;
+}
+.proc:hover .idx{ color:var(--red); }
+.proc .name{
+  font:800 clamp(22px,2.8vw,42px)/1.04 var(--f-disp); font-stretch:118%;
+  letter-spacing:-.015em; text-transform:uppercase;
+}
+.proc .desc{ font-size:15px; line-height:1.5; color:var(--muted); transition:color .3s; max-width:42ch; }
+.proc:hover .desc{ color:rgba(242,240,234,.72); }
+.proc .meta{
+  font:500 11px/1.7 var(--f-mono); letter-spacing:.14em; text-transform:uppercase;
+  color:var(--muted); text-align:right; transition:color .3s; white-space:nowrap;
+}
+.proc:hover .meta{ color:rgba(242,240,234,.72); }
+@media(max-width:860px){
+  .proc{ grid-template-columns:48px 1fr; }
+  .proc .desc{ grid-column:2; }
+  .proc .meta{ grid-column:2; text-align:left; }
+}
+
+#procThumb{
+  position:fixed; z-index:80; top:0; left:0;
+  width:280px; aspect-ratio:3/2;
+  pointer-events:none; opacity:0;
+  transform:translate(-50%,-50%);
+  border:1px solid var(--paper);
+  outline:1px solid var(--rule);
+  overflow:hidden; will-change:transform;
+  transition:opacity .3s;
+}
+#procThumb img{ width:100%; height:100%; object-fit:cover; filter:grayscale(1) contrast(1.06); }
+#procThumb.show{ opacity:1; }
+
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║ 08 · FILE 03 — TRIAGE (ink band)                                   ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+.triage{
+  background:var(--ink); color:var(--paper);
+  border-top:1px solid var(--rule);
+}
+.triage .sec-head{ border-bottom-color:rgba(242,240,234,.18); color:rgba(242,240,234,.6); }
+.triage .filecode{ color:rgba(242,240,234,.6); }
+.triage .h-giant{ padding-block:clamp(34px,4.5vw,64px) clamp(10px,1.4vw,20px); max-width:12ch; }
+.triage .h-giant .red{ color:var(--red); }
+.triage-sub{ color:rgba(242,240,234,.66); max-width:54ch; margin:0; padding-bottom:clamp(30px,3.6vw,56px); }
+.steps{
+  display:grid; border-top:1px solid rgba(242,240,234,.22);
+  grid-template-columns:1fr;
+}
+@media(min-width:880px){ .steps{ grid-template-columns:repeat(3,1fr); } }
+.step{
+  padding:clamp(26px,3vw,42px) var(--pad);
+  border-bottom:1px solid rgba(242,240,234,.22);
+}
+@media(min-width:880px){
+  .step{ border-bottom:0; }
+  .step + .step{ border-left:1px solid rgba(242,240,234,.22); }
+}
+.step .num{
+  display:block;
+  font:800 clamp(64px,7vw,116px)/1 var(--f-disp); font-stretch:62%;
+  color:transparent; -webkit-text-stroke:1.5px rgba(242,240,234,.85);
+}
+.step h3{ font-size:clamp(19px,1.6vw,24px); text-transform:uppercase; margin:18px 0 10px; font-stretch:118%; }
+.step p{ margin:0; color:rgba(242,240,234,.62); font-size:15.5px; }
+.step .red-word{ color:var(--red); }
+.triage-cta{
+  display:flex; flex-wrap:wrap; gap:16px 26px; align-items:center;
+  padding:clamp(28px,3.4vw,48px) var(--pad);
+  border-top:1px solid rgba(242,240,234,.22);
+}
+.triage-cta .btn{ background:var(--red); border-color:var(--red); }
+.triage-cta .btn:hover{ background:var(--paper); color:var(--ink); border-color:var(--paper); }
+.triage-cta .mono{ color:rgba(242,240,234,.55); }
+
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║ 09 · FILE 04 — EVIDENCE                                            ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+.stats{
+  display:grid; border-top:1px solid var(--rule);
+  grid-template-columns:repeat(2,1fr);
+}
+@media(min-width:980px){ .stats{ grid-template-columns:repeat(4,1fr); } }
+.stat{
+  padding:clamp(26px,3vw,46px) var(--pad);
+  border-bottom:1px solid var(--rule);
+  border-right:1px solid var(--rule-soft);
+}
+.stat:last-child{ border-right:0; }
+.stat b{
+  display:block;
+  font:800 clamp(38px,4.4vw,72px)/1 var(--f-disp); font-stretch:115%;
+  letter-spacing:-.02em;
+}
+.stat b sup{ font-size:.45em; color:var(--red); font-stretch:100%; }
+.stat span{ display:block; margin-top:12px; color:var(--muted); }
+.evidence-body{
+  display:grid; gap:0;
+  grid-template-columns:1fr;
+}
+@media(min-width:1020px){ .evidence-body{ grid-template-columns:1.1fr .9fr; } }
+.quote{
+  padding:clamp(36px,4.5vw,72px) var(--pad);
+}
+.quote blockquote{
+  margin:0;
+  font:600 clamp(24px,2.7vw,40px)/1.28 var(--f-disp); font-stretch:108%;
+  letter-spacing:-.012em;
+  max-width:24ch;
+}
+.quote blockquote .red{ color:var(--red); }
+.quote figcaption{ margin-top:26px; color:var(--muted); }
+.evidence-fig{
+  position:relative; overflow:hidden;
+  border-top:1px solid var(--rule); min-height:340px;
+}
+@media(min-width:1020px){ .evidence-fig{ border-top:0; border-left:1px solid var(--rule); } }
+.evidence-fig img{
+  position:absolute; inset:-7% 0; width:100%; height:114%;
+  object-fit:cover; filter:grayscale(1) contrast(1.06);
+}
+.evidence-fig figcaption{
+  position:absolute; left:0; bottom:0; right:0;
+  padding:12px var(--pad);
+  background:var(--paper); border-top:1px solid var(--rule);
+  font:500 10.5px/1.6 var(--f-mono); letter-spacing:.14em; text-transform:uppercase;
+  color:var(--muted);
+}
+
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║ 10 · FILE 05 — CLINICIAN                                           ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+.clinician-grid{
+  display:grid; border-top:1px solid var(--rule);
+  grid-template-columns:1fr;
+}
+@media(min-width:980px){ .clinician-grid{ grid-template-columns:.85fr 1.15fr; } }
+.portrait{
+  position:relative; overflow:hidden; min-height:420px;
+  border-bottom:1px solid var(--rule);
+}
+@media(min-width:980px){ .portrait{ border-bottom:0; border-right:1px solid var(--rule); } }
+.portrait img{
+  position:absolute; inset:-6% 0; width:100%; height:112%;
+  object-fit:cover; object-position:top center;
+  filter:grayscale(1) contrast(1.05);
+}
+.portrait .tag{
+  position:absolute; left:0; top:0;
+  background:var(--red); color:var(--paper);
+  padding:10px 14px;
+  font:500 10.5px/1 var(--f-mono); letter-spacing:.16em; text-transform:uppercase;
+}
+.clin-body{ padding:clamp(32px,4vw,64px) var(--pad); display:flex; flex-direction:column; gap:24px; }
+.clin-body h3{ font-size:clamp(28px,3.2vw,52px); text-transform:uppercase; line-height:1.02; }
+.clin-body .role{ color:var(--red-deep); }
+.creds{ list-style:none; margin:6px 0 0; padding:0; border-top:1px solid var(--rule-soft); }
+.creds li{
+  display:flex; gap:18px; align-items:baseline;
+  padding:13px 0; border-bottom:1px solid var(--rule-soft);
+  font-size:15.5px; color:var(--ink-2);
+}
+.creds li .mono{ color:var(--faint); min-width:34px; }
+
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║ 11 · FILE 06 — VISIT + FINAL CTA                                   ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+.visit-grid{
+  display:grid; border-top:1px solid var(--rule);
+  grid-template-columns:1fr;
+}
+@media(min-width:980px){ .visit-grid{ grid-template-columns:1.05fr .95fr; } }
+.visit-info{ padding:clamp(32px,4vw,60px) var(--pad); display:grid; gap:30px; align-content:start; }
+.visit-info h3{ font-size:clamp(26px,3vw,44px); text-transform:uppercase; max-width:14ch; }
+.kv{ border-top:1px solid var(--rule-soft); }
+.kv div{
+  display:grid; grid-template-columns:130px 1fr; gap:18px;
+  padding:13px 0; border-bottom:1px solid var(--rule-soft);
+  font-size:15.5px;
+}
+.kv .mono{ color:var(--faint); padding-top:3px; }
+.kv b{ font-weight:600; }
+.kv .late{ color:var(--red-deep); font-weight:600; }
+.visit-fig{
+  position:relative; overflow:hidden; min-height:380px;
+  border-top:1px solid var(--rule);
+}
+@media(min-width:980px){ .visit-fig{ border-top:0; border-left:1px solid var(--rule); } }
+.visit-fig img{
+  position:absolute; inset:-7% 0; width:100%; height:114%;
+  object-fit:cover; filter:grayscale(1) contrast(1.08);
+}
+
+.final{
+  border-top:1px solid var(--rule);
+  padding:clamp(56px,8vw,120px) var(--pad);
+  text-align:left;
+}
+.final .h-giant{ max-width:10ch; }
+.final .cta-row{ margin-top:clamp(28px,3.4vw,48px); }
+
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║ 12 · FOOTER                                                        ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+footer{ border-top:1px solid var(--rule); }
+.foot-grid{
+  display:flex; flex-wrap:wrap; gap:14px 36px;
+  justify-content:space-between; align-items:center;
+  padding:22px var(--pad);
+  color:var(--muted);
+}
+.foot-grid a{ text-decoration:none; color:var(--muted); }
+.foot-grid a:hover{ color:var(--red-deep); }
+.foot-close{
+  border-top:1px solid var(--rule-soft);
+  padding:14px var(--pad);
+  display:flex; justify-content:space-between; gap:20px;
+  color:var(--faint);
+}
+
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║ 13 · MOTION SYSTEM                                                 ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+[data-reveal]{
+  opacity:0; transform:translateY(26px);
+  transition:opacity .8s ease var(--d,0ms), transform .9s var(--ease-out) var(--d,0ms);
+}
+[data-reveal].in{ opacity:1; transform:none; }
+
+/* char-by-char */
+.split .w{ display:inline-block; overflow:hidden; vertical-align:bottom; }
+.split .ch{
+  display:inline-block; transform:translateY(115%);
+  transition:transform .85s var(--ease-out) var(--chd,0ms);
+}
+.split.in .ch{ transform:translateY(0); }
+
+/* clip-path image reveals */
+/* clip-path image reveals — the clip lives on the IMG, not the observed
+   figure: Chromium's IntersectionObserver factors the target's own
+   clip-path into the intersection rect, so a fully-clipped figure
+   would never report as visible and the reveal could never fire.    */
+.creveal img{
+  clip-path:inset(100% 0 0 0);
+  transform:scale(1.14) translateY(var(--py,0px));
+  transition:clip-path 1.1s var(--ease-out) var(--d,0ms),
+             transform 1.5s var(--ease-out) var(--d,0ms);
+}
+.creveal--side img{ clip-path:inset(0 100% 0 0); }
+.creveal.in img{ clip-path:inset(0 0 0 0); transform:scale(1) translateY(var(--py,0px)); }
+.creveal.settled img{ transition:none; }
+
+/* reduced motion: everything readable, nothing moving */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  [data-reveal], .creveal{ opacity:1; transform:none; transition:none; clip-path:none; }
+  .creveal img{ transform:none; transition:none; clip-path:none; }
+  .split .ch{ transform:none; transition:none; }
+  .strike::after{ transition:none; --sx:1; }
+  .nav-call .pulse{ animation:none; }
+  #cursor{ display:none !important; }
+  #procThumb{ display:none !important; }
+}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- custom cursor -->
+<div id="cursor" aria-hidden="true"><span class="ring"><span class="ring-label"></span></span><span class="dot"></span></div>
+
+<!-- floating procedure thumbnail -->
+<figure id="procThumb" aria-hidden="true"><img src="" alt=""></figure>
+
+<div id="page">
+
+  <!-- ═══ HEADER ════════════════════════════════════════════════════ -->
+  <header>
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="ACUTE — home">
+        <i aria-hidden="true"></i><b>ACUTE</b>
+        <span class="mono">Pain-first dentistry — Chennai</span>
+      </a>
+      <div class="nav-links">
+        <a href="#stance">Stance</a>
+        <a href="#procedures">Procedures</a>
+        <a href="#urgent">Urgent</a>
+        <a href="#clinician">Clinician</a>
+        <a href="#visit">Visit</a>
+      </div>
+      <button id="menuBtn" aria-expanded="false" aria-controls="mnav">Menu</button>
+      <!-- EDIT: phone number -->
+      <a class="nav-call magnetic" href="tel:+919840022210" data-cursor="call">
+        <span class="pulse" aria-hidden="true"></span><span class="long">In pain? Call now</span><span class="short">Call</span>
+      </a>
+    </nav>
+    <div id="mnav">
+      <a href="#stance">Stance</a>
+      <a href="#procedures">Procedures</a>
+      <a href="#urgent">Urgent</a>
+      <a href="#clinician">Clinician</a>
+      <a href="#visit">Visit</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+  <!-- ═══ FILE 00 · HERO / INTAKE ═══════════════════════════════════ -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <p class="mono filecode" data-reveal>File 00 / Intake — Nungambakkam, Chennai · Open till 21:00</p>
+      <div class="hero-grid">
+        <h1 class="h-giant split" id="heroH">
+          <span class="line">We don't do</span>
+          <span class="line"><span class="strike">veneers</span>.</span>
+          <span class="line">We end <span class="red">pain.</span></span>
+        </h1>
+        <div class="hero-side">
+          <p class="lead" data-reveal style="--d:550ms">Root canals, wisdom teeth, emergencies and TMJ — the unglamorous dentistry that gets you sleeping again. Microscope precision, honest pricing, and a chair today if you need one.</p>
+          <div class="cta-row" data-reveal style="--d:680ms">
+            <a class="btn magnetic" href="#visit" data-cursor="book"><span>Book an urgent slot</span><span class="arr" aria-hidden="true">→</span></a>
+            <!-- EDIT: phone number -->
+            <a class="link-mono" href="tel:+919840022210">or call +91 98400 22210</a>
+          </div>
+          <div class="hero-meta mono" data-reveal style="--d:800ms">
+            <span><b>4.9</b> rated · 600+ patients</span>
+            <span><b>Same-day</b> emergencies</span>
+            <span><b>Mon–Sat</b> 09–21</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- the living signal -->
+    <div class="monitor" data-reveal style="--d:250ms">
+      <div class="monitor-bar mono">
+        <span>Live pain signal</span>
+        <span class="seed">seed 32 — one per adult tooth</span>
+        <span>Scroll to treat ↓</span>
+      </div>
+      <div class="monitor-canvas"><canvas id="heroSig" aria-hidden="true"></canvas></div>
+    </div>
+  </section>
+
+  <!-- ═══ FILE 01 · STANCE ══════════════════════════════════════════ -->
+  <section class="sec stance" id="stance">
+    <div class="wrap sec-head mono">
+      <span class="filecode">File 01 / Stance</span><span>The refusal ledger</span>
+    </div>
+    <div class="wrap"><h2 class="h-big" data-reveal>The opposite of a smile&nbsp;studio.</h2></div>
+
+    <div class="ledger">
+      <div class="ledger-col ledger-col--no">
+        <span class="mono">What we don't do</span>
+        <ul>
+          <li data-reveal style="--d:0ms"><span class="mono">A</span><span class="strike" data-strike>Veneers</span></li>
+          <li data-reveal style="--d:70ms"><span class="mono">B</span><span class="strike" data-strike>Teeth whitening</span></li>
+          <li data-reveal style="--d:140ms"><span class="mono">C</span><span class="strike" data-strike>Smile makeovers</span></li>
+          <li data-reveal style="--d:210ms"><span class="mono">D</span><span class="strike" data-strike>Aligner subscriptions</span></li>
+          <li data-reveal style="--d:280ms"><span class="mono">E</span><span class="strike" data-strike>Influencer packages</span></li>
+        </ul>
+        <figure class="no-fig creveal" data-reveal-clip>
+          <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=900&auto=format&fit=crop" alt="A clear cosmetic aligner — the kind of treatment this clinic does not offer" loading="lazy" decoding="async">
+          <figcaption>Exhibit A — not our department.</figcaption>
+        </figure>
+      </div>
+      <div class="ledger-col ledger-col--yes">
+        <span class="mono">What we do, properly</span>
+        <ul>
+          <li data-reveal style="--d:0ms"><span class="mono">01</span>Root canal therapy</li>
+          <li data-reveal style="--d:70ms"><span class="mono">02</span>Surgical &amp; wisdom extractions</li>
+          <li data-reveal style="--d:140ms"><span class="mono">03</span>Same-day emergency care</li>
+          <li data-reveal style="--d:210ms"><span class="mono">04</span>TMJ &amp; facial pain</li>
+          <li data-reveal style="--d:280ms"><span class="mono">05</span>Periodontal (gum) therapy</li>
+          <li data-reveal style="--d:350ms"><span class="mono">06</span>Sedation for anxious patients</li>
+        </ul>
+      </div>
+    </div>
+    <p class="stance-foot" data-reveal>* If you want a Hollywood smile, we'll happily refer you to someone lovely. <b>If a tooth kept you up at 3&nbsp;a.m., sit down — you're ours.</b></p>
+  </section>
+
+  <!-- ═══ FILE 02 · PROCEDURES ══════════════════════════════════════ -->
+  <section class="sec procs" id="procedures">
+    <div class="wrap sec-head mono">
+      <span class="filecode">File 02 / Procedures</span><span>06 disciplines — no packages</span>
+    </div>
+    <div class="wrap"><h2 class="h-big" data-reveal>Procedures, not&nbsp;packages.</h2></div>
+
+    <div class="proc-list" id="procList">
+      <a class="proc" href="#visit" data-cursor="view"
+         data-img="https://images.unsplash.com/photo-1583912086096-8c60d75a53f9?q=80&w=900&auto=format&fit=crop">
+        <span class="idx">01</span>
+        <span class="name">Root canal therapy</span>
+        <span class="desc">Single-visit where possible, always under the operating microscope. The tooth stays; the pain doesn't.</span>
+        <span class="meta">60–90 min<br>1–2 visits</span>
+      </a>
+      <a class="proc" href="#visit" data-cursor="view"
+         data-img="https://images.unsplash.com/photo-1571772996211-2f02c9727629?q=80&w=900&auto=format&fit=crop">
+        <span class="idx">02</span>
+        <span class="name">Wisdom teeth &amp; extractions</span>
+        <span class="desc">Surgical removals done gently, with proper imaging first and a recovery plan you'll actually follow.</span>
+        <span class="meta">45–75 min<br>1 visit</span>
+      </a>
+      <a class="proc" href="#visit" data-cursor="view"
+         data-img="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=900&auto=format&fit=crop">
+        <span class="idx">03</span>
+        <span class="name">Same-day emergencies</span>
+        <span class="desc">Swelling, trauma, a crack, a crown in your hand — triaged on the phone, seated the same day.</span>
+        <span class="meta">Priority<br>Held slots daily</span>
+      </a>
+      <a class="proc" href="#visit" data-cursor="view"
+         data-img="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=900&auto=format&fit=crop">
+        <span class="idx">04</span>
+        <span class="name">TMJ &amp; facial pain</span>
+        <span class="desc">Jaw clicking, locking, morning headaches. Diagnosed properly before anyone sells you a splint.</span>
+        <span class="meta">Consult 40 min<br>Staged plan</span>
+      </a>
+      <a class="proc" href="#visit" data-cursor="view"
+         data-img="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=900&auto=format&fit=crop">
+        <span class="idx">05</span>
+        <span class="name">Gum (periodontal) therapy</span>
+        <span class="desc">Bleeding, recession, loose teeth — treated in stages, measured at every visit, no lectures.</span>
+        <span class="meta">Per quadrant<br>Review at 6 wks</span>
+      </a>
+      <a class="proc" href="#visit" data-cursor="view"
+         data-img="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=900&auto=format&fit=crop">
+        <span class="idx">06</span>
+        <span class="name">Sedation for the anxious</span>
+        <span class="desc">Oral and IV options for people who'd rather be anywhere else. You're allowed to be scared here.</span>
+        <span class="meta">With any procedure<br>By assessment</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ FILE 03 · TRIAGE ══════════════════════════════════════════ -->
+  <section class="sec triage" id="urgent">
+    <div class="wrap sec-head mono">
+      <span class="filecode">File 03 / Triage</span><span>Protocol — 24/7</span>
+    </div>
+    <div class="wrap">
+      <h2 class="h-giant" data-reveal>In pain <span class="red">right now?</span></h2>
+      <p class="lead triage-sub" data-reveal style="--d:120ms">Don't search symptoms at 2 a.m. The line below is answered by a human, around the clock, every day of the year.</p>
+    </div>
+    <div class="steps">
+      <div class="step" data-reveal style="--d:0ms">
+        <span class="num" aria-hidden="true">01</span>
+        <h3>Call</h3>
+        <p>A human answers — <span class="red-word">24/7</span>. No menus, no "press 4".</p>
+      </div>
+      <div class="step" data-reveal style="--d:120ms">
+        <span class="num" aria-hidden="true">02</span>
+        <h3>Triage</h3>
+        <p>A clinician calls back within <span class="red-word">10 minutes</span> and tells you exactly what to do next.</p>
+      </div>
+      <div class="step" data-reveal style="--d:240ms">
+        <span class="num" aria-hidden="true">03</span>
+        <h3>Chair</h3>
+        <p>Genuine emergencies get a <span class="red-word">held same-day slot</span>. Pain control first, paperwork later.</p>
+      </div>
+    </div>
+    <div class="triage-cta" data-reveal>
+      <!-- EDIT: phone number -->
+      <a class="btn magnetic" href="tel:+919840022210" data-cursor="call"><span>Call the pain line</span><span class="arr" aria-hidden="true">→</span></a>
+      <span class="mono">+91 98400 22210 — save it before you need it</span>
+    </div>
+  </section>
+
+  <!-- ═══ FILE 04 · EVIDENCE ════════════════════════════════════════ -->
+  <section class="sec evidence" id="evidence">
+    <div class="wrap sec-head mono">
+      <span class="filecode">File 04 / Evidence</span><span>Outcomes, on record</span>
+    </div>
+    <div class="stats">
+      <div class="stat" data-reveal style="--d:0ms"><b>4,200<sup>+</sup></b><span>root canals completed under the microscope</span></div>
+      <div class="stat" data-reveal style="--d:90ms"><b>92<sup>%</sup></b><span>of emergencies seated the same day</span></div>
+      <div class="stat" data-reveal style="--d:180ms"><b>15<sup>yrs</sup></b><span>of surgical endodontic practice</span></div>
+      <div class="stat" data-reveal style="--d:270ms"><b>10<sup>min</sup></b><span>median clinician call-back on the pain line</span></div>
+    </div>
+    <div class="evidence-body">
+      <figure class="quote" data-reveal>
+        <blockquote>"I came in at 8 p.m. unable to think straight. By 9:30 the pressure was gone — and <span class="red">I slept.</span>"</blockquote>
+        <figcaption class="mono">R.K. — emergency root canal · Case 2841</figcaption>
+      </figure>
+      <figure class="evidence-fig creveal" data-reveal-clip>
+        <img data-px data-depth="26" src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1400&auto=format&fit=crop" alt="A clinician reading dental radiographs on a lightbox" loading="lazy" decoding="async">
+        <figcaption>Radiographs first. Opinions second.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ═══ FILE 05 · CLINICIAN ═══════════════════════════════════════ -->
+  <section class="sec" id="clinician">
+    <div class="wrap sec-head mono">
+      <span class="filecode">File 05 / Clinician</span><span>Who holds the handpiece</span>
+    </div>
+    <div class="clinician-grid">
+      <figure class="portrait creveal creveal--side" data-reveal-clip>
+        <span class="tag">Lead clinician</span>
+        <!-- EDIT: clinician portrait + name below -->
+        <img data-px data-depth="20" src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1100&auto=format&fit=crop" alt="Portrait of the lead clinician, arms crossed in a white coat" loading="lazy" decoding="async">
+      </figure>
+      <div class="clin-body">
+        <h3 data-reveal>Dr. Arvind Raghavan<br><span class="role">MDS — Endodontics &amp; Oral Surgery</span></h3>
+        <p class="lead" data-reveal style="--d:100ms">Fifteen years of the cases other clinics refer out: calcified canals, retreatments, surgical extractions, the 9 p.m. swellings. He will tell you when a tooth can be saved — and, just as plainly, when it can't.</p>
+        <ul class="creds">
+          <li data-reveal style="--d:0ms"><span class="mono">01</span>MDS Conservative Dentistry &amp; Endodontics — MAHE, Manipal</li>
+          <li data-reveal style="--d:80ms"><span class="mono">02</span>Operating-microscope dentistry since 2014 — every canal, every case</li>
+          <li data-reveal style="--d:160ms"><span class="mono">03</span>IV-sedation certified · member, Indian Endodontic Society</li>
+          <li data-reveal style="--d:240ms"><span class="mono">04</span>4,200+ documented root canal outcomes, audited yearly</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FILE 06 · VISIT ═══════════════════════════════════════════ -->
+  <section class="sec" id="visit">
+    <div class="wrap sec-head mono">
+      <span class="filecode">File 06 / Visit</span><span>Find us before it gets worse</span>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-info">
+        <h3 data-reveal>One clinic. One job.</h3>
+        <div class="kv" data-reveal style="--d:100ms">
+          <!-- EDIT: address / hours / numbers -->
+          <div><span class="mono">Address</span><b>14, Khader Nawaz Khan Road,<br>Nungambakkam, Chennai 600 006</b></div>
+          <div><span class="mono">Hours</span><span><b>Mon–Sat</b> 09:00 – <span class="late">21:00</span><br><b>Sun</b> pain line only</span></div>
+          <div><span class="mono">Pain line</span><b>+91 98400 22210 — 24/7</b></div>
+          <div><span class="mono">WhatsApp</span><b>+91 98400 22210</b></div>
+          <div><span class="mono">Parking</span><span>In-building, B1 — ask for the clinic stamp</span></div>
+        </div>
+        <div class="cta-row" data-reveal style="--d:200ms">
+          <a class="btn magnetic" href="https://wa.me/919840022210" data-cursor="chat"><span>WhatsApp the clinic</span><span class="arr" aria-hidden="true">→</span></a>
+          <a class="link-mono" href="#top">Back to top ↑</a>
+        </div>
+      </div>
+      <figure class="visit-fig creveal" data-reveal-clip>
+        <img data-px data-depth="30" src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=1400&auto=format&fit=crop" alt="A sharply angled white building against the sky" loading="lazy" decoding="async">
+      </figure>
+    </div>
+
+    <div class="final">
+      <h2 class="h-giant split" id="finalH">Stop the <span class="red">pain.</span></h2>
+      <div class="cta-row" data-reveal>
+        <a class="btn magnetic" href="tel:+919840022210" data-cursor="call"><span>Call +91 98400 22210</span><span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn btn--ghost magnetic" href="https://wa.me/919840022210" data-cursor="chat"><span>WhatsApp instead</span></a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="foot-grid mono">
+      <span>ACUTE — pain-first dentistry</span>
+      <span>Nungambakkam · Chennai</span>
+      <a href="#top">Privacy</a>
+      <a href="#top">Terms</a>
+      <a href="https://stellarhausmedia.com" target="_blank" rel="noopener">Designed by Stellar Haus Media</a>
+    </div>
+    <div class="foot-close mono">
+      <span>© <span id="yr">2026</span> Acute Dental Care LLP</span>
+      <span>File closed ✕</span>
+    </div>
+  </footer>
+
+</div><!-- /#page -->
+
+<!-- ═══ FIXED SIGNAL STRIP ══════════════════════════════════════════ -->
+<div id="strip" role="presentation" aria-hidden="true">
+  <div class="cell cell--l mono">Pain signal</div>
+  <div class="wave"><canvas id="stripSig"></canvas></div>
+  <div class="cell cell--r"><span id="painPct">100</span><span id="painState" class="mono">Severe</span></div>
+</div>
+
+<script>
+/* ╔═══════════════════════════════════════════════════════════════════╗
+   ║ ACUTE · interaction system                                          ║
+   ║ Modules: Env · Ticker · Signal · Reveal · Split · Cursor ·          ║
+   ║          Magnetic · ProcThumb · Parallax · Nav                      ║
+   ╚═══════════════════════════════════════════════════════════════════╝ */
+(function(){
+"use strict";
+
+/* ── Env ──────────────────────────────────────────────────────────── */
+const RM    = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const FINE  = matchMedia("(pointer: fine)").matches;
+const lerp  = (a,b,t)=>a+(b-a)*t;
+const clamp = (v,a,b)=>Math.min(b,Math.max(a,v));
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+/* ── Ticker · one rAF for everything ─────────────────────────────── */
+const Ticker = (()=> {
+  const fns=[]; let on=false;
+  function loop(t){ for(const f of fns) f(t); if(on) requestAnimationFrame(loop); }
+  return {
+    add(f){ fns.push(f); if(!on && !RM){ on=true; requestAnimationFrame(loop); } }
+  };
+})();
+
+/* ── Signal · "Resolution Signal", seeded ─────────────────────────────
+   seed 32: one per adult tooth. mulberry32 PRNG → 1-D value noise.
+   pain = max(intro decay, 1 − eased scroll progress to #visit).       */
+const Signal = (()=> {
+  const SEED = 32;
+  function mulberry32(a){ return function(){ a|=0; a=a+0x6D2B79F5|0;
+    let t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t;
+    return ((t^t>>>14)>>>0)/4294967296; } }
+  const rand = mulberry32(SEED);
+  const P = new Float32Array(256); for(let i=0;i<256;i++) P[i]=rand();
+  const fade = t=>t*t*(3-2*t);
+  function noise(x){
+    const i=Math.floor(x), f=x-i, u=fade(f);
+    return lerp(P[i&255], P[(i+1)&255], u);
+  }
+  /* deterministic spike train offsets */
+  const spikes=[]; for(let k=0;k<6;k++) spikes.push({off:rand()*64, per:4.5+rand()*4, w:.025+rand()*.025});
+  function spikeShape(p,w){              /* narrow asymmetric QRS-ish kick */
+    if(p<0||p>w*3) return 0;
+    if(p<w)   return  (p/w);             /* sharp rise   */
+    if(p<w*2) return  1-((p-w)/w)*1.65;  /* deep overshoot */
+    return (-0.65)+((p-w*2)/w)*0.65;     /* recover      */
+  }
+
+  const visit = document.getElementById("visit");
+  let scrollPain = 1, targetScrollPain = 1, t0 = performance.now();
+
+  function measure(){
+    const end = visit.offsetTop - innerHeight*.55;
+    targetScrollPain = 1 - clamp(scrollY/Math.max(1,end), 0, 1);
+  }
+  addEventListener("scroll", measure, {passive:true});
+  addEventListener("resize", measure);
+  measure();
+
+  function pain(now){
+    const intro = clamp(1-(now-t0)/4200, 0, 1);        /* opening surge  */
+    scrollPain = lerp(scrollPain, targetScrollPain, .06);
+    return clamp(Math.max(scrollPain, intro*scrollPain + intro*.15), 0, 1);
+  }
+
+  function wave(x, t, p){                /* x in px-space/90, t seconds */
+    const e = p*p;                       /* ease pain for drama        */
+    let y = (noise(x*0.9 + t*0.55)-.5)*2*34*e
+          + (noise(x*2.4 - t*1.05)-.5)*2*16*e
+          + (noise(x*6.1 + t*2.10)-.5)*2*7*e
+          + Math.sin(t*2.2*Math.PI*0.55 + x*.7)*2.6*(1-e)   /* calm breath */
+          + (noise(x*3+t*.4)-.5)*2*1.2;                      /* floor hum  */
+    for(const s of spikes){
+      const ph = ((x*0.5 - t*(1.1+e*1.6) + s.off) % s.per + s.per) % s.per;
+      y += spikeShape(ph/s.per, s.w) * 150 * Math.pow(e,1.5);
+    }
+    /* resting pulse blip — the quiet heartbeat at 0 pain */
+    const beat = ((t*1.1 + x*0.02) % 1);
+    y += spikeShape(beat, .035) * 7 * (1-e);
+    return y;
+  }
+
+  function bind(canvas, opts){
+    const ctx = canvas.getContext("2d");
+    let w=0,h=0,dpr=1;
+    function size(){
+      dpr = Math.min(devicePixelRatio||1, 2);
+      w = canvas.clientWidth; h = canvas.clientHeight;
+      canvas.width = w*dpr; canvas.height = h*dpr;
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+    }
+    new ResizeObserver(size).observe(canvas); size();
+
+    function draw(p, t){
+      ctx.clearRect(0,0,w,h);
+      const mid = h/2, amp = opts.amp;
+      const step = Math.max(2.5, w/420);
+      ctx.lineJoin="round"; ctx.lineCap="round";
+      for(const pass of [[opts.core*2.6, .10],[opts.core,1]]){
+        ctx.beginPath();
+        for(let x=0;x<=w;x+=step){
+          const y = mid + wave(x/90, t, p)*amp;
+          x===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+        }
+        ctx.strokeStyle = `rgba(232,57,14,${pass[1]})`;
+        ctx.lineWidth = pass[0];
+        ctx.stroke();
+      }
+    }
+    return draw;
+  }
+
+  const hero  = document.getElementById("heroSig");
+  const strip = document.getElementById("stripSig");
+  const pctEl   = document.getElementById("painPct");
+  const stateEl = document.getElementById("painState");
+  const dHero  = bind(hero,  {amp:.62, core:2});
+  const dStrip = bind(strip, {amp:.105, core:1.4});
+
+  if (RM){ /* static calm line + neutral readout */
+    requestAnimationFrame(()=>{ dHero(.06, 1.2); dStrip(.06, 1.2); });
+    pctEl.textContent="—"; stateEl.textContent="Steady";
+    return;
+  }
+
+  let lastPct=-1;
+  Ticker.add(now=>{
+    const t = now/1000, p = pain(now);
+    dStrip(p,t);
+    /* hero only while near viewport */
+    const r = hero.getBoundingClientRect();
+    if (r.bottom>0 && r.top<innerHeight) dHero(p,t);
+    const pct = Math.round(p*100);
+    if(pct!==lastPct){
+      lastPct=pct;
+      pctEl.textContent = String(pct).padStart(2,"0");
+      stateEl.textContent = pct>66 ? "Severe" : pct>33 ? "Moderate" : pct>5 ? "Settling" : "Resolved";
+      pctEl.style.color = pct>5 ? "var(--red-deep)" : "var(--ink)";
+    }
+  });
+})();
+
+/* ── Reveal · sections, list rows, clip images, strikes ───────────── */
+(function Reveal(){
+  const els = document.querySelectorAll("[data-reveal],[data-reveal-clip],[data-strike]");
+  if (RM){ els.forEach(el=>el.classList.add("in")); return; }
+  const io = new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add("in");
+        if(e.target.hasAttribute("data-reveal-clip"))
+          setTimeout(()=>e.target.classList.add("settled"), 1700);
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.18, rootMargin:"0px 0px -6% 0px"});
+  els.forEach(el=>io.observe(el));
+})();
+
+/* ── Split · character-by-character display type ──────────────────── */
+(function Split(){
+  const targets=[document.getElementById("heroH"), document.getElementById("finalH")];
+  let chIndex;
+  function splitNode(node){
+    if(node.nodeType===3){
+      const frag=document.createDocumentFragment();
+      const words=node.textContent.split(/(\s+)/);
+      for(const word of words){
+        if(/^\s+$/.test(word)){ frag.appendChild(document.createTextNode(" ")); continue; }
+        if(!word) continue;
+        const w=document.createElement("span"); w.className="w";
+        for(const c of word){
+          const s=document.createElement("span"); s.className="ch";
+          s.style.setProperty("--chd",(chIndex++*16)+"ms");
+          s.textContent=c; w.appendChild(s);
+        }
+        frag.appendChild(w);
+      }
+      node.replaceWith(frag);
+    } else if(node.nodeType===1){
+      [...node.childNodes].forEach(splitNode);
+    }
+  }
+  targets.forEach(t=>{ if(!t) return; chIndex=0; [...t.childNodes].forEach(splitNode); });
+  if (RM){ targets.forEach(t=>t&&t.classList.add("in")); return; }
+
+  document.fonts.ready.then(()=>{
+    setTimeout(()=>targets[0].classList.add("in"), 120);   /* hero on load */
+  });
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);}
+  }),{threshold:.5});
+  io.observe(targets[1]);
+})();
+
+/* ── Cursor · dot + labelled ring (fine pointers only) ────────────── */
+const Cursor = (()=> {
+  if(!FINE || RM) return {x:innerWidth/2, y:innerHeight/2, vx:0};
+  const root=document.getElementById("cursor");
+  const dot=root.querySelector(".dot"), ring=root.querySelector(".ring"),
+        label=root.querySelector(".ring-label");
+  root.style.display="block"; document.body.classList.add("cursor-on");
+  const S={x:innerWidth/2,y:innerHeight/2,dx:0,dy:0,rx:0,ry:0,px:0,vx:0};
+  addEventListener("mousemove",e=>{ S.x=e.clientX; S.y=e.clientY; },{passive:true});
+  document.addEventListener("mouseover",e=>{
+    const t=e.target.closest("[data-cursor]");
+    if(t){ root.classList.add("is-act"); label.textContent=t.dataset.cursor; }
+    else { root.classList.remove("is-act"); label.textContent=""; }
+  });
+  Ticker.add(()=>{
+    S.dx=lerp(S.dx,S.x,.4);  S.dy=lerp(S.dy,S.y,.4);
+    S.rx=lerp(S.rx,S.x,.14); S.ry=lerp(S.ry,S.y,.14);
+    S.vx=S.x-S.px; S.px=S.x;
+    dot.style.transform =`translate(${S.dx}px,${S.dy}px)`;
+    ring.style.transform=`translate(${S.rx}px,${S.ry}px)`;
+  });
+  return S;
+})();
+
+/* ── Magnetic · buttons lean toward the cursor ────────────────────── */
+(function Magnetic(){
+  if(!FINE || RM) return;
+  document.querySelectorAll(".magnetic").forEach(el=>{
+    let r=null, tx=0, ty=0, cx=0, cy=0, hot=false;
+    el.addEventListener("mouseenter",()=>{ r=el.getBoundingClientRect(); hot=true; });
+    el.addEventListener("mousemove",e=>{
+      if(!r) return;
+      tx=clamp((e.clientX-(r.left+r.width/2))*.30,-16,16);
+      ty=clamp((e.clientY-(r.top +r.height/2))*.30,-12,12);
+    });
+    el.addEventListener("mouseleave",()=>{ hot=false; tx=0; ty=0; r=null; });
+    Ticker.add(()=>{
+      cx=lerp(cx,tx,hot?.22:.12); cy=lerp(cy,ty,hot?.22:.12);
+      if(Math.abs(cx)>.05||Math.abs(cy)>.05||hot){
+        el.style.setProperty("--bx",cx.toFixed(2)+"px");
+        el.style.setProperty("--by",cy.toFixed(2)+"px");
+      }
+    });
+  });
+})();
+
+/* ── ProcThumb · floating preview that trails + tilts with velocity ─ */
+(function ProcThumb(){
+  if(!FINE || RM) return;
+  const list=document.getElementById("procList");
+  const box=document.getElementById("procThumb");
+  const img=box.querySelector("img");
+  /* preload */
+  list.querySelectorAll(".proc").forEach(a=>{ const i=new Image(); i.src=a.dataset.img; });
+  let x=0,y=0,rot=0,vis=false;
+  list.addEventListener("mouseover",e=>{
+    const row=e.target.closest(".proc"); if(!row) return;
+    if(img.getAttribute("src")!==row.dataset.img) img.src=row.dataset.img;
+    if(!vis){ x=Cursor.x; y=Cursor.y; }
+    vis=true; box.classList.add("show");
+  });
+  list.addEventListener("mouseleave",()=>{ vis=false; box.classList.remove("show"); });
+  Ticker.add(()=>{
+    if(!vis && !box.classList.contains("show")) return;
+    x=lerp(x,Cursor.x,.12); y=lerp(y,Cursor.y,.12);
+    rot=lerp(rot, clamp((Cursor.vx||0)*.6,-9,9), .1);
+    box.style.transform=`translate(${x}px,${y}px) translate(-50%,-58%) rotate(${rot}deg)`;
+  });
+})();
+
+/* ── Parallax · slow vertical drift on figures ────────────────────── */
+(function Parallax(){
+  if (RM) return;
+  const items=[...document.querySelectorAll("[data-px]")].map(el=>({
+    el, depth:+el.dataset.depth||24, y:0, t:0
+  }));
+  if(!items.length) return;
+  Ticker.add(()=>{
+    for(const it of items){
+      const r=it.el.getBoundingClientRect();
+      if(r.bottom<0||r.top>innerHeight) continue;
+      const prog=(r.top+r.height/2-innerHeight/2)/(innerHeight/2); /* -1..1 */
+      it.t=clamp(prog,-1,1)*-it.depth;
+      it.y=lerp(it.y,it.t,.08);
+      it.el.style.setProperty("--py", it.y.toFixed(2)+"px");
+    }
+  });
+})();
+
+/* ── Nav · mobile menu ────────────────────────────────────────────── */
+(function Nav(){
+  const btn=document.getElementById("menuBtn"), m=document.getElementById("mnav");
+  btn.addEventListener("click",()=>{
+    const open=m.classList.toggle("open");
+    btn.setAttribute("aria-expanded",open);
+    btn.textContent=open?"Close":"Menu";
+  });
+  m.addEventListener("click",e=>{
+    if(e.target.tagName==="A"){ m.classList.remove("open"); btn.setAttribute("aria-expanded","false"); btn.textContent="Menu"; }
+  });
+})();
+
+})();
+</script>
+</body>
+</html>
